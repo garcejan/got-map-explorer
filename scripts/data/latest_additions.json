@@ -1,0 +1,340 @@
+[
+  {
+    "id": "grassy_vale",
+    "name": "Grassy Vale",
+    "region": "reach",
+    "type": "castle",
+    "approx": [
+      1706,
+      4861
+    ],
+    "allegiance": "House Meadows",
+    "loreSnippet": "Seat of House Meadows situated in a fertile vale along the upper reaches of the Blueburn.",
+    "coords": [
+      1703,
+      4861
+    ]
+  },
+  {
+    "id": "nutten",
+    "name": "Nutten",
+    "region": "riverlands",
+    "type": "junction",
+    "approx": [
+      1758,
+      4134
+    ],
+    "allegiance": "House Tully",
+    "loreSnippet": "Farming village situated along the northern banks of the Red Fork.",
+    "coords": [
+      1767,
+      4133
+    ]
+  },
+  {
+    "id": "riverbend",
+    "name": "Riverbend",
+    "region": "riverlands",
+    "type": "junction",
+    "approx": [
+      1718,
+      4153
+    ],
+    "allegiance": "House Tully",
+    "loreSnippet": "Picturesque settlement nestling a sweeping bend of the Red Fork river.",
+    "coords": [
+      1727,
+      4153
+    ]
+  },
+  {
+    "id": "ruby_ford",
+    "name": "Ruby Ford",
+    "region": "riverlands",
+    "type": "junction",
+    "approx": [
+      1828,
+      4190
+    ],
+    "allegiance": "The Riverlands",
+    "loreSnippet": "Fabled crossing of the Trident where Robert Baratheon slew Prince Rhaegar Targaryen in single combat.",
+    "coords": [
+      1830,
+      4196
+    ]
+  },
+  {
+    "id": "widows_ford",
+    "name": "Widow's Ford",
+    "region": "riverlands",
+    "type": "junction",
+    "approx": [
+      1956,
+      4208
+    ],
+    "allegiance": "House Darry",
+    "loreSnippet": "Strategically vital shallow river passage across the lower course of the Trident.",
+    "coords": [
+      1953,
+      4214
+    ]
+  },
+  {
+    "id": "rushing_falls",
+    "name": "Rushing Falls",
+    "region": "riverlands",
+    "type": "junction",
+    "approx": [
+      1673,
+      4311
+    ],
+    "allegiance": "House Smallwood",
+    "loreSnippet": "Vibrant village perched beside the roaring cascades that feed into the Red Fork basin.",
+    "coords": [
+      1669,
+      4310
+    ]
+  },
+  {
+    "id": "crossed_elms",
+    "name": "Crossed Elms",
+    "region": "riverlands",
+    "type": "junction",
+    "approx": [
+      1740,
+      4350
+    ],
+    "allegiance": "House Tully",
+    "loreSnippet": "Tranquil hamlet settled on the western shore of the Gods Eye lake.",
+    "coords": [
+      1740,
+      4349
+    ]
+  },
+  {
+    "id": "lake_town",
+    "name": "Lake Town",
+    "region": "riverlands",
+    "type": "city",
+    "isPort": true,
+    "approx": [
+      1771,
+      4415
+    ],
+    "allegiance": "House Tully",
+    "loreSnippet": "Bustling fishing haven and trading community on the southern banks of the Gods Eye.",
+    "coords": [
+      1761,
+      4420
+    ]
+  },
+  {
+    "id": "high_heart",
+    "name": "High Heart",
+    "region": "riverlands",
+    "type": "ruin",
+    "approx": [
+      1615,
+      4272
+    ],
+    "allegiance": "Children of the Forest",
+    "loreSnippet": "Sacred summit crowned by the stumps of thirty-one weirwood trees, home of the dwarf greenspeaker.",
+    "coords": [
+      1621,
+      4266
+    ]
+  },
+  {
+    "id": "wendwater_bridge",
+    "name": "Wendwater Bridge",
+    "region": "crownlands",
+    "type": "junction",
+    "approx": [
+      2208,
+      4773
+    ],
+    "allegiance": "The Iron Throne",
+    "loreSnippet": "Pivotal stone bridge spanning the rushing Wendwater along the royal road into the Stormlands.",
+    "coords": [
+      2210,
+      4772
+    ]
+  },
+  {
+    "id": "vaes_aresak",
+    "name": "Vaes Aresak (Ibbish)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "isPort": true,
+    "approx": [
+      6737,
+      3688
+    ],
+    "allegiance": "Ruins of Sarnor",
+    "loreSnippet": "Ancient coastal city of the Kingdom of Sarnor, sacked and renamed 'City of Cowards' by the Dothraki.",
+    "coords": [
+      6737,
+      3687
+    ]
+  },
+  {
+    "id": "vaes_leisi",
+    "name": "Vaes Leisi",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "approx": [
+      5870,
+      3835
+    ],
+    "allegiance": "Ifequevron (Woods Walkers)",
+    "loreSnippet": "Ghostly ruins in the Forest of Qohor once inhabited by the vanished small wood-dwellers.",
+    "coords": [
+      5870,
+      3835
+    ]
+  },
+  {
+    "id": "vaes_graddakh",
+    "name": "Vaes Graddakh (Sar Mell)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "approx": [
+      4737,
+      3948
+    ],
+    "allegiance": "Ruins of Sarnor",
+    "loreSnippet": "Great ruined city near the delta of the Sarne, overgrown and silent after the Century of Blood.",
+    "coords": [
+      4736,
+      3947
+    ]
+  },
+  {
+    "id": "vaes_efe",
+    "name": "Vaes Efe",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "approx": [
+      6282,
+      4966
+    ],
+    "allegiance": "Ruined Freehold Colonies",
+    "loreSnippet": "Vast crumbled metropolis of the ruined Essosi kingdoms south of Vaes Dothrak.",
+    "coords": [
+      6270,
+      4961
+    ]
+  },
+  {
+    "id": "vaes_leqse",
+    "name": "Vaes Leqse (Gornath)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "approx": [
+      5534,
+      4504
+    ],
+    "allegiance": "Ruins of Sarnor",
+    "loreSnippet": "Fallen Sarnori stronghold of Gornath, named 'City of Rats' by the victorious horselords.",
+    "coords": [
+      5535,
+      4503
+    ]
+  },
+  {
+    "id": "lhorulu",
+    "name": "Lhorulu",
+    "region": "free_cities",
+    "type": "ruin",
+    "approx": [
+      3477,
+      5023
+    ],
+    "allegiance": "Ancient Rhoynar",
+    "loreSnippet": "Drowned, overgrown ruins of an ancient Rhoynish civilization on the banks of the river Lhorulu.",
+    "coords": [
+      3473,
+      5022
+    ]
+  },
+  {
+    "id": "hornoth",
+    "name": "Hornoth",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "approx": [
+      4589,
+      4623
+    ],
+    "allegiance": "Ruins of Sarnor",
+    "loreSnippet": "Historic Sarnori realm sacked during the expansive conquests of Khal Loso.",
+    "coords": [
+      4589,
+      4622
+    ]
+  },
+  {
+    "id": "rathylar",
+    "name": "Rathylar",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "approx": [
+      4748,
+      4645
+    ],
+    "allegiance": "Ruins of Sarnor",
+    "loreSnippet": "Wrecked city of the Tall Men lying along the trade roads of the grasslands.",
+    "coords": [
+      4748,
+      4644
+    ]
+  },
+  {
+    "id": "kyth",
+    "name": "Kyth",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "approx": [
+      4687,
+      4336
+    ],
+    "allegiance": "Ruins of Sarnor",
+    "loreSnippet": "Rival city-kingdom of Sarnath overthrown by nomadic horse tribes during the Doom's aftermath.",
+    "coords": [
+      4686,
+      4336
+    ]
+  },
+  {
+    "id": "lhazosh",
+    "name": "Lhazosh",
+    "region": "dothraki_sea",
+    "type": "city",
+    "approx": [
+      5985,
+      5593
+    ],
+    "allegiance": "Lhazareen",
+    "loreSnippet": "Hill fortress of the pastoral Lhazareen shepherds perched in the heights above Meereen.",
+    "coords": [
+      5984,
+      5594
+    ]
+  },
+  {
+    "id": "vaes_qolahn",
+    "name": "Vaes Qolahn",
+    "region": "qarth",
+    "type": "ruin",
+    "approx": [
+      6686,
+      6065
+    ],
+    "allegiance": "Qaathi Ruins",
+    "loreSnippet": "Ruined desert citadel of the ancient Qaathi in the dry expanses north of Qarth.",
+    "coords": [
+      6684,
+      6059
+    ]
+  }
+]

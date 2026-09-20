@@ -1,0 +1,118 @@
+[
+  {
+    "id": "port_moraq",
+    "name": "Port Moraq",
+    "region": "jade_sea",
+    "type": "port",
+    "isPort": true,
+    "allegiance": "Great Moraq",
+    "loreSnippet": "Ancient fortified port city on the southern shores of Great Moraq, controlling the passage between the Jade Sea and Summer Sea.",
+    "coords": [7175, 7165]
+  },
+  {
+    "id": "turrani",
+    "name": "Turrani",
+    "region": "jade_sea",
+    "type": "port",
+    "isPort": true,
+    "allegiance": "Leng",
+    "loreSnippet": "Major southern trading haven on the mystical island of Leng, renowned for teak, spices, and exotic gemstones.",
+    "coords": [8443, 6960]
+  },
+  {
+    "id": "leng_yi",
+    "name": "Leng Yi",
+    "region": "jade_sea",
+    "type": "port",
+    "isPort": true,
+    "allegiance": "Leng",
+    "loreSnippet": "Northern coastal city of Leng, inhabited mostly by descendants of YiTish conquerors.",
+    "coords": [8473, 6500]
+  },
+  {
+    "id": "leng_ma",
+    "name": "Leng Ma",
+    "region": "jade_sea",
+    "type": "port",
+    "isPort": true,
+    "allegiance": "Leng",
+    "loreSnippet": "Ancient coastal haven on western Leng, heartland of the tall, amber-eyed native Lengii.",
+    "coords": [8426, 6771]
+  },
+  {
+    "id": "samyriana",
+    "name": "Samyriana",
+    "region": "jade_sea",
+    "type": "capital",
+    "allegiance": "Patrimony of Hyrkoon",
+    "loreSnippet": "Formidable warrior-citadel of the ancient Patrimony of Hyrkoon guarding the Stone Road pass through the Bones.",
+    "coords": [7170, 5171]
+  },
+  {
+    "id": "nefer",
+    "name": "Nefer",
+    "region": "free_cities",
+    "type": "capital",
+    "isPort": true,
+    "allegiance": "Kingdom of N'Ghai",
+    "loreSnippet": "Sole remaining city of N'Ghai, shrouded in perpetual fog on Leviathan Sound and honeycombed by sinister subterranean passages.",
+    "coords": [8764, 4535]
+  },
+  {
+    "id": "black_fort",
+    "name": "Black Fort (Ax Isle)",
+    "region": "summer_isles",
+    "type": "castle",
+    "isPort": true,
+    "allegiance": "Corsairs of the Basilisk Isles",
+    "loreSnippet": "Notorious pirate citadel on Ax Isle carved from black stone, terror of merchants sailing between Sothoryos and Essos.",
+    "coords": [5409, 7062]
+  },
+  {
+    "id": "gogossos",
+    "name": "Gogossos",
+    "region": "summer_isles",
+    "type": "ruin",
+    "isPort": true,
+    "allegiance": "Ruins of Valyria",
+    "loreSnippet": "Haunted ruins on the Isle of Tears, once the sinister 'Gorgon of the South' depopulated by the Red Death.",
+    "coords": [4892, 7389]
+  },
+  {
+    "id": "zamettar",
+    "name": "Zamettar",
+    "region": "summer_isles",
+    "type": "ruin",
+    "isPort": true,
+    "allegiance": "Ruins of the Ghiscari Empire",
+    "loreSnippet": "Colossal ruined colony of Old Ghis at the mouth of the river Zamoyos on the northern coast of Sothoryos.",
+    "coords": [5161, 7166]
+  },
+  {
+    "id": "yeen",
+    "name": "Yeen",
+    "region": "summer_isles",
+    "type": "ruin",
+    "allegiance": "Ancient Sothoryos",
+    "loreSnippet": "Ancient city built of colossal oily black stone blocks in deep jungle, shunned by beasts and moss alike.",
+    "coords": [5264, 7461]
+  },
+  {
+    "id": "si_qo",
+    "name": "Si Qo",
+    "region": "yi_ti",
+    "type": "ruin",
+    "allegiance": "Golden Empire of Yi Ti",
+    "loreSnippet": "Ruined riverside city deep in the lush tropical rainforests of Yi Ti.",
+    "coords": [7841, 6196]
+  },
+  {
+    "id": "vaes_jini",
+    "name": "Vaes Jini (Yinishar)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "allegiance": "Ruins of Yinishar",
+    "loreSnippet": "Ruined mountain city of the Yinishar along the Silk Route, renamed 'City of Goats' by the Dothraki.",
+    "coords": [6871, 5022]
+  }
+]

@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "torrhens_square",
+    "name": "Torrhen's Square",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      1384,
+      3055
+    ],
+    "isPort": false,
+    "allegiance": "House Tallhart",
+    "loreSnippet": "Square stone fortress with a 30-foot curtain wall on the northern shore of a large lake.",
+    "shape": "triangle"
+  },
+  {
+    "id": "breakstone_hill",
+    "name": "Breakstone Hill",
+    "region": "north",
+    "type": "junction",
+    "coords": [
+      1914,
+      2820
+    ],
+    "isPort": false,
+    "allegiance": "Free Folk",
+    "loreSnippet": "Rugged hill in the northern barrows.",
+    "shape": "circle"
+  },
+  {
+    "id": "tumbledown_tower",
+    "name": "Tumbledown Tower",
+    "region": "north",
+    "type": "ruin",
+    "coords": [
+      1654,
+      2786
+    ],
+    "isPort": false,
+    "allegiance": "House Stark",
+    "loreSnippet": "Ancient ruined watchtower overlooking the northern plains.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "baelish_keep",
+    "name": "Baelish Keep",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2155,
+      3611
+    ],
+    "isPort": false,
+    "allegiance": "House Baelish",
+    "loreSnippet": "The modest, windswept flint tower seat of House Baelish on the smallest of the Fingers.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sevenstreams",
+    "name": "Sevenstreams",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1577,
+      3955
+    ],
+    "isPort": false,
+    "allegiance": "House Vance",
+    "loreSnippet": "Seat of House Vance of Sevenstreams, situated where seven tributaries converge.",
+    "shape": "circle"
+  },
+  {
+    "id": "hags_mire",
+    "name": "Hag's Mire",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1575,
+      3931
+    ],
+    "isPort": false,
+    "allegiance": "House Frey",
+    "loreSnippet": "Swampy ground and peat bog southwest of the Twins.",
+    "shape": "circle"
+  },
+  {
+    "id": "wendish_town",
+    "name": "Wendish Town",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1599,
+      4025
+    ],
+    "isPort": false,
+    "allegiance": "House Tully",
+    "loreSnippet": "Riverlands market village raided by Gregor Clegane at the outbreak of the War of the Five Kings.",
+    "shape": "circle"
+  },
+  {
+    "id": "mudgrave",
+    "name": "Mudgrave",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1575,
+      4102
+    ],
+    "isPort": false,
+    "allegiance": "House Vance",
+    "loreSnippet": "Small Riverlands village near the Red Fork.",
+    "shape": "circle"
+  },
+  {
+    "id": "pennytree",
+    "name": "Pennytree",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1575,
+      4102
+    ],
+    "isPort": false,
+    "allegiance": "Royal Fief",
+    "loreSnippet": "Royal fief with an ancient oak with hundreds of copper pennies nailed into its bark.",
+    "shape": "circle"
+  },
+  {
+    "id": "sallydance",
+    "name": "Sallydance",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1684,
+      4133
+    ],
+    "isPort": false,
+    "allegiance": "House Tully",
+    "loreSnippet": "Village on the Red Fork burned during the War of the Five Kings.",
+    "shape": "circle"
+  },
+  {
+    "id": "lambswold",
+    "name": "Lambswold",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1625,
+      4138
+    ],
+    "isPort": false,
+    "allegiance": "House Tully",
+    "loreSnippet": "Pastoral village in the central river valleys.",
+    "shape": "circle"
+  },
+  {
+    "id": "willow_wood",
+    "name": "Willow Wood",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1428,
+      4162
+    ],
+    "isPort": false,
+    "allegiance": "House Ryger",
+    "loreSnippet": "Seat of House Ryger, surrounded by stands of weeping willows.",
+    "shape": "triangle"
+  },
+  {
+    "id": "atranta",
+    "name": "Atranta",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1546,
+      4218
+    ],
+    "isPort": false,
+    "allegiance": "House Vance",
+    "loreSnippet": "Seat of House Vance of Atranta near the headwaters of the Red Fork.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sherrer",
+    "name": "Sherrer",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1462,
+      4306
+    ],
+    "isPort": false,
+    "allegiance": "House Vance",
+    "loreSnippet": "Riverlands village burned and sacked by the Mountain That Rides.",
+    "shape": "circle"
+  },
+  {
+    "id": "mummers_ford",
+    "name": "Mummer's Ford",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1462,
+      4306
+    ],
+    "isPort": false,
+    "allegiance": "House Tully",
+    "loreSnippet": "Strategic river crossing where Beric Dondarrion was ambushed by Lannister forces.",
+    "shape": "circle"
+  },
+  {
+    "id": "lychester",
+    "name": "Castle Lychester",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1647,
+      4198
+    ],
+    "isPort": false,
+    "allegiance": "House Lychester",
+    "loreSnippet": "Small holdfast belonging to the elderly Lord Lychester.",
+    "shape": "triangle"
+  },
+  {
+    "id": "ramsford",
+    "name": "Ramsford",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1611,
+      3998
+    ],
+    "isPort": false,
+    "allegiance": "House Frey",
+    "loreSnippet": "River crossing and hamlet in the northern Riverlands.",
+    "shape": "circle"
+  },
+  {
+    "id": "gates_of_the_moon",
+    "name": "Gates of the Moon",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2066,
+      4012
+    ],
+    "isPort": false,
+    "allegiance": "House Arryn",
+    "loreSnippet": "Great castle at the foot of the Giant's Lance guarding the ascent to the Eyrie.",
+    "shape": "triangle"
+  },
+  {
+    "id": "antlers",
+    "name": "Antlers",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      1978,
+      4398
+    ],
+    "isPort": false,
+    "allegiance": "House Buckwell",
+    "loreSnippet": "Seat of House Buckwell in the forested hills of the Crownlands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "celtigar_keep",
+    "name": "Claw Isle (Celtigar Keep)",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2440,
+      4277
+    ],
+    "isPort": true,
+    "allegiance": "House Celtigar",
+    "loreSnippet": "Island castle of ancient Valyrian House Celtigar, reputed to hold a Valyrian steel axe and horn to summon krakens.",
+    "shape": "triangle"
+  },
+  {
+    "id": "brownhollow",
+    "name": "Brownhollow",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2264,
+      4296
+    ],
+    "isPort": false,
+    "allegiance": "House Brune",
+    "loreSnippet": "Seat of the Brunes of Brownhollow in Crackclaw Point.",
+    "shape": "triangle"
+  },
+  {
+    "id": "brindlewood",
+    "name": "Brindlewood",
+    "region": "crownlands",
+    "type": "junction",
+    "coords": [
+      1960,
+      4438
+    ],
+    "isPort": false,
+    "allegiance": "House Baratheon of King's Landing",
+    "loreSnippet": "Forest hamlet north of King's Landing.",
+    "shape": "circle"
+  },
+  {
+    "id": "briarwhite",
+    "name": "Briarwhite",
+    "region": "crownlands",
+    "type": "junction",
+    "coords": [
+      1822,
+      4426
+    ],
+    "isPort": false,
+    "allegiance": "House Baratheon of King's Landing",
+    "loreSnippet": "Township located northwest of the capital.",
+    "shape": "circle"
+  },
+  {
+    "id": "hull",
+    "name": "Hull",
+    "region": "crownlands",
+    "type": "port",
+    "coords": [
+      2257,
+      4432
+    ],
+    "isPort": true,
+    "allegiance": "House Velaryon",
+    "loreSnippet": "Town and primary shipyard on the western coast of Driftmark.",
+    "shape": "circle"
+  },
+  {
+    "id": "tumblers_falls",
+    "name": "Tumbler's Falls",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1651,
+      4457
+    ],
+    "isPort": false,
+    "allegiance": "House Tully",
+    "loreSnippet": "Waterfall and village on the upper reaches of the Blackwater Rush.",
+    "shape": "circle"
+  },
+  {
+    "id": "clegane_keep",
+    "name": "Clegane's Keep",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1129,
+      4516
+    ],
+    "isPort": false,
+    "allegiance": "House Clegane",
+    "loreSnippet": "Modest fortified tower and kennel holdfast in the foothills near Casterly Rock.",
+    "shape": "triangle"
+  },
+  {
+    "id": "old_stonebridge",
+    "name": "Old Stonebridge",
+    "region": "reach",
+    "type": "junction",
+    "coords": [
+      2102,
+      4561
+    ],
+    "isPort": false,
+    "allegiance": "House Tyrell",
+    "loreSnippet": "Historic stone crossing spanning the Mander.",
+    "shape": "circle"
+  },
+  {
+    "id": "sweetport_sound",
+    "name": "Sweetport Sound",
+    "region": "crownlands",
+    "type": "port",
+    "coords": [
+      2297,
+      4588
+    ],
+    "isPort": true,
+    "allegiance": "House Baratheon of Dragonstone",
+    "loreSnippet": "Sheltered bay and anchorage south of Dragonstone.",
+    "shape": "circle"
+  },
+  {
+    "id": "rambton",
+    "name": "Rambton Castle",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2317,
+      4569
+    ],
+    "isPort": false,
+    "allegiance": "House Rambton",
+    "loreSnippet": "Coastal stronghold on Massey's Hook.",
+    "shape": "triangle"
+  },
+  {
+    "id": "stackhouse",
+    "name": "Stackhouse",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1220,
+      4813
+    ],
+    "isPort": false,
+    "allegiance": "House Stackhouse",
+    "loreSnippet": "Reach castle situated in the rolling hills of the Northmarch.",
+    "shape": "triangle"
+  },
+  {
+    "id": "brandybottom",
+    "name": "Brandybottom",
+    "region": "reach",
+    "type": "junction",
+    "coords": [
+      1156,
+      4846
+    ],
+    "isPort": false,
+    "allegiance": "House Tyrell",
+    "loreSnippet": "Small market village in the northern Reach.",
+    "shape": "circle"
+  },
+  {
+    "id": "coldmoat",
+    "name": "Coldmoat",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1204,
+      4851
+    ],
+    "isPort": false,
+    "allegiance": "House Osgrey / House Webber",
+    "loreSnippet": "High stone stronghold surrounded by a deep moat fed by the Chequy Water.",
+    "shape": "triangle"
+  },
+  {
+    "id": "bronzegate",
+    "name": "Bronzegate",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2195,
+      4817
+    ],
+    "isPort": false,
+    "allegiance": "House Buckler",
+    "loreSnippet": "Seat of House Buckler guarding the Kingsroad approach to Storm's End.",
+    "shape": "triangle"
+  },
+  {
+    "id": "dosk",
+    "name": "Dosk",
+    "region": "reach",
+    "type": "junction",
+    "coords": [
+      1154,
+      4889
+    ],
+    "isPort": false,
+    "allegiance": "House Tyrell",
+    "loreSnippet": "Town renowned for fine wines and horse breeding.",
+    "shape": "circle"
+  },
+  {
+    "id": "felwood",
+    "name": "Felwood",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2070,
+      4876
+    ],
+    "isPort": false,
+    "allegiance": "House Fell",
+    "loreSnippet": "Deep forest stronghold of House Fell in the northern Stormlands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "grassfield_keep",
+    "name": "Grassfield Keep",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1731,
+      4881
+    ],
+    "isPort": false,
+    "allegiance": "House Meadows",
+    "loreSnippet": "Seat of House Meadows in the fertile grassy meadows of the Reach.",
+    "shape": "triangle"
+  },
+  {
+    "id": "morne",
+    "name": "Morne",
+    "region": "stormlands",
+    "type": "ruin",
+    "coords": [
+      2464,
+      4896
+    ],
+    "isPort": true,
+    "allegiance": "House Tarth",
+    "loreSnippet": "Ancient ruined seat of the petty kings of Tarth on its eastern shores.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "evenfall_hall",
+    "name": "Evenfall Hall",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2412,
+      4920
+    ],
+    "isPort": true,
+    "allegiance": "House Tarth",
+    "loreSnippet": "Seat of House Tarth on the sapphire-blue isle of Tarth.",
+    "shape": "triangle"
+  },
+  {
+    "id": "greenshield",
+    "name": "Greenshield",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      973,
+      4991
+    ],
+    "isPort": true,
+    "allegiance": "House Chester",
+    "loreSnippet": "Northernmost of the four Shield Islands defending the mouth of the Mander.",
+    "shape": "triangle"
+  },
+  {
+    "id": "new_barrel",
+    "name": "New Barrel",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1383,
+      4955
+    ],
+    "isPort": false,
+    "allegiance": "House Fossoway",
+    "loreSnippet": "Seat of the green-apple branch of House Fossoway.",
+    "shape": "triangle"
+  },
+  {
+    "id": "cobble_cove",
+    "name": "Cobble Cove",
+    "region": "reach",
+    "type": "port",
+    "coords": [
+      1139,
+      4925
+    ],
+    "isPort": true,
+    "allegiance": "House Tyrell",
+    "loreSnippet": "Small sheltered coastal port town in the Reach.",
+    "shape": "circle"
+  },
+  {
+    "id": "grimston",
+    "name": "Grimston",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      973,
+      4991
+    ],
+    "isPort": true,
+    "allegiance": "House Grim",
+    "loreSnippet": "Grim stone fortress on Greyshield in the Shield Islands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hewetts_town",
+    "name": "Hewett's Town",
+    "region": "reach",
+    "type": "port",
+    "coords": [
+      1128,
+      5025
+    ],
+    "isPort": true,
+    "allegiance": "House Hewett",
+    "loreSnippet": "Port town and stronghold on Oakenshield island.",
+    "shape": "circle"
+  },
+  {
+    "id": "appleton",
+    "name": "Appleton",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1383,
+      4955
+    ],
+    "isPort": false,
+    "allegiance": "House Appleton",
+    "loreSnippet": "Seat of House Appleton on the Mander.",
+    "shape": "triangle"
+  },
+  {
+    "id": "cider_hall",
+    "name": "Cider Hall",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1435,
+      4994
+    ],
+    "isPort": false,
+    "allegiance": "House Fossoway",
+    "loreSnippet": "Seat of the red-apple Fossoways where the Mander and Cockleswhent meet.",
+    "shape": "triangle"
+  },
+  {
+    "id": "greyshield",
+    "name": "Greyshield",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      889,
+      4997
+    ],
+    "isPort": true,
+    "allegiance": "House Grim",
+    "loreSnippet": "Island stronghold of the Shield Islands.",
+    "shape": "circle"
+  },
+  {
+    "id": "southshield",
+    "name": "Southshield",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      973,
+      4991
+    ],
+    "isPort": true,
+    "allegiance": "House Serry",
+    "loreSnippet": "Southernmost island bastion of the Shield Islands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "oakenshield",
+    "name": "Oakenshield",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1076,
+      5003
+    ],
+    "isPort": true,
+    "allegiance": "House Hewett",
+    "loreSnippet": "Greatest island and seat of Lord Hewett among the Shield Islands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "whitegrove",
+    "name": "Whitegrove",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1379,
+      5098
+    ],
+    "isPort": false,
+    "allegiance": "House Tyrell",
+    "loreSnippet": "Reach castle situated south of the Mander.",
+    "shape": "triangle"
+  },
+  {
+    "id": "crows_nest",
+    "name": "Crow's Nest",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2109,
+      5085
+    ],
+    "isPort": false,
+    "allegiance": "House Morrigen",
+    "loreSnippet": "Windswept castle perched atop the Stormlands foothills.",
+    "shape": "triangle"
+  },
+  {
+    "id": "blackhaven",
+    "name": "Blackhaven",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      1786,
+      5128
+    ],
+    "isPort": false,
+    "allegiance": "House Dondarrion",
+    "loreSnippet": "Formidable black basalt castle guarding the Dornish Marches.",
+    "shape": "triangle"
+  },
+  {
+    "id": "dunstonbury",
+    "name": "Dunstonbury",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1214,
+      5133
+    ],
+    "isPort": false,
+    "allegiance": "House Peake",
+    "loreSnippet": "Ancient historical seat of House Peake in the Reach.",
+    "shape": "triangle"
+  },
+  {
+    "id": "fawnton",
+    "name": "Fawnton",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2121,
+      5183
+    ],
+    "isPort": false,
+    "allegiance": "House Cafferen",
+    "loreSnippet": "Seat of House Cafferen in the Dornish Marches.",
+    "shape": "circle"
+  },
+  {
+    "id": "bandallon",
+    "name": "Bandallon",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      922,
+      5189
+    ],
+    "isPort": true,
+    "allegiance": "House Blackbar",
+    "loreSnippet": "Coastal stronghold of House Blackbar in the southern Reach.",
+    "shape": "triangle"
+  },
+  {
+    "id": "vultures_roost",
+    "name": "Vulture's Roost",
+    "region": "dorne",
+    "type": "ruin",
+    "coords": [
+      1654,
+      5249
+    ],
+    "isPort": false,
+    "allegiance": "Vulture King",
+    "loreSnippet": "Mountain roost and outlaw stronghold of the Vulture Kings in the Red Mountains.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "ghaston_grey",
+    "name": "Ghaston Grey",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1922,
+      5347
+    ],
+    "isPort": true,
+    "allegiance": "House Martell",
+    "loreSnippet": "Grim island prison fortress in the Sea of Dorne.",
+    "shape": "triangle"
+  },
+  {
+    "id": "blackmont",
+    "name": "Blackmont",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1367,
+      5350
+    ],
+    "isPort": false,
+    "allegiance": "House Blackmont",
+    "loreSnippet": "Mountain stronghold of House Blackmont overlooking the Torentine.",
+    "shape": "triangle"
+  },
+  {
+    "id": "blackcrown",
+    "name": "Blackcrown",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      907,
+      5417
+    ],
+    "isPort": true,
+    "allegiance": "House Bulwer",
+    "loreSnippet": "Coastal castle of House Bulwer near the mouth of the Whispering Sound.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hermitage",
+    "name": "The Hermitage",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1361,
+      5437
+    ],
+    "isPort": false,
+    "allegiance": "House Dayne",
+    "loreSnippet": "Seat of a cadet branch of House Dayne along the Torentine.",
+    "shape": "triangle"
+  },
+  {
+    "id": "ghost_hill",
+    "name": "Ghost Hill",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      2339,
+      5464
+    ],
+    "isPort": true,
+    "allegiance": "House Toland",
+    "loreSnippet": "Chalk-white coastal castle of House Toland on the Sea of Dorne.",
+    "shape": "triangle"
+  },
+  {
+    "id": "shandystone",
+    "name": "Shandystone",
+    "region": "dorne",
+    "type": "ruin",
+    "coords": [
+      2305,
+      5634
+    ],
+    "isPort": false,
+    "allegiance": "House Martell",
+    "loreSnippet": "Ruined castle and ancient well oasis in the deep sands of Dorne.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "vaith",
+    "name": "Vaith",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1916,
+      5600
+    ],
+    "isPort": false,
+    "allegiance": "House Vaith",
+    "loreSnippet": "Castle of House Vaith on the river of the same name.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hellgate_hall",
+    "name": "Hellgate Hall",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1695,
+      5663
+    ],
+    "isPort": false,
+    "allegiance": "House Uller",
+    "loreSnippet": "Southern Dornish stronghold guarding the desert passes.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sarnath",
+    "name": "Sarnath (Vaes Khewo)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      4931,
+      4670
+    ],
+    "isPort": false,
+    "allegiance": "Kingdom of Sarnath",
+    "loreSnippet": "Ancient ruined capital of the Tall Men, destroyed by the Dothraki.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "sathar",
+    "name": "Sathar (Yalli Qamayi)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      5558,
+      4667
+    ],
+    "isPort": false,
+    "allegiance": "Kingdom of Sarnath",
+    "loreSnippet": "The Waterfall City of Sarnath, sacked and broken into ruined marble mounds.",
+    "shape": "approx"
+  },
+  {
+    "id": "kasath",
+    "name": "Kasath (Vojjor Samui)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      5249,
+      4607
+    ],
+    "isPort": false,
+    "allegiance": "Kingdom of Sarnath",
+    "loreSnippet": "Ruined city of caravans, known to the Dothraki as the City of Black Stones.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "sallosh",
+    "name": "Sallosh (Athjikhari)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      5363,
+      4374
+    ],
+    "isPort": false,
+    "allegiance": "Kingdom of Sarnath",
+    "loreSnippet": "The City of Scholars, whose vast library was burned by the horselords.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "mardosh",
+    "name": "Mardosh (Vaes Gorqoyi)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      4635,
+      4084
+    ],
+    "isPort": false,
+    "allegiance": "Kingdom of Sarnath",
+    "loreSnippet": "The City of Soldiers, heavily fortified before falling after a six-year siege.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "essaria",
+    "name": "Essaria",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      4373,
+      4572
+    ],
+    "isPort": false,
+    "allegiance": "Valyrian Freehold",
+    "loreSnippet": "Ruined Valyrian colony in northern Essos, reduced to rubble by the Dothraki.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "hazdahn_mo",
+    "name": "Hazdahn Mo (Vaes Diaf)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      5387,
+      4964
+    ],
+    "isPort": false,
+    "allegiance": "Ghiscar",
+    "loreSnippet": "Ruined Ghiscari colony city north of the Painted Mountains.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "yinishar",
+    "name": "Yinishar (Vaes Jini)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6861,
+      5055
+    ],
+    "isPort": false,
+    "allegiance": "Dothraki Sea",
+    "loreSnippet": "Ancient ruined settlement near the Bone Mountains.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "vaes_mejhah",
+    "name": "Vaes Mejhah",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6155,
+      5101
+    ],
+    "isPort": false,
+    "allegiance": "Dothraki Sea",
+    "loreSnippet": "Ruined city along the course of the Skahazadhan.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "ghardaa",
+    "name": "Ghardaa (Krazaaj Has)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      5988,
+      5124
+    ],
+    "isPort": false,
+    "allegiance": "Ghiscar",
+    "loreSnippet": "Ruined stronghold in the shadow of the mountains.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "adakhakileki",
+    "name": "Adakhakileki",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6762,
+      5160
+    ],
+    "isPort": false,
+    "allegiance": "Dothraki Sea",
+    "loreSnippet": "Cannibal city ruin beside the Poison Sea in the eastern grasslands.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "kosrak",
+    "name": "Kosrak",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6138,
+      5379
+    ],
+    "isPort": false,
+    "allegiance": "Lhazar",
+    "loreSnippet": "Ruined settlement in northern Lhazar.",
+    "shape": "circle"
+  },
+  {
+    "id": "vaes_shirosi",
+    "name": "Vaes Shirosi",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6342,
+      5993
+    ],
+    "isPort": false,
+    "allegiance": "Dothraki Sea",
+    "loreSnippet": "Ruined town on the edge of the Red Waste.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "vaes_qosar",
+    "name": "Vaes Qosar (City of Bones)",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6716,
+      6034
+    ],
+    "isPort": false,
+    "allegiance": "Dothraki Sea",
+    "loreSnippet": "Bleached ruined city in the Red Waste.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "vaes_orvik",
+    "name": "Vaes Orvik",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6176,
+      6052
+    ],
+    "isPort": false,
+    "allegiance": "Dothraki Sea",
+    "loreSnippet": "Ruined settlement in the southern Red Waste.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "vahar",
+    "name": "Vahar",
+    "region": "jade_sea",
+    "type": "port",
+    "coords": [
+      6719,
+      6779
+    ],
+    "isPort": true,
+    "allegiance": "Great Moraq",
+    "loreSnippet": "Southern port city on the island of Great Moraq in the Jade Sea.",
+    "shape": "circle"
+  },
+  {
+    "id": "ebonhead",
+    "name": "Ebonhead",
+    "region": "reach",
+    "type": "port",
+    "coords": [
+      2814,
+      7681
+    ],
+    "isPort": true,
+    "allegiance": "Summer Isles",
+    "loreSnippet": "Southernmost cape settlement on Jhala in the Summer Isles.",
+    "shape": "circle"
+  }
+]

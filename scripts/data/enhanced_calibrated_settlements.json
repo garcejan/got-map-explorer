@@ -1,0 +1,2046 @@
+[
+  {
+    "id": "hardhome",
+    "name": "Hardhome",
+    "region": "north",
+    "type": "ruin",
+    "coords": [
+      2149,
+      2032
+    ],
+    "isPort": true,
+    "allegiance": "Free Folk",
+    "loreSnippet": "Ancient ruined Free Folk settlement on the tip of Storrold's Point, destroyed in an apocalyptic fire centuries ago.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "fist_of_the_first_men",
+    "name": "Fist of the First Men",
+    "region": "north",
+    "type": "ruin",
+    "coords": [
+      1718,
+      2033
+    ],
+    "isPort": false,
+    "allegiance": "Night's Watch",
+    "loreSnippet": "Ancient ringfort standing atop a windswept hill beyond the Wall, scene of a catastrophic battle against the wights.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "crasters_keep",
+    "name": "Craster's Keep",
+    "region": "north",
+    "type": "junction",
+    "coords": [
+      1867,
+      2139
+    ],
+    "isPort": false,
+    "allegiance": "Free Folk",
+    "loreSnippet": "Fortified homestead in the Haunted Forest where the wildling Craster made sacrifices to the Cold Gods.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "whitetree",
+    "name": "Whitetree",
+    "region": "north",
+    "type": "junction",
+    "coords": [
+      1938,
+      2218
+    ],
+    "isPort": false,
+    "allegiance": "Free Folk",
+    "loreSnippet": "Deserted wildling village built around an enormous, ancient weirwood tree north of the Wall.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "nightfort",
+    "name": "The Nightfort",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      1857,
+      2246
+    ],
+    "isPort": false,
+    "allegiance": "Night's Watch",
+    "loreSnippet": "Oldest and largest castle on the Wall, steeped in grim legends of the Night's King and the Rat Cook.",
+    "shape": "triangle"
+  },
+  {
+    "id": "moles_town",
+    "name": "Mole's Town",
+    "region": "north",
+    "type": "junction",
+    "coords": [
+      1946,
+      2261
+    ],
+    "isPort": false,
+    "allegiance": "Night's Watch",
+    "loreSnippet": "Subterranean village a half-day's ride south of Castle Black with cellars interconnected beneath the earth.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "queenscrown",
+    "name": "Queenscrown",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      1877,
+      2366
+    ],
+    "isPort": false,
+    "allegiance": "The North",
+    "loreSnippet": "Solitary holdfast with crenelated battlements resting on an island in the middle of a lake in the Gift.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "kingshouse",
+    "name": "Kingshouse",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      2400,
+      2274
+    ],
+    "isPort": true,
+    "allegiance": "House Magnar of Skagos",
+    "loreSnippet": "Ancient stone castle on the cold, craggy northern coast of the dread cannibal island of Skagos.",
+    "shape": "triangle"
+  },
+  {
+    "id": "deepdown",
+    "name": "Deepdown",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      2389,
+      2368
+    ],
+    "isPort": true,
+    "allegiance": "House Crowl of Skagos",
+    "loreSnippet": "Subterranean cliffside stronghold of House Crowl on the southwestern shore of Skagos.",
+    "shape": "triangle"
+  },
+  {
+    "id": "castle_cerwyn",
+    "name": "Castle Cerwyn",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      1615,
+      2957
+    ],
+    "isPort": false,
+    "allegiance": "House Cerwyn",
+    "loreSnippet": "Seat of House Cerwyn on the river, just a half-day's ride south of the great castle of Winterfell.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hornwood",
+    "name": "Hornwood",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      2016,
+      2991
+    ],
+    "isPort": false,
+    "allegiance": "House Hornwood",
+    "loreSnippet": "Stronghold nestled within the dense, ancient timberlands of the eastern North.",
+    "shape": "triangle"
+  },
+  {
+    "id": "ramsgate",
+    "name": "Ramsgate",
+    "region": "north",
+    "type": "port",
+    "coords": [
+      2147,
+      3205
+    ],
+    "isPort": true,
+    "allegiance": "House Woolfield",
+    "loreSnippet": "Coastal settlement and fishing port situated at the wide mouth of the Broken Branch.",
+    "shape": "triangle"
+  },
+  {
+    "id": "widows_watch",
+    "name": "Widow's Watch",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      2395,
+      3250
+    ],
+    "isPort": true,
+    "allegiance": "House Flint of Widow's Watch",
+    "loreSnippet": "Easternmost castle in the North, perched atop high coastal cliffs overlooking the Shivering Sea.",
+    "shape": "triangle"
+  },
+  {
+    "id": "oldcastle",
+    "name": "Oldcastle",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      1925,
+      3459
+    ],
+    "isPort": true,
+    "allegiance": "House Locke",
+    "loreSnippet": "Ancient fortress of House Locke guarding the northern shore of the Bite.",
+    "shape": "triangle"
+  },
+  {
+    "id": "barrowton",
+    "name": "Barrowton",
+    "region": "north",
+    "type": "major_city",
+    "coords": [
+      1340,
+      3257
+    ],
+    "isPort": false,
+    "allegiance": "House Dustin",
+    "loreSnippet": "Major market town of the Barrowlands built around the Great Barrow, resting place of the First King of the First Men.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "goldgrass",
+    "name": "Goldgrass",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      1363,
+      3250
+    ],
+    "isPort": false,
+    "allegiance": "House Stout",
+    "loreSnippet": "Keep of House Stout standing proudly in the fertile grassy plains just east of Barrowton.",
+    "shape": "triangle"
+  },
+  {
+    "id": "flints_finger",
+    "name": "Flint's Finger",
+    "region": "north",
+    "type": "castle",
+    "coords": [
+      1079,
+      3525
+    ],
+    "isPort": true,
+    "allegiance": "House Flint of Flint's Finger",
+    "loreSnippet": "Rugged coastal stronghold on Cape Kraken commanding the rocky entrance to Blazewater Bay.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sisterton",
+    "name": "Sisterton",
+    "region": "vale",
+    "type": "port",
+    "coords": [
+      1987,
+      3543
+    ],
+    "isPort": true,
+    "allegiance": "House Borrell",
+    "loreSnippet": "Notorious pirate haven and chief port town of Sweetsister with foul-smelling streets and the Nightfort bell.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "breakwater",
+    "name": "Breakwater",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2001,
+      3544
+    ],
+    "isPort": true,
+    "allegiance": "House Borrell",
+    "loreSnippet": "Castle on Littlesister whose lords once set false beacons to wreck passing merchant cogs.",
+    "shape": "triangle"
+  },
+  {
+    "id": "seagard",
+    "name": "Seagard",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1503,
+      3901
+    ],
+    "isPort": true,
+    "allegiance": "House Mallister",
+    "loreSnippet": "Formidable coastal redoubt with the Boar's Head tower, built specifically to guard against ironborn reavers.",
+    "shape": "triangle"
+  },
+  {
+    "id": "fairmarket",
+    "name": "Fairmarket",
+    "region": "riverlands",
+    "type": "city",
+    "coords": [
+      1676,
+      4045
+    ],
+    "isPort": false,
+    "allegiance": "Riverlands",
+    "loreSnippet": "Bustling river trading town with a great timbered bridge spanning the waters of the Blue Fork.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "oldstones",
+    "name": "Oldstones",
+    "region": "riverlands",
+    "type": "ruin",
+    "coords": [
+      1594,
+      3946
+    ],
+    "isPort": false,
+    "allegiance": "Riverlands",
+    "loreSnippet": "Ruins of the ancient hilltop castle of Tristifer IV Mudd, the Hammer of Justice, last King of the Rivers and the Hills.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "raventree_hall",
+    "name": "Raventree Hall",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1547,
+      4089
+    ],
+    "isPort": false,
+    "allegiance": "House Blackwood",
+    "loreSnippet": "Ancient moss-grown castle of House Blackwood enclosing a colossal dead weirwood where thousands of ravens roost at dusk.",
+    "shape": "triangle"
+  },
+  {
+    "id": "stone_hedge",
+    "name": "Stone Hedge",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1602,
+      4154
+    ],
+    "isPort": false,
+    "allegiance": "House Bracken",
+    "loreSnippet": "Historic stone keep of House Bracken along the Red Fork, locked in a millennia-old blood feud with House Blackwood.",
+    "shape": "triangle"
+  },
+  {
+    "id": "pinkmaiden",
+    "name": "Pinkmaiden Castle",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1475,
+      4345
+    ],
+    "isPort": false,
+    "allegiance": "House Piper",
+    "loreSnippet": "Seat of House Piper situated along the upper Red Fork near the border with the Westerlands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "wayfarers_rest",
+    "name": "Wayfarer's Rest",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1533,
+      4307
+    ],
+    "isPort": false,
+    "allegiance": "House Vance of Wayfarer's Rest",
+    "loreSnippet": "Sturdy castle belonging to the elder branch of House Vance situated at a vital river crossing.",
+    "shape": "triangle"
+  },
+  {
+    "id": "acorn_hall",
+    "name": "Acorn Hall",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1592,
+      4296
+    ],
+    "isPort": false,
+    "allegiance": "House Smallwood",
+    "loreSnippet": "Oak-timbered castle of House Smallwood set amid rolling meadows and apple orchards.",
+    "shape": "triangle"
+  },
+  {
+    "id": "stoney_sept",
+    "name": "Stoney Sept",
+    "region": "riverlands",
+    "type": "city",
+    "coords": [
+      1571,
+      4434
+    ],
+    "isPort": false,
+    "allegiance": "Riverlands",
+    "loreSnippet": "Walled market town renowned for its massive sept of dark pink stone and the historic Battle of the Bells.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "darry",
+    "name": "Castle Darry",
+    "region": "riverlands",
+    "type": "castle",
+    "coords": [
+      1861,
+      4199
+    ],
+    "isPort": false,
+    "allegiance": "House Darry",
+    "loreSnippet": "Modest holdfast south of the Trident, once seat of the staunch Targaryen loyalists of House Darry.",
+    "shape": "triangle"
+  },
+  {
+    "id": "harroway",
+    "name": "Lord Harroway's Town",
+    "region": "riverlands",
+    "type": "city",
+    "coords": [
+      1778,
+      4146
+    ],
+    "isPort": false,
+    "allegiance": "House Roote",
+    "loreSnippet": "Busy riverport on the Trident with a two-headed stone griffin bridge and a flat-bottomed passenger ferry.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "quiet_isle",
+    "name": "The Quiet Isle",
+    "region": "riverlands",
+    "type": "junction",
+    "coords": [
+      1990,
+      4251
+    ],
+    "isPort": true,
+    "allegiance": "Faith of the Seven",
+    "loreSnippet": "Monastic refuge at the mouth of the Trident where silent penitent brothers dig graves and rescue tidal flotsam.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "whitewalls",
+    "name": "Whitewalls",
+    "region": "riverlands",
+    "type": "ruin",
+    "coords": [
+      1866,
+      4316
+    ],
+    "isPort": false,
+    "allegiance": "House Butterwell",
+    "loreSnippet": "Fabled castle of white weirwood stone torn down and ploughed with salt following the failed Second Blackfyre Rebellion.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "strongsong",
+    "name": "Strongsong",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      1959,
+      3866
+    ],
+    "isPort": false,
+    "allegiance": "House Belmore",
+    "loreSnippet": "Mountain redoubt of House Belmore guarding the windswept northern highlands of the Vale of Arryn.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hearts_home",
+    "name": "Heart's Home",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2139,
+      3870
+    ],
+    "isPort": false,
+    "allegiance": "House Corbray",
+    "loreSnippet": "Ancestral seat of House Corbray, holders of the legendary Valyrian steel blade Lady Forlorn.",
+    "shape": "triangle"
+  },
+  {
+    "id": "coldwater_burn",
+    "name": "Coldwater Burn",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2222,
+      3727
+    ],
+    "isPort": false,
+    "allegiance": "House Coldwater",
+    "loreSnippet": "Coastal castle overlooking the frigid waters where the Coldwater river empties into the sea.",
+    "shape": "triangle"
+  },
+  {
+    "id": "snakewood",
+    "name": "Snakewood",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2219,
+      3790
+    ],
+    "isPort": false,
+    "allegiance": "House Lynderly",
+    "loreSnippet": "Keep nestled in the winding, snake-infested woodland hills between Strongsong and Heart's Home.",
+    "shape": "triangle"
+  },
+  {
+    "id": "longbow_hall",
+    "name": "Longbow Hall",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2359,
+      3857
+    ],
+    "isPort": false,
+    "allegiance": "House Hunter",
+    "loreSnippet": "Stout stone holdfast of House Hunter situated along the eastern crags of the Vale.",
+    "shape": "triangle"
+  },
+  {
+    "id": "old_anchor",
+    "name": "Old Anchor",
+    "region": "vale",
+    "type": "port",
+    "coords": [
+      2386,
+      3953
+    ],
+    "isPort": true,
+    "allegiance": "House Melcolm",
+    "loreSnippet": "Natural deepwater sheltered port of House Melcolm on the eastern coast of the Vale.",
+    "shape": "triangle"
+  },
+  {
+    "id": "ironoaks",
+    "name": "Ironoaks",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2227,
+      4017
+    ],
+    "isPort": false,
+    "allegiance": "House Waynwood",
+    "loreSnippet": "Ancient, dignified castle of Lady Anya Waynwood, known for raising honorable, martial fosterlings.",
+    "shape": "triangle"
+  },
+  {
+    "id": "redfort",
+    "name": "Redfort",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2184,
+      4107
+    ],
+    "isPort": false,
+    "allegiance": "House Redfort",
+    "loreSnippet": "Colossal fortress crafted from blood-red stone, standing at the southern pass beneath the Giant's Lance.",
+    "shape": "triangle"
+  },
+  {
+    "id": "runestone",
+    "name": "Runestone",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2427,
+      4030
+    ],
+    "isPort": true,
+    "allegiance": "House Royce",
+    "loreSnippet": "Ancestral coastal fortress of Bronze Yohn Royce, carved with ancient First Men runes that protect against harm.",
+    "shape": "triangle"
+  },
+  {
+    "id": "wickenden",
+    "name": "Wickenden",
+    "region": "vale",
+    "type": "castle",
+    "coords": [
+      2264,
+      4296
+    ],
+    "isPort": true,
+    "allegiance": "House Waxley",
+    "loreSnippet": "Coastal keep of House Waxley, renowned across the Seven Kingdoms for fragrant perfumed wax candles.",
+    "shape": "triangle"
+  },
+  {
+    "id": "banefort",
+    "name": "Banefort",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1109,
+      4101
+    ],
+    "isPort": true,
+    "allegiance": "House Banefort",
+    "loreSnippet": "Clifftop fortress on the Sunset Sea, former seat of the Hooded King during the Age of Heroes.",
+    "shape": "triangle"
+  },
+  {
+    "id": "the_crag",
+    "name": "The Crag",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1084,
+      4221
+    ],
+    "isPort": true,
+    "allegiance": "House Westerling",
+    "loreSnippet": "Impoverished sea-cliff castle of House Westerling carved directly into the seaside rockface.",
+    "shape": "triangle"
+  },
+  {
+    "id": "faircastle",
+    "name": "Faircastle",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      924,
+      4339
+    ],
+    "isPort": true,
+    "allegiance": "House Farman",
+    "loreSnippet": "Splendid castle on Fair Isle keeping ceaseless watch against ironborn longships.",
+    "shape": "triangle"
+  },
+  {
+    "id": "castamere",
+    "name": "Castamere",
+    "region": "westerlands",
+    "type": "ruin",
+    "coords": [
+      1122,
+      4287
+    ],
+    "isPort": false,
+    "allegiance": "House Reyne",
+    "loreSnippet": "Subterranean fortress of gold mines, flooded and exterminated by Tywin Lannister to forge the Rains of Castamere.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "tarbeck_hall",
+    "name": "Tarbeck Hall",
+    "region": "westerlands",
+    "type": "ruin",
+    "coords": [
+      1119,
+      4336
+    ],
+    "isPort": false,
+    "allegiance": "House Tarbeck",
+    "loreSnippet": "Rival keep destroyed in a single afternoon by Lannister siege catapults during the Reyne-Tarbeck Rebellion.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "ashemark",
+    "name": "Ashemark",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1179,
+      4296
+    ],
+    "isPort": false,
+    "allegiance": "House Marbrand",
+    "loreSnippet": "High sandstone mountain redoubt of House Marbrand overlooking the Tumblestone river.",
+    "shape": "triangle"
+  },
+  {
+    "id": "oxcross",
+    "name": "Oxcross",
+    "region": "westerlands",
+    "type": "junction",
+    "coords": [
+      1210,
+      4350
+    ],
+    "isPort": false,
+    "allegiance": "House Lannister",
+    "loreSnippet": "Crossroads encampment in the hills east of Casterly Rock, scene of Robb Stark's daring night raid.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "sarsfield",
+    "name": "Sarsfield",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1157,
+      4366
+    ],
+    "isPort": false,
+    "allegiance": "House Sarsfield",
+    "loreSnippet": "Hillside castle along the high road guarding the western approaches to Lannisport.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hornvale",
+    "name": "Hornvale",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1292,
+      4407
+    ],
+    "isPort": false,
+    "allegiance": "House Brax",
+    "loreSnippet": "Formidable mountain citadel of House Brax in the rugged passes north of Deep Den.",
+    "shape": "triangle"
+  },
+  {
+    "id": "kayce",
+    "name": "Kayce",
+    "region": "westerlands",
+    "type": "port",
+    "coords": [
+      891,
+      4454
+    ],
+    "isPort": true,
+    "allegiance": "House Kenning",
+    "loreSnippet": "Walled coastal trading town and fishing port with a grand lighthouse looking westward over the Sunset Sea.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "feastfires",
+    "name": "Feastfires",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      861,
+      4495
+    ],
+    "isPort": true,
+    "allegiance": "House Prester",
+    "loreSnippet": "Westernmost castle on the mainland of Westeros, keeping watch over the Fair Isle straits.",
+    "shape": "triangle"
+  },
+  {
+    "id": "silverhill",
+    "name": "Silverhill",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1275,
+      4546
+    ],
+    "isPort": false,
+    "allegiance": "House Serrett",
+    "loreSnippet": "Towering castle perched atop the richest silver mines in the Seven Kingdoms.",
+    "shape": "triangle"
+  },
+  {
+    "id": "cornfield",
+    "name": "Cornfield",
+    "region": "westerlands",
+    "type": "castle",
+    "coords": [
+      1108,
+      4663
+    ],
+    "isPort": false,
+    "allegiance": "House Swyft",
+    "loreSnippet": "Fertile valley stronghold of House Swyft in the southern agricultural belt of the Westerlands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "ten_towers",
+    "name": "Ten Towers",
+    "region": "iron_islands",
+    "type": "castle",
+    "coords": [
+      1183,
+      3959
+    ],
+    "isPort": true,
+    "allegiance": "House Harlaw",
+    "loreSnippet": "Eccentric fortress with ten diverse towers built by Lord Theomore Harlaw, home of Rodrik 'The Reader' Harlaw.",
+    "shape": "triangle"
+  },
+  {
+    "id": "lordsport",
+    "name": "Lordsport",
+    "region": "iron_islands",
+    "type": "port",
+    "coords": [
+      1074,
+      4063
+    ],
+    "isPort": true,
+    "allegiance": "House Botley",
+    "loreSnippet": "Largest town and main trading port of the Iron Islands, situated on the southeastern shore of Pyke.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "hammerhorn",
+    "name": "Hammerhorn",
+    "region": "iron_islands",
+    "type": "castle",
+    "coords": [
+      948,
+      3992
+    ],
+    "isPort": false,
+    "allegiance": "House Goodbrother",
+    "loreSnippet": "Monolithic black stone keep atop the iron-rich peaks of Great Wyk, quarried from the living mountain.",
+    "shape": "triangle"
+  },
+  {
+    "id": "volmark",
+    "name": "Volmark",
+    "region": "iron_islands",
+    "type": "castle",
+    "coords": [
+      1147,
+      4002
+    ],
+    "isPort": true,
+    "allegiance": "House Volmark",
+    "loreSnippet": "Castle on Harlaw belonging to the descendants of the legendary black-haired Harren the Black.",
+    "shape": "triangle"
+  },
+  {
+    "id": "saltcliffe",
+    "name": "Saltcliffe",
+    "region": "iron_islands",
+    "type": "castle",
+    "coords": [
+      977,
+      4044
+    ],
+    "isPort": true,
+    "allegiance": "House Saltcliffe",
+    "loreSnippet": "Windswept island castle nestled among wave-battered sea caves on the isle of Saltcliffe.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sealskin_point",
+    "name": "Sealskin Point",
+    "region": "iron_islands",
+    "type": "castle",
+    "coords": [
+      938,
+      3905
+    ],
+    "isPort": true,
+    "allegiance": "House Farwynd",
+    "loreSnippet": "Remote, stormy promontory keep on the westernmost headland of Great Wyk.",
+    "shape": "triangle"
+  },
+  {
+    "id": "stokeworth",
+    "name": "Castle Stokeworth",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2042,
+      4538
+    ],
+    "isPort": false,
+    "allegiance": "House Stokeworth",
+    "loreSnippet": "Plump agricultural castle north of King's Landing, providing vital food supplies to the capital.",
+    "shape": "triangle"
+  },
+  {
+    "id": "rosby",
+    "name": "Rosby",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2006,
+      4565
+    ],
+    "isPort": false,
+    "allegiance": "House Rosby",
+    "loreSnippet": "Quiet castle and town surrounded by apple orchards, just north of the Blackwater Rush.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hayford",
+    "name": "Hayford",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      1942,
+      4585
+    ],
+    "isPort": false,
+    "allegiance": "House Hayford",
+    "loreSnippet": "Keep along the kingsroad a mere half-day's ride northwest of King's Landing.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sows_horn",
+    "name": "Sow's Horn",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      1883,
+      4384
+    ],
+    "isPort": false,
+    "allegiance": "House Hogg",
+    "loreSnippet": "Solitary stone tower holdfast belonging to the prickly hedge knight Ser Roger Hogg.",
+    "shape": "triangle"
+  },
+  {
+    "id": "rooks_rest",
+    "name": "Rook's Rest",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2191,
+      4379
+    ],
+    "isPort": true,
+    "allegiance": "House Staunton",
+    "loreSnippet": "Coastal cliff castle on the Bay of Crabs, site of the tragic dragon battle during the Dance of the Dragons.",
+    "shape": "triangle"
+  },
+  {
+    "id": "dyre_den",
+    "name": "Dyre Den",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2349,
+      4263
+    ],
+    "isPort": true,
+    "allegiance": "House Brune of Dyre Den",
+    "loreSnippet": "Grim, mist-shrouded fortress deep in the bogs of Crackclaw Point, held by the stubborn Brunes.",
+    "shape": "triangle"
+  },
+  {
+    "id": "the_whispers",
+    "name": "The Whispers",
+    "region": "crownlands",
+    "type": "ruin",
+    "coords": [
+      2388,
+      4259
+    ],
+    "isPort": true,
+    "allegiance": "House Crabb",
+    "loreSnippet": "Overgrown coastal ruin where Ser Clarence Crabb brought the heads of his slain enemies to whisper secrets.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "sharp_point",
+    "name": "Sharp Point",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2326,
+      4515
+    ],
+    "isPort": true,
+    "allegiance": "House Bar Emmon",
+    "loreSnippet": "Watchtower fortress situated atop the razor-sharp rocks of Massey's Hook with a colossal beacon fire.",
+    "shape": "triangle"
+  },
+  {
+    "id": "stonedance",
+    "name": "Stonedance",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2361,
+      4562
+    ],
+    "isPort": true,
+    "allegiance": "House Massey",
+    "loreSnippet": "Ancient cliffside redoubt of House Massey commanding the open breakers of the Narrow Sea.",
+    "shape": "triangle"
+  },
+  {
+    "id": "high_tide",
+    "name": "High Tide",
+    "region": "crownlands",
+    "type": "castle",
+    "coords": [
+      2326,
+      4432
+    ],
+    "isPort": true,
+    "allegiance": "House Velaryon",
+    "loreSnippet": "Opulent white-marble palace built by the Sea Snake Corlys Velaryon, later sacked and burned during the Dance.",
+    "shape": "triangle"
+  },
+  {
+    "id": "spicetown",
+    "name": "Spicetown",
+    "region": "crownlands",
+    "type": "port",
+    "coords": [
+      2251,
+      4463
+    ],
+    "isPort": true,
+    "allegiance": "House Velaryon",
+    "loreSnippet": "Wealthy trading hub on Driftmark bursting with Eastern silk and spices before its destruction in the Battle of the Gullet.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "griffins_roost",
+    "name": "Griffin's Roost",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2171,
+      5010
+    ],
+    "isPort": true,
+    "allegiance": "House Connington",
+    "loreSnippet": "Dramatically perched stone aerie joined to the mainland by a narrow razor-ridge named the Griffin's Throat.",
+    "shape": "triangle"
+  },
+  {
+    "id": "haystack_hall",
+    "name": "Haystack Hall",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2195,
+      4817
+    ],
+    "isPort": false,
+    "allegiance": "House Errol",
+    "loreSnippet": "Seat of House Errol nestled in the fertile river valleys of the northern Stormlands.",
+    "shape": "triangle"
+  },
+  {
+    "id": "stonehelm",
+    "name": "Stonehelm",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2035,
+      5151
+    ],
+    "isPort": true,
+    "allegiance": "House Swann",
+    "loreSnippet": "Towering river castle of House Swann on the Slayne, guarding the historic Red Watch.",
+    "shape": "triangle"
+  },
+  {
+    "id": "mistwood",
+    "name": "Mistwood",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2267,
+      5169
+    ],
+    "isPort": false,
+    "allegiance": "House Mertyns",
+    "loreSnippet": "Ancient woodland keep surrounded by dripping moss and perpetual fog in the heart of the Rainwood.",
+    "shape": "triangle"
+  },
+  {
+    "id": "rain_house",
+    "name": "Rain House",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2416,
+      5076
+    ],
+    "isPort": true,
+    "allegiance": "House Wylde",
+    "loreSnippet": "Storm-lashed coastal fortress of House Wylde on the rocky cape of Wrath.",
+    "shape": "triangle"
+  },
+  {
+    "id": "weeping_town",
+    "name": "Weeping Town",
+    "region": "stormlands",
+    "type": "port",
+    "coords": [
+      2260,
+      5245
+    ],
+    "isPort": true,
+    "allegiance": "Stormlands",
+    "loreSnippet": "The primary seaport of the Stormlands on the Sea of Dorne, named for the legendary crying of the First King.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "greenstone",
+    "name": "Greenstone",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      2388,
+      5217
+    ],
+    "isPort": true,
+    "allegiance": "House Estermont",
+    "loreSnippet": "Island castle of the Sea Turtle House Estermont on the verdant Isle of Estermont.",
+    "shape": "triangle"
+  },
+  {
+    "id": "harvest_hall",
+    "name": "Harvest Hall",
+    "region": "stormlands",
+    "type": "castle",
+    "coords": [
+      1707,
+      5110
+    ],
+    "isPort": false,
+    "allegiance": "House Selmy",
+    "loreSnippet": "Ancestral seat of Ser Barristan Selmy in the fertile Dornish Marches.",
+    "shape": "triangle"
+  },
+  {
+    "id": "goldengrove",
+    "name": "Goldengrove",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1288,
+      4807
+    ],
+    "isPort": false,
+    "allegiance": "House Rowan",
+    "loreSnippet": "Majestic palace-keep of House Rowan amidst golden fields and ancient oak orchards.",
+    "shape": "triangle"
+  },
+  {
+    "id": "red_lake",
+    "name": "Red Lake",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1129,
+      4769
+    ],
+    "isPort": false,
+    "allegiance": "House Crane",
+    "loreSnippet": "Enchanting lakeside castle of House Crane whose daughters are rumored to change into wild swans.",
+    "shape": "triangle"
+  },
+  {
+    "id": "old_oak",
+    "name": "Old Oak",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1007,
+      4911
+    ],
+    "isPort": true,
+    "allegiance": "House Oakheart",
+    "loreSnippet": "Ancient coastal fortress of House Oakheart standing sentinel along the Ocean Road.",
+    "shape": "triangle"
+  },
+  {
+    "id": "longtable",
+    "name": "Longtable",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1521,
+      4917
+    ],
+    "isPort": false,
+    "allegiance": "House Merryweather",
+    "loreSnippet": "Sprawling stronghold of House Merryweather at the grand confluence of the Mander and the Blueburn.",
+    "shape": "triangle"
+  },
+  {
+    "id": "ashford",
+    "name": "Ashford",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1563,
+      5026
+    ],
+    "isPort": false,
+    "allegiance": "House Ashford",
+    "loreSnippet": "Cylindrical white stone castle and tourney meadow on the Cockleshent, setting of the Tourney of Ashford Meadow.",
+    "shape": "triangle"
+  },
+  {
+    "id": "tumbleton",
+    "name": "Tumbleton",
+    "region": "reach",
+    "type": "city",
+    "coords": [
+      1763,
+      4721
+    ],
+    "isPort": false,
+    "allegiance": "House Footly",
+    "loreSnippet": "Prosperous market town on the river Mander, scarred by the dragonfire of Vermithor and Tessarion during the Dance.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "starpike",
+    "name": "Starpike",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1343,
+      5146
+    ],
+    "isPort": false,
+    "allegiance": "House Peake",
+    "loreSnippet": "Grim, foreboding mountain castle of the rebellious House Peake in the Red Mountains.",
+    "shape": "triangle"
+  },
+  {
+    "id": "brightwater_keep",
+    "name": "Brightwater Keep",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1046,
+      5207
+    ],
+    "isPort": false,
+    "allegiance": "House Florent",
+    "loreSnippet": "Splendid stone redoubt of the fox-eared House Florent on the headwaters of the Honeywine.",
+    "shape": "triangle"
+  },
+  {
+    "id": "honeyholt",
+    "name": "Honeyholt",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1063,
+      5284
+    ],
+    "isPort": false,
+    "allegiance": "House Beesbury",
+    "loreSnippet": "Keep of House Beesbury surrounded by thousands of humming apiaries and sweet clover fields along the Honeywine.",
+    "shape": "triangle"
+  },
+  {
+    "id": "three_towers",
+    "name": "Three Towers",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      955,
+      5464
+    ],
+    "isPort": true,
+    "allegiance": "House Costayne",
+    "loreSnippet": "Triple-towered coastal castle of House Costayne guarding the entry straits of Whispering Sound.",
+    "shape": "triangle"
+  },
+  {
+    "id": "uplands",
+    "name": "Uplands",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1168,
+      5340
+    ],
+    "isPort": false,
+    "allegiance": "House Mullendore",
+    "loreSnippet": "Foothill redoubt of House Mullendore known for their menagerie of exotic birds and monkeys.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sunhouse",
+    "name": "Sunhouse",
+    "region": "reach",
+    "type": "castle",
+    "coords": [
+      1125,
+      5609
+    ],
+    "isPort": true,
+    "allegiance": "House Cuy",
+    "loreSnippet": "Southern coastal fortress of House Cuy commanding the sandy beaches of the Redwyne Straits.",
+    "shape": "triangle"
+  },
+  {
+    "id": "ryamsport",
+    "name": "Ryamsport",
+    "region": "reach",
+    "type": "port",
+    "coords": [
+      890,
+      5678
+    ],
+    "isPort": true,
+    "allegiance": "House Redwyne",
+    "loreSnippet": "Charming harbor town on the Arbor where barrels of world-famous golden wine are loaded onto trade cogs.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "vinetown",
+    "name": "Vinetown",
+    "region": "reach",
+    "type": "port",
+    "coords": [
+      890,
+      5678
+    ],
+    "isPort": true,
+    "allegiance": "House Redwyne",
+    "loreSnippet": "Picturesque vineyard port on the southern cape of the Arbor looking out across the Sunset Sea.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "starfish_harbor",
+    "name": "Starfish Harbor",
+    "region": "reach",
+    "type": "port",
+    "coords": [
+      815,
+      5597
+    ],
+    "isPort": true,
+    "allegiance": "House Redwyne",
+    "loreSnippet": "Sheltered deep harbor on the western shore of the Arbor where the Redwyne fleet anchors.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "water_gardens",
+    "name": "The Water Gardens",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      2447,
+      5612
+    ],
+    "isPort": true,
+    "allegiance": "House Martell",
+    "loreSnippet": "Exquisite private seaside palace built by Prince Maron Martell for Queen Daenerys Targaryen, filled with fountains and blood oranges.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "lemonwood",
+    "name": "Lemonwood",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      2312,
+      5651
+    ],
+    "isPort": true,
+    "allegiance": "House Dalt",
+    "loreSnippet": "Castle situated at the mouth of the Greenblood, famous for abundant lemon groves and orphan poleboats.",
+    "shape": "triangle"
+  },
+  {
+    "id": "the_tor",
+    "name": "The Tor",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      2060,
+      5464
+    ],
+    "isPort": true,
+    "allegiance": "House Jordayne",
+    "loreSnippet": "Ancient white labyrinthine castle of House Jordayne on the southern shores of the Sea of Dorne.",
+    "shape": "triangle"
+  },
+  {
+    "id": "godsgrace",
+    "name": "Godsgrace",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      2094,
+      5574
+    ],
+    "isPort": false,
+    "allegiance": "House Allyrion",
+    "loreSnippet": "Verdant riverside stronghold at the holy confluence of the Scourge and Vaith rivers.",
+    "shape": "triangle"
+  },
+  {
+    "id": "sandstone",
+    "name": "Sandstone",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1476,
+      5598
+    ],
+    "isPort": false,
+    "allegiance": "House Qorgyle",
+    "loreSnippet": "Isolated stone fortress standing defiantly amidst shifting red dunes and deadly pit scorpions.",
+    "shape": "triangle"
+  },
+  {
+    "id": "hellholt",
+    "name": "Hellholt",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1661,
+      5595
+    ],
+    "isPort": false,
+    "allegiance": "House Uller",
+    "loreSnippet": "Grim sulphur-scented castle of House Uller where Queen Rhaenys and her dragon Meraxes fell.",
+    "shape": "triangle"
+  },
+  {
+    "id": "kingsgrave",
+    "name": "Kingsgrave",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1560,
+      5310
+    ],
+    "isPort": false,
+    "allegiance": "House Manwoody",
+    "loreSnippet": "Fierce mountain stronghold guarding the Prince's Pass, named for a slain King of the Reach.",
+    "shape": "triangle"
+  },
+  {
+    "id": "skyreach",
+    "name": "Skyreach",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1560,
+      5412
+    ],
+    "isPort": false,
+    "allegiance": "House Fowler",
+    "loreSnippet": "High mountain eyrie of House Fowler, the Lords of the Wide Way, towering over the Prince's Pass.",
+    "shape": "triangle"
+  },
+  {
+    "id": "wyl",
+    "name": "Castle Wyl",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      1848,
+      5222
+    ],
+    "isPort": false,
+    "allegiance": "House Wyl",
+    "loreSnippet": "Cavernous border fortress guarding the high northern pass of the Boneway against marcher incursions.",
+    "shape": "triangle"
+  },
+  {
+    "id": "saltshore",
+    "name": "Saltshore",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      2074,
+      5679
+    ],
+    "isPort": true,
+    "allegiance": "House Gargalen",
+    "loreSnippet": "Sun-bleached coastal castle of House Gargalen on the shimmering Summer Sea.",
+    "shape": "triangle"
+  },
+  {
+    "id": "spottswood",
+    "name": "Spottswood",
+    "region": "dorne",
+    "type": "castle",
+    "coords": [
+      2447,
+      5483
+    ],
+    "isPort": false,
+    "allegiance": "House Santagar",
+    "loreSnippet": "Keep of House Santagar on the sun-baked eastern hills south of Sunspear.",
+    "shape": "triangle"
+  },
+  {
+    "id": "port_of_ibben",
+    "name": "Port of Ibben",
+    "region": "free_cities",
+    "type": "capital",
+    "coords": [
+      6475,
+      3108
+    ],
+    "isPort": true,
+    "allegiance": "Shadow Council of Ibben",
+    "loreSnippet": "Sprawling, blubber-scented island capital of Ib, famed for towering whalers and woolly rhinos.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "ib_nor",
+    "name": "Ib Nor",
+    "region": "free_cities",
+    "type": "port",
+    "coords": [
+      6563,
+      2779
+    ],
+    "isPort": true,
+    "allegiance": "Ibben",
+    "loreSnippet": "Frigid northern whaling port on the ice-choked coast of the island of Ib.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "ib_sar",
+    "name": "Ib Sar",
+    "region": "free_cities",
+    "type": "port",
+    "coords": [
+      6980,
+      3437
+    ],
+    "isPort": true,
+    "allegiance": "Ibben",
+    "loreSnippet": "Whaling harbor and settlement on the rugged southern island of Far Ib.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "new_ibbish",
+    "name": "New Ibbish",
+    "region": "free_cities",
+    "type": "port",
+    "coords": [
+      6453,
+      3572
+    ],
+    "isPort": true,
+    "allegiance": "Ibben",
+    "loreSnippet": "Colonial Ibbenese fortress-port on the northern mainland of Essos, built after the Dothraki burned Ibbish.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "morosh",
+    "name": "Morosh",
+    "region": "free_cities",
+    "type": "port",
+    "coords": [
+      4652,
+      3798
+    ],
+    "isPort": true,
+    "allegiance": "Lorath",
+    "loreSnippet": "Mining and trading colony of Lorath nestled along the cold northern coast at the mouth of the Sarne.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "saath",
+    "name": "Saath",
+    "region": "free_cities",
+    "type": "city",
+    "coords": [
+      4501,
+      3940
+    ],
+    "isPort": true,
+    "allegiance": "Kingdom of Sarnor",
+    "loreSnippet": "The sole surviving city of the glorious Kingdom of Sarnor, standing proudly where the Sarne meets the Shivering Sea.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "selhorys",
+    "name": "Selhorys",
+    "region": "free_cities",
+    "type": "city",
+    "coords": [
+      3649,
+      5341
+    ],
+    "isPort": false,
+    "allegiance": "Volantis",
+    "loreSnippet": "Prosperous walled vassal city of Volantis on the Rhoyne, filled with maze-like markets and pleasure barges.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "valysar",
+    "name": "Valysar",
+    "region": "free_cities",
+    "type": "city",
+    "coords": [
+      3650,
+      5460
+    ],
+    "isPort": false,
+    "allegiance": "Volantis",
+    "loreSnippet": "Vassal city of Volantis situated along the lower Rhoyne with elegant white marble colonnades.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "volon_therys",
+    "name": "Volon Therys",
+    "region": "free_cities",
+    "type": "city",
+    "coords": [
+      3699,
+      5566
+    ],
+    "isPort": false,
+    "allegiance": "Volantis",
+    "loreSnippet": "Great garrison city of Volantis on the western bank of the Rhoyne, bristling with slave soldiers.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "sarhoy",
+    "name": "Sarhoy",
+    "region": "free_cities",
+    "type": "ruin",
+    "coords": [
+      3788,
+      5711
+    ],
+    "isPort": true,
+    "allegiance": "Rhoynar",
+    "loreSnippet": "Ancient Rhoynar trading port sacked, burned, and salted by the dragonlords of the Valyrian Freehold.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "sar_mell",
+    "name": "Sar Mell",
+    "region": "free_cities",
+    "type": "ruin",
+    "coords": [
+      3713,
+      5552
+    ],
+    "isPort": false,
+    "allegiance": "Rhoynar",
+    "loreSnippet": "Ruined Rhoynar flower city on the lower Rhoyne destroyed during the bloody Second Spice War.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "ny_sar",
+    "name": "Ny Sar",
+    "region": "free_cities",
+    "type": "ruin",
+    "coords": [
+      3494,
+      4690
+    ],
+    "isPort": false,
+    "allegiance": "Rhoynar",
+    "loreSnippet": "Once the magnificent palace-city of Princess Nymeria at the confluence of the Noyne and the Rhoyne.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "ar_noy",
+    "name": "Ar Noy",
+    "region": "free_cities",
+    "type": "ruin",
+    "coords": [
+      3735,
+      4748
+    ],
+    "isPort": false,
+    "allegiance": "Rhoynar",
+    "loreSnippet": "Ancient ruined city of green marble spires on the Qhoyne river, crushed by Valyrian dragons.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "ghoyan_drohe",
+    "name": "Ghoyan Drohe",
+    "region": "free_cities",
+    "type": "ruin",
+    "coords": [
+      3198,
+      4528
+    ],
+    "isPort": false,
+    "allegiance": "Rhoynar",
+    "loreSnippet": "Ruined Rhoynar waterway city along the Little Rhoyne surrounded by groves of wild orange trees.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "lorassyon",
+    "name": "Lorassyon",
+    "region": "free_cities",
+    "type": "castle",
+    "coords": [
+      3472,
+      3780
+    ],
+    "isPort": true,
+    "allegiance": "Lorath",
+    "loreSnippet": "Ancient labyrinthine fortress built by the mythical Mazemakers on an island near Lorath.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "tolos",
+    "name": "Tolos",
+    "region": "slavers_bay",
+    "type": "city",
+    "coords": [
+      4727,
+      5664
+    ],
+    "isPort": true,
+    "allegiance": "Tolos",
+    "loreSnippet": "Infamous slaver city situated on the Black Cliffs of the Gulf of Grief, renowned for deadly slingers.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "elyria",
+    "name": "Elyria",
+    "region": "slavers_bay",
+    "type": "city",
+    "coords": [
+      4594,
+      5685
+    ],
+    "isPort": true,
+    "allegiance": "Elyria",
+    "loreSnippet": "Insular island city in the Gulf of Grief ally to the slaving ports of Meereen and Yunkai.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "ghozai",
+    "name": "Ghozai",
+    "region": "slavers_bay",
+    "type": "ruin",
+    "coords": [
+      4851,
+      5831
+    ],
+    "isPort": true,
+    "allegiance": "Isle of Cedars",
+    "loreSnippet": "Ancient Ghiscari city on the northern Isle of Cedars swallowed by a tidal wave during the Doom.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "velos",
+    "name": "Velos",
+    "region": "slavers_bay",
+    "type": "ruin",
+    "coords": [
+      4888,
+      5997
+    ],
+    "isPort": true,
+    "allegiance": "Isle of Cedars",
+    "loreSnippet": "Ruined cedar-wood city on the southern Isle of Cedars drowned in the cataclysm of Valyria.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "oros",
+    "name": "Oros",
+    "region": "slavers_bay",
+    "type": "ruin",
+    "coords": [
+      4447,
+      6110
+    ],
+    "isPort": false,
+    "allegiance": "Valyrian Freehold",
+    "loreSnippet": "Once-magnificent inland city of the Freehold shattered and scorched by volcanic ash during the Doom.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "tyria",
+    "name": "Tyria",
+    "region": "slavers_bay",
+    "type": "ruin",
+    "coords": [
+      4407,
+      6231
+    ],
+    "isPort": false,
+    "allegiance": "Valyrian Freehold",
+    "loreSnippet": "Ancient dragonlord city at the northern isthmus of the shattered Valyrian peninsula.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "valyria",
+    "name": "Valyria",
+    "region": "slavers_bay",
+    "type": "capital",
+    "coords": [
+      4312,
+      6426
+    ],
+    "isPort": false,
+    "allegiance": "Valyrian Freehold",
+    "loreSnippet": "The fabled shattered capital of the dragonlords, surrounded by the Smoking Sea where no man returns sane.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "old_ghis",
+    "name": "Old Ghis",
+    "region": "slavers_bay",
+    "type": "ruin",
+    "coords": [
+      5288,
+      6203
+    ],
+    "isPort": true,
+    "allegiance": "Old Ghis",
+    "loreSnippet": "Colossal ruined pyramid capital of the Old Empire of Ghis, conquered and torched five times by Valyrian dragons.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "vaes_tolorro",
+    "name": "Vaes Tolorro",
+    "region": "dothraki_sea",
+    "type": "ruin",
+    "coords": [
+      6455,
+      5831
+    ],
+    "isPort": false,
+    "allegiance": "Lost Freehold",
+    "loreSnippet": "'City of Bones', a white ghost city in the Red Waste where Daenerys Targaryen rested her khalasar.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "qarkash",
+    "name": "Qarkash",
+    "region": "jade_sea",
+    "type": "port",
+    "coords": [
+      6510,
+      6093
+    ],
+    "isPort": true,
+    "allegiance": "Qartheen Empire",
+    "loreSnippet": "Fortified coastal city on the Straits of Qarth west of the Jade Gates.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "port_yhos",
+    "name": "Port Yhos",
+    "region": "jade_sea",
+    "type": "port",
+    "coords": [
+      6136,
+      6163
+    ],
+    "isPort": true,
+    "allegiance": "Summer Sea",
+    "loreSnippet": "Thriving commercial port town along the northern shores of the Summer Sea.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "tall_trees_town",
+    "name": "Tall Trees Town",
+    "region": "summer_isles",
+    "type": "city",
+    "coords": [
+      2821,
+      6854
+    ],
+    "isPort": true,
+    "allegiance": "Summer Isles",
+    "loreSnippet": "Principal port city of Walano in the Summer Isles, shaded by towering teakwood groves and talking parrots.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "asabhad",
+    "name": "Asabhad",
+    "region": "jade_sea",
+    "type": "city",
+    "coords": [
+      7415,
+      6124
+    ],
+    "isPort": true,
+    "allegiance": "Jade Sea",
+    "loreSnippet": "Vibrant trade city at the southern terminus of the Sand Road on the northern shore of the Jade Sea.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "bayasabhad",
+    "name": "Bayasabhad",
+    "region": "dothraki_sea",
+    "type": "castle",
+    "coords": [
+      7391,
+      5673
+    ],
+    "isPort": false,
+    "allegiance": "Warrior Women of the Bone Mountains",
+    "loreSnippet": "Fortress city carved from living granite guarding the northern approach of the Sand Road through the Bone Mountains.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "samyriana",
+    "name": "Samyriana",
+    "region": "dothraki_sea",
+    "type": "castle",
+    "coords": [
+      7263,
+      5153
+    ],
+    "isPort": false,
+    "allegiance": "Warrior Women of the Bone Mountains",
+    "loreSnippet": "Impregnable mountain citadel guarding the high Stone Road through the dreaded Bone Mountains.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "kayakayanaya",
+    "name": "Kayakayanaya",
+    "region": "dothraki_sea",
+    "type": "castle",
+    "coords": [
+      7289,
+      4595
+    ],
+    "isPort": false,
+    "allegiance": "Warrior Women of the Bone Mountains",
+    "loreSnippet": "Mighty black basalt fortress city guarding the Steel Road, ruled by warrior women who cut off their left breasts.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "trader_town",
+    "name": "Trader Town",
+    "region": "yi_ti",
+    "type": "city",
+    "coords": [
+      7957,
+      5195
+    ],
+    "isPort": false,
+    "allegiance": "Golden Empire of Yi Ti",
+    "loreSnippet": "Vibrant caravan hub on the Silk Road where Western merchants barter with spice merchants of Yi Ti.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "tiqui",
+    "name": "Tiqui",
+    "region": "yi_ti",
+    "type": "city",
+    "coords": [
+      7844,
+      5556
+    ],
+    "isPort": false,
+    "allegiance": "Golden Empire of Yi Ti",
+    "loreSnippet": "Ancient provincial metropolis in the northern territory of the Golden Empire of Yi Ti.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "bonetown",
+    "name": "Bonetown",
+    "region": "yi_ti",
+    "type": "city",
+    "coords": [
+      9511,
+      5303
+    ],
+    "isPort": false,
+    "allegiance": "Dry Deep",
+    "loreSnippet": "Eerie frontier trading town built entirely from the giant yellowed bones of unknown prehistoric beasts.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "kdath",
+    "name": "K'Dath",
+    "region": "yi_ti",
+    "type": "ruin",
+    "coords": [
+      9282,
+      5083
+    ],
+    "isPort": false,
+    "allegiance": "The Bleeding Sea",
+    "loreSnippet": "Nightmarish city claimed to be the oldest settlement in the world where unspeakable rites are performed in darkness.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "leng_ma",
+    "name": "Leng Ma",
+    "region": "jade_sea",
+    "type": "city",
+    "coords": [
+      8354,
+      6780
+    ],
+    "isPort": true,
+    "allegiance": "God-Empress of Leng",
+    "loreSnippet": "Southern coastal city on the jungle island of Leng, home to ten-foot-tall god-empresses and labyrinthine ruins.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "stygai",
+    "name": "Stygai",
+    "region": "shadow_lands",
+    "type": "ruin",
+    "coords": [
+      9112,
+      7234
+    ],
+    "isPort": false,
+    "allegiance": "Shadow Lands",
+    "loreSnippet": "The City of the Corpse, shunned even by shadowbinders, lurking in the black gorge of the river Ash where no sun shines.",
+    "shape": "3dot_cluster"
+  },
+  {
+    "id": "five_forts",
+    "name": "The Five Forts",
+    "region": "yi_ti",
+    "type": "castle",
+    "coords": [
+      9125,
+      5461
+    ],
+    "isPort": false,
+    "allegiance": "Golden Empire of Yi Ti",
+    "loreSnippet": "Colossal fortresses of fused black stone, a thousand feet high, built by the Pearl Emperor to hold back demons.",
+    "shape": "triangle"
+  },
+  {
+    "id": "city_of_the_winged_men",
+    "name": "City of the Winged Men",
+    "region": "yi_ti",
+    "type": "ruin",
+    "coords": [
+      9650,
+      5964
+    ],
+    "isPort": false,
+    "allegiance": "Mountains of the Morn",
+    "loreSnippet": "Legendary eyrie perched in the Mountains of the Morn, whispered to be inhabited by human warriors with leather wings.",
+    "shape": "circle_mark"
+  },
+  {
+    "id": "zabhad",
+    "name": "Zabhad",
+    "region": "jade_sea",
+    "type": "port",
+    "coords": [
+      7318,
+      7340
+    ],
+    "isPort": true,
+    "allegiance": "Great Moraq",
+    "loreSnippet": "Southern port on the spice-rich island of Great Moraq overlooking the vast Cinnamon Straits.",
+    "shape": "circle_mark"
+  }
+]

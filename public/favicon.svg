@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="compassBg" cx="38%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#ffd875" />
+      <stop offset="30%" stop-color="#dfb15b" />
+      <stop offset="75%" stop-color="#9a4a11" />
+      <stop offset="100%" stop-color="#552206" />
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Outer Shadow & Gold Badge -->
+  <circle cx="32" cy="32" r="30" fill="url(#compassBg)" stroke="#f6ce7e" stroke-width="1.5" filter="url(#shadow)" />
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#682905" stroke-width="0.8" opacity="0.6" />
+
+  <!-- Lucide Compass Scaled and Centered -->
+  <g transform="translate(14, 14) scale(1.5)" fill="none" stroke="#0a0e14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" />
+  </g>
+</svg>
