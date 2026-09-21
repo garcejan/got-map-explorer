@@ -19,7 +19,10 @@ import {
   Ship,
   Flame,
   Shield,
-  Crown
+  Crown,
+  Bird,
+  Feather,
+  Coins
 } from 'lucide-react';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
@@ -208,6 +211,73 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
   );
 };
 
+// Unified Expedition Archetypes for Dropdown
+const EXPEDITION_ARCHETYPES = [
+  {
+    id: 'retinue',
+    name: 'Noble Retinue',
+    subtitle: 'Royal Progress & Court Carriages',
+    pace: '~18 mi / day',
+    category: 'Overland',
+    icon: <Crown size={15} color="var(--icon-retinue, #fbbf24)" />,
+    badgeColor: 'var(--badge-land-val, #f59e0b)'
+  },
+  {
+    id: 'army',
+    name: 'Marching Host',
+    subtitle: 'Infantry & Baggage Train',
+    pace: '~12 mi / day',
+    category: 'Overland',
+    icon: <Shield size={15} color="var(--icon-army, #ef4444)" />,
+    badgeColor: 'var(--icon-army, #ef4444)'
+  },
+  {
+    id: 'messenger',
+    name: 'Fast Courier',
+    subtitle: 'Raven Rider & Relay Remounts',
+    pace: '~58 mi / day',
+    category: 'Overland',
+    icon: <Feather size={15} color="var(--icon-messenger, #4ade80)" />,
+    badgeColor: 'var(--icon-messenger, #4ade80)'
+  },
+  {
+    id: 'caravan',
+    name: 'Merchant Caravan',
+    subtitle: 'Pack Mules & Trade Wagons',
+    pace: '~15 mi / day',
+    category: 'Overland',
+    icon: <Coins size={15} color="var(--icon-caravan, #fb923c)" />,
+    badgeColor: 'var(--icon-caravan, #fb923c)'
+  },
+  {
+    id: 'fleet',
+    name: 'War Galley & Fleet',
+    subtitle: 'Ironborn / Royal Navy Skiffs',
+    pace: '~115 mi / day',
+    category: 'Naval',
+    icon: <Ship size={15} color="var(--icon-fleet, #22d3ee)" />,
+    badgeColor: 'var(--badge-sea-val, #06b6d4)'
+  },
+  {
+    id: 'crow',
+    name: 'Messenger Crow / Raven',
+    subtitle: 'Direct Rookery Message Flight',
+    pace: '~240 mi / day',
+    category: 'Aerial',
+    icon: <Bird size={15} color="var(--icon-crow, #c084fc)" />,
+    badgeColor: 'var(--icon-crow, #c084fc)'
+  },
+  {
+    id: 'dragon',
+    name: 'Dragon Flight',
+    subtitle: 'Direct High-Altitude Flight',
+    pace: '~520 mi / day',
+    category: 'Aerial',
+    icon: <Flame size={15} color="var(--icon-dragon, #ef4444)" />,
+    badgeColor: 'var(--icon-dragon, #ef4444)'
+  }
+];
+
 export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   isOpen,
   onToggle,
@@ -283,65 +353,58 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
 
   const validWaypointsCount = waypointIds.filter(Boolean).length;
 
-  // 4 Unified Prominent Archetypes
-  const EXPEDITION_ARCHETYPES = [
-    {
-      id: 'retinue',
-      name: 'Noble Retinue',
-      subtitle: 'Royal Progress & Court',
-      pace: '~18 mi / day',
-      icon: <Crown size={16} color="var(--icon-retinue, var(--text-gold))" />,
-      badgeColor: 'var(--badge-land-val, #f59e0b)'
-    },
-    {
-      id: 'army',
-      name: 'Marching Host',
-      subtitle: 'Infantry & Baggage Train',
-      pace: '~12 mi / day',
-      icon: <Shield size={16} color="var(--icon-army, #ef4444)" />,
-      badgeColor: 'var(--icon-army, #ef4444)'
-    },
-    {
-      id: 'galley',
-      name: 'War Galley & Fleet',
-      subtitle: 'Ironborn / Royal Navy',
-      pace: '~115 mi / day',
-      icon: <Ship size={16} color="var(--icon-fleet, #06b6d4)" />,
-      badgeColor: 'var(--badge-sea-val, #06b6d4)'
-    },
-    {
-      id: 'flight',
-      name: 'Dragon & Raven',
-      subtitle: 'Direct Aerial High Altitude',
-      pace: '~240–520 mi / day',
-      icon: <Flame size={16} color="var(--icon-crow, #c084fc)" />,
-      badgeColor: 'var(--icon-crow, #c084fc)'
+  const [isArchetypeDropdownOpen, setIsArchetypeDropdownOpen] = useState(false);
+  const archetypeDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close archetype dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (archetypeDropdownRef.current && !archetypeDropdownRef.current.contains(e.target as Node)) {
+        setIsArchetypeDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
+
+  // Close archetype dropdown on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isArchetypeDropdownOpen) {
+        setIsArchetypeDropdownOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isArchetypeDropdownOpen]);
+
+  // Current archetype resolution
+  const currentArchetypeId = useMemo(() => {
+    if (selectedPartyId === 'war_galley') return 'fleet';
+    if (selectedPartyId === 'courier') return 'messenger';
+    if (EXPEDITION_ARCHETYPES.some((a) => a.id === selectedPartyId)) {
+      return selectedPartyId;
     }
-  ];
+    if (selectedMode === 'dragon') return 'dragon';
+    if (selectedMode === 'crow_flight') return 'crow';
+    return 'retinue';
+  }, [selectedPartyId, selectedMode]);
+
+  const currentArchetype = useMemo(() => {
+    return EXPEDITION_ARCHETYPES.find((a) => a.id === currentArchetypeId) || EXPEDITION_ARCHETYPES[0];
+  }, [currentArchetypeId]);
 
   // Helper to map archetype selection to party & corridor mode
   const handleSelectArchetype = (archetypeId: string) => {
-    if (archetypeId === 'retinue') {
-      onSelectParty('retinue');
-      onSelectMode('balanced');
-    } else if (archetypeId === 'army') {
-      onSelectParty('army');
-      onSelectMode('balanced');
-    } else if (archetypeId === 'galley') {
-      onSelectParty('war_galley');
-      onSelectMode('balanced');
-    } else if (archetypeId === 'flight') {
-      onSelectParty('dragon');
+    onSelectParty(archetypeId);
+    if (archetypeId === 'dragon') {
       onSelectMode('dragon');
+    } else if (archetypeId === 'crow') {
+      onSelectMode('crow_flight');
+    } else if (selectedMode === 'dragon' || selectedMode === 'crow_flight') {
+      onSelectMode('balanced');
     }
-  };
-
-  const isCurrentArchetype = (archetypeId: string) => {
-    if (archetypeId === 'retinue') return selectedPartyId === 'retinue' || selectedPartyId === 'caravan' || selectedPartyId === 'courier';
-    if (archetypeId === 'army') return selectedPartyId === 'army';
-    if (archetypeId === 'galley') return selectedPartyId === 'war_galley';
-    if (archetypeId === 'flight') return selectedPartyId === 'dragon' || selectedPartyId === 'crow' || selectedMode === 'crow_flight' || selectedMode === 'dragon';
-    return false;
+    setIsArchetypeDropdownOpen(false);
   };
 
   if (!isOpen) {
@@ -683,39 +746,181 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                   </button>
                 </div>
 
-                {/* 4 Prominent Archetype Cards */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                  {EXPEDITION_ARCHETYPES.map((arch) => {
-                    const active = isCurrentArchetype(arch.id);
-                    return (
-                      <div
-                        key={arch.id}
-                        onClick={() => handleSelectArchetype(arch.id)}
-                        className="glass-card"
-                        style={{
-                          padding: '8px 10px',
-                          cursor: 'pointer',
-                          borderColor: active ? 'var(--border-gold)' : 'var(--border-subtle)',
-                          background: active ? 'rgba(223, 177, 91, 0.2)' : 'var(--bg-card)',
-                          boxShadow: active ? '0 0 12px rgba(223, 177, 91, 0.3)' : undefined,
-                          transition: 'all 0.15s ease'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-                          {arch.icon}
-                          <strong style={{ fontSize: 12, color: active ? 'var(--text-gold-bright)' : 'var(--text-parchment)' }}>
-                            {arch.name}
-                          </strong>
-                        </div>
-                        <div style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.2, marginBottom: 4 }}>
-                          {arch.subtitle}
-                        </div>
-                        <div style={{ fontSize: 11, fontWeight: 700, color: arch.badgeColor }}>
-                          {arch.pace}
-                        </div>
+                {/* Expedition Archetype Dropdown List */}
+                <div ref={archetypeDropdownRef} style={{ position: 'relative' }}>
+                  <button
+                    type="button"
+                    onClick={() => setIsArchetypeDropdownOpen(!isArchetypeDropdownOpen)}
+                    className="citadel-select"
+                    role="combobox"
+                    aria-haspopup="listbox"
+                    aria-expanded={isArchetypeDropdownOpen}
+                    aria-label="Expedition Archetype selector"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '7px 10px',
+                      gap: 8,
+                      width: '100%',
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      borderColor: isArchetypeDropdownOpen ? 'var(--border-gold)' : 'var(--border-subtle)',
+                      boxShadow: isArchetypeDropdownOpen ? '0 0 10px rgba(223, 177, 91, 0.25)' : undefined,
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0, flex: 1 }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}>
+                        {currentArchetype.icon}
+                      </span>
+                      <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+                        <span style={{
+                          fontSize: 12,
+                          fontWeight: 700,
+                          color: 'var(--text-gold-bright)',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis'
+                        }}>
+                          {currentArchetype.name}
+                        </span>
+                        <span style={{
+                          fontSize: 10,
+                          color: 'var(--text-muted)',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis'
+                        }}>
+                          {currentArchetype.subtitle}
+                        </span>
                       </div>
-                    );
-                  })}
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+                      <span style={{
+                        fontSize: 10,
+                        fontWeight: 700,
+                        color: currentArchetype.badgeColor,
+                        background: 'rgba(0, 0, 0, 0.25)',
+                        padding: '2px 6px',
+                        borderRadius: 4,
+                        border: '1px solid rgba(223, 177, 91, 0.2)'
+                      }}>
+                        {currentArchetype.pace}
+                      </span>
+                      <ChevronDown
+                        size={14}
+                        style={{
+                          color: 'var(--text-gold)',
+                          transform: isArchetypeDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s ease'
+                        }}
+                      />
+                    </div>
+                  </button>
+
+                  {/* Dropdown Menu Popup */}
+                  {isArchetypeDropdownOpen && (
+                    <div
+                      className="glass-panel"
+                      role="listbox"
+                      aria-label="Expedition Archetypes"
+                      style={{
+                        position: 'absolute',
+                        top: 'calc(100% + 4px)',
+                        left: 0,
+                        right: 0,
+                        maxHeight: 280,
+                        overflowY: 'auto',
+                        zIndex: 1100,
+                        borderRadius: 8,
+                        border: '1px solid var(--border-gold-glow)',
+                        boxShadow: '0 12px 32px rgba(0, 0, 0, 0.7)',
+                        padding: 4,
+                        background: 'var(--bg-card)'
+                      }}
+                    >
+                      {['Overland', 'Naval', 'Aerial'].map((cat) => {
+                        const items = EXPEDITION_ARCHETYPES.filter((a) => a.category === cat);
+                        return (
+                          <div key={cat} style={{ marginBottom: 4 }}>
+                            <div style={{
+                              fontSize: 9,
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.06em',
+                              color: 'var(--text-gold)',
+                              padding: '4px 8px 2px 8px',
+                              fontWeight: 700,
+                              opacity: 0.8
+                            }}>
+                              {cat === 'Overland' ? 'Overland Columns' : cat === 'Naval' ? 'Maritime Fleet' : 'Aerial Flight'}
+                            </div>
+                            {items.map((arch) => {
+                              const isSelected = arch.id === currentArchetypeId;
+                              return (
+                                <div
+                                  key={arch.id}
+                                  role="option"
+                                  aria-selected={isSelected}
+                                  onClick={() => handleSelectArchetype(arch.id)}
+                                  style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    padding: '6px 8px',
+                                    borderRadius: 6,
+                                    cursor: 'pointer',
+                                    background: isSelected ? 'rgba(223, 177, 91, 0.18)' : 'transparent',
+                                    border: isSelected ? '1px solid var(--border-gold-glow)' : '1px solid transparent',
+                                    transition: 'all 0.15s ease'
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    if (!isSelected) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    if (!isSelected) e.currentTarget.style.background = 'transparent';
+                                  }}
+                                >
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+                                    <span style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}>
+                                      {arch.icon}
+                                    </span>
+                                    <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+                                      <span style={{
+                                        fontSize: 12,
+                                        fontWeight: isSelected ? 700 : 500,
+                                        color: isSelected ? 'var(--text-gold-bright)' : 'var(--text-parchment)'
+                                      }}>
+                                        {arch.name}
+                                      </span>
+                                      <span style={{ fontSize: 10, color: 'var(--text-muted)' }}>
+                                        {arch.subtitle}
+                                      </span>
+                                    </div>
+                                  </div>
+
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+                                    <span style={{
+                                      fontSize: 10,
+                                      fontWeight: 700,
+                                      color: arch.badgeColor,
+                                      background: 'rgba(0, 0, 0, 0.25)',
+                                      padding: '1px 5px',
+                                      borderRadius: 4
+                                    }}>
+                                      {arch.pace}
+                                    </span>
+                                    {isSelected && <Check size={13} color="var(--border-gold)" />}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
 
