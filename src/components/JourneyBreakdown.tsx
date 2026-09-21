@@ -94,7 +94,7 @@ export const JourneyBreakdown: React.FC<JourneyBreakdownProps> = ({
           alignItems: 'center',
           justifyContent: 'space-between',
           cursor: 'pointer',
-          background: 'rgba(10, 14, 20, 0.7)'
+          background: 'var(--bg-secondary)'
         }}
       >
         <div>
@@ -146,7 +146,7 @@ export const JourneyBreakdown: React.FC<JourneyBreakdownProps> = ({
                 <span>Journey Duration</span>
               </div>
               <div style={{ marginTop: 4 }}>
-                <div style={{ fontSize: 18, fontWeight: 700, color: '#38bdf8' }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--badge-sea-val, #38bdf8)' }}>
                   {totalDays} <span style={{ fontSize: 11, fontWeight: 400, color: 'var(--text-parchment)' }}>days</span>
                 </div>
                 <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 1 }}>
