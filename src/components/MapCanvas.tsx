@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
+import { Layers } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
+import { ROADS } from '../data/roads';
+import { SEA_LANES } from '../data/seaLanes';
+import { TERRAIN_MODIFIERS } from '../engine/parties';
 import { MAP_WIDTH, MAP_HEIGHT, toLeafletLatLng } from '../engine/scale';
 
 interface MapCanvasProps {
@@ -33,7 +37,14 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const mapInstanceRef = useRef<L.Map | null>(null);
   const routeLayersRef = useRef<L.LayerGroup | null>(null);
   const markerLayersRef = useRef<L.LayerGroup | null>(null);
+  const roadLayersRef = useRef<L.LayerGroup | null>(null);
+  const seaLaneLayersRef = useRef<L.LayerGroup | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
+
+  const [showRoads, setShowRoads] = useState<boolean>(true);
+  const [showSeaLanes, setShowSeaLanes] = useState<boolean>(true);
+  const [showLabels, setShowLabels] = useState<boolean>(true);
+  const [layerPanelOpen, setLayerPanelOpen] = useState<boolean>(false);
 
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -97,10 +108,14 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     // Initial center on Westeros / Narrow Sea
     map.setView([MAP_HEIGHT - 4500, 2200], -1.5);
 
+    const seaLaneGroup = L.layerGroup().addTo(map);
+    const roadGroup = L.layerGroup().addTo(map);
     const markerGroup = L.layerGroup().addTo(map);
     const routeGroup = L.layerGroup().addTo(map);
 
     mapInstanceRef.current = map;
+    seaLaneLayersRef.current = seaLaneGroup;
+    roadLayersRef.current = roadGroup;
     markerLayersRef.current = markerGroup;
     routeLayersRef.current = routeGroup;
 
@@ -109,6 +124,60 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       mapInstanceRef.current = null;
     };
   }, []);
+
+  // Render Imperial Highways Overlay
+  useEffect(() => {
+    const roadGroup = roadLayersRef.current;
+    if (!roadGroup) return;
+    roadGroup.clearLayers();
+    if (!showRoads) return;
+
+    for (const road of ROADS) {
+      const latLngs = road.waypoints.map(toLeafletLatLng);
+      const poly = L.polyline(latLngs, {
+        color: '#dfb15b',
+        weight: 2.2,
+        opacity: 0.55,
+        dashArray: '5, 6',
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(roadGroup);
+
+      poly.bindTooltip(`
+        <div style="font-family: 'Cinzel', serif; padding: 2px;">
+          <strong style="color: #ffd479; font-size: 12px; letter-spacing: 0.5px;">${road.name}</strong><br>
+          <span style="font-size: 11px; color: #cbd5e1; font-family: 'Inter', sans-serif;">Terrain: ${road.terrainType.replace('_', ' ')} • ~${road.distanceMiles} mi</span>
+        </div>
+      `, { sticky: true, className: 'citadel-tooltip' });
+    }
+  }, [showRoads]);
+
+  // Render Maritime Shipping Corridors Overlay
+  useEffect(() => {
+    const seaGroup = seaLaneLayersRef.current;
+    if (!seaGroup) return;
+    seaGroup.clearLayers();
+    if (!showSeaLanes) return;
+
+    for (const lane of SEA_LANES) {
+      const latLngs = lane.waypoints.map(toLeafletLatLng);
+      const poly = L.polyline(latLngs, {
+        color: '#0ea5e9',
+        weight: 2.0,
+        opacity: 0.5,
+        dashArray: '4, 8',
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(seaGroup);
+
+      poly.bindTooltip(`
+        <div style="font-family: 'Cinzel', serif; padding: 2px;">
+          <strong style="color: #38bdf8; font-size: 12px; letter-spacing: 0.5px;">${lane.name}</strong><br>
+          <span style="font-size: 11px; color: #cbd5e1; font-family: 'Inter', sans-serif;">Maritime Sea Corridor • ~${lane.distanceMiles} mi</span>
+        </div>
+      `, { sticky: true, className: 'citadel-tooltip' });
+    }
+  }, [showSeaLanes]);
 
   // Render Settlement Markers
   useEffect(() => {
@@ -154,11 +223,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       if (isOrigin) {
         markerClass += ' marker-origin';
         size = Math.max(size, 20);
-        innerHtml = '<span style="font-size: 11px; font-weight: 900; color: #ffffff; line-height: 1;">A</span>';
+        innerHtml = '<span style="font-size: 11px; font-weight: 900; color: #ffffff; line-height: 1;">S</span>';
       } else if (isDestination) {
         markerClass += ' marker-destination';
         size = Math.max(size, 20);
-        innerHtml = '<span style="font-size: 11px; font-weight: 900; color: #ffffff; line-height: 1;">B</span>';
+        innerHtml = '<span style="font-size: 11px; font-weight: 900; color: #ffffff; line-height: 1;">E</span>';
       } else if (isWaypoint) {
         markerClass += ' marker-waypoint';
         size = Math.max(size, 20);
@@ -171,6 +240,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         <div class="${markerClass}" style="width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center;" title="${node.name}">
           ${innerHtml}
         </div>
+        ${showLabels && (isSelected || node.type === 'capital' || node.type === 'major_city') ? `
+          <div class="citadel-node-label" style="position: absolute; top: ${size + 2}px; left: 50%; transform: translateX(-50%); white-space: nowrap; pointer-events: none; font-size: 10px; font-weight: 600; color: #f4ecd8; text-shadow: 0 1px 3px rgba(0,0,0,0.95), 0 0 4px #000; font-family: serif; letter-spacing: 0.5px;">
+            ${node.name}
+          </div>
+        ` : ''}
       `;
 
       const icon = L.divIcon({
@@ -266,8 +340,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             currentTarget.type === 'origin'
               ? 'Departure Point'
               : currentTarget.type === 'destination'
-              ? 'Arrival Point'
-              : `Intermediate Stop ${currentTarget.index + 1}`;
+                ? 'Arrival Point'
+                : `Intermediate Stop ${currentTarget.index + 1}`;
           showToast(`✓ ${node.name} selected as ${targetRole}`);
           if (onNodePickedRef.current) {
             onNodePickedRef.current(id, currentTarget);
@@ -287,7 +361,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         onQuickRoute(id);
       });
     }
-  }, [originId, destinationId, waypointIds, onSelectNode, onQuickRoute, showToast]);
+  }, [originId, destinationId, waypointIds, onSelectNode, onQuickRoute, showToast, showLabels]);
 
   // Smooth Zoom in on Chosen City with Radar Beacon and Popup
   useEffect(() => {
@@ -374,17 +448,17 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
     // Draw each leg with thematic glowing stroke & directional chevrons
     for (const leg of routeResult.legs) {
-      let legColor = '#f59e0b'; // Gold / amber for land
+      let legColor = TERRAIN_MODIFIERS[leg.terrainType]?.color || '#f59e0b';
       let dashClass = 'route-flowing-land';
       let weight = 4.5;
 
       if (leg.segmentType === 'sea') {
-        legColor = '#06b6d4'; // Luminous cyan for sea
+        legColor = TERRAIN_MODIFIERS[leg.terrainType]?.color || '#06b6d4';
         dashClass = 'route-flowing-sea';
         weight = 4;
       } else if (leg.segmentType === 'flight') {
         const isDragon = leg.edge.name.toLowerCase().includes('dragon') || isDragonRoute;
-        legColor = isDragon ? '#ef4444' : '#c084fc'; // Crimson for dragon, radiant purple for messenger crow/raven
+        legColor = isDragon ? '#ef4444' : '#c084fc';
         dashClass = isDragon ? 'route-flowing-flight' : 'route-flowing-crow';
         weight = 3.5;
       }
@@ -398,10 +472,15 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         className: dashClass
       }).addTo(routeGroup);
 
-      // Leg hover tooltip
+      // Leg hover tooltip with terrain lore and speed calibration
+      const terrainLabel = leg.terrainType.replace('_', ' ');
+      const terrainMod = TERRAIN_MODIFIERS[leg.terrainType]?.speedMultiplier || 1.0;
       legPolyline.bindTooltip(`
-        <b style="font-size: 13px;">${leg.edge.name}</b><br>
-        <span style="font-size: 12px;">${leg.distanceMiles} miles (${leg.distanceKm} km) • ~${leg.transitDays} days</span>
+        <div style="font-family: 'Cinzel', serif; padding: 3px;">
+          <b style="font-size: 13px; color: ${legColor};">${leg.edge.name}</b><br>
+          <span style="font-size: 12px; color: #f4ecd8; font-family: 'Inter', sans-serif;">${leg.distanceMiles} miles (${leg.distanceKm} km) • ~${leg.transitDays} days</span><br>
+          <span style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif; text-transform: capitalize;">Terrain: ${terrainLabel} (${terrainMod}x speed modifier)</span>
+        </div>
       `, {
         sticky: true,
         direction: 'top',
@@ -458,6 +537,26 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       }
     }
 
+    // Intermediate Stage Milestone Badges
+    if (routeResult.journeyStages && routeResult.journeyStages.length > 1) {
+      for (const stage of routeResult.journeyStages) {
+        if (stage.stageIndex < routeResult.journeyStages.length) {
+          const latLng = toLeafletLatLng(stage.toNode.coords);
+          const stageBadge = L.divIcon({
+            className: 'citadel-stage-milestone-icon',
+            html: `
+              <div style="background: rgba(15, 23, 42, 0.92); border: 1px solid #dfb15b; color: #ffd479; border-radius: 12px; padding: 2px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,0.8); pointer-events: none; font-family: 'Cinzel', serif;">
+                Stage ${stage.stageIndex} • ${stage.distanceMiles} mi
+              </div>
+            `,
+            iconSize: [90, 20],
+            iconAnchor: [45, -12]
+          });
+          L.marker(latLng, { icon: stageBadge, interactive: false, zIndexOffset: 2500 }).addTo(routeGroup);
+        }
+      }
+    }
+
     // Animated Traveling Heraldic Token
     let animId: number | null = null;
     const allCoords = routeResult.allCoordinates;
@@ -471,39 +570,48 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       const totalDist = dists[dists.length - 1];
 
       if (totalDist > 0.1) {
-        let partyEmoji = '👑';
-        let tokenBg = 'radial-gradient(circle, #f59e0b 0%, #78350f 100%)';
-        let tokenBorder = '#ffd700';
-
-        if (routeResult.party.id === 'dragon' || isDragonRoute) {
-          partyEmoji = '🐉';
-          tokenBg = 'radial-gradient(circle, #ef4444 0%, #7f1d1d 100%)';
-          tokenBorder = '#f87171';
-        } else if (routeResult.party.id === 'crow' || routeResult.party.id === 'raven' || isCrowRoute) {
-          partyEmoji = '🦅';
-          tokenBg = 'radial-gradient(circle, #a855f7 0%, #581c87 100%)';
-          tokenBorder = '#c084fc';
-        } else if (routeResult.party.id === 'fleet' || routeResult.party.id === 'war_galley' || routeResult.mode === 'sea_only') {
-          partyEmoji = '⛵';
-          tokenBg = 'radial-gradient(circle, #06b6d4 0%, #0e7490 100%)';
-          tokenBorder = '#38bdf8';
-        } else if (routeResult.party.id === 'army' || routeResult.party.id === 'host') {
-          partyEmoji = '🛡️';
-          tokenBg = 'radial-gradient(circle, #e11d48 0%, #881337 100%)';
-          tokenBorder = '#fb7185';
-        } else if (routeResult.party.id === 'courier' || routeResult.party.id === 'fast_courier') {
-          partyEmoji = '🐎';
-          tokenBg = 'radial-gradient(circle, #10b981 0%, #065f46 100%)';
-          tokenBorder = '#34d399';
+        // Map each polyline coordinate segment to its corresponding leg for dynamic multimodal adaptation
+        const legPerSegment: (typeof routeResult.legs[0])[] = [];
+        for (const leg of routeResult.legs) {
+          const segCount = leg.waypoints.length - 1;
+          for (let s = 0; s < segCount; s++) {
+            legPerSegment.push(leg);
+          }
         }
 
-        const createTravelerIcon = () => L.divIcon({
+        let defaultPartyEmoji = '👑';
+        let defaultTokenBg = 'radial-gradient(circle, #f59e0b 0%, #78350f 100%)';
+        let defaultTokenBorder = '#ffd700';
+
+        if (routeResult.party.id === 'dragon' || isDragonRoute) {
+          defaultPartyEmoji = '🐉';
+          defaultTokenBg = 'radial-gradient(circle, #ef4444 0%, #7f1d1d 100%)';
+          defaultTokenBorder = '#f87171';
+        } else if (routeResult.party.id === 'crow' || routeResult.party.id === 'raven' || isCrowRoute) {
+          defaultPartyEmoji = '🦅';
+          defaultTokenBg = 'radial-gradient(circle, #a855f7 0%, #581c87 100%)';
+          defaultTokenBorder = '#c084fc';
+        } else if (routeResult.party.id === 'fleet' || routeResult.party.id === 'war_galley' || routeResult.mode === 'sea_only') {
+          defaultPartyEmoji = '⛵';
+          defaultTokenBg = 'radial-gradient(circle, #06b6d4 0%, #0e7490 100%)';
+          defaultTokenBorder = '#38bdf8';
+        } else if (routeResult.party.id === 'army' || routeResult.party.id === 'host') {
+          defaultPartyEmoji = '🛡️';
+          defaultTokenBg = 'radial-gradient(circle, #e11d48 0%, #881337 100%)';
+          defaultTokenBorder = '#fb7185';
+        } else if (routeResult.party.id === 'courier' || routeResult.party.id === 'fast_courier') {
+          defaultPartyEmoji = '🐎';
+          defaultTokenBg = 'radial-gradient(circle, #10b981 0%, #065f46 100%)';
+          defaultTokenBorder = '#34d399';
+        }
+
+        const createTravelerIcon = (emoji: string, bg: string, border: string) => L.divIcon({
           className: 'route-traveler-div-icon',
           html: `
             <div class="citadel-traveler-token" title="Expedition in Transit: ${routeResult.party.name}">
-              <div class="citadel-traveler-pulse" style="border-color: ${tokenBorder}; box-shadow: 0 0 12px ${tokenBorder};"></div>
-              <div class="citadel-traveler-core" style="background: ${tokenBg}; border: 2px solid ${tokenBorder};">
-                <span style="font-size: 13px; line-height: 1; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.8));">${partyEmoji}</span>
+              <div class="citadel-traveler-pulse" style="border-color: ${border}; box-shadow: 0 0 12px ${border};"></div>
+              <div class="citadel-traveler-core" style="background: ${bg}; border: 2px solid ${border};">
+                <span style="font-size: 13px; line-height: 1; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.8));">${emoji}</span>
               </div>
             </div>
           `,
@@ -511,8 +619,14 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           iconAnchor: [16, 16]
         });
 
+        const initialLeg = legPerSegment[0] || routeResult.legs[0];
+        let currentMode = initialLeg.segmentType;
+        let activeEmoji = (currentMode === 'sea') ? '⛵' : defaultPartyEmoji;
+        let activeBg = (currentMode === 'sea') ? 'radial-gradient(circle, #06b6d4 0%, #0e7490 100%)' : defaultTokenBg;
+        let activeBorder = (currentMode === 'sea') ? '#38bdf8' : defaultTokenBorder;
+
         const travelerMarker = L.marker(allCoords[0], {
-          icon: createTravelerIcon(),
+          icon: createTravelerIcon(activeEmoji, activeBg, activeBorder),
           zIndexOffset: 4000,
           interactive: false
         }).addTo(routeGroup);
@@ -530,6 +644,26 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             segIdx++;
           }
           if (segIdx >= dists.length) segIdx = dists.length - 1;
+
+          // Adapt token appearance if traveler enters sea vs land vs aerial transit
+          const activeLeg = legPerSegment[segIdx - 1] || routeResult.legs[0];
+          if (activeLeg && activeLeg.segmentType !== currentMode) {
+            currentMode = activeLeg.segmentType;
+            if (currentMode === 'sea') {
+              activeEmoji = '⛵';
+              activeBg = 'radial-gradient(circle, #06b6d4 0%, #0e7490 100%)';
+              activeBorder = '#38bdf8';
+            } else if (currentMode === 'flight') {
+              activeEmoji = isDragonRoute ? '🐉' : '🦅';
+              activeBg = isDragonRoute ? 'radial-gradient(circle, #ef4444 0%, #7f1d1d 100%)' : 'radial-gradient(circle, #a855f7 0%, #581c87 100%)';
+              activeBorder = isDragonRoute ? '#f87171' : '#c084fc';
+            } else {
+              activeEmoji = defaultPartyEmoji;
+              activeBg = defaultTokenBg;
+              activeBorder = defaultTokenBorder;
+            }
+            travelerMarker.setIcon(createTravelerIcon(activeEmoji, activeBg, activeBorder));
+          }
 
           const d0 = dists[segIdx - 1];
           const d1 = dists[segIdx];
@@ -617,6 +751,124 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           )}
         </div>
       )}
+
+      {/* Citadel Cartography Layer Toggle Widget */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 24,
+          right: 24,
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-end',
+          gap: 8,
+          pointerEvents: 'auto'
+        }}
+      >
+        {layerPanelOpen && (
+          <div
+            style={{
+              background: 'var(--bg-panel, rgba(16, 22, 31, 0.95))',
+              border: '1px solid var(--border-gold-glow, rgba(223, 177, 91, 0.4))',
+              borderRadius: 12,
+              padding: '14px 16px',
+              width: 260,
+              boxShadow: '0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(223, 177, 91, 0.2)',
+              backdropFilter: 'blur(10px)',
+              color: 'var(--text-parchment, #f4ecd8)',
+              fontFamily: "'Cinzel', serif"
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12, borderBottom: '1px solid rgba(223, 177, 91, 0.2)', paddingBottom: 6 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'var(--text-gold, #dfb15b)' }}>
+                <Layers size={16} />
+                <span>Citadel Cartography</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setLayerPanelOpen(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--text-muted, #94a3b8)',
+                  cursor: 'pointer',
+                  fontSize: 16,
+                  lineHeight: 1
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontFamily: "'Inter', sans-serif", fontSize: 12 }}>
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ color: '#dfb15b' }}>🛣️</span>
+                  <span>Imperial Highways</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={showRoads}
+                  onChange={(e) => setShowRoads(e.target.checked)}
+                  style={{ accentColor: 'var(--border-gold, #c99738)', cursor: 'pointer' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ color: '#0ea5e9' }}>⛵</span>
+                  <span>Maritime Corridors</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={showSeaLanes}
+                  onChange={(e) => setShowSeaLanes(e.target.checked)}
+                  style={{ accentColor: '#0ea5e9', cursor: 'pointer' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ color: '#f59e0b' }}>🏷️</span>
+                  <span>Settlement Labels</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={showLabels}
+                  onChange={(e) => setShowLabels(e.target.checked)}
+                  style={{ accentColor: 'var(--border-gold, #c99738)', cursor: 'pointer' }}
+                />
+              </label>
+            </div>
+          </div>
+        )}
+
+        <button
+          type="button"
+          onClick={() => setLayerPanelOpen(!layerPanelOpen)}
+          style={{
+            background: layerPanelOpen ? 'var(--border-gold, #c99738)' : 'var(--bg-panel, rgba(16, 22, 31, 0.92))',
+            border: '1px solid var(--border-gold-glow, rgba(223, 177, 91, 0.4))',
+            color: layerPanelOpen ? '#0a0e14' : 'var(--text-parchment, #f4ecd8)',
+            padding: '8px 14px',
+            borderRadius: 20,
+            fontSize: 12,
+            fontWeight: 700,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            boxShadow: '0 4px 15px rgba(0,0,0,0.6)',
+            transition: 'all 0.2s ease',
+            fontFamily: "'Cinzel', serif"
+          }}
+          title="Toggle Cartography Overlay Layers"
+        >
+          <Layers size={16} />
+          <span>Cartography Layers</span>
+        </button>
+      </div>
 
       {/* Floating Confirmation Toast */}
       {toastMessage && (
