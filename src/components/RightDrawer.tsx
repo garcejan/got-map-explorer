@@ -95,7 +95,7 @@ export const RightDrawer: React.FC<RightDrawerProps> = ({
           alignItems: 'center',
           justifyContent: 'space-between',
           borderBottom: '1px solid var(--border-subtle)',
-          background: 'rgba(10, 14, 20, 0.85)',
+          background: 'var(--bg-secondary)',
           padding: '4px 6px'
         }}
       >
