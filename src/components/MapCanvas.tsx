@@ -41,8 +41,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const seaLaneLayersRef = useRef<L.LayerGroup | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
 
-  const [showRoads, setShowRoads] = useState<boolean>(true);
-  const [showSeaLanes, setShowSeaLanes] = useState<boolean>(true);
+  const [showRoads, setShowRoads] = useState<boolean>(false);
+  const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
   const [showLabels, setShowLabels] = useState<boolean>(true);
   const [layerPanelOpen, setLayerPanelOpen] = useState<boolean>(false);
 
@@ -448,17 +448,17 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
     // Draw each leg with thematic glowing stroke & directional chevrons
     for (const leg of routeResult.legs) {
-      let legColor = TERRAIN_MODIFIERS[leg.terrainType]?.color || '#f59e0b';
+      let legColor = '#f59e0b'; // Consistent gold/amber for overland travel
       let dashClass = 'route-flowing-land';
       let weight = 4.5;
 
       if (leg.segmentType === 'sea') {
-        legColor = TERRAIN_MODIFIERS[leg.terrainType]?.color || '#06b6d4';
+        legColor = '#06b6d4'; // Luminous ocean-cyan for maritime corridors
         dashClass = 'route-flowing-sea';
         weight = 4;
       } else if (leg.segmentType === 'flight') {
         const isDragon = leg.edge.name.toLowerCase().includes('dragon') || isDragonRoute;
-        legColor = isDragon ? '#ef4444' : '#c084fc';
+        legColor = isDragon ? '#ef4444' : '#c084fc'; // Crimson strictly for dragon, radiant purple strictly for crow/raven
         dashClass = isDragon ? 'route-flowing-flight' : 'route-flowing-crow';
         weight = 3.5;
       }
