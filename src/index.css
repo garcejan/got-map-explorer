@@ -43,6 +43,30 @@
   --preset-raven-border: rgba(168, 85, 247, 0.5);
   --preset-raven-text: #e9d5ff;
   --preset-raven-icon: #c084fc;
+
+  --badge-land-bg: rgba(245, 158, 11, 0.12);
+  --badge-land-border: rgba(245, 158, 11, 0.35);
+  --badge-land-title: #f59e0b;
+  --badge-land-val: #fbbf24;
+
+  --badge-sea-bg: rgba(6, 182, 212, 0.12);
+  --badge-sea-border: rgba(6, 182, 212, 0.35);
+  --badge-sea-title: #06b6d4;
+  --badge-sea-val: #38bdf8;
+
+  --badge-success-bg: rgba(34, 197, 94, 0.15);
+  --badge-success-border: rgba(34, 197, 94, 0.35);
+  --badge-success-text: #4ade80;
+
+  --icon-dragon: #ef4444;
+  --icon-crow: #c084fc;
+  --icon-messenger: #4ade80;
+  --icon-retinue: #fbbf24;
+  --icon-army: #60a5fa;
+  --icon-caravan: #fb923c;
+  --icon-fleet: #22d3ee;
+
+  --modal-backdrop: rgba(5, 8, 14, 0.82);
 }
 
 [data-theme='beige'] {
@@ -88,6 +112,30 @@
   --preset-raven-border: rgba(147, 51, 234, 0.4);
   --preset-raven-text: #581c87;
   --preset-raven-icon: #7e22ce;
+
+  --badge-land-bg: rgba(180, 83, 9, 0.12);
+  --badge-land-border: rgba(180, 83, 9, 0.35);
+  --badge-land-title: #92400e;
+  --badge-land-val: #78350f;
+
+  --badge-sea-bg: rgba(2, 132, 199, 0.12);
+  --badge-sea-border: rgba(2, 132, 199, 0.35);
+  --badge-sea-title: #0369a1;
+  --badge-sea-val: #075985;
+
+  --badge-success-bg: rgba(20, 117, 57, 0.12);
+  --badge-success-border: rgba(20, 117, 57, 0.35);
+  --badge-success-text: #14532d;
+
+  --icon-dragon: #b91c1c;
+  --icon-crow: #7e22ce;
+  --icon-messenger: #15803d;
+  --icon-retinue: #b45309;
+  --icon-army: #1d4ed8;
+  --icon-caravan: #c2410c;
+  --icon-fleet: #0e7490;
+
+  --modal-backdrop: rgba(45, 35, 25, 0.65);
 }
 
 input::placeholder,
