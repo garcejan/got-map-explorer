@@ -462,11 +462,11 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
         className="glass-panel"
         style={{
           position: 'absolute',
-          top: 68,
+          top: 100,
           left: 16,
           width: 390,
           maxWidth: 'calc(100vw - 32px)',
-          height: 'calc(100vh - 84px)',
+          height: 'calc(90vh - 84px)',
           zIndex: 2000,
           display: 'flex',
           flexDirection: 'column',
