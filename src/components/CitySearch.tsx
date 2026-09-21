@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { Search, X, Compass, MapPin, Navigation, Anchor, Shield, Crown, Building2 } from 'lucide-react';
+import { Search, X, Compass, MapPin, Navigation, Anchor, Shield, Crown, Building2, ExternalLink } from 'lucide-react';
 import { NODES } from '../data/nodes';
 import type { LocationNode, NodeType } from '../types';
 
@@ -570,6 +570,41 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                           >
                             Dest
                           </button>
+                        )}
+
+                        {node.wikiUrl && (
+                          <a
+                            href={node.wikiUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            style={{
+                              background: 'rgba(223, 177, 91, 0.15)',
+                              border: '1px solid rgba(223, 177, 91, 0.35)',
+                              color: 'var(--text-gold)',
+                              padding: '2px 6px',
+                              borderRadius: 3,
+                              fontSize: 9,
+                              cursor: 'pointer',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: 3,
+                              textDecoration: 'none',
+                              transition: 'all 0.15s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = 'rgba(223, 177, 91, 0.3)';
+                              e.currentTarget.style.color = '#ffffff';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = 'rgba(223, 177, 91, 0.15)';
+                              e.currentTarget.style.color = 'var(--text-gold)';
+                            }}
+                            title="Open Wiki of Westeros in new tab"
+                          >
+                            <ExternalLink size={9} />
+                            <span>Wiki</span>
+                          </a>
                         )}
 
                         <span

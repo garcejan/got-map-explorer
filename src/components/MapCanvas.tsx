@@ -282,7 +282,18 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           </div>
         </div>
         ${node.allegiance ? `<div style="font-size: 12px; color: #ffd479; margin-bottom: 6px;"><b>Allegiance:</b> ${node.allegiance}</div>` : ''}
-        ${node.loreSnippet ? `<p style="font-size: 12px; color: #94a3b8; margin: 4px 0 12px; font-style: italic; line-height: 1.4;">"${node.loreSnippet}"</p>` : ''}
+        ${node.loreSnippet ? `<p style="font-size: 12px; color: #94a3b8; margin: 4px 0 10px; font-style: italic; line-height: 1.4;">"${node.loreSnippet}"</p>` : ''}
+        ${node.wikiUrl ? `
+          <div style="margin-bottom: 10px;">
+            <a href="${node.wikiUrl}" target="_blank" rel="noopener noreferrer" class="citadel-popup-wiki-btn" title="View historical records and lore on the Wiki of Westeros">
+              <span style="display: flex; align-items: center; gap: 5px;">
+                <span>📜</span>
+                <span>Wiki of Westeros Details</span>
+              </span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        ` : ''}
         <div class="citadel-popup-actions">
           <button type="button" class="citadel-popup-btn citadel-popup-btn-origin" style="font-size: 12px; padding: 6px 10px;">
             ${isOrigin ? '✓ Departure' : 'Set Departure'}
@@ -299,6 +310,13 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       // Prevent clicks/drags inside popup from bubbling to the Leaflet map
       L.DomEvent.disableClickPropagation(popupDiv);
       L.DomEvent.disableScrollPropagation(popupDiv);
+
+      const wikiLink = popupDiv.querySelector('.citadel-popup-wiki-btn') as HTMLAnchorElement | null;
+      if (wikiLink) {
+        L.DomEvent.on(wikiLink, 'click', (e) => {
+          L.DomEvent.stopPropagation(e);
+        });
+      }
 
       const btnOrig = popupDiv.querySelector('.citadel-popup-btn-origin') as HTMLButtonElement | null;
       const btnDest = popupDiv.querySelector('.citadel-popup-btn-dest') as HTMLButtonElement | null;
