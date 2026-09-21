@@ -497,17 +497,27 @@ const RAW_ROADS: RawEdge[] = [
 
   // ================= THE REACH & THE ROSEROAD =================
   {
-    id: 'road_roseroad_kings_landing_bitterbridge',
+    id: 'road_roseroad_kings_landing_tumbleton',
     from: 'kings_landing',
-    to: 'bitterbridge',
-    name: 'The Roseroad (Crownlands Section)',
+    to: 'tumbleton',
+    name: 'The Roseroad (Crownlands to Tumbleton)',
     terrainType: 'royal_road',
     waypoints: [
-      [1955, 4670],
-      [1850, 4700],
-      [1730, 4740],
-      [1620, 4770],
-      [1520, 4800]
+      [1942, 4589],
+      [1850, 4660],
+      [1763, 4721]
+    ]
+  },
+  {
+    id: 'road_roseroad_tumbleton_bitterbridge',
+    from: 'tumbleton',
+    to: 'bitterbridge',
+    name: 'The Roseroad (Tumbleton to Bitterbridge)',
+    terrainType: 'royal_road',
+    waypoints: [
+      [1763, 4721],
+      [1670, 4775],
+      [1572, 4828]
     ]
   },
   {
