@@ -290,32 +290,32 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
       name: 'Noble Retinue',
       subtitle: 'Royal Progress & Court',
       pace: '~18 mi / day',
-      icon: <Crown size={16} color="var(--text-gold)" />,
-      badgeColor: '#f59e0b'
+      icon: <Crown size={16} color="var(--icon-retinue, var(--text-gold))" />,
+      badgeColor: 'var(--badge-land-val, #f59e0b)'
     },
     {
       id: 'army',
       name: 'Marching Host',
       subtitle: 'Infantry & Baggage Train',
       pace: '~12 mi / day',
-      icon: <Shield size={16} color="#ef4444" />,
-      badgeColor: '#ef4444'
+      icon: <Shield size={16} color="var(--icon-army, #ef4444)" />,
+      badgeColor: 'var(--icon-army, #ef4444)'
     },
     {
       id: 'galley',
       name: 'War Galley & Fleet',
       subtitle: 'Ironborn / Royal Navy',
       pace: '~115 mi / day',
-      icon: <Ship size={16} color="#06b6d4" />,
-      badgeColor: '#06b6d4'
+      icon: <Ship size={16} color="var(--icon-fleet, #06b6d4)" />,
+      badgeColor: 'var(--badge-sea-val, #06b6d4)'
     },
     {
       id: 'flight',
       name: 'Dragon & Raven',
       subtitle: 'Direct Aerial High Altitude',
       pace: '~240–520 mi / day',
-      icon: <Flame size={16} color="#c084fc" />,
-      badgeColor: '#c084fc'
+      icon: <Flame size={16} color="var(--icon-crow, #c084fc)" />,
+      badgeColor: 'var(--icon-crow, #c084fc)'
     }
   ];
 
