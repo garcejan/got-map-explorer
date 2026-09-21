@@ -24,6 +24,7 @@ export interface LocationNode {
   isPort?: boolean;
   isHub?: boolean;
   loreSnippet?: string;
+  wikiUrl?: string;
 }
 
 export interface RouteEdge {
