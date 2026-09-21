@@ -166,7 +166,7 @@ export const Header: React.FC<HeaderProps> = ({
             title="Switch to Dark (Citadel Obsidian) Theme"
           >
             <Moon size={13} />
-            <span>Dark</span>
+            {/* <span>Dark</span> */}
           </button>
 
           <button
@@ -200,7 +200,7 @@ export const Header: React.FC<HeaderProps> = ({
             title="Switch to Beige (Antiquarian Parchment) Theme"
           >
             <Sun size={13} />
-            <span>Beige</span>
+            {/* <span>Beige</span> */}
           </button>
         </div>
       </div>

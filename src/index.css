@@ -481,6 +481,13 @@ html, body, #root {
 .btn-citadel:active {
   transform: translateY(0);
 }
+.btn-citadel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  filter: grayscale(40%);
+}
 
 .btn-secondary {
   background: var(--bg-tertiary);

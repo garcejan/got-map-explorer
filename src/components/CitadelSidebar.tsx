@@ -22,7 +22,8 @@ import {
   Crown,
   Bird,
   Feather,
-  Coins
+  Coins,
+  RotateCcw
 } from 'lucide-react';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
@@ -52,6 +53,7 @@ export interface CitadelSidebarProps {
   onSelectMode: (mode: RoutingPreference) => void;
   onSelectGoal: (goal: OptimizationGoal) => void;
   onCalculateRoute: () => void;
+  onClearRoute?: () => void;
 }
 
 interface AutocompleteInputProps {
@@ -300,12 +302,26 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   onSelectParty,
   onSelectMode,
   onSelectGoal,
-  onCalculateRoute
+  onCalculateRoute,
+  onClearRoute
 }) => {
   const [activeTab, setActiveTab] = useState<'planner' | 'ledger'>('planner');
   const [ledgerSubTab, setLedgerSubTab] = useState<'overview' | 'roads' | 'corridors' | 'guide'>('overview');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [showPartyInfoModal, setShowPartyInfoModal] = useState(false);
+
+  const hasActiveRoute = Boolean(originId || destinationId || waypointIds.length > 0 || routeResult);
+
+  const handleClearRoute = () => {
+    if (onClearRoute) {
+      onClearRoute();
+    } else {
+      onSetOrigin('');
+      onSetDestination('');
+      onSetWaypoints([]);
+    }
+    setActiveTab('planner');
+  };
 
   const handleSwap = () => {
     const temp = originId;
@@ -497,14 +513,38 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               </span>
             </div>
 
-            <button
-              onClick={onToggle}
-              className="btn-secondary"
-              style={{ padding: '4px 8px', fontSize: 12 }}
-              title="Minimize Ledger"
-            >
-              <Minimize2 size={13} />
-            </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              {hasActiveRoute && (
+                <button
+                  type="button"
+                  onClick={handleClearRoute}
+                  className="btn-secondary"
+                  style={{
+                    padding: '4px 8px',
+                    fontSize: 11,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                    color: '#f87171',
+                    borderColor: 'rgba(239, 68, 68, 0.35)',
+                    background: 'rgba(239, 68, 68, 0.08)'
+                  }}
+                  title="Clear Current Route"
+                >
+                  <RotateCcw size={12} />
+                  <span>Clear</span>
+                </button>
+              )}
+
+              <button
+                onClick={onToggle}
+                className="btn-secondary"
+                style={{ padding: '4px 8px', fontSize: 12 }}
+                title="Minimize Ledger"
+              >
+                <Minimize2 size={13} />
+              </button>
+            </div>
           </div>
 
           {/* Primary View Tabs */}
@@ -718,7 +758,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
 
               {/* Expedition Archetype Selection */}
               <div style={{ marginTop: 14, marginBottom: 14 }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
                   <label className="citadel-label" style={{ margin: 0 }}>
                     <span>Expedition Archetype</span>
                   </label>
@@ -730,7 +770,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                       background: 'rgba(223, 177, 91, 0.12)',
                       border: '1px solid var(--border-gold-glow)',
                       borderRadius: 12,
-                      padding: '3px 8px',
+                      padding: '3px 3px',
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: 4,
@@ -742,8 +782,9 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     title="How Fast & Why: Canon logistics and travel endurance"
                   >
                     <Info size={12} />
-                    <span>How Fast & Why?</span>
+                    {/* <span>How Fast & Why?</span> */}
                   </button>
+
                 </div>
 
                 {/* Expedition Archetype Dropdown List */}
@@ -1009,18 +1050,46 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                 )}
               </div>
 
-              {/* Prominent Calculate Button */}
-              <button
-                onClick={() => {
-                  onCalculateRoute();
-                  setActiveTab('ledger');
-                }}
-                className="btn-citadel"
-                style={{ width: '100%', padding: '12px', fontSize: 14 }}
-              >
-                <Navigation size={16} />
-                <span>Calculate Journey</span>
-              </button>
+              {/* Prominent Action Buttons: Calculate Journey & Clear Route */}
+              <div style={{ display: 'flex', gap: 8, alignItems: 'stretch' }}>
+                <button
+                  disabled={!originId || !destinationId}
+                  onClick={() => {
+                    onCalculateRoute();
+                    setActiveTab('ledger');
+                  }}
+                  className="btn-citadel"
+                  style={{ flex: 1, padding: '12px', fontSize: 14 }}
+                >
+                  <Navigation size={16} />
+                  <span>Calculate Journey</span>
+                </button>
+
+                {hasActiveRoute && (
+                  <button
+                    type="button"
+                    onClick={handleClearRoute}
+                    className="btn-secondary"
+                    style={{
+                      padding: '12px 16px',
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: '#f87171',
+                      borderColor: 'rgba(239, 68, 68, 0.4)',
+                      background: 'rgba(239, 68, 68, 0.08)',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 6
+                    }}
+                    title="Clear current route and stops"
+                  >
+                    <RotateCcw size={15} />
+                    <span>Clear Route</span>
+                  </button>
+                )}
+              </div>
             </div>
           )}
 
@@ -1063,9 +1132,30 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                         </strong>
                       </div>
 
-                      <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.2)', color: 'var(--text-gold-bright)' }}>
-                        {routeResult.optimizationGoal === 'shortest' ? 'Shortest' : routeResult.optimizationGoal === 'fastest' ? 'Fastest' : 'Optimal'}
-                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.2)', color: 'var(--text-gold-bright)' }}>
+                          {routeResult.optimizationGoal === 'shortest' ? 'Shortest' : routeResult.optimizationGoal === 'fastest' ? 'Fastest' : 'Optimal'}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={handleClearRoute}
+                          className="btn-secondary"
+                          style={{
+                            padding: '2px 7px',
+                            fontSize: 11,
+                            color: '#f87171',
+                            borderColor: 'rgba(239, 68, 68, 0.35)',
+                            background: 'rgba(239, 68, 68, 0.08)',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 4
+                          }}
+                          title="Clear journey"
+                        >
+                          <RotateCcw size={12} />
+                          <span>Clear</span>
+                        </button>
+                      </div>
                     </div>
 
                     <div style={{ fontSize: 12, color: 'var(--text-muted)', display: 'flex', justifyContent: 'space-between' }}>

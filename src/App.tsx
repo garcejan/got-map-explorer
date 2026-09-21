@@ -190,6 +190,14 @@ export const App: React.FC = () => {
     setSidebarOpen(true);
   }, []);
 
+  const handleClearRoute = useCallback(() => {
+    setOriginId('');
+    setDestinationId('');
+    setWaypointIds([]);
+    setRouteResult(null);
+    setMapPickingTarget(null);
+  }, []);
+
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Full-bleed Map Canvas */}
@@ -246,6 +254,7 @@ export const App: React.FC = () => {
         onSelectMode={handleSelectMode}
         onSelectGoal={setSelectedGoal}
         onCalculateRoute={handleCalculate}
+        onClearRoute={handleClearRoute}
       />
     </div>
   );
