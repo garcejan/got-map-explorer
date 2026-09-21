@@ -9,7 +9,6 @@ import {
   Coins,
   Ship,
   Check,
-  Zap,
   Clock,
   Compass,
   BookOpen
@@ -43,7 +42,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     id: 'dragon',
     name: 'Dragon Flight (e.g. Balerion / Drogon / Silverwing)',
     category: 'aerial',
-    icon: <Flame size={18} color="#ef4444" />,
+    icon: <Flame size={18} color="var(--icon-dragon, #ef4444)" />,
     landSpeedMiles: 520,
     landSpeedKm: 837,
     seaSpeedMiles: 520,
@@ -60,7 +59,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     id: 'crow',
     name: 'Messenger Crow / Raven',
     category: 'aerial',
-    icon: <Bird size={18} color="#a855f7" />,
+    icon: <Bird size={18} color="var(--icon-crow, #a855f7)" />,
     landSpeedMiles: 240,
     landSpeedKm: 386,
     seaSpeedMiles: 240,
@@ -77,7 +76,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     id: 'messenger',
     name: 'Fast Courier / Raven Rider',
     category: 'land',
-    icon: <Feather size={18} color="#22c55e" />,
+    icon: <Feather size={18} color="var(--icon-messenger, #22c55e)" />,
     landSpeedMiles: 58,
     landSpeedKm: 93,
     seaSpeedMiles: 90,
@@ -94,7 +93,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     id: 'retinue',
     name: 'Noble Retinue / Royal Progress',
     category: 'land',
-    icon: <Crown size={18} color="#eab308" />,
+    icon: <Crown size={18} color="var(--icon-retinue, #eab308)" />,
     landSpeedMiles: 18,
     landSpeedKm: 29,
     seaSpeedMiles: 95,
@@ -111,7 +110,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     id: 'army',
     name: 'Marching Host / Feudal Army',
     category: 'land',
-    icon: <Shield size={18} color="#3b82f6" />,
+    icon: <Shield size={18} color="var(--icon-army, #3b82f6)" />,
     landSpeedMiles: 12,
     landSpeedKm: 19,
     seaSpeedMiles: 75,
@@ -128,7 +127,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     id: 'caravan',
     name: 'Merchant Caravan',
     category: 'land',
-    icon: <Coins size={18} color="#f97316" />,
+    icon: <Coins size={18} color="var(--icon-caravan, #f97316)" />,
     landSpeedMiles: 15,
     landSpeedKm: 24,
     seaSpeedMiles: 100,
@@ -145,7 +144,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     id: 'fleet',
     name: 'War Galley / Sailing Fleet',
     category: 'naval',
-    icon: <Ship size={18} color="#06b6d4" />,
+    icon: <Ship size={18} color="var(--icon-fleet, #06b6d4)" />,
     landSpeedMiles: 14,
     landSpeedKm: 22,
     seaSpeedMiles: 115,
@@ -195,7 +194,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(5, 8, 14, 0.82)',
+        backgroundColor: 'var(--modal-backdrop)',
         backdropFilter: 'blur(8px)',
         zIndex: 5000,
         display: 'flex',
@@ -213,7 +212,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
           maxHeight: '88vh',
           display: 'flex',
           flexDirection: 'column',
-          boxShadow: '0 24px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(223, 177, 91, 0.25)',
+          boxShadow: 'var(--shadow-lg), 0 0 30px var(--shadow-gold)',
           border: '1px solid var(--border-gold)',
           borderRadius: 8,
           overflow: 'hidden',
@@ -274,7 +273,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
           </button>
         </div>
 
-        {/* Highlight Callout: Dragon vs Crow Calibration */}
+        {/* Highlight Callout: Dragon vs Crow Calibration
         <div
           style={{
             padding: '10px 20px',
@@ -292,7 +291,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
             <strong>Messenger Raven (240 miles / day)</strong>, aligning with George R.R. Martin canon in{' '}
             <em>Fire & Blood</em> where dragons outpace all heralds and rookeries across Westeros.
           </div>
-        </div>
+        </div> */}
 
         {/* Filter Navigation Tabs */}
         <div
@@ -353,8 +352,9 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                   style={{
                     padding: '12px 16px',
                     borderColor: isSelected ? 'var(--border-gold)' : 'var(--border-subtle)',
-                    background: isSelected ? 'rgba(223, 177, 91, 0.08)' : 'rgba(20, 27, 38, 0.7)',
-                    transition: 'border-color 0.2s, background 0.2s'
+                    background: isSelected ? 'rgba(223, 177, 91, 0.16)' : 'var(--bg-card)',
+                    boxShadow: isSelected ? '0 0 12px var(--border-gold-glow)' : undefined,
+                    transition: 'border-color 0.2s, background 0.2s, box-shadow 0.2s'
                   }}
                 >
                   {/* Top Row: Archetype Title + Speeds + Action */}
@@ -374,7 +374,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                           width: 32,
                           height: 32,
                           borderRadius: 6,
-                          background: 'rgba(10, 14, 20, 0.8)',
+                          background: 'var(--bg-subtle)',
                           border: '1px solid var(--border-subtle)',
                           display: 'flex',
                           alignItems: 'center',
@@ -400,11 +400,11 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                               style={{
                                 fontSize: 9,
                                 fontWeight: 700,
-                                background: 'rgba(34, 197, 94, 0.2)',
-                                color: '#4ade80',
+                                background: 'var(--badge-success-bg)',
+                                color: 'var(--badge-success-text)',
                                 padding: '2px 6px',
                                 borderRadius: 4,
-                                border: '1px solid rgba(34, 197, 94, 0.4)',
+                                border: '1px solid var(--badge-success-border)',
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 gap: 3
@@ -427,17 +427,17 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div
                         style={{
-                          background: 'rgba(245, 158, 11, 0.12)',
-                          border: '1px solid rgba(245, 158, 11, 0.35)',
+                          background: 'var(--badge-land-bg)',
+                          border: '1px solid var(--badge-land-border)',
                           borderRadius: 4,
                           padding: '4px 8px',
                           textAlign: 'right'
                         }}
                       >
-                        <div style={{ fontSize: 9, color: '#f59e0b', textTransform: 'uppercase', fontWeight: 600 }}>
+                        <div style={{ fontSize: 9, color: 'var(--badge-land-title)', textTransform: 'uppercase', fontWeight: 600 }}>
                           Land Speed
                         </div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: '#fbbf24' }}>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--badge-land-val)' }}>
                           {party.landSpeedMiles}{' '}
                           <span style={{ fontSize: 10, fontWeight: 400, color: 'var(--text-muted)' }}>
                             mi/day ({party.landSpeedKm} km)
@@ -447,17 +447,17 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
 
                       <div
                         style={{
-                          background: 'rgba(6, 182, 212, 0.12)',
-                          border: '1px solid rgba(6, 182, 212, 0.35)',
+                          background: 'var(--badge-sea-bg)',
+                          border: '1px solid var(--badge-sea-border)',
                           borderRadius: 4,
                           padding: '4px 8px',
                           textAlign: 'right'
                         }}
                       >
-                        <div style={{ fontSize: 9, color: '#06b6d4', textTransform: 'uppercase', fontWeight: 600 }}>
+                        <div style={{ fontSize: 9, color: 'var(--badge-sea-title)', textTransform: 'uppercase', fontWeight: 600 }}>
                           Sea Speed
                         </div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: '#38bdf8' }}>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--badge-sea-val)' }}>
                           {party.seaSpeedMiles}{' '}
                           <span style={{ fontSize: 10, fontWeight: 400, color: 'var(--text-muted)' }}>
                             mi/day ({party.seaSpeedKm} km)
@@ -492,7 +492,8 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                       marginTop: 8,
                       fontSize: 11,
                       lineHeight: 1.45,
-                      background: 'rgba(10, 14, 20, 0.5)',
+                      background: 'var(--bg-subtle)',
+                      border: '1px solid var(--border-subtle)',
                       padding: '10px 12px',
                       borderRadius: 6
                     }}
@@ -554,7 +555,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                   >
                     <div>
                       <strong style={{ color: 'var(--text-gold)' }}>Canon Reference: </strong>
-                      <span>{party.canonExample}</span>
+                      <span style={{ color: 'var(--text-parchment)' }}>{party.canonExample}</span>
                     </div>
 
                     <button
@@ -578,7 +579,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                       style={{
                         marginTop: 8,
                         padding: '8px 10px',
-                        background: 'rgba(223, 177, 91, 0.08)',
+                        background: 'rgba(223, 177, 91, 0.1)',
                         borderLeft: '3px solid var(--border-gold)',
                         borderRadius: '0 4px 4px 0',
                         fontStyle: 'italic',
@@ -600,7 +601,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
           style={{
             padding: '10px 20px',
             borderTop: '1px solid var(--border-subtle)',
-            background: 'rgba(10, 14, 20, 0.95)',
+            background: 'var(--bg-secondary)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
