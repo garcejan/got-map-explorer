@@ -1,0 +1,1952 @@
+{
+  "barrowton": {
+    "name": "Barrowton",
+    "wikiTitle": "Barrowton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Barrowton",
+    "pageid": 6961
+  },
+  "bear_island": {
+    "name": "Bear Island",
+    "wikiTitle": "Bear Island",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bear_Island",
+    "pageid": 3073
+  },
+  "breakstone_hill": {
+    "name": "Breakstone Hill",
+    "wikiTitle": "The North",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/The_North",
+    "pageid": 21128
+  },
+  "castle_black": {
+    "name": "Castle Black",
+    "wikiTitle": "Castle Black",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Castle_Black",
+    "pageid": 2202
+  },
+  "castle_cerwyn": {
+    "name": "Castle Cerwyn",
+    "wikiTitle": "Castle Cerwyn",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Castle_Cerwyn",
+    "pageid": 6951
+  },
+  "crasters_keep": {
+    "name": "Craster's Keep",
+    "wikiTitle": "Craster's Keep",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Craster's_Keep",
+    "pageid": 4600
+  },
+  "deepdown": {
+    "name": "Deepdown",
+    "wikiTitle": "Skagos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Skagos",
+    "pageid": 6917
+  },
+  "deepwood_motte": {
+    "name": "Deepwood Motte",
+    "wikiTitle": "Deepwood Motte",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Deepwood_Motte",
+    "pageid": 3127
+  },
+  "eastwatch": {
+    "name": "Eastwatch-by-the-Sea",
+    "wikiTitle": "Eastwatch-by-the-Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Eastwatch-by-the-Sea",
+    "pageid": 4864
+  },
+  "fist_of_the_first_men": {
+    "name": "Fist of the First Men",
+    "wikiTitle": "Fist of the First Men",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Fist_of_the_First_Men",
+    "pageid": 5951
+  },
+  "flints_finger": {
+    "name": "Flint's Finger",
+    "wikiTitle": "Flint's Finger",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Flint's_Finger",
+    "pageid": 6965
+  },
+  "goldgrass": {
+    "name": "Goldgrass",
+    "wikiTitle": "Barrowton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Barrowton",
+    "pageid": 6961
+  },
+  "greywater_watch": {
+    "name": "Greywater Watch",
+    "wikiTitle": "Greywater Watch",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Greywater_Watch",
+    "pageid": 3134
+  },
+  "hardhome": {
+    "name": "Hardhome",
+    "wikiTitle": "Hardhome",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hardhome",
+    "pageid": 29965
+  },
+  "hornwood": {
+    "name": "Hornwood",
+    "wikiTitle": "Hornwood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hornwood",
+    "pageid": 3130
+  },
+  "karhold": {
+    "name": "Karhold",
+    "wikiTitle": "Karhold",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Karhold",
+    "pageid": 3131
+  },
+  "kingshouse": {
+    "name": "Kingshouse",
+    "wikiTitle": "Skagos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Skagos",
+    "pageid": 6917
+  },
+  "last_hearth": {
+    "name": "Last Hearth",
+    "wikiTitle": "Last Hearth",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Last_Hearth",
+    "pageid": 3136
+  },
+  "moat_cailin": {
+    "name": "Moat Cailin",
+    "wikiTitle": "Moat Cailin",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Moat_Cailin",
+    "pageid": 2887
+  },
+  "moles_town": {
+    "name": "Mole's Town",
+    "wikiTitle": "Mole's Town",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Mole's_Town",
+    "pageid": 8874
+  },
+  "oldcastle": {
+    "name": "Oldcastle",
+    "wikiTitle": "Oldcastle",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Oldcastle",
+    "pageid": 3132
+  },
+  "queenscrown": {
+    "name": "Queenscrown",
+    "wikiTitle": "Queenscrown",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Queenscrown",
+    "pageid": 6910
+  },
+  "ramsgate": {
+    "name": "Ramsgate",
+    "wikiTitle": "Ramsgate",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ramsgate",
+    "pageid": 6957
+  },
+  "the_dreadfort": {
+    "name": "The Dreadfort",
+    "wikiTitle": "Dreadfort",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dreadfort",
+    "pageid": 3119
+  },
+  "nightfort": {
+    "name": "The Nightfort",
+    "wikiTitle": "Nightfort",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Nightfort",
+    "pageid": 6902
+  },
+  "shadow_tower": {
+    "name": "The Shadow Tower",
+    "wikiTitle": "Shadow Tower",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Shadow_Tower",
+    "pageid": 6901
+  },
+  "torrhens_square": {
+    "name": "Torrhen's Square",
+    "wikiTitle": "Torrhen's Square",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Torrhen's_Square",
+    "pageid": 3135
+  },
+  "tumbledown_tower": {
+    "name": "Tumbledown Tower",
+    "wikiTitle": "Tumbledown Tower",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tumbledown_Tower",
+    "pageid": 82383
+  },
+  "white_harbor": {
+    "name": "White Harbor",
+    "wikiTitle": "White Harbor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/White_Harbor",
+    "pageid": 3133
+  },
+  "whitetree": {
+    "name": "Whitetree",
+    "wikiTitle": "White Tree",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/White_Tree",
+    "pageid": 6898
+  },
+  "widows_watch": {
+    "name": "Widow's Watch",
+    "wikiTitle": "Widow's Watch",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Widow's_Watch",
+    "pageid": 6956
+  },
+  "winterfell": {
+    "name": "Winterfell",
+    "wikiTitle": "Winterfell",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Winterfell",
+    "pageid": 2039
+  },
+  "acorn_hall": {
+    "name": "Acorn Hall",
+    "wikiTitle": "Acorn Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Acorn_Hall",
+    "pageid": 6974
+  },
+  "atranta": {
+    "name": "Atranta",
+    "wikiTitle": "Atranta",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Atranta",
+    "pageid": 80484
+  },
+  "darry": {
+    "name": "Castle Darry",
+    "wikiTitle": "House Darry",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/House_Darry",
+    "pageid": 21596
+  },
+  "lychester": {
+    "name": "Castle Lychester",
+    "wikiTitle": "Lychester",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lychester",
+    "pageid": 80486
+  },
+  "crossed_elms": {
+    "name": "Crossed Elms",
+    "wikiTitle": "Crossed Elms",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Crossed_Elms",
+    "pageid": 80482
+  },
+  "fairmarket": {
+    "name": "Fairmarket",
+    "wikiTitle": "Fairmarket",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Fairmarket",
+    "pageid": 19942
+  },
+  "hags_mire": {
+    "name": "Hag's Mire",
+    "wikiTitle": "House Frey",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/House_Frey",
+    "pageid": 2386
+  },
+  "harrenhal": {
+    "name": "Harrenhal",
+    "wikiTitle": "Harrenhal",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Harrenhal",
+    "pageid": 2520
+  },
+  "high_heart": {
+    "name": "High Heart",
+    "wikiTitle": "High Heart",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/High_Heart",
+    "pageid": 6977
+  },
+  "crossroads_inn": {
+    "name": "Inn at the Crossroads",
+    "wikiTitle": "Inn at the Crossroads",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Inn_at_the_Crossroads",
+    "pageid": 2333
+  },
+  "lake_town": {
+    "name": "Lake Town",
+    "wikiTitle": "Lake Town",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lake_Town",
+    "pageid": 80481
+  },
+  "lambswold": {
+    "name": "Lambswold",
+    "wikiTitle": "Lambswold",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lambswold",
+    "pageid": 80488
+  },
+  "harroway": {
+    "name": "Lord Harroway's Town",
+    "wikiTitle": "Lord Harroway's Town",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lord_Harroway's_Town",
+    "pageid": 56482
+  },
+  "maidenpool": {
+    "name": "Maidenpool",
+    "wikiTitle": "Maidenpool",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Maidenpool",
+    "pageid": 6982
+  },
+  "mudgrave": {
+    "name": "Mudgrave",
+    "wikiTitle": "House Vance",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/House_Vance",
+    "pageid": 79360
+  },
+  "mummers_ford": {
+    "name": "Mummer's Ford",
+    "wikiTitle": "Mummer's Ford",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Mummer's_Ford",
+    "pageid": 15370
+  },
+  "nutten": {
+    "name": "Nutten",
+    "wikiTitle": "Nutton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Nutton",
+    "pageid": 81469
+  },
+  "oldstones": {
+    "name": "Oldstones",
+    "wikiTitle": "Oldstones",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Oldstones",
+    "pageid": 55778
+  },
+  "pennytree": {
+    "name": "Pennytree",
+    "wikiTitle": "Pennytree",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Pennytree",
+    "pageid": 23986
+  },
+  "pinkmaiden": {
+    "name": "Pinkmaiden Castle",
+    "wikiTitle": "Pinkmaiden",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Pinkmaiden",
+    "pageid": 6973
+  },
+  "ramsford": {
+    "name": "Ramsford",
+    "wikiTitle": "House Frey",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/House_Frey",
+    "pageid": 2386
+  },
+  "raventree_hall": {
+    "name": "Raventree Hall",
+    "wikiTitle": "Raventree Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Raventree_Hall",
+    "pageid": 6970
+  },
+  "riverbend": {
+    "name": "Riverbend",
+    "wikiTitle": "Riverbend",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Riverbend",
+    "pageid": 80490
+  },
+  "riverrun": {
+    "name": "Riverrun",
+    "wikiTitle": "Riverrun",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Riverrun",
+    "pageid": 2463
+  },
+  "ruby_ford": {
+    "name": "Ruby Ford",
+    "wikiTitle": "Ruby Ford",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ruby_Ford",
+    "pageid": 9773
+  },
+  "rushing_falls": {
+    "name": "Rushing Falls",
+    "wikiTitle": "Rushing Falls",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Rushing_Falls",
+    "pageid": 80483
+  },
+  "sallydance": {
+    "name": "Sallydance",
+    "wikiTitle": "Sallydance",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sallydance",
+    "pageid": 80489
+  },
+  "saltpans": {
+    "name": "Saltpans",
+    "wikiTitle": "Saltpans",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Saltpans",
+    "pageid": 26419
+  },
+  "seagard": {
+    "name": "Seagard",
+    "wikiTitle": "Seagard",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Seagard",
+    "pageid": 6972
+  },
+  "sevenstreams": {
+    "name": "Sevenstreams",
+    "wikiTitle": "House Vance",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/House_Vance",
+    "pageid": 79360
+  },
+  "sherrer": {
+    "name": "Sherrer",
+    "wikiTitle": "Sherrer",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sherrer",
+    "pageid": 80485
+  },
+  "stone_hedge": {
+    "name": "Stone Hedge",
+    "wikiTitle": "Stone Hedge",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Stone_Hedge",
+    "pageid": 6971
+  },
+  "stoney_sept": {
+    "name": "Stoney Sept",
+    "wikiTitle": "Stoney Sept",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Stoney_Sept",
+    "pageid": 6980
+  },
+  "quiet_isle": {
+    "name": "The Quiet Isle",
+    "wikiTitle": "Quiet Isle",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Quiet_Isle",
+    "pageid": 80492
+  },
+  "the_twins": {
+    "name": "The Twins",
+    "wikiTitle": "Twins",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Twins",
+    "pageid": 2658
+  },
+  "tumblers_falls": {
+    "name": "Tumbler's Falls",
+    "wikiTitle": "Tumbler's Falls",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tumbler's_Falls",
+    "pageid": 80479
+  },
+  "wayfarers_rest": {
+    "name": "Wayfarer's Rest",
+    "wikiTitle": "Wayfarer's Rest",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Wayfarer's_Rest",
+    "pageid": 79749
+  },
+  "wendish_town": {
+    "name": "Wendish Town",
+    "wikiTitle": "Wendish Town",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Wendish_Town",
+    "pageid": 6981
+  },
+  "whitewalls": {
+    "name": "Whitewalls",
+    "wikiTitle": "Whitewalls",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Whitewalls",
+    "pageid": 57610
+  },
+  "widows_ford": {
+    "name": "Widow's Ford",
+    "wikiTitle": "Widow's Ford",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Widow's_Ford",
+    "pageid": 80491
+  },
+  "willow_wood": {
+    "name": "Willow Wood",
+    "wikiTitle": "Willow Wood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Willow_Wood",
+    "pageid": 80487
+  },
+  "baelish_keep": {
+    "name": "Baelish Keep",
+    "wikiTitle": "Baelish keep",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Baelish_keep",
+    "pageid": 38955
+  },
+  "breakwater": {
+    "name": "Breakwater",
+    "wikiTitle": "Sisterton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sisterton",
+    "pageid": 7519
+  },
+  "coldwater_burn": {
+    "name": "Coldwater Burn",
+    "wikiTitle": "Coldwater",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Coldwater",
+    "pageid": 57760
+  },
+  "gates_of_the_moon": {
+    "name": "Gates of the Moon",
+    "wikiTitle": "Bloody Gate",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bloody_Gate",
+    "pageid": 6983
+  },
+  "gulltown": {
+    "name": "Gulltown",
+    "wikiTitle": "Gulltown",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Gulltown",
+    "pageid": 6986
+  },
+  "hearts_home": {
+    "name": "Heart's Home",
+    "wikiTitle": "Heart's Home",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Heart's_Home",
+    "pageid": 57341
+  },
+  "ironoaks": {
+    "name": "Ironoaks",
+    "wikiTitle": "Ironoaks",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ironoaks",
+    "pageid": 57333
+  },
+  "longbow_hall": {
+    "name": "Longbow Hall",
+    "wikiTitle": "Longbow Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Longbow_Hall",
+    "pageid": 57340
+  },
+  "old_anchor": {
+    "name": "Old Anchor",
+    "wikiTitle": "Old Anchor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Old_Anchor",
+    "pageid": 57987
+  },
+  "redfort": {
+    "name": "Redfort",
+    "wikiTitle": "Redfort",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Redfort",
+    "pageid": 19800
+  },
+  "runestone": {
+    "name": "Runestone",
+    "wikiTitle": "Runestone",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Runestone",
+    "pageid": 6985
+  },
+  "sisterton": {
+    "name": "Sisterton",
+    "wikiTitle": "Sisterton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sisterton",
+    "pageid": 7519
+  },
+  "snakewood": {
+    "name": "Snakewood",
+    "wikiTitle": "Snakewood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Snakewood",
+    "pageid": 61070
+  },
+  "strongsong": {
+    "name": "Strongsong",
+    "wikiTitle": "Strongsong",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Strongsong",
+    "pageid": 57986
+  },
+  "bloody_gate": {
+    "name": "The Bloody Gate",
+    "wikiTitle": "Bloody Gate",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bloody_Gate",
+    "pageid": 6983
+  },
+  "eyrie": {
+    "name": "The Eyrie",
+    "wikiTitle": "Eyrie",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Eyrie",
+    "pageid": 2267
+  },
+  "wickenden": {
+    "name": "Wickenden",
+    "wikiTitle": "Wickenden",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Wickenden",
+    "pageid": 6984
+  },
+  "hammerhorn": {
+    "name": "Hammerhorn",
+    "wikiTitle": "Hammerhorn",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hammerhorn",
+    "pageid": 14599
+  },
+  "lordsport": {
+    "name": "Lordsport",
+    "wikiTitle": "Lordsport",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lordsport",
+    "pageid": 7204
+  },
+  "pyke": {
+    "name": "Pyke",
+    "wikiTitle": "Pyke",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Pyke",
+    "pageid": 2590
+  },
+  "saltcliffe": {
+    "name": "Saltcliffe",
+    "wikiTitle": "Saltcliffe",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Saltcliffe",
+    "pageid": 13409
+  },
+  "sealskin_point": {
+    "name": "Sealskin Point",
+    "wikiTitle": "Iron Islands",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Iron_Islands",
+    "pageid": 2589
+  },
+  "ten_towers": {
+    "name": "Ten Towers",
+    "wikiTitle": "Ten Towers",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ten_Towers",
+    "pageid": 7517
+  },
+  "volmark": {
+    "name": "Volmark",
+    "wikiTitle": "Harlaw",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Harlaw",
+    "pageid": 13407
+  },
+  "ashemark": {
+    "name": "Ashemark",
+    "wikiTitle": "Ashemark",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ashemark",
+    "pageid": 6908
+  },
+  "banefort": {
+    "name": "Banefort",
+    "wikiTitle": "Banefort",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Banefort",
+    "pageid": 7518
+  },
+  "castamere": {
+    "name": "Castamere",
+    "wikiTitle": "Castamere",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Castamere",
+    "pageid": 6524
+  },
+  "casterly_rock": {
+    "name": "Casterly Rock",
+    "wikiTitle": "Casterly Rock",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Casterly_Rock",
+    "pageid": 2555
+  },
+  "clegane_keep": {
+    "name": "Clegane's Keep",
+    "wikiTitle": "Clegane's Keep",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Clegane's_Keep",
+    "pageid": 6989
+  },
+  "cornfield": {
+    "name": "Cornfield",
+    "wikiTitle": "Cornfield",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Cornfield",
+    "pageid": 6906
+  },
+  "crakehall": {
+    "name": "Crakehall",
+    "wikiTitle": "Crakehall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Crakehall",
+    "pageid": 6905
+  },
+  "deep_den": {
+    "name": "Deep Den",
+    "wikiTitle": "Deep Den",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Deep_Den",
+    "pageid": 6994
+  },
+  "faircastle": {
+    "name": "Faircastle",
+    "wikiTitle": "Faircastle",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Faircastle",
+    "pageid": 6998
+  },
+  "feastfires": {
+    "name": "Feastfires",
+    "wikiTitle": "Feastfires",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Feastfires",
+    "pageid": 6997
+  },
+  "hornvale": {
+    "name": "Hornvale",
+    "wikiTitle": "Hornvale",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hornvale",
+    "pageid": 6996
+  },
+  "kayce": {
+    "name": "Kayce",
+    "wikiTitle": "Kayce",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kayce",
+    "pageid": 80467
+  },
+  "lannisport": {
+    "name": "Lannisport",
+    "wikiTitle": "Lannisport",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lannisport",
+    "pageid": 4432
+  },
+  "oxcross": {
+    "name": "Oxcross",
+    "wikiTitle": "Oxcross",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Oxcross",
+    "pageid": 7838
+  },
+  "sarsfield": {
+    "name": "Sarsfield",
+    "wikiTitle": "Sarsfield",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sarsfield",
+    "pageid": 13992
+  },
+  "silverhill": {
+    "name": "Silverhill",
+    "wikiTitle": "Silverhill",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Silverhill",
+    "pageid": 6995
+  },
+  "tarbeck_hall": {
+    "name": "Tarbeck Hall",
+    "wikiTitle": "Tarbeck Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tarbeck_Hall",
+    "pageid": 57678
+  },
+  "the_crag": {
+    "name": "The Crag",
+    "wikiTitle": "Crag",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Crag",
+    "pageid": 4681
+  },
+  "golden_tooth": {
+    "name": "The Golden Tooth",
+    "wikiTitle": "Golden Tooth",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Golden_Tooth",
+    "pageid": 6907
+  },
+  "antlers": {
+    "name": "Antlers",
+    "wikiTitle": "Antlers",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Antlers",
+    "pageid": 7020
+  },
+  "briarwhite": {
+    "name": "Briarwhite",
+    "wikiTitle": "Briarwhite",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Briarwhite",
+    "pageid": 80480
+  },
+  "brindlewood": {
+    "name": "Brindlewood",
+    "wikiTitle": "Brindlewood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Brindlewood",
+    "pageid": 80475
+  },
+  "brownhollow": {
+    "name": "Brownhollow",
+    "wikiTitle": "Brownhollow",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Brownhollow",
+    "pageid": 80476
+  },
+  "stokeworth": {
+    "name": "Castle Stokeworth",
+    "wikiTitle": "Castle Stokeworth",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Castle_Stokeworth",
+    "pageid": 24809
+  },
+  "celtigar_keep": {
+    "name": "Claw Isle (Celtigar Keep)",
+    "wikiTitle": "Claw Isle",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Claw_Isle",
+    "pageid": 7017
+  },
+  "dragonstone": {
+    "name": "Dragonstone",
+    "wikiTitle": "Dragonstone",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dragonstone",
+    "pageid": 2524
+  },
+  "driftmark": {
+    "name": "Driftmark",
+    "wikiTitle": "Driftmark",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Driftmark",
+    "pageid": 12194
+  },
+  "duskendale": {
+    "name": "Duskendale",
+    "wikiTitle": "Duskendale",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Duskendale",
+    "pageid": 7636
+  },
+  "dyre_den": {
+    "name": "Dyre Den",
+    "wikiTitle": "Dyre Den",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dyre_Den",
+    "pageid": 60818
+  },
+  "hayford": {
+    "name": "Hayford",
+    "wikiTitle": "Hayford",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hayford",
+    "pageid": 80468
+  },
+  "high_tide": {
+    "name": "High Tide",
+    "wikiTitle": "High Tide",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/High_Tide",
+    "pageid": 70679
+  },
+  "hull": {
+    "name": "Hull",
+    "wikiTitle": "Hull",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hull",
+    "pageid": 76866
+  },
+  "kings_landing": {
+    "name": "King's Landing",
+    "wikiTitle": "King's Landing",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/King's_Landing",
+    "pageid": 2110
+  },
+  "rambton": {
+    "name": "Rambton Castle",
+    "wikiTitle": "Rambton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Rambton",
+    "pageid": 80469
+  },
+  "rooks_rest": {
+    "name": "Rook's Rest",
+    "wikiTitle": "Rook's Rest",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Rook's_Rest",
+    "pageid": 18636
+  },
+  "rosby": {
+    "name": "Rosby",
+    "wikiTitle": "Rosby",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Rosby",
+    "pageid": 7021
+  },
+  "sharp_point": {
+    "name": "Sharp Point",
+    "wikiTitle": "Sharp Point",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sharp_Point",
+    "pageid": 19944
+  },
+  "sows_horn": {
+    "name": "Sow's Horn",
+    "wikiTitle": "Sow's Horn",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sow's_Horn",
+    "pageid": 26973
+  },
+  "spicetown": {
+    "name": "Spicetown",
+    "wikiTitle": "Spicetown",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Spicetown",
+    "pageid": 71248
+  },
+  "stonedance": {
+    "name": "Stonedance",
+    "wikiTitle": "Stonedance",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Stonedance",
+    "pageid": 19945
+  },
+  "sweetport_sound": {
+    "name": "Sweetport Sound",
+    "wikiTitle": "Sweetport",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sweetport",
+    "pageid": 80470
+  },
+  "the_whispers": {
+    "name": "The Whispers",
+    "wikiTitle": "Whispers",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Whispers",
+    "pageid": 7022
+  },
+  "wendwater_bridge": {
+    "name": "Wendwater Bridge",
+    "wikiTitle": "Wendwater Bridge",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Wendwater_Bridge",
+    "pageid": 80464
+  },
+  "blackhaven": {
+    "name": "Blackhaven",
+    "wikiTitle": "Blackhaven",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Blackhaven",
+    "pageid": 7031
+  },
+  "bronzegate": {
+    "name": "Bronzegate",
+    "wikiTitle": "Bronzegate",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bronzegate",
+    "pageid": 7025
+  },
+  "crows_nest": {
+    "name": "Crow's Nest",
+    "wikiTitle": "Crow's Nest",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Crow's_Nest",
+    "pageid": 19943
+  },
+  "evenfall_hall": {
+    "name": "Evenfall Hall",
+    "wikiTitle": "Evenfall Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Evenfall_Hall",
+    "pageid": 7026
+  },
+  "tarth": {
+    "name": "Evenfall Hall (Tarth)",
+    "wikiTitle": "Evenfall Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Evenfall_Hall",
+    "pageid": 7026
+  },
+  "fawnton": {
+    "name": "Fawnton",
+    "wikiTitle": "Fawnton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Fawnton",
+    "pageid": 80461
+  },
+  "felwood": {
+    "name": "Felwood",
+    "wikiTitle": "Felwood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Felwood",
+    "pageid": 7501
+  },
+  "greenstone": {
+    "name": "Greenstone",
+    "wikiTitle": "Greenstone",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Greenstone",
+    "pageid": 57994
+  },
+  "griffins_roost": {
+    "name": "Griffin's Roost",
+    "wikiTitle": "Griffin's Roost",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Griffin's_Roost",
+    "pageid": 7030
+  },
+  "harvest_hall": {
+    "name": "Harvest Hall",
+    "wikiTitle": "Harvest Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Harvest_Hall",
+    "pageid": 63209
+  },
+  "haystack_hall": {
+    "name": "Haystack Hall",
+    "wikiTitle": "Haystack Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Haystack_Hall",
+    "pageid": 6885
+  },
+  "mistwood": {
+    "name": "Mistwood",
+    "wikiTitle": "Mistwood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Mistwood",
+    "pageid": 7028
+  },
+  "morne": {
+    "name": "Morne",
+    "wikiTitle": "Morne",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Morne",
+    "pageid": 80463
+  },
+  "rain_house": {
+    "name": "Rain House",
+    "wikiTitle": "Rain House",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Rain_House",
+    "pageid": 7027
+  },
+  "stonehelm": {
+    "name": "Stonehelm",
+    "wikiTitle": "Stonehelm",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Stonehelm",
+    "pageid": 7029
+  },
+  "storms_end": {
+    "name": "Storm's End",
+    "wikiTitle": "Storm's End",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Storm's_End",
+    "pageid": 2554
+  },
+  "summerhall": {
+    "name": "Summerhall",
+    "wikiTitle": "Summerhall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Summerhall",
+    "pageid": 2910
+  },
+  "weeping_town": {
+    "name": "Weeping Town",
+    "wikiTitle": "Weeping Town",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Weeping_Town",
+    "pageid": 64108
+  },
+  "appleton": {
+    "name": "Appleton",
+    "wikiTitle": "Appleton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Appleton",
+    "pageid": 80450
+  },
+  "ashford": {
+    "name": "Ashford",
+    "wikiTitle": "Ashford",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ashford",
+    "pageid": 7078
+  },
+  "bandallon": {
+    "name": "Bandallon",
+    "wikiTitle": "Bandallon",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bandallon",
+    "pageid": 7088
+  },
+  "bitterbridge": {
+    "name": "Bitterbridge",
+    "wikiTitle": "Bitterbridge",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bitterbridge",
+    "pageid": 7073
+  },
+  "blackcrown": {
+    "name": "Blackcrown",
+    "wikiTitle": "Blackcrown",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Blackcrown",
+    "pageid": 7087
+  },
+  "brandybottom": {
+    "name": "Brandybottom",
+    "wikiTitle": "Brandybottom",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Brandybottom",
+    "pageid": 80460
+  },
+  "brightwater_keep": {
+    "name": "Brightwater Keep",
+    "wikiTitle": "Brightwater Keep",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Brightwater_Keep",
+    "pageid": 7057
+  },
+  "cider_hall": {
+    "name": "Cider Hall",
+    "wikiTitle": "Cider Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Cider_Hall",
+    "pageid": 7076
+  },
+  "cobble_cove": {
+    "name": "Cobble Cove",
+    "wikiTitle": "Cobble Cove",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Cobble_Cove",
+    "pageid": 80458
+  },
+  "coldmoat": {
+    "name": "Coldmoat",
+    "wikiTitle": "Coldmoat",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Coldmoat",
+    "pageid": 63441
+  },
+  "dosk": {
+    "name": "Dosk",
+    "wikiTitle": "Dosk",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dosk",
+    "pageid": 80457
+  },
+  "dunstonbury": {
+    "name": "Dunstonbury",
+    "wikiTitle": "Dunstonbury",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dunstonbury",
+    "pageid": 80448
+  },
+  "ebonhead": {
+    "name": "Ebonhead",
+    "wikiTitle": "Summer Isles",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Summer_Isles",
+    "pageid": 6786
+  },
+  "goldengrove": {
+    "name": "Goldengrove",
+    "wikiTitle": "Goldengrove",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Goldengrove",
+    "pageid": 7079
+  },
+  "grassfield_keep": {
+    "name": "Grassfield Keep",
+    "wikiTitle": "Grassfield Keep",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Grassfield_Keep",
+    "pageid": 80452
+  },
+  "grassy_vale": {
+    "name": "Grassy Vale",
+    "wikiTitle": "Grassy Vale",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Grassy_Vale",
+    "pageid": 7074
+  },
+  "greenshield": {
+    "name": "Greenshield",
+    "wikiTitle": "Greenshield",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Greenshield",
+    "pageid": 74386
+  },
+  "greyshield": {
+    "name": "Greyshield",
+    "wikiTitle": "Greyshield",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Greyshield",
+    "pageid": 74388
+  },
+  "grimston": {
+    "name": "Grimston",
+    "wikiTitle": "Grimston",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Grimston",
+    "pageid": 80455
+  },
+  "hewetts_town": {
+    "name": "Hewett's Town",
+    "wikiTitle": "Hewett's Town",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hewett's_Town",
+    "pageid": 80454
+  },
+  "highgarden": {
+    "name": "Highgarden",
+    "wikiTitle": "Highgarden",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Highgarden",
+    "pageid": 2556
+  },
+  "honeyholt": {
+    "name": "Honeyholt",
+    "wikiTitle": "Honeyholt",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Honeyholt",
+    "pageid": 7084
+  },
+  "horn_hill": {
+    "name": "Horn Hill",
+    "wikiTitle": "Horn Hill",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Horn_Hill",
+    "pageid": 6429
+  },
+  "longtable": {
+    "name": "Longtable",
+    "wikiTitle": "Longtable",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Longtable",
+    "pageid": 7075
+  },
+  "new_barrel": {
+    "name": "New Barrel",
+    "wikiTitle": "New Barrel",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/New_Barrel",
+    "pageid": 80451
+  },
+  "nightsong": {
+    "name": "Nightsong",
+    "wikiTitle": "Nightsong",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Nightsong",
+    "pageid": 7033
+  },
+  "oakenshield": {
+    "name": "Oakenshield",
+    "wikiTitle": "Oakenshield",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Oakenshield",
+    "pageid": 74389
+  },
+  "old_oak": {
+    "name": "Old Oak",
+    "wikiTitle": "Old Oak",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Old_Oak",
+    "pageid": 7082
+  },
+  "old_stonebridge": {
+    "name": "Old Stonebridge",
+    "wikiTitle": "Old Stone Bridge",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Old_Stone_Bridge",
+    "pageid": 80472
+  },
+  "oldtown": {
+    "name": "Oldtown",
+    "wikiTitle": "Oldtown",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Oldtown",
+    "pageid": 6768
+  },
+  "red_lake": {
+    "name": "Red Lake",
+    "wikiTitle": "Red Lake",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Red_Lake",
+    "pageid": 7080
+  },
+  "ryamsport": {
+    "name": "Ryamsport",
+    "wikiTitle": "Ryamsport",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ryamsport",
+    "pageid": 80444
+  },
+  "southshield": {
+    "name": "Southshield",
+    "wikiTitle": "Southshield",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Southshield",
+    "pageid": 74390
+  },
+  "stackhouse": {
+    "name": "Stackhouse",
+    "wikiTitle": "Stackhouse",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Stackhouse",
+    "pageid": 80459
+  },
+  "starfish_harbor": {
+    "name": "Starfish Harbor",
+    "wikiTitle": "Starfish Harbor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Starfish_Harbor",
+    "pageid": 80446
+  },
+  "starpike": {
+    "name": "Starpike",
+    "wikiTitle": "Starpike",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Starpike",
+    "pageid": 80658
+  },
+  "sunhouse": {
+    "name": "Sunhouse",
+    "wikiTitle": "Sunhouse",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sunhouse",
+    "pageid": 7085
+  },
+  "the_arbor": {
+    "name": "The Arbor",
+    "wikiTitle": "Arbor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Arbor",
+    "pageid": 7091
+  },
+  "three_towers": {
+    "name": "Three Towers",
+    "wikiTitle": "Three Towers",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Three_Towers",
+    "pageid": 7086
+  },
+  "tumbleton": {
+    "name": "Tumbleton",
+    "wikiTitle": "Tumbleton",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tumbleton",
+    "pageid": 7070
+  },
+  "uplands": {
+    "name": "Uplands",
+    "wikiTitle": "Uplands",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Uplands",
+    "pageid": 7083
+  },
+  "vinetown": {
+    "name": "Vinetown",
+    "wikiTitle": "Vinetown",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Vinetown",
+    "pageid": 80445
+  },
+  "whitegrove": {
+    "name": "Whitegrove",
+    "wikiTitle": "Whitegrove",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Whitegrove",
+    "pageid": 80449
+  },
+  "blackmont": {
+    "name": "Blackmont",
+    "wikiTitle": "Blackmont",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Blackmont",
+    "pageid": 7037
+  },
+  "wyl": {
+    "name": "Castle Wyl",
+    "wikiTitle": "Wyl",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Wyl",
+    "pageid": 7032
+  },
+  "ghaston_grey": {
+    "name": "Ghaston Grey",
+    "wikiTitle": "Ghaston Grey",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ghaston_Grey",
+    "pageid": 80443
+  },
+  "ghost_hill": {
+    "name": "Ghost Hill",
+    "wikiTitle": "Ghost Hill",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ghost_Hill",
+    "pageid": 7049
+  },
+  "godsgrace": {
+    "name": "Godsgrace",
+    "wikiTitle": "Godsgrace",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Godsgrace",
+    "pageid": 7046
+  },
+  "hellgate_hall": {
+    "name": "Hellgate Hall",
+    "wikiTitle": "Hellgate Hall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hellgate_Hall",
+    "pageid": 80442
+  },
+  "hellholt": {
+    "name": "Hellholt",
+    "wikiTitle": "Hellholt",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hellholt",
+    "pageid": 7043
+  },
+  "kingsgrave": {
+    "name": "Kingsgrave",
+    "wikiTitle": "Kingsgrave",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingsgrave",
+    "pageid": 7039
+  },
+  "lemonwood": {
+    "name": "Lemonwood",
+    "wikiTitle": "Lemonwood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lemonwood",
+    "pageid": 7048
+  },
+  "planky_town": {
+    "name": "Planky Town",
+    "wikiTitle": "Planky Town",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Planky_Town",
+    "pageid": 32500
+  },
+  "saltshore": {
+    "name": "Saltshore",
+    "wikiTitle": "Salt Shore",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Salt_Shore",
+    "pageid": 7047
+  },
+  "sandstone": {
+    "name": "Sandstone",
+    "wikiTitle": "Sandstone",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sandstone",
+    "pageid": 7042
+  },
+  "shandystone": {
+    "name": "Shandystone",
+    "wikiTitle": "Shandystone",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Shandystone",
+    "pageid": 80441
+  },
+  "skyreach": {
+    "name": "Skyreach",
+    "wikiTitle": "Skyreach",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Skyreach",
+    "pageid": 7503
+  },
+  "spottswood": {
+    "name": "Spottswood",
+    "wikiTitle": "Spottswood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Spottswood",
+    "pageid": 80440
+  },
+  "starfall": {
+    "name": "Starfall",
+    "wikiTitle": "Starfall",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Starfall",
+    "pageid": 7038
+  },
+  "sunspear": {
+    "name": "Sunspear",
+    "wikiTitle": "Sunspear",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sunspear",
+    "pageid": 2683
+  },
+  "hermitage": {
+    "name": "The Hermitage",
+    "wikiTitle": "High Hermitage",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/High_Hermitage",
+    "pageid": 78921
+  },
+  "the_tor": {
+    "name": "The Tor",
+    "wikiTitle": "Tor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tor",
+    "pageid": 7044
+  },
+  "water_gardens": {
+    "name": "The Water Gardens",
+    "wikiTitle": "Water Gardens",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Water_Gardens",
+    "pageid": 24074
+  },
+  "tower_of_joy": {
+    "name": "Tower of Joy",
+    "wikiTitle": "Tower of Joy",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tower_of_Joy",
+    "pageid": 41925
+  },
+  "vaith": {
+    "name": "Vaith",
+    "wikiTitle": "Vaith",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Vaith",
+    "pageid": 7045
+  },
+  "vultures_roost": {
+    "name": "Vulture's Roost",
+    "wikiTitle": "Vulture's Roost",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Vulture's_Roost",
+    "pageid": 7040
+  },
+  "yronwood": {
+    "name": "Yronwood",
+    "wikiTitle": "Yronwood",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Yronwood",
+    "pageid": 7041
+  },
+  "ar_noy": {
+    "name": "Ar Noy",
+    "wikiTitle": "Ar Noy",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ar_Noy",
+    "pageid": 7313
+  },
+  "braavos": {
+    "name": "Braavos",
+    "wikiTitle": "Braavos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Braavos",
+    "pageid": 2306
+  },
+  "chroyane": {
+    "name": "Chroyane (The Sorrows)",
+    "wikiTitle": "Chroyane",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Chroyane",
+    "pageid": 7329
+  },
+  "ghoyan_drohe": {
+    "name": "Ghoyan Drohe",
+    "wikiTitle": "Ghoyan Drohe",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ghoyan_Drohe",
+    "pageid": 82374
+  },
+  "ib_nor": {
+    "name": "Ib Nor",
+    "wikiTitle": "Ibben",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ibben",
+    "pageid": 51903
+  },
+  "ib_sar": {
+    "name": "Ib Sar",
+    "wikiTitle": "Ibben",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ibben",
+    "pageid": 51903
+  },
+  "lhorulu": {
+    "name": "Lhorulu",
+    "wikiTitle": "Rhoyne",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Rhoyne",
+    "pageid": 6586
+  },
+  "lorassyon": {
+    "name": "Lorassyon",
+    "wikiTitle": "Lorath",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lorath",
+    "pageid": 6178
+  },
+  "lorath": {
+    "name": "Lorath",
+    "wikiTitle": "Lorath",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lorath",
+    "pageid": 6178
+  },
+  "lys": {
+    "name": "Lys",
+    "wikiTitle": "Lys",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lys",
+    "pageid": 2573
+  },
+  "morosh": {
+    "name": "Morosh",
+    "wikiTitle": "Lorath",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lorath",
+    "pageid": 6178
+  },
+  "myr": {
+    "name": "Myr",
+    "wikiTitle": "Myr",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Myr",
+    "pageid": 6181
+  },
+  "nefer": {
+    "name": "Nefer",
+    "wikiTitle": "Jogos Nhai",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Jogos_Nhai",
+    "pageid": 52136
+  },
+  "new_ibbish": {
+    "name": "New Ibbish",
+    "wikiTitle": "Ibben",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ibben",
+    "pageid": 51903
+  },
+  "norvos": {
+    "name": "Norvos",
+    "wikiTitle": "Norvos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Norvos",
+    "pageid": 6179
+  },
+  "ny_sar": {
+    "name": "Ny Sar",
+    "wikiTitle": "Ny Sar",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ny_Sar",
+    "pageid": 7248
+  },
+  "pentos": {
+    "name": "Pentos",
+    "wikiTitle": "Pentos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Pentos",
+    "pageid": 2181
+  },
+  "port_of_ibben": {
+    "name": "Port of Ibben",
+    "wikiTitle": "Port of Ibben",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Port_of_Ibben",
+    "pageid": 7477
+  },
+  "qohor": {
+    "name": "Qohor",
+    "wikiTitle": "Qohor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Qohor",
+    "pageid": 2911
+  },
+  "saath": {
+    "name": "Saath",
+    "wikiTitle": "Saath",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Saath",
+    "pageid": 70957
+  },
+  "sar_mell": {
+    "name": "Sar Mell",
+    "wikiTitle": "Sar Mell",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sar_Mell",
+    "pageid": 7256
+  },
+  "sarhoy": {
+    "name": "Sarhoy",
+    "wikiTitle": "Rhoynar",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Rhoynar",
+    "pageid": 3298
+  },
+  "selhorys": {
+    "name": "Selhorys",
+    "wikiTitle": "Selhorys",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Selhorys",
+    "pageid": 7254
+  },
+  "tyrosh": {
+    "name": "Tyrosh",
+    "wikiTitle": "Tyrosh",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tyrosh",
+    "pageid": 6180
+  },
+  "valysar": {
+    "name": "Valysar",
+    "wikiTitle": "Valysar",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Valysar",
+    "pageid": 7255
+  },
+  "volantis": {
+    "name": "Volantis",
+    "wikiTitle": "Volantis",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Volantis",
+    "pageid": 3430
+  },
+  "volon_therys": {
+    "name": "Volon Therys",
+    "wikiTitle": "Volon Therys",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Volon_Therys",
+    "pageid": 7257
+  },
+  "astapor": {
+    "name": "Astapor",
+    "wikiTitle": "Astapor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Astapor",
+    "pageid": 7459
+  },
+  "bhorash": {
+    "name": "Bhorash",
+    "wikiTitle": "Bhorash",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bhorash",
+    "pageid": 7467
+  },
+  "elyria": {
+    "name": "Elyria",
+    "wikiTitle": "Elyria",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Elyria",
+    "pageid": 7464
+  },
+  "ghozai": {
+    "name": "Ghozai",
+    "wikiTitle": "Ghozai",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ghozai",
+    "pageid": 66346
+  },
+  "mantarys": {
+    "name": "Mantarys",
+    "wikiTitle": "Mantarys",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Mantarys",
+    "pageid": 7331
+  },
+  "meereen": {
+    "name": "Meereen",
+    "wikiTitle": "Meereen",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Meereen",
+    "pageid": 7456
+  },
+  "new_ghis": {
+    "name": "New Ghis",
+    "wikiTitle": "New Ghis",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/New_Ghis",
+    "pageid": 7489
+  },
+  "old_ghis": {
+    "name": "Old Ghis",
+    "wikiTitle": "Old Ghis",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Old_Ghis",
+    "pageid": 7491
+  },
+  "oros": {
+    "name": "Oros",
+    "wikiTitle": "Oros",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Oros",
+    "pageid": 7462
+  },
+  "tolos": {
+    "name": "Tolos",
+    "wikiTitle": "Tolos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tolos",
+    "pageid": 7463
+  },
+  "tyria": {
+    "name": "Tyria",
+    "wikiTitle": "Tyria",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Tyria",
+    "pageid": 7461
+  },
+  "valyria": {
+    "name": "Valyria",
+    "wikiTitle": "Old Valyria",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Old_Valyria",
+    "pageid": 2229
+  },
+  "velos": {
+    "name": "Velos",
+    "wikiTitle": "Velos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Velos",
+    "pageid": 66345
+  },
+  "yunkai": {
+    "name": "Yunkai",
+    "wikiTitle": "Yunkai",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Yunkai",
+    "pageid": 7458
+  },
+  "adakhakileki": {
+    "name": "Adakhakileki",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "bayasabhad": {
+    "name": "Bayasabhad",
+    "wikiTitle": "Bayasabhad",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bayasabhad",
+    "pageid": 7465
+  },
+  "essaria": {
+    "name": "Essaria",
+    "wikiTitle": "Free Cities",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Free_Cities",
+    "pageid": 2158
+  },
+  "ghardaa": {
+    "name": "Ghardaa (Krazaaj Has)",
+    "wikiTitle": "Bone Mountains",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bone_Mountains",
+    "pageid": 51844
+  },
+  "hazdahn_mo": {
+    "name": "Hazdahn Mo (Vaes Diaf)",
+    "wikiTitle": "Ghiscar",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ghiscar",
+    "pageid": 7278
+  },
+  "hornoth": {
+    "name": "Hornoth",
+    "wikiTitle": "Kingdom of Sarnor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
+    "pageid": 52983
+  },
+  "kasath": {
+    "name": "Kasath (Vojjor Samui)",
+    "wikiTitle": "Kingdom of Sarnor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
+    "pageid": 52983
+  },
+  "kayakayanaya": {
+    "name": "Kayakayanaya",
+    "wikiTitle": "Hyrkoon",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hyrkoon",
+    "pageid": 52041
+  },
+  "kosrak": {
+    "name": "Kosrak",
+    "wikiTitle": "Lhazar",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lhazar",
+    "pageid": 3422
+  },
+  "kyth": {
+    "name": "Kyth",
+    "wikiTitle": "Kingdom of Sarnor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
+    "pageid": 52983
+  },
+  "lhazosh": {
+    "name": "Lhazosh",
+    "wikiTitle": "Lhazareen",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Lhazareen",
+    "pageid": 3450
+  },
+  "mardosh": {
+    "name": "Mardosh (Vaes Gorqoyi)",
+    "wikiTitle": "Kingdom of Sarnor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
+    "pageid": 52983
+  },
+  "rathylar": {
+    "name": "Rathylar",
+    "wikiTitle": "Kingdom of Sarnor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
+    "pageid": 52983
+  },
+  "sallosh": {
+    "name": "Sallosh (Athjikhari)",
+    "wikiTitle": "Kingdom of Sarnor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
+    "pageid": 52983
+  },
+  "samyriana": {
+    "name": "Samyriana",
+    "wikiTitle": "Hyrkoon",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Hyrkoon",
+    "pageid": 52041
+  },
+  "sarnath": {
+    "name": "Sarnath (Vaes Khewo)",
+    "wikiTitle": "Kingdom of Sarnor",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
+    "pageid": 52983
+  },
+  "sathar": {
+    "name": "Sathar (Yalli Qamayi)",
+    "wikiTitle": "Sathar",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sathar",
+    "pageid": 52986
+  },
+  "vaes_aresak": {
+    "name": "Vaes Aresak (Ibbish)",
+    "wikiTitle": "Ibben",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ibben",
+    "pageid": 51903
+  },
+  "vaes_dothrak": {
+    "name": "Vaes Dothrak",
+    "wikiTitle": "Vaes Dothrak",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Vaes_Dothrak",
+    "pageid": 2351
+  },
+  "vaes_efe": {
+    "name": "Vaes Efe",
+    "wikiTitle": "Vaes Dothrak",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Vaes_Dothrak",
+    "pageid": 2351
+  },
+  "vaes_graddakh": {
+    "name": "Vaes Graddakh (Sar Mell)",
+    "wikiTitle": "Sar Mell",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sar_Mell",
+    "pageid": 7256
+  },
+  "vaes_jini": {
+    "name": "Vaes Jini (Yinishar)",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "vaes_leisi": {
+    "name": "Vaes Leisi",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "vaes_leqse": {
+    "name": "Vaes Leqse (Gornath)",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "vaes_mejhah": {
+    "name": "Vaes Mejhah",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "vaes_orvik": {
+    "name": "Vaes Orvik",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "vaes_qosar": {
+    "name": "Vaes Qosar (City of Bones)",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "vaes_shirosi": {
+    "name": "Vaes Shirosi",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "vaes_tolorro": {
+    "name": "Vaes Tolorro",
+    "wikiTitle": "Red Waste",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Red_Waste",
+    "pageid": 5949
+  },
+  "yinishar": {
+    "name": "Yinishar (Vaes Jini)",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "qarth": {
+    "name": "Qarth",
+    "wikiTitle": "Qarth",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Qarth",
+    "pageid": 2521
+  },
+  "vaes_qolahn": {
+    "name": "Vaes Qolahn",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "bonetown": {
+    "name": "Bonetown",
+    "wikiTitle": "Bone Mountains",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Bone_Mountains",
+    "pageid": 51844
+  },
+  "city_of_the_winged_men": {
+    "name": "City of the Winged Men",
+    "wikiTitle": "City of the Winged Men",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/City_of_the_Winged_Men",
+    "pageid": 84961
+  },
+  "jinqi": {
+    "name": "Jinqi",
+    "wikiTitle": "Jinqi",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Jinqi",
+    "pageid": 74407
+  },
+  "kdath": {
+    "name": "K'Dath",
+    "wikiTitle": "Dothraki Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
+    "pageid": 2342
+  },
+  "si_qo": {
+    "name": "Si Qo",
+    "wikiTitle": "Yi Ti",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Yi_Ti",
+    "pageid": 12218
+  },
+  "five_forts": {
+    "name": "The Five Forts",
+    "wikiTitle": "Five Forts",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Five_Forts",
+    "pageid": 75974
+  },
+  "tiqui": {
+    "name": "Tiqui",
+    "wikiTitle": "Yi Ti",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Yi_Ti",
+    "pageid": 12218
+  },
+  "trader_town": {
+    "name": "Trader Town",
+    "wikiTitle": "Yi Ti",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Yi_Ti",
+    "pageid": 12218
+  },
+  "yin": {
+    "name": "Yin",
+    "wikiTitle": "Yin",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Yin",
+    "pageid": 70958
+  },
+  "asabhad": {
+    "name": "Asabhad",
+    "wikiTitle": "Asabhad",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Asabhad",
+    "pageid": 74405
+  },
+  "faros": {
+    "name": "Faros (Great Moraq)",
+    "wikiTitle": "Great Moraq",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Great_Moraq",
+    "pageid": 70955
+  },
+  "leng_ma": {
+    "name": "Leng Ma",
+    "wikiTitle": "Leng Ma",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Leng_Ma",
+    "pageid": 74406
+  },
+  "leng_yi": {
+    "name": "Leng Yi",
+    "wikiTitle": "Leng Yi",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Leng_Yi",
+    "pageid": 74413
+  },
+  "port_moraq": {
+    "name": "Port Moraq",
+    "wikiTitle": "Port Moraq",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Port_Moraq",
+    "pageid": 74382
+  },
+  "port_yhos": {
+    "name": "Port Yhos",
+    "wikiTitle": "Summer Sea",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Summer_Sea",
+    "pageid": 2778
+  },
+  "qarkash": {
+    "name": "Qarkash",
+    "wikiTitle": "Qarkash",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Qarkash",
+    "pageid": 74381
+  },
+  "turrani": {
+    "name": "Turrani",
+    "wikiTitle": "Leng",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Leng",
+    "pageid": 71998
+  },
+  "vahar": {
+    "name": "Vahar",
+    "wikiTitle": "Great Moraq",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Great_Moraq",
+    "pageid": 70955
+  },
+  "zabhad": {
+    "name": "Zabhad",
+    "wikiTitle": "Zabhad",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Zabhad",
+    "pageid": 71993
+  },
+  "asshai": {
+    "name": "Asshai-by-the-Shadow",
+    "wikiTitle": "Asshai",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Asshai",
+    "pageid": 2519
+  },
+  "stygai": {
+    "name": "Stygai",
+    "wikiTitle": "Stygai",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Stygai",
+    "pageid": 72021
+  },
+  "black_fort": {
+    "name": "Black Fort (Ax Isle)",
+    "wikiTitle": "Ax Isle",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Ax_Isle",
+    "pageid": 82378
+  },
+  "gogossos": {
+    "name": "Gogossos",
+    "wikiTitle": "Sothoryos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sothoryos",
+    "pageid": 6787
+  },
+  "port_lotus": {
+    "name": "Port Lotus (Summer Isles)",
+    "wikiTitle": "Summer Isles",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Summer_Isles",
+    "pageid": 6786
+  },
+  "tall_trees_town": {
+    "name": "Tall Trees Town",
+    "wikiTitle": "Summer Isles",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Summer_Isles",
+    "pageid": 6786
+  },
+  "yeen": {
+    "name": "Yeen",
+    "wikiTitle": "Sothoryos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sothoryos",
+    "pageid": 6787
+  },
+  "zamettar": {
+    "name": "Zamettar",
+    "wikiTitle": "Sothoryos",
+    "wikiUrl": "https://gameofthrones.fandom.com/wiki/Sothoryos",
+    "pageid": 6787
+  }
+}

@@ -10,6 +10,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1340, 3257],
     allegiance: "House Dustin",
     loreSnippet: "Major market town of the Barrowlands built around the Great Barrow, resting place of the First King of the First Men.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Barrowton",
   },
   bear_island: {
     id: "bear_island",
@@ -20,6 +21,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Mormont",
     loreSnippet: "Rugged island redoubt of warrior women, surrounded by the icy Bay of Ice.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bear_Island",
   },
   breakstone_hill: {
     id: "breakstone_hill",
@@ -29,6 +31,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1914, 2820],
     allegiance: "Free Folk",
     loreSnippet: "Rugged hill in the northern barrows.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/The_North",
   },
   castle_black: {
     id: "castle_black",
@@ -39,6 +42,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "Night's Watch",
     loreSnippet: "Headquarters of the Night's Watch beneath the towering 700-foot ice wall.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Castle_Black",
   },
   castle_cerwyn: {
     id: "castle_cerwyn",
@@ -48,6 +52,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1615, 2957],
     allegiance: "House Cerwyn",
     loreSnippet: "Seat of House Cerwyn on the river, just a half-day's ride south of the great castle of Winterfell.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Castle_Cerwyn",
   },
   crasters_keep: {
     id: "crasters_keep",
@@ -57,6 +62,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1867, 2139],
     allegiance: "Free Folk",
     loreSnippet: "Fortified homestead in the Haunted Forest where the wildling Craster made sacrifices to the Cold Gods.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Craster's_Keep",
   },
   deepdown: {
     id: "deepdown",
@@ -67,6 +73,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Crowl of Skagos",
     loreSnippet: "Subterranean cliffside stronghold of House Crowl on the southwestern shore of Skagos.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Skagos",
   },
   deepwood_motte: {
     id: "deepwood_motte",
@@ -76,6 +83,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1370, 2655],
     allegiance: "House Glover",
     loreSnippet: "Motte-and-bailey wooden stronghold nestled inside the vast Wolfswood.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Deepwood_Motte",
   },
   eastwatch: {
     id: "eastwatch",
@@ -87,6 +95,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Night's Watch",
     loreSnippet: "Eastern terminal of the Wall where the Night's Watch moors its modest fleet.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Eastwatch-by-the-Sea",
   },
   fist_of_the_first_men: {
     id: "fist_of_the_first_men",
@@ -96,6 +105,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1718, 2033],
     allegiance: "Night's Watch",
     loreSnippet: "Ancient ringfort standing atop a windswept hill beyond the Wall, scene of a catastrophic battle against the wights.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Fist_of_the_First_Men",
   },
   flints_finger: {
     id: "flints_finger",
@@ -106,6 +116,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Flint of Flint's Finger",
     loreSnippet: "Rugged coastal stronghold on Cape Kraken commanding the rocky entrance to Blazewater Bay.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Flint's_Finger",
   },
   goldgrass: {
     id: "goldgrass",
@@ -115,6 +126,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1363, 3250],
     allegiance: "House Stout",
     loreSnippet: "Keep of House Stout standing proudly in the fertile grassy plains just east of Barrowton.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Barrowton",
   },
   greywater_watch: {
     id: "greywater_watch",
@@ -124,6 +136,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1550, 3643],
     allegiance: "House Reed",
     loreSnippet: "Floating crannog castle of the Reeds, drifting perpetually within the treacherous Neck.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Greywater_Watch",
   },
   hardhome: {
     id: "hardhome",
@@ -134,6 +147,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Free Folk",
     loreSnippet: "Ancient ruined Free Folk settlement on the tip of Storrold's Point, destroyed in an apocalyptic fire centuries ago.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hardhome",
   },
   hornwood: {
     id: "hornwood",
@@ -143,6 +157,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2016, 2991],
     allegiance: "House Hornwood",
     loreSnippet: "Stronghold nestled within the dense, ancient timberlands of the eastern North.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hornwood",
   },
   karhold: {
     id: "karhold",
@@ -152,6 +167,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2355, 2673],
     allegiance: "House Karstark",
     loreSnippet: "Isolated stronghold founded by Karlon Stark in the dense forests near the Shivering Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Karhold",
   },
   kingshouse: {
     id: "kingshouse",
@@ -162,6 +178,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Magnar of Skagos",
     loreSnippet: "Ancient stone castle on the cold, craggy northern coast of the dread cannibal island of Skagos.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Skagos",
   },
   last_hearth: {
     id: "last_hearth",
@@ -171,6 +188,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1965, 2505],
     allegiance: "House Umber",
     loreSnippet: "Northernmost non-Wall stronghold in Westeros, surrounded by wild pine woods.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Last_Hearth",
   },
   moat_cailin: {
     id: "moat_cailin",
@@ -181,6 +199,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Stark",
     loreSnippet: "Ancient ruin of twenty stone towers, of which only three remain to choke off the Causeway.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Moat_Cailin",
   },
   moles_town: {
     id: "moles_town",
@@ -190,6 +209,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1946, 2261],
     allegiance: "Night's Watch",
     loreSnippet: "Subterranean village a half-day's ride south of Castle Black with cellars interconnected beneath the earth.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Mole's_Town",
   },
   oldcastle: {
     id: "oldcastle",
@@ -200,6 +220,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Locke",
     loreSnippet: "Ancient fortress of House Locke guarding the northern shore of the Bite.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Oldcastle",
   },
   queenscrown: {
     id: "queenscrown",
@@ -209,6 +230,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1877, 2366],
     allegiance: "The North",
     loreSnippet: "Solitary holdfast with crenelated battlements resting on an island in the middle of a lake in the Gift.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Queenscrown",
   },
   ramsgate: {
     id: "ramsgate",
@@ -219,6 +241,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Woolfield",
     loreSnippet: "Coastal settlement and fishing port situated at the wide mouth of the Broken Branch.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ramsgate",
   },
   the_dreadfort: {
     id: "the_dreadfort",
@@ -228,6 +251,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2043, 2835],
     allegiance: "House Bolton",
     loreSnippet: "Sinister high-walled fortress of the flayed men along the volcanic Weeping Water.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dreadfort",
   },
   nightfort: {
     id: "nightfort",
@@ -237,6 +261,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1857, 2246],
     allegiance: "Night's Watch",
     loreSnippet: "Oldest and largest castle on the Wall, steeped in grim legends of the Night's King and the Rat Cook.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Nightfort",
   },
   shadow_tower: {
     id: "shadow_tower",
@@ -246,6 +271,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1714, 2285],
     allegiance: "Night's Watch",
     loreSnippet: "Western bastion of the Wall guarding the Bridge of Skulls and the Gorge.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Shadow_Tower",
   },
   torrhens_square: {
     id: "torrhens_square",
@@ -255,6 +281,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1384, 3055],
     allegiance: "House Tallhart",
     loreSnippet: "Square stone keep beside a large mountain lake southwest of Winterfell.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Torrhen's_Square",
   },
   tumbledown_tower: {
     id: "tumbledown_tower",
@@ -264,6 +291,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1654, 2786],
     allegiance: "House Stark",
     loreSnippet: "Ancient ruined watchtower overlooking the northern plains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tumbledown_Tower",
   },
   white_harbor: {
     id: "white_harbor",
@@ -275,6 +303,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Manderly",
     loreSnippet: "The North's only true city and primary trading seaport, protected by the Wolf's Den.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/White_Harbor",
   },
   whitetree: {
     id: "whitetree",
@@ -284,6 +313,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1938, 2218],
     allegiance: "Free Folk",
     loreSnippet: "Deserted wildling village built around an enormous, ancient weirwood tree north of the Wall.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/White_Tree",
   },
   widows_watch: {
     id: "widows_watch",
@@ -294,6 +324,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Flint of Widow's Watch",
     loreSnippet: "Easternmost castle in the North, perched atop high coastal cliffs overlooking the Shivering Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Widow's_Watch",
   },
   winterfell: {
     id: "winterfell",
@@ -304,6 +335,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Stark",
     loreSnippet: "Ancient seat of House Stark, heated by natural subterranean hot springs.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Winterfell",
   },
 
   // ================= THE RIVERLANDS (41) =================
@@ -315,6 +347,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1592, 4296],
     allegiance: "House Smallwood",
     loreSnippet: "Oak-timbered castle of House Smallwood set amid rolling meadows and apple orchards.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Acorn_Hall",
   },
   atranta: {
     id: "atranta",
@@ -324,6 +357,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1546, 4218],
     allegiance: "House Vance",
     loreSnippet: "Seat of House Vance of Atranta near the headwaters of the Red Fork.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Atranta",
   },
   darry: {
     id: "darry",
@@ -333,6 +367,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1861, 4199],
     allegiance: "House Darry",
     loreSnippet: "Modest holdfast south of the Trident, once seat of the staunch Targaryen loyalists of House Darry.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/House_Darry",
   },
   lychester: {
     id: "lychester",
@@ -342,6 +377,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1647, 4198],
     allegiance: "House Lychester",
     loreSnippet: "Small holdfast belonging to the elderly Lord Lychester.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lychester",
   },
   crossed_elms: {
     id: "crossed_elms",
@@ -351,6 +387,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1740, 4349],
     allegiance: "House Tully",
     loreSnippet: "Tranquil hamlet settled on the western shore of the Gods Eye lake.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Crossed_Elms",
   },
   fairmarket: {
     id: "fairmarket",
@@ -360,6 +397,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1676, 4045],
     allegiance: "Riverlands",
     loreSnippet: "Bustling river trading town with a great timbered bridge spanning the waters of the Blue Fork.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Fairmarket",
   },
   hags_mire: {
     id: "hags_mire",
@@ -369,6 +407,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1575, 3931],
     allegiance: "House Frey",
     loreSnippet: "Swampy ground and peat bog southwest of the Twins.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/House_Frey",
   },
   harrenhal: {
     id: "harrenhal",
@@ -378,6 +417,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1785, 4275],
     isHub: true,
     loreSnippet: "Mighty ruined fortress of black stone, melted and scarred by dragonflame of Balerion.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Harrenhal",
   },
   high_heart: {
     id: "high_heart",
@@ -387,6 +427,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1621, 4266],
     allegiance: "Children of the Forest",
     loreSnippet: "Sacred summit crowned by the stumps of thirty-one weirwood trees, home of the dwarf greenspeaker.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/High_Heart",
   },
   crossroads_inn: {
     id: "crossroads_inn",
@@ -396,6 +437,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1845, 4153],
     isHub: true,
     loreSnippet: "Fabled traveler crossroads where the Kingsroad, River Road, and High Road meet.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Inn_at_the_Crossroads",
   },
   lake_town: {
     id: "lake_town",
@@ -406,6 +448,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Tully",
     loreSnippet: "Bustling fishing haven and trading community on the southern banks of the Gods Eye.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lake_Town",
   },
   lambswold: {
     id: "lambswold",
@@ -415,6 +458,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1625, 4138],
     allegiance: "House Tully",
     loreSnippet: "Pastoral village in the central river valleys.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lambswold",
   },
   harroway: {
     id: "harroway",
@@ -424,6 +468,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1778, 4146],
     allegiance: "House Roote",
     loreSnippet: "Busy riverport on the Trident with a two-headed stone griffin bridge and a flat-bottomed passenger ferry.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lord_Harroway's_Town",
   },
   maidenpool: {
     id: "maidenpool",
@@ -434,6 +479,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Mooton",
     loreSnippet: "Ancient walled harbor on the Bay of Crabs, where Florian first beheld Jonquil bathing.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Maidenpool",
   },
   mudgrave: {
     id: "mudgrave",
@@ -443,6 +489,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1575, 4102],
     allegiance: "House Vance",
     loreSnippet: "Small Riverlands village near the Red Fork.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/House_Vance",
   },
   mummers_ford: {
     id: "mummers_ford",
@@ -452,6 +499,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1462, 4306],
     allegiance: "House Tully",
     loreSnippet: "Strategic river crossing where Beric Dondarrion was ambushed by Lannister forces.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Mummer's_Ford",
   },
   nutten: {
     id: "nutten",
@@ -461,6 +509,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1767, 4133],
     allegiance: "House Tully",
     loreSnippet: "Farming village situated along the northern banks of the Red Fork.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Nutton",
   },
   oldstones: {
     id: "oldstones",
@@ -470,6 +519,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1594, 3946],
     allegiance: "Riverlands",
     loreSnippet: "Ruins of the ancient hilltop castle of Tristifer IV Mudd, the Hammer of Justice, last King of the Rivers and the Hills.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Oldstones",
   },
   pennytree: {
     id: "pennytree",
@@ -479,6 +529,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1575, 4102],
     allegiance: "Royal Fief",
     loreSnippet: "Royal fief with an ancient oak with hundreds of copper pennies nailed into its bark.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Pennytree",
   },
   pinkmaiden: {
     id: "pinkmaiden",
@@ -488,6 +539,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1475, 4345],
     allegiance: "House Piper",
     loreSnippet: "Seat of House Piper situated along the upper Red Fork near the border with the Westerlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Pinkmaiden",
   },
   ramsford: {
     id: "ramsford",
@@ -497,6 +549,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1611, 3998],
     allegiance: "House Frey",
     loreSnippet: "River crossing and hamlet in the northern Riverlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/House_Frey",
   },
   raventree_hall: {
     id: "raventree_hall",
@@ -506,6 +559,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1547, 4089],
     allegiance: "House Blackwood",
     loreSnippet: "Ancient moss-grown castle of House Blackwood enclosing a colossal dead weirwood where thousands of ravens roost at dusk.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Raventree_Hall",
   },
   riverbend: {
     id: "riverbend",
@@ -515,6 +569,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1727, 4153],
     allegiance: "House Tully",
     loreSnippet: "Picturesque settlement nestling a sweeping bend of the Red Fork river.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Riverbend",
   },
   riverrun: {
     id: "riverrun",
@@ -525,6 +580,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Tully",
     loreSnippet: "Triangular sandstone fortress positioned at the junction of the Red Fork and the Tumblestone.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Riverrun",
   },
   ruby_ford: {
     id: "ruby_ford",
@@ -534,6 +590,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1830, 4196],
     allegiance: "The Riverlands",
     loreSnippet: "Fabled crossing of the Trident where Robert Baratheon slew Prince Rhaegar Targaryen in single combat.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ruby_Ford",
   },
   rushing_falls: {
     id: "rushing_falls",
@@ -543,6 +600,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1669, 4310],
     allegiance: "House Smallwood",
     loreSnippet: "Vibrant village perched beside the roaring cascades that feed into the Red Fork basin.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Rushing_Falls",
   },
   sallydance: {
     id: "sallydance",
@@ -552,6 +610,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1684, 4133],
     allegiance: "House Tully",
     loreSnippet: "Village on the Red Fork burned during the War of the Five Kings.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sallydance",
   },
   saltpans: {
     id: "saltpans",
@@ -561,6 +620,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1971, 4223],
     isPort: true,
     loreSnippet: "Small trading port where salt is panned and travelers board vessels crossing the Narrow Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Saltpans",
   },
   seagard: {
     id: "seagard",
@@ -571,6 +631,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Mallister",
     loreSnippet: "Formidable coastal redoubt with the Boar's Head tower, built specifically to guard against ironborn reavers.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Seagard",
   },
   sevenstreams: {
     id: "sevenstreams",
@@ -580,6 +641,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1577, 3955],
     allegiance: "House Vance",
     loreSnippet: "Seat of House Vance of Sevenstreams, situated where seven tributaries converge.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/House_Vance",
   },
   sherrer: {
     id: "sherrer",
@@ -589,6 +651,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1462, 4306],
     allegiance: "House Vance",
     loreSnippet: "Riverlands village burned and sacked by the Mountain That Rides.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sherrer",
   },
   stone_hedge: {
     id: "stone_hedge",
@@ -598,6 +661,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1602, 4154],
     allegiance: "House Bracken",
     loreSnippet: "Historic stone keep of House Bracken along the Red Fork, locked in a millennia-old blood feud with House Blackwood.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Stone_Hedge",
   },
   stoney_sept: {
     id: "stoney_sept",
@@ -607,6 +671,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1571, 4434],
     allegiance: "Riverlands",
     loreSnippet: "Walled market town renowned for its massive sept of dark pink stone and the historic Battle of the Bells.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Stoney_Sept",
   },
   quiet_isle: {
     id: "quiet_isle",
@@ -617,6 +682,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Faith of the Seven",
     loreSnippet: "Monastic refuge at the mouth of the Trident where silent penitent brothers dig graves and rescue tidal flotsam.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Quiet_Isle",
   },
   the_twins: {
     id: "the_twins",
@@ -627,6 +693,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Frey",
     loreSnippet: "Formidable fortified bridge of identical stone keeps commanding the Green Fork.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Twins",
   },
   tumblers_falls: {
     id: "tumblers_falls",
@@ -636,6 +703,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1651, 4457],
     allegiance: "House Tully",
     loreSnippet: "Waterfall and village on the upper reaches of the Blackwater Rush.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tumbler's_Falls",
   },
   wayfarers_rest: {
     id: "wayfarers_rest",
@@ -645,6 +713,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1533, 4307],
     allegiance: "House Vance of Wayfarer's Rest",
     loreSnippet: "Sturdy castle belonging to the elder branch of House Vance situated at a vital river crossing.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Wayfarer's_Rest",
   },
   wendish_town: {
     id: "wendish_town",
@@ -654,6 +723,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1599, 4025],
     allegiance: "House Tully",
     loreSnippet: "Riverlands market village raided by Gregor Clegane at the outbreak of the War of the Five Kings.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Wendish_Town",
   },
   whitewalls: {
     id: "whitewalls",
@@ -663,6 +733,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1866, 4316],
     allegiance: "House Butterwell",
     loreSnippet: "Fabled castle of white weirwood stone torn down and ploughed with salt following the failed Second Blackfyre Rebellion.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Whitewalls",
   },
   widows_ford: {
     id: "widows_ford",
@@ -672,6 +743,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1953, 4214],
     allegiance: "House Darry",
     loreSnippet: "Strategically vital shallow river passage across the lower course of the Trident.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Widow's_Ford",
   },
   willow_wood: {
     id: "willow_wood",
@@ -681,6 +753,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1428, 4162],
     allegiance: "House Ryger",
     loreSnippet: "Seat of House Ryger, surrounded by stands of weeping willows.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Willow_Wood",
   },
 
   // ================= THE VALE OF ARRYN & THE SISTERS (17) =================
@@ -692,6 +765,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2155, 3611],
     allegiance: "House Baelish",
     loreSnippet: "The modest, windswept flint tower seat of House Baelish on the smallest of the Fingers.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Baelish_keep",
   },
   breakwater: {
     id: "breakwater",
@@ -702,6 +776,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Borrell",
     loreSnippet: "Castle on Littlesister whose lords once set false beacons to wreck passing merchant cogs.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sisterton",
   },
   coldwater_burn: {
     id: "coldwater_burn",
@@ -711,6 +786,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2222, 3727],
     allegiance: "House Coldwater",
     loreSnippet: "Coastal castle overlooking the frigid waters where the Coldwater river empties into the sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Coldwater",
   },
   gates_of_the_moon: {
     id: "gates_of_the_moon",
@@ -720,6 +796,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2066, 4012],
     allegiance: "House Arryn",
     loreSnippet: "Great castle at the foot of the Giant's Lance guarding the ascent to the Eyrie.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bloody_Gate",
   },
   gulltown: {
     id: "gulltown",
@@ -731,6 +808,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Grafton",
     loreSnippet: "Major port city of the Vale, famous for wealthy merchant houses and trade with Braavos.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Gulltown",
   },
   hearts_home: {
     id: "hearts_home",
@@ -740,6 +818,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2139, 3870],
     allegiance: "House Corbray",
     loreSnippet: "Ancestral seat of House Corbray, holders of the legendary Valyrian steel blade Lady Forlorn.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Heart's_Home",
   },
   ironoaks: {
     id: "ironoaks",
@@ -749,6 +828,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2227, 4017],
     allegiance: "House Waynwood",
     loreSnippet: "Ancient, dignified castle of Lady Anya Waynwood, known for raising honorable, martial fosterlings.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ironoaks",
   },
   longbow_hall: {
     id: "longbow_hall",
@@ -758,6 +838,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2359, 3857],
     allegiance: "House Hunter",
     loreSnippet: "Stout stone holdfast of House Hunter situated along the eastern crags of the Vale.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Longbow_Hall",
   },
   old_anchor: {
     id: "old_anchor",
@@ -768,6 +849,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Melcolm",
     loreSnippet: "Natural deepwater sheltered port of House Melcolm on the eastern coast of the Vale.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Old_Anchor",
   },
   redfort: {
     id: "redfort",
@@ -777,6 +859,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2184, 4107],
     allegiance: "House Redfort",
     loreSnippet: "Colossal fortress crafted from blood-red stone, standing at the southern pass beneath the Giant's Lance.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Redfort",
   },
   runestone: {
     id: "runestone",
@@ -787,6 +870,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Royce",
     loreSnippet: "Ancestral coastal fortress of Bronze Yohn Royce, carved with ancient First Men runes that protect against harm.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Runestone",
   },
   sisterton: {
     id: "sisterton",
@@ -797,6 +881,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Borrell",
     loreSnippet: "Notorious pirate haven and chief port town of Sweetsister with foul-smelling streets and the Nightfort bell.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sisterton",
   },
   snakewood: {
     id: "snakewood",
@@ -806,6 +891,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2219, 3790],
     allegiance: "House Lynderly",
     loreSnippet: "Keep nestled in the winding, snake-infested woodland hills between Strongsong and Heart's Home.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Snakewood",
   },
   strongsong: {
     id: "strongsong",
@@ -815,6 +901,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1959, 3866],
     allegiance: "House Belmore",
     loreSnippet: "Mountain redoubt of House Belmore guarding the windswept northern highlands of the Vale of Arryn.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Strongsong",
   },
   bloody_gate: {
     id: "bloody_gate",
@@ -824,6 +911,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1970, 4055],
     allegiance: "House Arryn",
     loreSnippet: "Impregnable chokepoint fortress where a dozen armies have dashed themselves to pieces.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bloody_Gate",
   },
   eyrie: {
     id: "eyrie",
@@ -834,6 +922,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Arryn",
     loreSnippet: "Seven slender white towers clinging to the shoulder of the Giant's Lance with the Sky Cells.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Eyrie",
   },
   wickenden: {
     id: "wickenden",
@@ -844,6 +933,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Waxley",
     loreSnippet: "Coastal keep of House Waxley, renowned across the Seven Kingdoms for fragrant perfumed wax candles.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Wickenden",
   },
 
   // ================= THE IRON ISLANDS (7) =================
@@ -855,6 +945,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [948, 3992],
     allegiance: "House Goodbrother",
     loreSnippet: "Monolithic black stone keep atop the iron-rich peaks of Great Wyk, quarried from the living mountain.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hammerhorn",
   },
   lordsport: {
     id: "lordsport",
@@ -865,6 +956,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Botley",
     loreSnippet: "Largest town and main trading port of the Iron Islands, situated on the southeastern shore of Pyke.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lordsport",
   },
   pyke: {
     id: "pyke",
@@ -876,6 +968,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Greyjoy",
     loreSnippet: "Seaswept fortress of towers joined by swaying rope bridges suspended over roaring tides.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Pyke",
   },
   saltcliffe: {
     id: "saltcliffe",
@@ -886,6 +979,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Saltcliffe",
     loreSnippet: "Windswept island castle nestled among wave-battered sea caves on the isle of Saltcliffe.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Saltcliffe",
   },
   sealskin_point: {
     id: "sealskin_point",
@@ -896,6 +990,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Farwynd",
     loreSnippet: "Remote, stormy promontory keep on the westernmost headland of Great Wyk.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Iron_Islands",
   },
   ten_towers: {
     id: "ten_towers",
@@ -906,6 +1001,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Harlaw",
     loreSnippet: "Eccentric fortress with ten diverse towers built by Lord Theomore Harlaw, home of Rodrik 'The Reader' Harlaw.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ten_Towers",
   },
   volmark: {
     id: "volmark",
@@ -916,6 +1012,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Volmark",
     loreSnippet: "Castle on Harlaw belonging to the descendants of the legendary black-haired Harren the Black.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Harlaw",
   },
 
   // ================= THE WESTERLANDS (19) =================
@@ -927,6 +1024,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1179, 4296],
     allegiance: "House Marbrand",
     loreSnippet: "High sandstone mountain redoubt of House Marbrand overlooking the Tumblestone river.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ashemark",
   },
   banefort: {
     id: "banefort",
@@ -937,6 +1035,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Banefort",
     loreSnippet: "Clifftop fortress on the Sunset Sea, former seat of the Hooded King during the Age of Heroes.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Banefort",
   },
   castamere: {
     id: "castamere",
@@ -946,6 +1045,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1122, 4287],
     allegiance: "House Reyne",
     loreSnippet: "Subterranean fortress of gold mines, flooded and exterminated by Tywin Lannister to forge the Rains of Castamere.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Castamere",
   },
   casterly_rock: {
     id: "casterly_rock",
@@ -956,6 +1056,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Lannister",
     loreSnippet: "Colossal stone promontory honeycombed with gold mines, ancient seat of House Lannister.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Casterly_Rock",
   },
   clegane_keep: {
     id: "clegane_keep",
@@ -965,6 +1066,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1129, 4516],
     allegiance: "House Clegane",
     loreSnippet: "Modest fortified tower and kennel holdfast in the foothills near Casterly Rock.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Clegane's_Keep",
   },
   cornfield: {
     id: "cornfield",
@@ -974,6 +1076,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1108, 4663],
     allegiance: "House Swyft",
     loreSnippet: "Fertile valley stronghold of House Swyft in the southern agricultural belt of the Westerlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Cornfield",
   },
   crakehall: {
     id: "crakehall",
@@ -983,6 +1086,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [925, 4690],
     allegiance: "House Crakehall",
     loreSnippet: "Forest keep commanding the Ocean Road, seat of mighty wild-boar lords.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Crakehall",
   },
   deep_den: {
     id: "deep_den",
@@ -992,6 +1096,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1287, 4475],
     allegiance: "House Lydden",
     loreSnippet: "Strategic castle standing astride the Gold Road between high rocky gorges.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Deep_Den",
   },
   faircastle: {
     id: "faircastle",
@@ -1002,6 +1107,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Farman",
     loreSnippet: "Splendid castle on Fair Isle keeping ceaseless watch against ironborn longships.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Faircastle",
   },
   feastfires: {
     id: "feastfires",
@@ -1012,6 +1118,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Prester",
     loreSnippet: "Westernmost castle on the mainland of Westeros, keeping watch over the Fair Isle straits.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Feastfires",
   },
   hornvale: {
     id: "hornvale",
@@ -1021,6 +1128,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1292, 4407],
     allegiance: "House Brax",
     loreSnippet: "Formidable mountain citadel of House Brax in the rugged passes north of Deep Den.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hornvale",
   },
   kayce: {
     id: "kayce",
@@ -1031,6 +1139,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Kenning",
     loreSnippet: "Walled coastal trading town and fishing port with a grand lighthouse looking westward over the Sunset Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kayce",
   },
   lannisport: {
     id: "lannisport",
@@ -1042,6 +1151,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Lannister",
     loreSnippet: "Gleaming coastal city and bustling port, celebrated for goldsmiths and naval strength.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lannisport",
   },
   oxcross: {
     id: "oxcross",
@@ -1051,6 +1161,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1210, 4350],
     allegiance: "House Lannister",
     loreSnippet: "Crossroads encampment in the hills east of Casterly Rock, scene of Robb Stark's daring night raid.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Oxcross",
   },
   sarsfield: {
     id: "sarsfield",
@@ -1060,6 +1171,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1157, 4366],
     allegiance: "House Sarsfield",
     loreSnippet: "Hillside castle along the high road guarding the western approaches to Lannisport.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sarsfield",
   },
   silverhill: {
     id: "silverhill",
@@ -1069,6 +1181,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1275, 4546],
     allegiance: "House Serrett",
     loreSnippet: "Towering castle perched atop the richest silver mines in the Seven Kingdoms.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Silverhill",
   },
   tarbeck_hall: {
     id: "tarbeck_hall",
@@ -1078,6 +1191,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1119, 4336],
     allegiance: "House Tarbeck",
     loreSnippet: "Rival keep destroyed in a single afternoon by Lannister siege catapults during the Reyne-Tarbeck Rebellion.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tarbeck_Hall",
   },
   the_crag: {
     id: "the_crag",
@@ -1088,6 +1202,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Westerling",
     loreSnippet: "Impoverished sea-cliff castle of House Westerling carved directly into the seaside rockface.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Crag",
   },
   golden_tooth: {
     id: "golden_tooth",
@@ -1097,6 +1212,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1290, 4310],
     allegiance: "House Lefford",
     loreSnippet: "Steep mountain bastion guarding the sole gateway pass between the Riverlands and Westerlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Golden_Tooth",
   },
 
   // ================= THE CROWNLANDS & DRAGONSTONE (24) =================
@@ -1108,6 +1224,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1978, 4398],
     allegiance: "House Buckwell",
     loreSnippet: "Seat of House Buckwell in the forested hills of the Crownlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Antlers",
   },
   briarwhite: {
     id: "briarwhite",
@@ -1117,6 +1234,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1822, 4426],
     allegiance: "House Baratheon of King's Landing",
     loreSnippet: "Township located northwest of the capital.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Briarwhite",
   },
   brindlewood: {
     id: "brindlewood",
@@ -1126,6 +1244,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1960, 4438],
     allegiance: "House Baratheon of King's Landing",
     loreSnippet: "Forest hamlet north of King's Landing.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Brindlewood",
   },
   brownhollow: {
     id: "brownhollow",
@@ -1135,6 +1254,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2264, 4296],
     allegiance: "House Brune",
     loreSnippet: "Seat of the Brunes of Brownhollow in Crackclaw Point.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Brownhollow",
   },
   stokeworth: {
     id: "stokeworth",
@@ -1144,6 +1264,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2042, 4538],
     allegiance: "House Stokeworth",
     loreSnippet: "Plump agricultural castle north of King's Landing, providing vital food supplies to the capital.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Castle_Stokeworth",
   },
   celtigar_keep: {
     id: "celtigar_keep",
@@ -1154,6 +1275,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Celtigar",
     loreSnippet: "Island castle of ancient Valyrian House Celtigar, reputed to hold a Valyrian steel axe and horn to summon krakens.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Claw_Isle",
   },
   dragonstone: {
     id: "dragonstone",
@@ -1165,6 +1287,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Baratheon of Dragonstone",
     loreSnippet: "Volcanic citadel carved by Valyrian sorcery into gargoyles and dragons.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dragonstone",
   },
   driftmark: {
     id: "driftmark",
@@ -1175,6 +1298,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Velaryon",
     loreSnippet: "Low fertile island seat of the Sea Snakes, guardians of Blackwater Bay.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Driftmark",
   },
   duskendale: {
     id: "duskendale",
@@ -1185,6 +1309,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Rykker",
     loreSnippet: "Historic merchant port dominated by the square drum tower of the Dun Fort.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Duskendale",
   },
   dyre_den: {
     id: "dyre_den",
@@ -1195,6 +1320,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Brune of Dyre Den",
     loreSnippet: "Grim, mist-shrouded fortress deep in the bogs of Crackclaw Point, held by the stubborn Brunes.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dyre_Den",
   },
   hayford: {
     id: "hayford",
@@ -1204,6 +1330,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1942, 4585],
     allegiance: "House Hayford",
     loreSnippet: "Keep along the kingsroad a mere half-day's ride northwest of King's Landing.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hayford",
   },
   high_tide: {
     id: "high_tide",
@@ -1214,6 +1341,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Velaryon",
     loreSnippet: "Opulent white-marble palace built by the Sea Snake Corlys Velaryon, later sacked and burned during the Dance.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/High_Tide",
   },
   hull: {
     id: "hull",
@@ -1224,6 +1352,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Velaryon",
     loreSnippet: "Town and primary shipyard on the western coast of Driftmark.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hull",
   },
   kings_landing: {
     id: "kings_landing",
@@ -1235,6 +1364,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "The Iron Throne",
     loreSnippet: "Sprawling capital of the Seven Kingdoms, home of the Red Keep and the Great Sept of Baelor.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/King's_Landing",
   },
   rambton: {
     id: "rambton",
@@ -1244,6 +1374,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2317, 4569],
     allegiance: "House Rambton",
     loreSnippet: "Coastal stronghold on Massey's Hook.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Rambton",
   },
   rooks_rest: {
     id: "rooks_rest",
@@ -1254,6 +1385,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Staunton",
     loreSnippet: "Coastal cliff castle on the Bay of Crabs, site of the tragic dragon battle during the Dance of the Dragons.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Rook's_Rest",
   },
   rosby: {
     id: "rosby",
@@ -1263,6 +1395,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2006, 4565],
     allegiance: "House Rosby",
     loreSnippet: "Quiet castle and town surrounded by apple orchards, just north of the Blackwater Rush.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Rosby",
   },
   sharp_point: {
     id: "sharp_point",
@@ -1273,6 +1406,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Bar Emmon",
     loreSnippet: "Watchtower fortress situated atop the razor-sharp rocks of Massey's Hook with a colossal beacon fire.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sharp_Point",
   },
   sows_horn: {
     id: "sows_horn",
@@ -1282,6 +1416,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1883, 4384],
     allegiance: "House Hogg",
     loreSnippet: "Solitary stone tower holdfast belonging to the prickly hedge knight Ser Roger Hogg.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sow's_Horn",
   },
   spicetown: {
     id: "spicetown",
@@ -1292,6 +1427,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Velaryon",
     loreSnippet: "Wealthy trading hub on Driftmark bursting with Eastern silk and spices before its destruction in the Battle of the Gullet.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Spicetown",
   },
   stonedance: {
     id: "stonedance",
@@ -1302,6 +1438,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Massey",
     loreSnippet: "Ancient cliffside redoubt of House Massey commanding the open breakers of the Narrow Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Stonedance",
   },
   sweetport_sound: {
     id: "sweetport_sound",
@@ -1312,6 +1449,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Baratheon of Dragonstone",
     loreSnippet: "Sheltered bay and anchorage south of Dragonstone.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sweetport",
   },
   the_whispers: {
     id: "the_whispers",
@@ -1322,6 +1460,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Crabb",
     loreSnippet: "Overgrown coastal ruin where Ser Clarence Crabb brought the heads of his slain enemies to whisper secrets.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Whispers",
   },
   wendwater_bridge: {
     id: "wendwater_bridge",
@@ -1331,6 +1470,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2210, 4772],
     allegiance: "The Iron Throne",
     loreSnippet: "Pivotal stone bridge spanning the rushing Wendwater along the royal road into the Stormlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Wendwater_Bridge",
   },
 
   // ================= THE STORMLANDS (18) =================
@@ -1342,6 +1482,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1786, 5128],
     allegiance: "House Dondarrion",
     loreSnippet: "Formidable black basalt castle guarding the Dornish Marches.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Blackhaven",
   },
   bronzegate: {
     id: "bronzegate",
@@ -1351,6 +1492,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2195, 4817],
     allegiance: "House Buckler",
     loreSnippet: "Seat of House Buckler guarding the Kingsroad approach to Storm's End.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bronzegate",
   },
   crows_nest: {
     id: "crows_nest",
@@ -1360,6 +1502,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2109, 5085],
     allegiance: "House Morrigen",
     loreSnippet: "Windswept castle perched atop the Stormlands foothills.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Crow's_Nest",
   },
   evenfall_hall: {
     id: "evenfall_hall",
@@ -1370,6 +1513,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Tarth",
     loreSnippet: "Seat of House Tarth on the sapphire-blue isle of Tarth.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Evenfall_Hall",
   },
   tarth: {
     id: "tarth",
@@ -1380,6 +1524,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Tarth",
     loreSnippet: "Seat of the Evenstar on the Sapphire Isle, rising above turquoise crystal waters.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Evenfall_Hall",
   },
   fawnton: {
     id: "fawnton",
@@ -1389,6 +1534,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2121, 5183],
     allegiance: "House Cafferen",
     loreSnippet: "Seat of House Cafferen in the Dornish Marches.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Fawnton",
   },
   felwood: {
     id: "felwood",
@@ -1398,6 +1544,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2070, 4876],
     allegiance: "House Fell",
     loreSnippet: "Deep forest stronghold of House Fell in the northern Stormlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Felwood",
   },
   greenstone: {
     id: "greenstone",
@@ -1408,6 +1555,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Estermont",
     loreSnippet: "Island castle of the Sea Turtle House Estermont on the verdant Isle of Estermont.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Greenstone",
   },
   griffins_roost: {
     id: "griffins_roost",
@@ -1418,6 +1566,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Connington",
     loreSnippet: "Dramatically perched stone aerie joined to the mainland by a narrow razor-ridge named the Griffin's Throat.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Griffin's_Roost",
   },
   harvest_hall: {
     id: "harvest_hall",
@@ -1427,6 +1576,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1707, 5110],
     allegiance: "House Selmy",
     loreSnippet: "Ancestral seat of Ser Barristan Selmy in the fertile Dornish Marches.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Harvest_Hall",
   },
   haystack_hall: {
     id: "haystack_hall",
@@ -1436,6 +1586,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2195, 4817],
     allegiance: "House Errol",
     loreSnippet: "Seat of House Errol nestled in the fertile river valleys of the northern Stormlands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Haystack_Hall",
   },
   mistwood: {
     id: "mistwood",
@@ -1445,6 +1596,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2267, 5169],
     allegiance: "House Mertyns",
     loreSnippet: "Ancient woodland keep surrounded by dripping moss and perpetual fog in the heart of the Rainwood.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Mistwood",
   },
   morne: {
     id: "morne",
@@ -1455,6 +1607,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Tarth",
     loreSnippet: "Ancient ruined seat of the petty kings of Tarth on its eastern shores.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Morne",
   },
   rain_house: {
     id: "rain_house",
@@ -1465,6 +1618,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Wylde",
     loreSnippet: "Storm-lashed coastal fortress of House Wylde on the rocky cape of Wrath.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Rain_House",
   },
   stonehelm: {
     id: "stonehelm",
@@ -1475,6 +1629,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Swann",
     loreSnippet: "Towering river castle of House Swann on the Slayne, guarding the historic Red Watch.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Stonehelm",
   },
   storms_end: {
     id: "storms_end",
@@ -1485,6 +1640,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Baratheon",
     loreSnippet: "Massive drum tower castle shielded by ancient spells woven into its sheer curtain wall.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Storm's_End",
   },
   summerhall: {
     id: "summerhall",
@@ -1494,6 +1650,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1909, 5023],
     allegiance: "House Targaryen",
     loreSnippet: "Pleasure palace turned tragic ruin where King Aegon V perished in a great fire attempting to hatch dragons.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Summerhall",
   },
   weeping_town: {
     id: "weeping_town",
@@ -1504,6 +1661,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Stormlands",
     loreSnippet: "The primary seaport of the Stormlands on the Sea of Dorne, named for the legendary crying of the First King.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Weeping_Town",
   },
 
   // ================= THE REACH & SHIELD ISLANDS (43) =================
@@ -1515,6 +1673,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1383, 4955],
     allegiance: "House Appleton",
     loreSnippet: "Seat of House Appleton on the Mander.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Appleton",
   },
   ashford: {
     id: "ashford",
@@ -1524,6 +1683,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1563, 5026],
     allegiance: "House Ashford",
     loreSnippet: "Cylindrical white stone castle and tourney meadow on the Cockleshent, setting of the Tourney of Ashford Meadow.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ashford",
   },
   bandallon: {
     id: "bandallon",
@@ -1534,6 +1694,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Blackbar",
     loreSnippet: "Coastal stronghold of House Blackbar in the southern Reach.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bandallon",
   },
   bitterbridge: {
     id: "bitterbridge",
@@ -1544,6 +1705,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Caswell",
     loreSnippet: "Ancient wooden bridge and stone castle where the Roseroad crosses the river Mander.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bitterbridge",
   },
   blackcrown: {
     id: "blackcrown",
@@ -1554,6 +1716,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Bulwer",
     loreSnippet: "Coastal castle of House Bulwer near the mouth of the Whispering Sound.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Blackcrown",
   },
   brandybottom: {
     id: "brandybottom",
@@ -1563,6 +1726,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1156, 4846],
     allegiance: "House Tyrell",
     loreSnippet: "Small market village in the northern Reach.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Brandybottom",
   },
   brightwater_keep: {
     id: "brightwater_keep",
@@ -1572,6 +1736,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1046, 5207],
     allegiance: "House Florent",
     loreSnippet: "Splendid stone redoubt of the fox-eared House Florent on the headwaters of the Honeywine.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Brightwater_Keep",
   },
   cider_hall: {
     id: "cider_hall",
@@ -1581,6 +1746,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1435, 4994],
     allegiance: "House Fossoway",
     loreSnippet: "Seat of the red-apple Fossoways where the Mander and Cockleswhent meet.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Cider_Hall",
   },
   cobble_cove: {
     id: "cobble_cove",
@@ -1591,6 +1757,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Tyrell",
     loreSnippet: "Small sheltered coastal port town in the Reach.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Cobble_Cove",
   },
   coldmoat: {
     id: "coldmoat",
@@ -1600,6 +1767,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1204, 4851],
     allegiance: "House Osgrey / House Webber",
     loreSnippet: "High stone stronghold surrounded by a deep moat fed by the Chequy Water.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Coldmoat",
   },
   dosk: {
     id: "dosk",
@@ -1609,6 +1777,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1154, 4889],
     allegiance: "House Tyrell",
     loreSnippet: "Town renowned for fine wines and horse breeding.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dosk",
   },
   dunstonbury: {
     id: "dunstonbury",
@@ -1618,6 +1787,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1214, 5133],
     allegiance: "House Peake",
     loreSnippet: "Ancient historical seat of House Peake in the Reach.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dunstonbury",
   },
   ebonhead: {
     id: "ebonhead",
@@ -1628,6 +1798,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Summer Isles",
     loreSnippet: "Southernmost cape settlement on Jhala in the Summer Isles.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Summer_Isles",
   },
   goldengrove: {
     id: "goldengrove",
@@ -1637,6 +1808,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1288, 4807],
     allegiance: "House Rowan",
     loreSnippet: "Majestic palace-keep of House Rowan amidst golden fields and ancient oak orchards.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Goldengrove",
   },
   grassfield_keep: {
     id: "grassfield_keep",
@@ -1646,6 +1818,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1731, 4881],
     allegiance: "House Meadows",
     loreSnippet: "Seat of House Meadows in the fertile grassy meadows of the Reach.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Grassfield_Keep",
   },
   grassy_vale: {
     id: "grassy_vale",
@@ -1655,6 +1828,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1703, 4861],
     allegiance: "House Meadows",
     loreSnippet: "Seat of House Meadows situated in a fertile vale along the upper reaches of the Blueburn.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Grassy_Vale",
   },
   greenshield: {
     id: "greenshield",
@@ -1665,6 +1839,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Chester",
     loreSnippet: "Northernmost of the four Shield Islands defending the mouth of the Mander.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Greenshield",
   },
   greyshield: {
     id: "greyshield",
@@ -1675,6 +1850,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Grim",
     loreSnippet: "Island stronghold of the Shield Islands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Greyshield",
   },
   grimston: {
     id: "grimston",
@@ -1685,6 +1861,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Grim",
     loreSnippet: "Grim stone fortress on Greyshield in the Shield Islands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Grimston",
   },
   hewetts_town: {
     id: "hewetts_town",
@@ -1695,6 +1872,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Hewett",
     loreSnippet: "Port town and stronghold on Oakenshield island.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hewett's_Town",
   },
   highgarden: {
     id: "highgarden",
@@ -1705,6 +1883,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "House Tyrell",
     loreSnippet: "Fair palace of tiered white stone walls, rose gardens, fountains, and marble colonnades.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Highgarden",
   },
   honeyholt: {
     id: "honeyholt",
@@ -1714,6 +1893,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1063, 5284],
     allegiance: "House Beesbury",
     loreSnippet: "Keep of House Beesbury surrounded by thousands of humming apiaries and sweet clover fields along the Honeywine.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Honeyholt",
   },
   horn_hill: {
     id: "horn_hill",
@@ -1723,6 +1903,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1263, 5202],
     allegiance: "House Tarly",
     loreSnippet: "Richly wooded ancestral keep of House Tarly, masters of the greatsword Heartsbane.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Horn_Hill",
   },
   longtable: {
     id: "longtable",
@@ -1732,6 +1913,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1521, 4917],
     allegiance: "House Merryweather",
     loreSnippet: "Sprawling stronghold of House Merryweather at the grand confluence of the Mander and the Blueburn.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Longtable",
   },
   new_barrel: {
     id: "new_barrel",
@@ -1741,6 +1923,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1383, 4955],
     allegiance: "House Fossoway",
     loreSnippet: "Seat of the green-apple branch of House Fossoway.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/New_Barrel",
   },
   nightsong: {
     id: "nightsong",
@@ -1750,6 +1933,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1519, 5186],
     allegiance: "House Caron",
     loreSnippet: "Marcher castle holding the northern approach to the Prince's Pass.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Nightsong",
   },
   oakenshield: {
     id: "oakenshield",
@@ -1760,6 +1944,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Hewett",
     loreSnippet: "Greatest island and seat of Lord Hewett among the Shield Islands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Oakenshield",
   },
   old_oak: {
     id: "old_oak",
@@ -1770,6 +1955,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Oakheart",
     loreSnippet: "Ancient coastal fortress of House Oakheart standing sentinel along the Ocean Road.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Old_Oak",
   },
   old_stonebridge: {
     id: "old_stonebridge",
@@ -1779,6 +1965,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2102, 4561],
     allegiance: "House Tyrell",
     loreSnippet: "Historic stone crossing spanning the Mander.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Old_Stone_Bridge",
   },
   oldtown: {
     id: "oldtown",
@@ -1790,6 +1977,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Hightower",
     loreSnippet: "Oldest and greatest center of learning, crowned by the 800-foot Hightower and the Citadel.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Oldtown",
   },
   red_lake: {
     id: "red_lake",
@@ -1799,6 +1987,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1129, 4769],
     allegiance: "House Crane",
     loreSnippet: "Enchanting lakeside castle of House Crane whose daughters are rumored to change into wild swans.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Red_Lake",
   },
   ryamsport: {
     id: "ryamsport",
@@ -1809,6 +1998,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Redwyne",
     loreSnippet: "Charming harbor town on the Arbor where barrels of world-famous golden wine are loaded onto trade cogs.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ryamsport",
   },
   southshield: {
     id: "southshield",
@@ -1819,6 +2009,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Serry",
     loreSnippet: "Southernmost island bastion of the Shield Islands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Southshield",
   },
   stackhouse: {
     id: "stackhouse",
@@ -1828,6 +2019,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1220, 4813],
     allegiance: "House Stackhouse",
     loreSnippet: "Reach castle situated in the rolling hills of the Northmarch.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Stackhouse",
   },
   starfish_harbor: {
     id: "starfish_harbor",
@@ -1838,6 +2030,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Redwyne",
     loreSnippet: "Sheltered deep harbor on the western shore of the Arbor where the Redwyne fleet anchors.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Starfish_Harbor",
   },
   starpike: {
     id: "starpike",
@@ -1847,6 +2040,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1343, 5146],
     allegiance: "House Peake",
     loreSnippet: "Grim, foreboding mountain castle of the rebellious House Peake in the Red Mountains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Starpike",
   },
   sunhouse: {
     id: "sunhouse",
@@ -1857,6 +2051,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Cuy",
     loreSnippet: "Southern coastal fortress of House Cuy commanding the sandy beaches of the Redwyne Straits.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sunhouse",
   },
   the_arbor: {
     id: "the_arbor",
@@ -1868,6 +2063,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Redwyne",
     loreSnippet: "Sun-drenched southern island famed for golden vintage wines and the colossal Redwyne fleet.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Arbor",
   },
   three_towers: {
     id: "three_towers",
@@ -1878,6 +2074,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Costayne",
     loreSnippet: "Triple-towered coastal castle of House Costayne guarding the entry straits of Whispering Sound.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Three_Towers",
   },
   tumbleton: {
     id: "tumbleton",
@@ -1887,6 +2084,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1763, 4721],
     allegiance: "House Footly",
     loreSnippet: "Prosperous market town on the river Mander, scarred by the dragonfire of Vermithor and Tessarion during the Dance.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tumbleton",
   },
   uplands: {
     id: "uplands",
@@ -1896,6 +2094,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1168, 5340],
     allegiance: "House Mullendore",
     loreSnippet: "Foothill redoubt of House Mullendore known for their menagerie of exotic birds and monkeys.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Uplands",
   },
   vinetown: {
     id: "vinetown",
@@ -1906,6 +2105,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Redwyne",
     loreSnippet: "Picturesque vineyard port on the southern cape of the Arbor looking out across the Sunset Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Vinetown",
   },
   whitegrove: {
     id: "whitegrove",
@@ -1915,6 +2115,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1379, 5098],
     allegiance: "House Tyrell",
     loreSnippet: "Reach castle situated south of the Mander.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Whitegrove",
   },
 
   // ================= DORNE (24) =================
@@ -1926,6 +2127,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1367, 5350],
     allegiance: "House Blackmont",
     loreSnippet: "Mountain stronghold of House Blackmont overlooking the Torentine.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Blackmont",
   },
   wyl: {
     id: "wyl",
@@ -1935,6 +2137,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1848, 5222],
     allegiance: "House Wyl",
     loreSnippet: "Cavernous border fortress guarding the high northern pass of the Boneway against marcher incursions.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Wyl",
   },
   ghaston_grey: {
     id: "ghaston_grey",
@@ -1945,6 +2148,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Martell",
     loreSnippet: "Grim island prison fortress in the Sea of Dorne.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ghaston_Grey",
   },
   ghost_hill: {
     id: "ghost_hill",
@@ -1955,6 +2159,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Toland",
     loreSnippet: "Chalk-white coastal castle of House Toland on the Sea of Dorne.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ghost_Hill",
   },
   godsgrace: {
     id: "godsgrace",
@@ -1964,6 +2169,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2094, 5574],
     allegiance: "House Allyrion",
     loreSnippet: "Verdant riverside stronghold at the holy confluence of the Scourge and Vaith rivers.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Godsgrace",
   },
   hellgate_hall: {
     id: "hellgate_hall",
@@ -1973,6 +2179,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1695, 5663],
     allegiance: "House Uller",
     loreSnippet: "Southern Dornish stronghold guarding the desert passes.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hellgate_Hall",
   },
   hellholt: {
     id: "hellholt",
@@ -1982,6 +2189,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1661, 5595],
     allegiance: "House Uller",
     loreSnippet: "Grim sulphur-scented castle of House Uller where Queen Rhaenys and her dragon Meraxes fell.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hellholt",
   },
   kingsgrave: {
     id: "kingsgrave",
@@ -1991,6 +2199,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1560, 5310],
     allegiance: "House Manwoody",
     loreSnippet: "Fierce mountain stronghold guarding the Prince's Pass, named for a slain King of the Reach.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingsgrave",
   },
   lemonwood: {
     id: "lemonwood",
@@ -2001,6 +2210,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Dalt",
     loreSnippet: "Castle situated at the mouth of the Greenblood, famous for abundant lemon groves and orphan poleboats.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lemonwood",
   },
   planky_town: {
     id: "planky_town",
@@ -2011,6 +2221,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Martell",
     loreSnippet: "Floating harbor town of interconnected barges at the mouth of the Greenblood.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Planky_Town",
   },
   saltshore: {
     id: "saltshore",
@@ -2021,6 +2232,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Gargalen",
     loreSnippet: "Sun-bleached coastal castle of House Gargalen on the shimmering Summer Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Salt_Shore",
   },
   sandstone: {
     id: "sandstone",
@@ -2030,6 +2242,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1476, 5598],
     allegiance: "House Qorgyle",
     loreSnippet: "Isolated stone fortress standing defiantly amidst shifting red dunes and deadly pit scorpions.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sandstone",
   },
   shandystone: {
     id: "shandystone",
@@ -2039,6 +2252,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2305, 5634],
     allegiance: "House Martell",
     loreSnippet: "Ruined castle and ancient well oasis in the deep sands of Dorne.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Shandystone",
   },
   skyreach: {
     id: "skyreach",
@@ -2048,6 +2262,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1560, 5412],
     allegiance: "House Fowler",
     loreSnippet: "High mountain eyrie of House Fowler, the Lords of the Wide Way, towering over the Prince's Pass.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Skyreach",
   },
   spottswood: {
     id: "spottswood",
@@ -2057,6 +2272,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [2447, 5483],
     allegiance: "House Santagar",
     loreSnippet: "Keep of House Santagar on the sun-baked eastern hills south of Sunspear.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Spottswood",
   },
   starfall: {
     id: "starfall",
@@ -2067,6 +2283,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Dayne",
     loreSnippet: "Ancient seat of the Sword of the Morning, erected where a fallen star struck the mouth of the Torentine.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Starfall",
   },
   sunspear: {
     id: "sunspear",
@@ -2078,6 +2295,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Martell",
     loreSnippet: "Sand-colored fortress featuring the slender Spear Tower and the Tower of the Sun.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sunspear",
   },
   hermitage: {
     id: "hermitage",
@@ -2087,6 +2305,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1361, 5437],
     allegiance: "House Dayne",
     loreSnippet: "Seat of a cadet branch of House Dayne along the Torentine.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/High_Hermitage",
   },
   the_tor: {
     id: "the_tor",
@@ -2097,6 +2316,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Jordayne",
     loreSnippet: "Ancient white labyrinthine castle of House Jordayne on the southern shores of the Sea of Dorne.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tor",
   },
   water_gardens: {
     id: "water_gardens",
@@ -2107,6 +2327,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "House Martell",
     loreSnippet: "Exquisite private seaside palace built by Prince Maron Martell for Queen Daenerys Targaryen, filled with fountains and blood oranges.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Water_Gardens",
   },
   tower_of_joy: {
     id: "tower_of_joy",
@@ -2115,6 +2336,7 @@ export const NODES: Record<string, LocationNode> = {
     type: "ruin",
     coords: [1557, 5251],
     loreSnippet: "Solitary round stone tower in the Red Mountains where Lyanna Stark died.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tower_of_Joy",
   },
   vaith: {
     id: "vaith",
@@ -2124,6 +2346,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1916, 5600],
     allegiance: "House Vaith",
     loreSnippet: "Castle of House Vaith on the river of the same name.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Vaith",
   },
   vultures_roost: {
     id: "vultures_roost",
@@ -2133,6 +2356,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1654, 5249],
     allegiance: "Vulture King",
     loreSnippet: "Mountain roost and outlaw stronghold of the Vulture Kings in the Red Mountains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Vulture's_Roost",
   },
   yronwood: {
     id: "yronwood",
@@ -2142,6 +2366,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [1784, 5397],
     allegiance: "House Yronwood",
     loreSnippet: "Ancient seat of House Yronwood, the Bloodroyal, guarding the Boneway.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Yronwood",
   },
 
   // ================= ESSOS: THE FREE CITIES & SHIVERING SEA (IBBEN) (27) =================
@@ -2153,6 +2378,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3735, 4748],
     allegiance: "Rhoynar",
     loreSnippet: "Ancient ruined city of green marble spires on the Qhoyne river, crushed by Valyrian dragons.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ar_Noy",
   },
   braavos: {
     id: "braavos",
@@ -2164,6 +2390,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Iron Bank & Sealord",
     loreSnippet: "The Secret City of a hundred lagoon islands, guarded by the Colossus and the Faceless Men.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Braavos",
   },
   chroyane: {
     id: "chroyane",
@@ -2173,6 +2400,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3594, 5082],
     isHub: true,
     loreSnippet: "Ruined Festival City of the Rhoyne, enveloped by suffocating gray mists and cursed stone men.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Chroyane",
   },
   ghoyan_drohe: {
     id: "ghoyan_drohe",
@@ -2182,6 +2410,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3198, 4528],
     allegiance: "Rhoynar",
     loreSnippet: "Ruined Rhoynar waterway city along the Little Rhoyne surrounded by groves of wild orange trees.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ghoyan_Drohe",
   },
   ib_nor: {
     id: "ib_nor",
@@ -2192,6 +2421,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Ibben",
     loreSnippet: "Frigid northern whaling port on the ice-choked coast of the island of Ib.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ibben",
   },
   ib_sar: {
     id: "ib_sar",
@@ -2202,6 +2432,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Ibben",
     loreSnippet: "Whaling harbor and settlement on the rugged southern island of Far Ib.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ibben",
   },
   lhorulu: {
     id: "lhorulu",
@@ -2211,6 +2442,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3473, 5022],
     allegiance: "Ancient Rhoynar",
     loreSnippet: "Drowned, overgrown ruins of an ancient Rhoynish civilization on the banks of the river Lhorulu.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Rhoyne",
   },
   lorassyon: {
     id: "lorassyon",
@@ -2221,6 +2453,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Lorath",
     loreSnippet: "Ancient labyrinthine fortress built by the mythical Mazemakers on an island near Lorath.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lorath",
   },
   lorath: {
     id: "lorath",
@@ -2232,6 +2465,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Magisters of Lorath",
     loreSnippet: "Quiet northern island Free City built above subterranean mazes of an elder vanished race.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lorath",
   },
   lys: {
     id: "lys",
@@ -2243,6 +2477,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Magisters of Lys",
     loreSnippet: "Sunlit archipelago paradise renowned for pleasure houses, sweet poisons, and perfumed courtesans.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lys",
   },
   morosh: {
     id: "morosh",
@@ -2253,6 +2488,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Lorath",
     loreSnippet: "Mining and trading colony of Lorath nestled along the cold northern coast at the mouth of the Sarne.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lorath",
   },
   myr: {
     id: "myr",
@@ -2264,6 +2500,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Magisters of Myr",
     loreSnippet: "Coastal city celebrated for master lens-grinders, delicate lace, and artisan crossbows.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Myr",
   },
   nefer: {
     id: "nefer",
@@ -2274,6 +2511,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Kingdom of N'Ghai",
     loreSnippet: "Sole remaining city of N'Ghai, shrouded in perpetual fog on Leviathan Sound and honeycombed by sinister subterranean passages.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Jogos_Nhai",
   },
   new_ibbish: {
     id: "new_ibbish",
@@ -2284,6 +2522,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Ibben",
     loreSnippet: "Colonial Ibbenese fortress-port on the northern mainland of Essos, built after the Dothraki burned Ibbish.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ibben",
   },
   norvos: {
     id: "norvos",
@@ -2294,6 +2533,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "Bearded Priests",
     loreSnippet: "Terraced inland city perched above the Noyne, ruled by Bearded Priests and tolling bronze bells.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Norvos",
   },
   ny_sar: {
     id: "ny_sar",
@@ -2303,6 +2543,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3494, 4690],
     allegiance: "Rhoynar",
     loreSnippet: "Once the magnificent palace-city of Princess Nymeria at the confluence of the Noyne and the Rhoyne.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ny_Sar",
   },
   pentos: {
     id: "pentos",
@@ -2314,6 +2555,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Magisters of Pentos",
     loreSnippet: "Wealthy merchant Free City adorned with square brick towers, forbidden from keeping sellswords.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Pentos",
   },
   port_of_ibben: {
     id: "port_of_ibben",
@@ -2324,6 +2566,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Shadow Council of Ibben",
     loreSnippet: "Sprawling, blubber-scented island capital of Ib, famed for towering whalers and woolly rhinos.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Port_of_Ibben",
   },
   qohor: {
     id: "qohor",
@@ -2334,6 +2577,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "Black Goat of Qohor",
     loreSnippet: "Gateway to the east bordering the Great Forest, famed for Valyrian-reforging smiths and tapestries.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Qohor",
   },
   saath: {
     id: "saath",
@@ -2344,6 +2588,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Kingdom of Sarnor",
     loreSnippet: "The sole surviving city of the glorious Kingdom of Sarnor, standing proudly where the Sarne meets the Shivering Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Saath",
   },
   sar_mell: {
     id: "sar_mell",
@@ -2353,6 +2598,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3713, 5552],
     allegiance: "Rhoynar",
     loreSnippet: "Ruined Rhoynar flower city on the lower Rhoyne destroyed during the bloody Second Spice War.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sar_Mell",
   },
   sarhoy: {
     id: "sarhoy",
@@ -2363,6 +2609,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Rhoynar",
     loreSnippet: "Ancient Rhoynar trading port sacked, burned, and salted by the dragonlords of the Valyrian Freehold.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Rhoynar",
   },
   selhorys: {
     id: "selhorys",
@@ -2372,6 +2619,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3649, 5341],
     allegiance: "Volantis",
     loreSnippet: "Prosperous walled vassal city of Volantis on the Rhoyne, filled with maze-like markets and pleasure barges.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Selhorys",
   },
   tyrosh: {
     id: "tyrosh",
@@ -2383,6 +2631,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Archon of Tyrosh",
     loreSnippet: "Island fortress-city famous for vivid dyes, ornate armor, and flamboyant sellsword captains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tyrosh",
   },
   valysar: {
     id: "valysar",
@@ -2392,6 +2641,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3650, 5460],
     allegiance: "Volantis",
     loreSnippet: "Vassal city of Volantis situated along the lower Rhoyne with elegant white marble colonnades.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Valysar",
   },
   volantis: {
     id: "volantis",
@@ -2403,6 +2653,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Triarchs of Volantis",
     loreSnippet: "The First Daughter of Valyria, bisected by the Rhoyne and linked by the Long Bridge.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Volantis",
   },
   volon_therys: {
     id: "volon_therys",
@@ -2412,6 +2663,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [3699, 5566],
     allegiance: "Volantis",
     loreSnippet: "Great garrison city of Volantis on the western bank of the Rhoyne, bristling with slave soldiers.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Volon_Therys",
   },
 
   // ================= ESSOS: SLAVER'S BAY & VALYRIA (14) =================
@@ -2425,6 +2677,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Good Masters",
     loreSnippet: "Red brick coastal city, celebrated solely for the brutal forging of Unsullied warrior-eunuchs.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Astapor",
   },
   bhorash: {
     id: "bhorash",
@@ -2433,6 +2686,7 @@ export const NODES: Record<string, LocationNode> = {
     type: "ruin",
     coords: [4977, 5400],
     loreSnippet: "Ruined stronghold perched high on the Black Cliffs overlooking Slaver's Bay.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bhorash",
   },
   elyria: {
     id: "elyria",
@@ -2443,6 +2697,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Elyria",
     loreSnippet: "Insular island city in the Gulf of Grief ally to the slaving ports of Meereen and Yunkai.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Elyria",
   },
   ghozai: {
     id: "ghozai",
@@ -2453,6 +2708,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Isle of Cedars",
     loreSnippet: "Ancient Ghiscari city on the northern Isle of Cedars swallowed by a tidal wave during the Doom.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ghozai",
   },
   mantarys: {
     id: "mantarys",
@@ -2461,6 +2717,7 @@ export const NODES: Record<string, LocationNode> = {
     type: "city",
     coords: [4499, 5531],
     loreSnippet: "Ominous mountain city notorious for twisted, misshapen inhabitants and dark sorcery.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Mantarys",
   },
   meereen: {
     id: "meereen",
@@ -2472,6 +2729,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Great Masters",
     loreSnippet: "Greatest of the Slaver Cities, dominated by multicolored pyramids and the bronze Harpy.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Meereen",
   },
   new_ghis: {
     id: "new_ghis",
@@ -2483,6 +2741,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Iron Legions",
     loreSnippet: "Island successor to ancient Ghis, renowned for iron legionaries carrying tall shields and spears.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/New_Ghis",
   },
   old_ghis: {
     id: "old_ghis",
@@ -2493,6 +2752,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Old Ghis",
     loreSnippet: "Colossal ruined pyramid capital of the Old Empire of Ghis, conquered and torched five times by Valyrian dragons.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Old_Ghis",
   },
   oros: {
     id: "oros",
@@ -2502,6 +2762,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4447, 6110],
     allegiance: "Valyrian Freehold",
     loreSnippet: "Once-magnificent inland city of the Freehold shattered and scorched by volcanic ash during the Doom.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Oros",
   },
   tolos: {
     id: "tolos",
@@ -2512,6 +2773,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Tolos",
     loreSnippet: "Infamous slaver city situated on the Black Cliffs of the Gulf of Grief, renowned for deadly slingers.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tolos",
   },
   tyria: {
     id: "tyria",
@@ -2521,6 +2783,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4407, 6231],
     allegiance: "Valyrian Freehold",
     loreSnippet: "Ancient dragonlord city at the northern isthmus of the shattered Valyrian peninsula.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Tyria",
   },
   valyria: {
     id: "valyria",
@@ -2530,6 +2793,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4312, 6426],
     allegiance: "Valyrian Freehold",
     loreSnippet: "The fabled shattered capital of the dragonlords, surrounded by the Smoking Sea where no man returns sane.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Old_Valyria",
   },
   velos: {
     id: "velos",
@@ -2540,6 +2804,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Isle of Cedars",
     loreSnippet: "Ruined cedar-wood city on the southern Isle of Cedars drowned in the cataclysm of Valyria.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Velos",
   },
   yunkai: {
     id: "yunkai",
@@ -2551,6 +2816,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Wise Masters",
     loreSnippet: "The Yellow City, famed for breeding bedslaves and corrupt merchant pit-masters.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Yunkai",
   },
 
   // ================= ESSOS: DOTHRAKI SEA & SARNATH (30) =================
@@ -2562,6 +2828,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6762, 5160],
     allegiance: "Dothraki Sea",
     loreSnippet: "Cannibal city ruin beside the Poison Sea in the eastern grasslands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   bayasabhad: {
     id: "bayasabhad",
@@ -2571,6 +2838,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [7391, 5673],
     allegiance: "Warrior Women of the Bone Mountains",
     loreSnippet: "Fortress city carved from living granite guarding the northern approach of the Sand Road through the Bone Mountains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bayasabhad",
   },
   essaria: {
     id: "essaria",
@@ -2580,6 +2848,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4373, 4572],
     allegiance: "Valyrian Freehold",
     loreSnippet: "Ruined Valyrian colony in northern Essos, reduced to rubble by the Dothraki.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Free_Cities",
   },
   ghardaa: {
     id: "ghardaa",
@@ -2589,6 +2858,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5988, 5124],
     allegiance: "Ghiscar",
     loreSnippet: "Ruined stronghold in the shadow of the mountains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bone_Mountains",
   },
   hazdahn_mo: {
     id: "hazdahn_mo",
@@ -2598,6 +2868,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5387, 4964],
     allegiance: "Ghiscar",
     loreSnippet: "Ruined Ghiscari colony city north of the Painted Mountains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ghiscar",
   },
   hornoth: {
     id: "hornoth",
@@ -2607,6 +2878,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4589, 4622],
     allegiance: "Ruins of Sarnor",
     loreSnippet: "Historic Sarnori realm sacked during the expansive conquests of Khal Loso.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
   },
   kasath: {
     id: "kasath",
@@ -2616,6 +2888,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5249, 4607],
     allegiance: "Kingdom of Sarnath",
     loreSnippet: "Ruined city of caravans, known to the Dothraki as the City of Black Stones.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
   },
   kayakayanaya: {
     id: "kayakayanaya",
@@ -2625,6 +2898,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [7289, 4595],
     allegiance: "Warrior Women of the Bone Mountains",
     loreSnippet: "Mighty black basalt fortress city guarding the Steel Road, ruled by warrior women who cut off their left breasts.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hyrkoon",
   },
   kosrak: {
     id: "kosrak",
@@ -2634,6 +2908,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6138, 5379],
     allegiance: "Lhazar",
     loreSnippet: "Ruined settlement in northern Lhazar.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lhazar",
   },
   kyth: {
     id: "kyth",
@@ -2643,6 +2918,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4686, 4336],
     allegiance: "Ruins of Sarnor",
     loreSnippet: "Rival city-kingdom of Sarnath overthrown by nomadic horse tribes during the Doom's aftermath.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
   },
   lhazosh: {
     id: "lhazosh",
@@ -2652,6 +2928,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5984, 5594],
     allegiance: "Lhazareen",
     loreSnippet: "Hill fortress of the pastoral Lhazareen shepherds perched in the heights above Meereen.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Lhazareen",
   },
   mardosh: {
     id: "mardosh",
@@ -2661,6 +2938,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4635, 4084],
     allegiance: "Kingdom of Sarnath",
     loreSnippet: "The City of Soldiers, heavily fortified before falling after a six-year siege.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
   },
   rathylar: {
     id: "rathylar",
@@ -2670,6 +2948,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4748, 4644],
     allegiance: "Ruins of Sarnor",
     loreSnippet: "Wrecked city of the Tall Men lying along the trade roads of the grasslands.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
   },
   sallosh: {
     id: "sallosh",
@@ -2679,6 +2958,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5363, 4374],
     allegiance: "Kingdom of Sarnath",
     loreSnippet: "The City of Scholars, whose vast library was burned by the horselords.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
   },
   samyriana: {
     id: "samyriana",
@@ -2688,6 +2968,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [7263, 5153],
     allegiance: "Warrior Women of the Bone Mountains",
     loreSnippet: "Impregnable mountain citadel guarding the high Stone Road through the dreaded Bone Mountains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Hyrkoon",
   },
   sarnath: {
     id: "sarnath",
@@ -2697,6 +2978,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4931, 4670],
     allegiance: "Kingdom of Sarnath",
     loreSnippet: "Ancient ruined capital of the Tall Men, destroyed by the Dothraki.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Kingdom_of_Sarnor",
   },
   sathar: {
     id: "sathar",
@@ -2706,6 +2988,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5558, 4667],
     allegiance: "Kingdom of Sarnath",
     loreSnippet: "The Waterfall City of Sarnath, sacked and broken into ruined marble mounds.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sathar",
   },
   vaes_aresak: {
     id: "vaes_aresak",
@@ -2716,6 +2999,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Ruins of Sarnor",
     loreSnippet: "Ancient coastal city of the Kingdom of Sarnor, sacked and renamed 'City of Cowards' by the Dothraki.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ibben",
   },
   vaes_dothrak: {
     id: "vaes_dothrak",
@@ -2726,6 +3010,7 @@ export const NODES: Record<string, LocationNode> = {
     isHub: true,
     allegiance: "Dosh Khaleen",
     loreSnippet: "City of the horselords resting beneath the Mother of Mountains; no blade may be bared here.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Vaes_Dothrak",
   },
   vaes_efe: {
     id: "vaes_efe",
@@ -2735,6 +3020,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6270, 4961],
     allegiance: "Ruined Freehold Colonies",
     loreSnippet: "Vast crumbled metropolis of the ruined Essosi kingdoms south of Vaes Dothrak.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Vaes_Dothrak",
   },
   vaes_graddakh: {
     id: "vaes_graddakh",
@@ -2744,6 +3030,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [4736, 3947],
     allegiance: "Ruins of Sarnor",
     loreSnippet: "Great ruined city near the delta of the Sarne, overgrown and silent after the Century of Blood.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sar_Mell",
   },
   vaes_jini: {
     id: "vaes_jini",
@@ -2753,6 +3040,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6871, 5022],
     allegiance: "Ruins of Yinishar",
     loreSnippet: "Ruined mountain city of the Yinishar along the Silk Route, renamed 'City of Goats' by the Dothraki.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   vaes_leisi: {
     id: "vaes_leisi",
@@ -2762,6 +3050,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5870, 3835],
     allegiance: "Ifequevron (Woods Walkers)",
     loreSnippet: "Ghostly ruins in the Forest of Qohor once inhabited by the vanished small wood-dwellers.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   vaes_leqse: {
     id: "vaes_leqse",
@@ -2771,6 +3060,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5535, 4503],
     allegiance: "Ruins of Sarnor",
     loreSnippet: "Fallen Sarnori stronghold of Gornath, named 'City of Rats' by the victorious horselords.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   vaes_mejhah: {
     id: "vaes_mejhah",
@@ -2780,6 +3070,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6155, 5101],
     allegiance: "Dothraki Sea",
     loreSnippet: "Ruined city along the course of the Skahazadhan.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   vaes_orvik: {
     id: "vaes_orvik",
@@ -2789,6 +3080,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6176, 6052],
     allegiance: "Dothraki Sea",
     loreSnippet: "Ruined settlement in the southern Red Waste.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   vaes_qosar: {
     id: "vaes_qosar",
@@ -2798,6 +3090,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6716, 6034],
     allegiance: "Dothraki Sea",
     loreSnippet: "Bleached ruined city in the Red Waste.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   vaes_shirosi: {
     id: "vaes_shirosi",
@@ -2807,6 +3100,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6342, 5993],
     allegiance: "Dothraki Sea",
     loreSnippet: "Ruined town on the edge of the Red Waste.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   vaes_tolorro: {
     id: "vaes_tolorro",
@@ -2816,6 +3110,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6455, 5831],
     allegiance: "Lost Freehold",
     loreSnippet: "'City of Bones', a white ghost city in the Red Waste where Daenerys Targaryen rested her khalasar.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Red_Waste",
   },
   yinishar: {
     id: "yinishar",
@@ -2825,6 +3120,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6861, 5055],
     allegiance: "Dothraki Sea",
     loreSnippet: "Ancient ruined settlement near the Bone Mountains.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
 
   // ================= ESSOS: QARTH & RED WASTE (2) =================
@@ -2838,6 +3134,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Pureborn & Thirteen",
     loreSnippet: "The Queen of Cities commanding the Jade Gates, encircled by triple walls of stone and marble.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Qarth",
   },
   vaes_qolahn: {
     id: "vaes_qolahn",
@@ -2847,6 +3144,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [6684, 6059],
     allegiance: "Qaathi Ruins",
     loreSnippet: "Ruined desert citadel of the ancient Qaathi in the dry expanses north of Qarth.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
 
   // ================= THE FAR EAST: THE GOLDEN EMPIRE OF YI TI (9) =================
@@ -2858,6 +3156,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [9511, 5303],
     allegiance: "Dry Deep",
     loreSnippet: "Eerie frontier trading town built entirely from the giant yellowed bones of unknown prehistoric beasts.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Bone_Mountains",
   },
   city_of_the_winged_men: {
     id: "city_of_the_winged_men",
@@ -2867,6 +3166,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [9650, 5964],
     allegiance: "Mountains of the Morn",
     loreSnippet: "Legendary eyrie perched in the Mountains of the Morn, whispered to be inhabited by human warriors with leather wings.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/City_of_the_Winged_Men",
   },
   jinqi: {
     id: "jinqi",
@@ -2878,6 +3178,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Golden Empire of Yi Ti",
     loreSnippet: "Sprawling coastal metropolis in eastern Yi Ti, boasting pagodas of jade, onyx, and tourmaline.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Jinqi",
   },
   kdath: {
     id: "kdath",
@@ -2887,6 +3188,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [9282, 5083],
     allegiance: "The Bleeding Sea",
     loreSnippet: "Nightmarish city claimed to be the oldest settlement in the world where unspeakable rites are performed in darkness.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Dothraki_Sea",
   },
   si_qo: {
     id: "si_qo",
@@ -2896,6 +3198,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [7841, 6196],
     allegiance: "Golden Empire of Yi Ti",
     loreSnippet: "Ruined riverside city deep in the lush tropical rainforests of Yi Ti.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Yi_Ti",
   },
   five_forts: {
     id: "five_forts",
@@ -2905,6 +3208,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [9125, 5461],
     allegiance: "Golden Empire of Yi Ti",
     loreSnippet: "Colossal fortresses of fused black stone, a thousand feet high, built by the Pearl Emperor to hold back demons.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Five_Forts",
   },
   tiqui: {
     id: "tiqui",
@@ -2914,6 +3218,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [7844, 5556],
     allegiance: "Golden Empire of Yi Ti",
     loreSnippet: "Ancient provincial metropolis in the northern territory of the Golden Empire of Yi Ti.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Yi_Ti",
   },
   trader_town: {
     id: "trader_town",
@@ -2923,6 +3228,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [7957, 5195],
     allegiance: "Golden Empire of Yi Ti",
     loreSnippet: "Vibrant caravan hub on the Silk Road where Western merchants barter with spice merchants of Yi Ti.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Yi_Ti",
   },
   yin: {
     id: "yin",
@@ -2934,6 +3240,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "God-Emperor of Yi Ti",
     loreSnippet: "Ancient imperial city and seat of the azure emperors of the Golden Empire of Yi Ti.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Yin",
   },
 
   // ================= THE FAR EAST: JADE SEA & GREAT MORAQ & LENG (10) =================
@@ -2946,6 +3253,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Jade Sea",
     loreSnippet: "Vibrant trade city at the southern terminus of the Sand Road on the northern shore of the Jade Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Asabhad",
   },
   faros: {
     id: "faros",
@@ -2957,6 +3265,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Lords of Moraq",
     loreSnippet: "Lush island trading city at the northern head of Great Moraq, looking across the Jade Gates.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Great_Moraq",
   },
   leng_ma: {
     id: "leng_ma",
@@ -2967,6 +3276,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "God-Empress of Leng",
     loreSnippet: "Southern coastal city on the jungle island of Leng, home to ten-foot-tall god-empresses and labyrinthine ruins.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Leng_Ma",
   },
   leng_yi: {
     id: "leng_yi",
@@ -2978,6 +3288,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "God-Empress of Leng",
     loreSnippet: "Northern capital of Leng on the Jade Sea, surrounded by dense spice-woods and teak forests.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Leng_Yi",
   },
   port_moraq: {
     id: "port_moraq",
@@ -2988,6 +3299,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Great Moraq",
     loreSnippet: "Ancient fortified port city on the southern shores of Great Moraq, controlling the passage between the Jade Sea and Summer Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Port_Moraq",
   },
   port_yhos: {
     id: "port_yhos",
@@ -2998,6 +3310,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Summer Sea",
     loreSnippet: "Thriving commercial port town along the northern shores of the Summer Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Summer_Sea",
   },
   qarkash: {
     id: "qarkash",
@@ -3008,6 +3321,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Qartheen Empire",
     loreSnippet: "Fortified coastal city on the Straits of Qarth west of the Jade Gates.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Qarkash",
   },
   turrani: {
     id: "turrani",
@@ -3018,6 +3332,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Leng",
     loreSnippet: "Major southern trading haven on the mystical island of Leng, renowned for teak, spices, and exotic gemstones.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Leng",
   },
   vahar: {
     id: "vahar",
@@ -3028,6 +3343,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Great Moraq",
     loreSnippet: "Southern port city on the island of Great Moraq in the Jade Sea.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Great_Moraq",
   },
   zabhad: {
     id: "zabhad",
@@ -3038,6 +3354,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Great Moraq",
     loreSnippet: "Southern port on the spice-rich island of Great Moraq overlooking the vast Cinnamon Straits.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Zabhad",
   },
 
   // ================= THE SHADOW LANDS & ASSHAI (2) =================
@@ -3051,6 +3368,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Shadowbinders",
     loreSnippet: "Portentous city of black greasy stone at the mouth of the Ash; no children are ever born here.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Asshai",
   },
   stygai: {
     id: "stygai",
@@ -3060,6 +3378,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [9112, 7234],
     allegiance: "Shadow Lands",
     loreSnippet: "The City of the Corpse, shunned even by shadowbinders, lurking in the black gorge of the river Ash where no sun shines.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Stygai",
   },
 
   // ================= THE SUMMER ISLES & SOUTHERN SEAS (6) =================
@@ -3072,6 +3391,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Corsairs of the Basilisk Isles",
     loreSnippet: "Notorious pirate citadel on Ax Isle carved from black stone, terror of merchants sailing between Sothoryos and Essos.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Ax_Isle",
   },
   gogossos: {
     id: "gogossos",
@@ -3082,6 +3402,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Ruins of Valyria",
     loreSnippet: "Haunted ruins on the Isle of Tears, once the sinister 'Gorgon of the South' depopulated by the Red Death.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sothoryos",
   },
   port_lotus: {
     id: "port_lotus",
@@ -3093,6 +3414,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Princes of the Summer Isles",
     loreSnippet: "Vibrant feather-draped island harbor on Walano, home to graceful swan ships and red-wood bows.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Summer_Isles",
   },
   tall_trees_town: {
     id: "tall_trees_town",
@@ -3103,6 +3425,7 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Summer Isles",
     loreSnippet: "Principal port city of Walano in the Summer Isles, shaded by towering teakwood groves and talking parrots.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Summer_Isles",
   },
   yeen: {
     id: "yeen",
@@ -3112,6 +3435,7 @@ export const NODES: Record<string, LocationNode> = {
     coords: [5264, 7461],
     allegiance: "Ancient Sothoryos",
     loreSnippet: "Ancient city built of colossal oily black stone blocks in deep jungle, shunned by beasts and moss alike.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sothoryos",
   },
   zamettar: {
     id: "zamettar",
@@ -3122,5 +3446,6 @@ export const NODES: Record<string, LocationNode> = {
     isPort: true,
     allegiance: "Ruins of the Ghiscari Empire",
     loreSnippet: "Colossal ruined colony of Old Ghis at the mouth of the river Zamoyos on the northern coast of Sothoryos.",
+    wikiUrl: "https://gameofthrones.fandom.com/wiki/Sothoryos",
   },
 };
