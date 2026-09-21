@@ -303,7 +303,7 @@ export const RoutePlanner: React.FC<RoutePlannerProps> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        background: 'rgba(10, 14, 20, 0.7)'
+        background: 'var(--bg-secondary)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
           <Navigation size={15} color="var(--text-gold)" />
