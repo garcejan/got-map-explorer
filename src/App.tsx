@@ -84,7 +84,9 @@ export const App: React.FC = () => {
       setSelectedMode('crow_flight');
     } else if (partyId === 'dragon') {
       setSelectedMode('dragon');
-    } else if (selectedMode === 'crow_flight' || selectedMode === 'dragon') {
+    } else if (partyId === 'fleet') {
+      setSelectedMode('sea_only');
+    } else if (selectedMode === 'crow_flight' || selectedMode === 'dragon' || selectedMode === 'sea_only') {
       setSelectedMode('balanced');
     }
   };
@@ -95,7 +97,9 @@ export const App: React.FC = () => {
       setSelectedPartyId('crow');
     } else if (mode === 'dragon') {
       setSelectedPartyId('dragon');
-    } else if (selectedPartyId === 'crow' || selectedPartyId === 'dragon') {
+    } else if (mode === 'sea_only') {
+      setSelectedPartyId('fleet');
+    } else if (selectedPartyId === 'crow' || selectedPartyId === 'dragon' || selectedPartyId === 'fleet') {
       setSelectedPartyId('retinue');
     }
   };

@@ -180,6 +180,8 @@ function findSingleLeg(
       // Mode restrictions
       if (effectiveMode === 'land_only' && edge.segmentType === 'sea') continue;
       if (effectiveMode === 'sea_only' && edge.segmentType === 'land') continue;
+      // Strict fleet restriction: naval vessels cannot traverse overland routes
+      if (party.id === 'fleet' && edge.segmentType === 'land') continue;
 
       // Calculate effective speed based on party type and terrain
       const baseSpeed = edge.segmentType === 'sea'
@@ -231,13 +233,17 @@ function findSingleLeg(
 
   if (times.get(endId) === Infinity) {
     // If strict corridor constraint (land_only or sea_only) prevented finding a path across water/land,
-    // retry with balanced multi-modal routing so a route can always be planned.
-    if (effectiveMode !== 'balanced') {
+    // retry with balanced multi-modal routing so a route can always be planned, unless the party is strictly maritime
+    if (effectiveMode !== 'balanced' && party.id !== 'fleet') {
       const relaxedResult = findSingleLeg(startId, endId, party, 'balanced', goal);
       if (relaxedResult) return relaxedResult;
     }
 
-    // Direct expedition approach as ultimate safety net
+    // Direct expedition approach as safety net (strictly for overland/flying parties, not naval fleets)
+    if (party.id === 'fleet') {
+      return null;
+    }
+
     const startNode = NODES[startId];
     const endNode = NODES[endId];
     if (!startNode || !endNode) return null;
