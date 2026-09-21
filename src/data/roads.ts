@@ -766,7 +766,31 @@ const RAW_ROADS: RawEdge[] = [
       [3710, 5460],
       [3950, 5480],
       [4180, 5490],
-      [4440, 5450]
+      [4499, 5531]
+    ]
+  },
+  {
+    id: 'road_valyrian_mantarys_oros',
+    from: 'mantarys',
+    to: 'oros',
+    name: 'Valyrian Highway (Lands of the Long Summer)',
+    terrainType: 'paved_highway',
+    waypoints: [
+      [4499, 5531],
+      [4470, 5820],
+      [4447, 6110]
+    ]
+  },
+  {
+    id: 'road_valyrian_oros_tolos',
+    from: 'oros',
+    to: 'tolos',
+    name: 'Valyrian Road (Oros to Tolos)',
+    terrainType: 'paved_highway',
+    waypoints: [
+      [4447, 6110],
+      [4590, 5880],
+      [4727, 5664]
     ]
   },
   {

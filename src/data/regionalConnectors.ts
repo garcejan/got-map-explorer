@@ -4325,24 +4325,6 @@ const RAW_CONNECTORS: RawConnector[] = [
     ]
   },
   {
-    "id": "conn_elyria_mantarys",
-    "from": "elyria",
-    "to": "mantarys",
-    "name": "Coastal Passage: Elyria to Mantarys",
-    "segmentType": "sea",
-    "terrainType": "coastal_sea",
-    "waypoints": [
-      [
-        4594,
-        5685
-      ],
-      [
-        4499,
-        5531
-      ]
-    ]
-  },
-  {
     "id": "conn_ghozai_velos",
     "from": "ghozai",
     "to": "velos",
@@ -5333,24 +5315,6 @@ const RAW_CONNECTORS: RawConnector[] = [
     ]
   },
   {
-    "id": "conn_black_fort_yeen",
-    "from": "black_fort",
-    "to": "yeen",
-    "name": "Coastal Passage: Black Fort (Ax Isle) to Yeen",
-    "segmentType": "sea",
-    "terrainType": "coastal_sea",
-    "waypoints": [
-      [
-        5409,
-        7062
-      ],
-      [
-        5264,
-        7461
-      ]
-    ]
-  },
-  {
     "id": "conn_gogossos_zamettar",
     "from": "gogossos",
     "to": "zamettar",
@@ -5365,24 +5329,6 @@ const RAW_CONNECTORS: RawConnector[] = [
       [
         5161,
         7166
-      ]
-    ]
-  },
-  {
-    "id": "conn_gogossos_yeen",
-    "from": "gogossos",
-    "to": "yeen",
-    "name": "Coastal Passage: Gogossos to Yeen",
-    "segmentType": "sea",
-    "terrainType": "coastal_sea",
-    "waypoints": [
-      [
-        4892,
-        7389
-      ],
-      [
-        5264,
-        7461
       ]
     ]
   },
@@ -5408,9 +5354,9 @@ const RAW_CONNECTORS: RawConnector[] = [
     "id": "conn_hazdahn_mo_meereen",
     "from": "hazdahn_mo",
     "to": "meereen",
-    "name": "Coastal Passage: Hazdahn Mo (Vaes Diaf) to Meereen",
-    "segmentType": "sea",
-    "terrainType": "coastal_sea",
+    "name": "Ghiscari Red Hills Road: Hazdahn Mo to Meereen",
+    "segmentType": "land",
+    "terrainType": "dirt_track",
     "waypoints": [
       [
         5387,
@@ -5552,9 +5498,9 @@ const RAW_CONNECTORS: RawConnector[] = [
     "id": "conn_five_forts_jinqi",
     "from": "five_forts",
     "to": "jinqi",
-    "name": "Coastal Passage: The Five Forts to Jinqi",
-    "segmentType": "sea",
-    "terrainType": "coastal_sea",
+    "name": "Golden Empire Road: The Five Forts to Jinqi",
+    "segmentType": "land",
+    "terrainType": "dirt_track",
     "waypoints": [
       [
         9125,
@@ -5570,9 +5516,9 @@ const RAW_CONNECTORS: RawConnector[] = [
     "id": "conn_adakhakileki_vaes_efe",
     "from": "adakhakileki",
     "to": "vaes_efe",
-    "name": "Coastal Passage: Adakhakileki to Vaes Efe",
-    "segmentType": "sea",
-    "terrainType": "coastal_sea",
+    "name": "Grassland Trail: Adakhakileki to Vaes Efe",
+    "segmentType": "land",
+    "terrainType": "dirt_track",
     "waypoints": [
       [
         6762,
@@ -5743,24 +5689,6 @@ const RAW_CONNECTORS: RawConnector[] = [
       [
         1361,
         5437
-      ]
-    ]
-  },
-  {
-    "id": "conn_oros_elyria",
-    "from": "oros",
-    "to": "elyria",
-    "name": "Coastal Passage: Oros to Elyria",
-    "segmentType": "sea",
-    "terrainType": "coastal_sea",
-    "waypoints": [
-      [
-        4447,
-        6110
-      ],
-      [
-        4594,
-        5685
       ]
     ]
   }
