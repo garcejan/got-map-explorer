@@ -12,7 +12,8 @@ import {
   Search,
   BookOpen,
   ArrowRight,
-  Shuffle
+  Shuffle,
+  Flame
 } from 'lucide-react';
 import { PRESET_JOURNEYS, type PresetJourney } from '../data/presets';
 import { NODES } from '../data/nodes';
@@ -26,7 +27,7 @@ interface HistoricalPresetsDropdownProps {
   onClearPreset?: () => void;
 }
 
-type CategoryFilter = 'all' | 'royal_war' | 'sea_voyage' | 'rookery';
+type CategoryFilter = 'all' | 'dragon' | 'rookery' | 'royal_war' | 'sea_voyage';
 
 interface PresetMetadata {
   category: CategoryFilter;
@@ -38,6 +39,103 @@ interface PresetMetadata {
 }
 
 const PRESET_META: Record<string, PresetMetadata> = {
+  // --- CONQUEST & UNIFICATION ---
+  aegon_crossing: {
+    category: 'sea_voyage',
+    categoryLabel: 'The Conquest',
+    stats: '~392 mi • ~3.4 days',
+    originName: 'Dragonstone',
+    destName: "King's Landing",
+    waypointNames: []
+  },
+  balerion_harrenhal: {
+    category: 'dragon',
+    categoryLabel: 'Dragon Flight',
+    stats: '~307 mi • ~0.6 days',
+    originName: "King's Landing",
+    destName: 'Harrenhal',
+    waypointNames: []
+  },
+  torrhen_stark_march: {
+    category: 'royal_war',
+    categoryLabel: 'Northern Host',
+    stats: '~1,886 mi • ~219 days',
+    originName: 'Winterfell',
+    destName: 'Harrenhal',
+    waypointNames: ['Moat Cailin']
+  },
+
+  // --- EARLY TARGARYEN DYNASTY & JAEHAERYS I ---
+  alysanne_silverwing_wall: {
+    category: 'dragon',
+    categoryLabel: 'Dragon Flight',
+    stats: '~621 mi • ~1.2 days',
+    originName: 'Winterfell',
+    destName: 'Castle Black',
+    waypointNames: []
+  },
+
+  // --- THE DANCE OF THE DRAGONS ---
+  daemon_caraxes_harrenhal: {
+    category: 'dragon',
+    categoryLabel: 'Dragon Flight',
+    stats: '~507 mi • ~1.0 days',
+    originName: 'Dragonstone',
+    destName: 'Harrenhal',
+    waypointNames: []
+  },
+  jacaerys_vermax_winterfell: {
+    category: 'dragon',
+    categoryLabel: 'Dragon Flight',
+    stats: '~1,479 mi • ~2.9 days',
+    originName: 'Dragonstone',
+    destName: 'Winterfell',
+    waypointNames: ['The Eyrie', 'White Harbor']
+  },
+  lucerys_arrax_storm: {
+    category: 'dragon',
+    categoryLabel: 'Dragon Flight',
+    stats: '~476 mi • ~0.9 days',
+    originName: 'Dragonstone',
+    destName: "Storm's End",
+    waypointNames: []
+  },
+  red_keep_war_raven: {
+    category: 'rookery',
+    categoryLabel: 'Rookery Flight',
+    stats: '~1,047 mi • ~4.4 days',
+    originName: "King's Landing",
+    destName: 'Oldtown',
+    waypointNames: []
+  },
+
+  // --- BLACKFYRE REBELLIONS & DUNK AND EGG ---
+  daemon_blackfyre_rebellion: {
+    category: 'royal_war',
+    categoryLabel: 'Rebel March',
+    stats: '~195 mi • ~14.8 days',
+    originName: "King's Landing",
+    destName: 'Tumbleton',
+    waypointNames: []
+  },
+  dunk_and_egg_ashford: {
+    category: 'royal_war',
+    categoryLabel: 'Hedge Knight',
+    stats: '~1,039 mi • ~63 days',
+    originName: 'Summerhall',
+    destName: 'Ashford',
+    waypointNames: []
+  },
+
+  // --- YEAR OF THE FALSE SPRING & ROBERT'S REBELLION ---
+  tourney_harrenhal_false_spring: {
+    category: 'royal_war',
+    categoryLabel: 'Tourney Journey',
+    stats: '~2,076 mi • ~132 days',
+    originName: 'Winterfell',
+    destName: 'Harrenhal',
+    waypointNames: ['Moat Cailin']
+  },
   robert_progress: {
     category: 'royal_war',
     categoryLabel: 'Royal Progress',
@@ -46,6 +144,8 @@ const PRESET_META: Record<string, PresetMetadata> = {
     destName: 'Winterfell',
     waypointNames: []
   },
+
+  // --- MAESTER ROOKERY & CITADEL DISPATCHES ---
   raven_message: {
     category: 'rookery',
     categoryLabel: 'Rookery Flight',
@@ -54,6 +154,24 @@ const PRESET_META: Record<string, PresetMetadata> = {
     destName: "King's Landing",
     waypointNames: []
   },
+  citadel_white_raven: {
+    category: 'rookery',
+    categoryLabel: 'Citadel White Raven',
+    stats: '~2,226 mi • ~9.3 days',
+    originName: 'Oldtown',
+    destName: 'Winterfell',
+    waypointNames: []
+  },
+  castle_black_plea_dragonstone: {
+    category: 'rookery',
+    categoryLabel: "Night's Watch Plea",
+    stats: '~1,925 mi • ~8.0 days',
+    originName: 'Castle Black',
+    destName: 'Dragonstone',
+    waypointNames: []
+  },
+
+  // --- OVERLAND HOSTS & PATROLS ---
   wall_patrol: {
     category: 'royal_war',
     categoryLabel: "Night's Watch",
@@ -62,17 +180,9 @@ const PRESET_META: Record<string, PresetMetadata> = {
     destName: 'Eastwatch-by-the-Sea',
     waypointNames: []
   },
-  arya_braavos: {
-    category: 'sea_voyage',
-    categoryLabel: 'Narrow Sea Crossing',
-    stats: '~929 mi • ~8.1 days',
-    originName: 'Saltpans',
-    destName: 'Braavos',
-    waypointNames: []
-  },
   dany_slavers_bay: {
     category: 'royal_war',
-    categoryLabel: "Conquest & Siege",
+    categoryLabel: 'Conquest & Siege',
     stats: '~514 mi • ~39 days',
     originName: 'Astapor',
     destName: 'Meereen',
@@ -84,6 +194,16 @@ const PRESET_META: Record<string, PresetMetadata> = {
     stats: '~1,402 mi • ~38 days',
     originName: 'Sunspear',
     destName: "King's Landing",
+    waypointNames: []
+  },
+
+  // --- GREAT SEA VOYAGES & EXPEDITIONS ---
+  arya_braavos: {
+    category: 'sea_voyage',
+    categoryLabel: 'Narrow Sea Crossing',
+    stats: '~929 mi • ~8.1 days',
+    originName: 'Saltpans',
+    destName: 'Braavos',
     waypointNames: []
   },
   nymeria_ten_thousand_ships: {
@@ -138,6 +258,24 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
     () => PRESET_JOURNEYS.find((p) => p.id === activePresetId),
     [activePresetId]
   );
+
+  // Dynamic category counts
+  const categoryCounts = useMemo(() => {
+    const counts: Record<CategoryFilter, number> = {
+      all: PRESET_JOURNEYS.length,
+      dragon: 0,
+      rookery: 0,
+      royal_war: 0,
+      sea_voyage: 0
+    };
+    for (const p of PRESET_JOURNEYS) {
+      const cat = PRESET_META[p.id]?.category;
+      if (cat && cat in counts) {
+        counts[cat]++;
+      }
+    }
+    return counts;
+  }, []);
 
   // Close when clicking outside
   useEffect(() => {
@@ -241,6 +379,8 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
 
   const getPartyIcon = (partyId: string, size = 15) => {
     switch (partyId) {
+      case 'dragon':
+        return <Flame size={size} color="var(--icon-dragon, #ef4444)" />;
       case 'crow':
         return <Bird size={size} color="var(--preset-raven-icon)" />;
       case 'retinue':
@@ -258,6 +398,8 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
 
   const getModeBadge = (mode: string) => {
     switch (mode) {
+      case 'dragon':
+        return { label: 'Dragon Flight', bg: 'rgba(239, 68, 68, 0.15)', color: '#f87171', border: 'rgba(239, 68, 68, 0.4)' };
       case 'crow_flight':
         return { label: 'Direct Flight', bg: 'var(--preset-raven-bg)', color: 'var(--preset-raven-text)', border: 'var(--preset-raven-border)' };
       case 'sea_only':
@@ -323,9 +465,15 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
               background: activePreset
                 ? activePreset.partyId === 'crow'
                   ? 'var(--preset-raven-bg)'
+                  : activePreset.partyId === 'dragon'
+                  ? 'rgba(239, 68, 68, 0.15)'
                   : 'rgba(223, 177, 91, 0.15)'
                 : 'transparent',
-              border: activePreset ? '1px solid var(--border-gold-glow)' : '1px solid var(--border-subtle)'
+              border: activePreset
+                ? activePreset.partyId === 'dragon'
+                  ? '1px solid rgba(239, 68, 68, 0.35)'
+                  : '1px solid var(--border-gold-glow)'
+                : '1px solid var(--border-subtle)'
             }}
           >
             {activePreset ? getPartyIcon(activePreset.partyId, 13) : <BookOpen size={13} color="var(--text-gold)" />}
@@ -418,7 +566,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                 letterSpacing: '0.4px'
               }}
             >
-              10
+              {PRESET_JOURNEYS.length}
             </span>
           )}
 
@@ -526,7 +674,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
               <input
                 ref={searchInputRef}
                 type="text"
-                placeholder="Search chronicles, lords, voyages..."
+                placeholder="Search chronicles, dragons, lords, voyages..."
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -572,10 +720,11 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
               }}
             >
               {[
-                { id: 'all' as CategoryFilter, label: 'All (10)' },
-                { id: 'royal_war' as CategoryFilter, label: '👑 Royal & War (4)' },
-                { id: 'sea_voyage' as CategoryFilter, label: '🌊 Sea Voyages (5)' },
-                { id: 'rookery' as CategoryFilter, label: '🦅 Rookery (1)' }
+                { id: 'all' as CategoryFilter, label: `All (${categoryCounts.all})` },
+                { id: 'dragon' as CategoryFilter, label: `🐉 Dragon (${categoryCounts.dragon})` },
+                { id: 'rookery' as CategoryFilter, label: `🦅 Rookery (${categoryCounts.rookery})` },
+                { id: 'royal_war' as CategoryFilter, label: `👑 Land & War (${categoryCounts.royal_war})` },
+                { id: 'sea_voyage' as CategoryFilter, label: `🌊 Sea (${categoryCounts.sea_voyage})` }
               ].map((tab) => {
                 const isSelected = activeCategory === tab.id;
                 return (
@@ -685,12 +834,16 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                             ? 'var(--preset-raven-bg)'
                             : preset.partyId === 'fleet'
                             ? 'var(--badge-sea-bg)'
+                            : preset.partyId === 'dragon'
+                            ? 'rgba(239, 68, 68, 0.15)'
                             : 'rgba(223, 177, 91, 0.15)',
                         border:
                           preset.partyId === 'crow'
                             ? '1px solid var(--preset-raven-border)'
                             : preset.partyId === 'fleet'
                             ? '1px solid var(--badge-sea-border)'
+                            : preset.partyId === 'dragon'
+                            ? '1px solid rgba(239, 68, 68, 0.35)'
                             : '1px solid var(--border-gold-glow)'
                       }}
                     >
@@ -832,7 +985,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
             }}
           >
             <span>Press <strong>ESC</strong> to close • <strong>↑↓</strong> to navigate • <strong>↵</strong> to select</span>
-            <span>{filteredPresets.length} of 10 routes</span>
+            <span>{filteredPresets.length} of {PRESET_JOURNEYS.length} routes</span>
           </div>
         </div>
       )}
