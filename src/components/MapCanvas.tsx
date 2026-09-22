@@ -869,8 +869,6 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         }}
       />
 
-      {/* Live Citadel Telemetry HUD */}
-      <TelemetryHUD telemetry={cursorTelemetry} />
 
       {/* Top Floating Picking HUD Banner */}
       {mapPickingTarget && (
@@ -903,7 +901,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         </div>
       )}
 
-      {/* Citadel Cartography Layer Toggle Widget */}
+      {/* Citadel Bottom-Right Dock: Telemetry HUD & Cartography Layers */}
       <div
         style={{
           position: 'absolute',
@@ -911,13 +909,25 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           right: 24,
           zIndex: 1000,
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'flex-end',
-          gap: 8,
-          pointerEvents: 'auto'
+          gap: 10,
+          pointerEvents: 'none'
         }}
       >
-        {layerPanelOpen && (
+        {/* Live Citadel Telemetry HUD */}
+        <TelemetryHUD telemetry={cursorTelemetry} />
+
+        {/* Citadel Cartography Layer Toggle Widget */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-end',
+            gap: 8,
+            pointerEvents: 'auto'
+          }}
+        >
+          {layerPanelOpen && (
           <div
             style={{
               background: 'var(--bg-panel, rgba(16, 22, 31, 0.95))',
@@ -1021,30 +1031,33 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           </div>
         )}
 
-        <button
-          type="button"
-          onClick={() => setLayerPanelOpen(!layerPanelOpen)}
-          style={{
-            background: layerPanelOpen ? 'var(--border-gold, #c99738)' : 'var(--bg-panel, rgba(16, 22, 31, 0.92))',
-            border: '1px solid var(--border-gold-glow, rgba(223, 177, 91, 0.4))',
-            color: layerPanelOpen ? '#0a0e14' : 'var(--text-parchment, #f4ecd8)',
-            padding: '8px 14px',
-            borderRadius: 20,
-            fontSize: 12,
-            fontWeight: 700,
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            boxShadow: '0 4px 15px rgba(0,0,0,0.6)',
-            transition: 'all 0.2s ease',
-            fontFamily: "'Cinzel', serif"
-          }}
-          title="Toggle Cartography Overlay Layers"
-        >
-          <Layers size={16} />
-          <span>Cartography Layers</span>
-        </button>
+          <button
+            type="button"
+            onClick={() => setLayerPanelOpen(!layerPanelOpen)}
+            style={{
+              background: layerPanelOpen ? 'var(--border-gold, #c99738)' : 'var(--bg-panel, rgba(16, 22, 31, 0.92))',
+              border: '1px solid var(--border-gold-glow, rgba(223, 177, 91, 0.4))',
+              color: layerPanelOpen ? '#0a0e14' : 'var(--text-parchment, #f4ecd8)',
+              padding: '0 14px',
+              height: 36,
+              boxSizing: 'border-box',
+              borderRadius: 20,
+              fontSize: 12,
+              fontWeight: 700,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              boxShadow: '0 4px 15px rgba(0,0,0,0.6)',
+              transition: 'all 0.2s ease',
+              fontFamily: "'Cinzel', serif"
+            }}
+            title="Toggle Cartography Overlay Layers"
+          >
+            <Layers size={16} />
+            <span>Cartography Layers</span>
+          </button>
+        </div>
       </div>
 
       {/* Floating Confirmation Toast */}

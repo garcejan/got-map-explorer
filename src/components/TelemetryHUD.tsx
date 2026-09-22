@@ -10,22 +10,23 @@ export interface TelemetryData {
 
 interface TelemetryHUDProps {
   telemetry: TelemetryData | null;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry }) => {
+export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry, style, className }) => {
   if (!telemetry) return null;
 
   return (
     <div
+      className={className}
       style={{
-        position: 'absolute',
-        bottom: 24,
-        left: 24,
-        zIndex: 1000,
         background: 'var(--bg-panel, rgba(16, 22, 31, 0.92))',
         border: '1px solid var(--border-gold-glow, rgba(223, 177, 91, 0.35))',
-        borderRadius: 24,
-        padding: '6px 16px',
+        borderRadius: 20,
+        height: 36,
+        boxSizing: 'border-box',
+        padding: '0 16px',
         display: 'flex',
         alignItems: 'center',
         gap: 14,
@@ -36,7 +37,9 @@ export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry }) => {
         fontSize: 12,
         pointerEvents: 'none',
         userSelect: 'none',
-        transition: 'all 0.15s ease'
+        whiteSpace: 'nowrap',
+        transition: 'all 0.15s ease',
+        ...style
       }}
     >
       {/* World Lat / Lng */}
