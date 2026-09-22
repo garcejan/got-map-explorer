@@ -29,6 +29,8 @@ export const Header: React.FC<HeaderProps> = ({
   onSetOrigin,
   onSetDestination
 }) => {
+  const isBeige = theme === 'beige';
+
   return (
     <header
       className="glass-panel"
@@ -45,8 +47,8 @@ export const Header: React.FC<HeaderProps> = ({
         padding: '0 14px',
         gap: 14,
         borderRadius: 8,
-        border: '1px solid var(--border-gold-glow)',
-        boxShadow: '0 8px 30px rgba(0, 0, 0, 0.85)'
+        border: isBeige ? '1px solid var(--border-subtle)' : '1px solid var(--border-gold-glow)',
+        boxShadow: isBeige ? 'none' : '0 8px 30px rgba(0, 0, 0, 0.85)'
       }}
     >
       {/* Brand & Citadel Crest */}
@@ -60,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 0 10px rgba(223, 177, 91, 0.6)',
+            boxShadow: isBeige ? 'none' : '0 0 10px rgba(223, 177, 91, 0.6)',
             flexShrink: 0
           }}
         >
@@ -145,11 +147,11 @@ export const Header: React.FC<HeaderProps> = ({
             display: 'flex',
             alignItems: 'center',
             background: 'var(--bg-secondary)',
-            border: '1px solid var(--border-gold-glow)',
+            border: isBeige ? '1px solid var(--border-subtle)' : '1px solid var(--border-gold-glow)',
             borderRadius: 20,
             padding: '3px',
             gap: 3,
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)'
+            boxShadow: isBeige ? 'none' : '0 2px 8px rgba(0, 0, 0, 0.25)'
           }}
         >
           <button
@@ -209,10 +211,7 @@ export const Header: React.FC<HeaderProps> = ({
                   ? 'linear-gradient(135deg, #d3b47f 0%, #b38b45 100%)'
                   : 'transparent',
               color: theme === 'beige' ? '#1c150c' : 'var(--text-muted)',
-              boxShadow:
-                theme === 'beige'
-                  ? '0 1px 4px rgba(0,0,0,0.2), inset 0 0 0 1px #875c17'
-                  : 'none'
+              boxShadow: 'none'
             }}
             title="Switch to Beige (Antiquarian Parchment) Theme"
           >

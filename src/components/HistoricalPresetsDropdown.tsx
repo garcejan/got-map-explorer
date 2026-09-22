@@ -288,7 +288,6 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
-        className="glass-panel"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -299,19 +298,13 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
           borderRadius: 6,
           cursor: 'pointer',
           userSelect: 'none',
-          background: activePreset
-            ? 'linear-gradient(135deg, rgba(223, 177, 91, 0.12) 0%, rgba(20, 26, 36, 0.85) 100%)'
-            : 'var(--input-bg)',
+          background: 'var(--input-bg)',
           border: isOpen
             ? '1px solid var(--border-gold)'
             : activePreset
-            ? '1px solid var(--border-gold-glow)'
+            ? '1px solid var(--border-gold)'
             : '1px solid var(--border-subtle)',
-          boxShadow: isOpen
-            ? '0 0 10px var(--border-gold-glow)'
-            : activePreset
-            ? '0 0 8px rgba(223, 177, 91, 0.2)'
-            : 'none',
+          boxShadow: 'none',
           transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
         }}
         title={activePreset ? `Active Chronicle: ${activePreset.name} (Click to switch)` : 'Select a canonical historic journey'}
@@ -330,8 +323,8 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
               background: activePreset
                 ? activePreset.partyId === 'crow'
                   ? 'var(--preset-raven-bg)'
-                  : 'rgba(223, 177, 91, 0.18)'
-                : 'rgba(255, 255, 255, 0.05)',
+                  : 'rgba(223, 177, 91, 0.15)'
+                : 'transparent',
               border: activePreset ? '1px solid var(--border-gold-glow)' : '1px solid var(--border-subtle)'
             }}
           >
@@ -394,17 +387,17 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                   width: 18,
                   height: 18,
                   borderRadius: '50%',
-                  background: 'rgba(255, 255, 255, 0.08)',
+                  background: 'transparent',
                   cursor: 'pointer',
                   color: 'var(--text-muted)',
                   transition: 'all 0.15s ease'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(239, 68, 68, 0.25)';
-                  e.currentTarget.style.color = '#fca5a5';
+                  e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)';
+                  e.currentTarget.style.color = '#dc2626';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.background = 'transparent';
                   e.currentTarget.style.color = 'var(--text-muted)';
                 }}
                 title="Clear loaded preset"
@@ -445,7 +438,6 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
         <div
           role="listbox"
           aria-label="Historical Chronicles of the Realm"
-          className="glass-panel"
           style={{
             position: 'absolute',
             top: 'calc(100% + 8px)',
@@ -457,7 +449,10 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
             zIndex: 3000,
             borderRadius: 8,
             border: '1px solid var(--border-gold-glow)',
-            boxShadow: '0 16px 40px rgba(0, 0, 0, 0.9), 0 0 1px 1px var(--border-gold)',
+            background: 'var(--bg-panel)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            boxShadow: 'var(--shadow-lg)',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
@@ -597,7 +592,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                       fontWeight: isSelected ? 700 : 500,
                       borderRadius: 12,
                       border: isSelected ? '1px solid var(--border-gold)' : '1px solid transparent',
-                      background: isSelected ? 'rgba(223, 177, 91, 0.2)' : 'rgba(255, 255, 255, 0.04)',
+                      background: isSelected ? 'rgba(223, 177, 91, 0.2)' : 'var(--bg-secondary)',
                       color: isSelected ? 'var(--text-gold-bright)' : 'var(--text-muted)',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
@@ -665,7 +660,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                         ? 'rgba(223, 177, 91, 0.15)'
                         : isFocused
                         ? 'var(--bg-hover)'
-                        : 'rgba(255, 255, 255, 0.02)',
+                        : 'transparent',
                       border: isSelected
                         ? '1px solid var(--border-gold)'
                         : isFocused
