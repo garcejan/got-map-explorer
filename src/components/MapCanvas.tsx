@@ -510,7 +510,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         });
       }
 
-      marker.bindPopup(popupDiv, { className: 'citadel-popup' });
+      marker.bindPopup(popupDiv, {
+        className: 'citadel-popup',
+        autoPanPaddingTopLeft: L.point(40, 80),
+        autoPanPaddingBottomRight: L.point(40, 40)
+      });
 
       // Direct 1-click selection during map picking mode
       marker.on('click', (e) => {
