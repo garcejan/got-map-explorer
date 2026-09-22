@@ -71,6 +71,16 @@ The engine operates across two distinct coordinate spaces. **Agents must NEVER c
   Converts `[lat, lng]` back to `[x, y]` image space.
   Formula: `[lng, MAP_HEIGHT - lat]`
 
+### Geodetic World Coordinate API (`src/engine/coordinates.ts`)
+Calibrated via bivariate least-squares regression against the [ArcGIS Game of Thrones Spatial Dataset](https://www.arcgis.com/home/item.html?id=43d03779288048bfb5d3c46e4bc4ccb0#overview) ([MapViewer](https://www.arcgis.com/apps/mapviewer/index.html?webmap=43d03779288048bfb5d3c46e4bc4ccb0)):
+* `imageToWorld(coords: [number, number]): WorldCoordinate`
+  Converts `[x, y]` to `{ latDeg, lngDeg, formattedLat, formattedLng, formattedFull }`.
+  - Latitude: `latDeg = (7663.0 - y) / 86.97022` (aligned with canonical red line Equator at `y=7663.0`).
+  - Longitude: `lngDeg = (x - 5972.0950764) / 68.6714114` (0° at Prime Meridian `x=5972.1`).
+* `worldToImage(latDeg: number, lngDeg: number): [number, number]`
+* `leafletToWorld(latLng: [number, number]): WorldCoordinate`
+* `worldToLeaflet(latDeg: number, lngDeg: number): [number, number]`
+
 ### Physical Scale Calibration
 * **Scale Bar Measurement:** 686 pixels = 600 miles.
 * **Miles per Pixel:** `MILES_PER_PIXEL = 600 / 686` ≈ `0.8746355685 mi/px`
