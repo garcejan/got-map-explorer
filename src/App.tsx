@@ -173,15 +173,7 @@ export const App: React.FC = () => {
   }, []);
 
   const handleStartPicking = useCallback((target: MapPickingTarget) => {
-    setMapPickingTarget((prev) => {
-      if (prev && target && prev.type === target.type) {
-        if (prev.type === 'waypoint' && target.type === 'waypoint') {
-          return prev.index === target.index ? null : target;
-        }
-        return null;
-      }
-      return target;
-    });
+    setMapPickingTarget(target);
   }, []);
 
   const handleCancelPicking = useCallback(() => {
@@ -255,14 +247,17 @@ export const App: React.FC = () => {
         onSetOrigin={(id) => {
           setActivePresetId(null);
           setOriginId(id);
+          setMapPickingTarget(null);
         }}
         onSetDestination={(id) => {
           setActivePresetId(null);
           setDestinationId(id);
+          setMapPickingTarget(null);
         }}
         onSetWaypoints={(ids) => {
           setActivePresetId(null);
           setWaypointIds(ids);
+          setMapPickingTarget(null);
         }}
         onStartPicking={handleStartPicking}
         onCancelPicking={handleCancelPicking}
