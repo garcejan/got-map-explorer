@@ -15,24 +15,6 @@ interface TelemetryHUDProps {
 export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry }) => {
   if (!telemetry) return null;
 
-  let zoneIcon = '🏰';
-  let zoneLabel = 'Landmass (Terra Firma)';
-  let zoneColor = '#e2e8f0';
-
-  if (telemetry.zone === 'deep_ocean') {
-    zoneIcon = '🌊';
-    zoneLabel = 'Deep Ocean (Abyssal Fairway)';
-    zoneColor = '#38bdf8';
-  } else if (telemetry.zone === 'ocean') {
-    zoneIcon = '⛵';
-    zoneLabel = 'Open Sea (Navigable Waters)';
-    zoneColor = '#06b6d4';
-  } else if (telemetry.zone === 'coastal_shelf') {
-    zoneIcon = '🏖️';
-    zoneLabel = 'Coastal Shelf (Near Shore)';
-    zoneColor = '#f59e0b';
-  }
-
   return (
     <div
       style={{
@@ -65,32 +47,32 @@ export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry }) => {
         </span>
       </div>
 
-      <div style={{ width: 1, height: 16, background: 'rgba(223, 177, 91, 0.25)' }} />
+      <div style={{ width: 1, height: 16, background: '#dfb15b40' }} />
 
       {/* Citadel Map Pixels */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#94a3b8' }}>
+      {/* <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#94a3b8' }}>
         <span style={{ fontSize: 11, fontWeight: 600, color: '#cbd5e1' }}>Citadel Grid:</span>
         <span style={{ fontFamily: 'monospace', fontSize: 11, color: '#f8fafc' }}>
           {telemetry.imgCoords}
         </span>
-      </div>
+      </div> */}
 
-      <div style={{ width: 1, height: 16, background: 'rgba(223, 177, 91, 0.25)' }} />
+      {/* <div style={{ width: 1, height: 16, background: 'rgba(223, 177, 91, 0.25)' }} /> */}
 
       {/* Terrain & Bathymetry */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+      {/* <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
         <span style={{ fontSize: 13 }}>{zoneIcon}</span>
         <span style={{ color: zoneColor, fontWeight: 600, letterSpacing: 0.2 }}>
           {zoneLabel}
         </span>
-      </div>
+      </div> */}
 
-      <div style={{ width: 1, height: 16, background: 'rgba(223, 177, 91, 0.25)' }} />
+      {/* <div style={{ width: 1, height: 16, background: 'rgba(223, 177, 91, 0.25)' }} /> */}
 
       {/* Distance from Oldtown / Citadel */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: '#94a3b8', fontSize: 11 }}>
         <span>Citadel:</span>
-        <span style={{ color: '#e2e8f0', fontWeight: 600 }}>~{telemetry.distanceFromCitadelMiles} mi</span>
+        <span style={{ color: '#dfb15b', fontWeight: 600 }}>~{telemetry.distanceFromCitadelMiles} mi</span>
       </div>
     </div>
   );

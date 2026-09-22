@@ -9,21 +9,33 @@ export interface WorldCoordinate {
 }
 
 // Calibrated transformation parameters
-// Forward: [lng, lat] -> [x, y]
-const COEFF_X = [68.6714114, 0.0282143, 5972.0950764] as const;
-const COEFF_Y = [-0.0585936, -69.9298051, 4771.9588189] as const;
+// Longitude (calibrated from central meridian / map width):
+// x = 68.6714114 * lngDeg + 5972.0950764
+const COEFF_LNG_X = 68.6714114;
+const OFFSET_LNG_X = 5972.0950764;
 
-// Inverse: [x, y] -> [lng, lat]
-const INV_LNG = [0.01456209, 0.00000588, -86.9953245] as const;
-const INV_LAT = [-0.00001221, -0.01430005, 68.2974955] as const;
+// Latitude (calibrated directly from the canonical red Equator line at y=7663 and left margin tick marks):
+// Equator (0°): y = 7663.0 (Red horizontal line)
+// 10°N: y = 6793.3 (printed mark at y=6804.5)
+// 20°N: y = 5923.6 (printed mark at y=5931.5)
+// Northern Tropic (23.5°N): y = 5619.2 (printed mark at y=5607.5)
+// 30°N: y = 5053.9 (printed mark at y=5060.5)
+// 40°N: y = 4184.2 (Riverrun is at y=4153 -> 40.36° N)
+// 50°N: y = 3314.5 (White Harbor is at y=3300 -> 50.17° N)
+// Winterfell (~55°N): y = 2879.6 (Winterfell is at y=2892 -> 54.86° N)
+// 60°N: y = 2444.8 (printed mark at y=2444.5)
+// Arctic Circle (66.5°N): y = 1879.5 (printed mark at y=1876.5)
+// 70°N: y = 1575.1 (printed mark at y=1571.5)
+export const EQUATOR_Y = 7663.0;
+export const PIXELS_PER_LAT_DEGREE = 86.97022;
 
 /**
  * Converts image pixel space [x, y] to World Geodetic Latitude and Longitude (degrees).
  */
 export function imageToWorld(coords: [number, number]): WorldCoordinate {
   const [x, y] = coords;
-  const lngDeg = INV_LNG[0] * x + INV_LNG[1] * y + INV_LNG[2];
-  const latDeg = INV_LAT[0] * x + INV_LAT[1] * y + INV_LAT[2];
+  const lngDeg = (x - OFFSET_LNG_X) / COEFF_LNG_X;
+  const latDeg = (EQUATOR_Y - y) / PIXELS_PER_LAT_DEGREE;
 
   const latAbs = Math.abs(latDeg);
   const latDegInt = Math.floor(latAbs);
@@ -51,8 +63,8 @@ export function imageToWorld(coords: [number, number]): WorldCoordinate {
  * Converts World Geodetic Latitude and Longitude (degrees) to Image Pixel Coordinates [x, y].
  */
 export function worldToImage(latDeg: number, lngDeg: number): [number, number] {
-  const x = COEFF_X[0] * lngDeg + COEFF_X[1] * latDeg + COEFF_X[2];
-  const y = COEFF_Y[0] * lngDeg + COEFF_Y[1] * latDeg + COEFF_Y[2];
+  const x = COEFF_LNG_X * lngDeg + OFFSET_LNG_X;
+  const y = EQUATOR_Y - PIXELS_PER_LAT_DEGREE * latDeg;
 
   return [
     Math.max(0, Math.min(MAP_WIDTH, Math.round(x * 10) / 10)),
@@ -84,26 +96,35 @@ export function worldToLeaflet(latDeg: number, lngDeg: number): [number, number]
 export const WORLD_GRATICULES = {
   equator: {
     latDeg: 0,
-    leafletLat: MAP_HEIGHT - 4771.96,
-    name: 'The Equator (The Equinoctial Line)',
-    color: '#dfb15b'
+    leafletLat: MAP_HEIGHT - EQUATOR_Y, // 8300 - 7663 = 637.0 (Red horizontal line)
+    name: 'The Equator (0° / Red Line)',
+    color: '#ef4444'
   },
   tropicOfCancer: {
     latDeg: 23.5,
-    leafletLat: MAP_HEIGHT - 3128.61,
-    name: 'Tropic of Cancer (Northern Summer Solstice)',
+    leafletLat: MAP_HEIGHT - (EQUATOR_Y - 23.5 * PIXELS_PER_LAT_DEGREE), // ~2680.8
+    name: 'Tropic of Cancer (Northern Tropic / 23.5° N)',
     color: '#f59e0b'
   },
   arcticCircle: {
     latDeg: 66.5,
-    leafletLat: MAP_HEIGHT - 121.63,
-    name: 'The Arctic Circle (Lands of Always Winter)',
+    leafletLat: MAP_HEIGHT - (EQUATOR_Y - 66.5 * PIXELS_PER_LAT_DEGREE), // ~6420.5
+    name: 'The Arctic Circle (66.5° N)',
     color: '#38bdf8'
   },
   primeMeridian: {
     lngDeg: 0,
-    leafletLng: 5972.10,
-    name: 'Prime Meridian (Meridian of the Citadel)',
+    leafletLng: OFFSET_LNG_X, // 5972.10
+    name: 'Prime Meridian (0°)',
     color: '#94a3b8'
-  }
+  },
+  parallels: [
+    { latDeg: 10, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 10 * PIXELS_PER_LAT_DEGREE), name: '10° N' },
+    { latDeg: 20, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 20 * PIXELS_PER_LAT_DEGREE), name: '20° N' },
+    { latDeg: 30, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 30 * PIXELS_PER_LAT_DEGREE), name: '30° N' },
+    { latDeg: 40, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 40 * PIXELS_PER_LAT_DEGREE), name: '40° N' },
+    { latDeg: 50, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 50 * PIXELS_PER_LAT_DEGREE), name: '50° N' },
+    { latDeg: 60, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 60 * PIXELS_PER_LAT_DEGREE), name: '60° N' },
+    { latDeg: 70, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 70 * PIXELS_PER_LAT_DEGREE), name: '70° N' }
+  ]
 };

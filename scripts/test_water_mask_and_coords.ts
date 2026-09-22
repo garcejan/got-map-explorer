@@ -48,13 +48,35 @@ for (const pt of testPoints) {
 }
 console.log(`✅ Bi-directional projection verified across ${testPoints.length} anchors (< 1.5 px drift).\n`);
 
-// 3. Graticule Latitudes Validation
-console.log('3. GRATICULE INTEGRITY:');
+// 3. Graticule Latitudes & Ground-Truth Cities Validation
+console.log('3. GRATICULE INTEGRITY & GROUND-TRUTH CITIES:');
 console.log(` - Equator (0°): Leaflet Lat = ${WORLD_GRATICULES.equator.leafletLat.toFixed(1)} (Image Y = ${8300 - WORLD_GRATICULES.equator.leafletLat})`);
 console.log(` - Tropic of Cancer (23.5° N): Leaflet Lat = ${WORLD_GRATICULES.tropicOfCancer.leafletLat.toFixed(1)}`);
 console.log(` - Arctic Circle (66.5° N): Leaflet Lat = ${WORLD_GRATICULES.arcticCircle.leafletLat.toFixed(1)}`);
 console.log(` - Prime Meridian (0°): Leaflet Lng = ${WORLD_GRATICULES.primeMeridian.leafletLng.toFixed(1)}`);
-console.log('✅ Graticules accurately aligned with map scale.\n');
+
+// Ground-truth cities verification per user requirements:
+// Riverrun roughly 40°N, White Harbor roughly 50°N, Winterfell roughly 55°N, Red line Equator 0°
+const equatorWorld = imageToWorld([5000, 7663]);
+console.log(` - Red Equator Line [y=7663]: ${equatorWorld.formattedLat} (Exact 0° expected)`);
+if (Math.abs(equatorWorld.latDeg) > 0.1) throw new Error(`Equator mismatch: ${equatorWorld.latDeg}`);
+
+const riverrunNode = NODES.riverrun;
+const riverrunWorld = imageToWorld(riverrunNode.coords);
+console.log(` - Riverrun [${riverrunNode.coords}]: ${riverrunWorld.formattedLat} (roughly 40°N expected)`);
+if (Math.abs(riverrunWorld.latDeg - 40.0) > 1.0) throw new Error(`Riverrun latitude mismatch: ${riverrunWorld.latDeg}`);
+
+const whiteHarborNode = NODES.white_harbor;
+const whiteHarborWorld = imageToWorld(whiteHarborNode.coords);
+console.log(` - White Harbor [${whiteHarborNode.coords}]: ${whiteHarborWorld.formattedLat} (roughly 50°N expected)`);
+if (Math.abs(whiteHarborWorld.latDeg - 50.0) > 1.0) throw new Error(`White Harbor latitude mismatch: ${whiteHarborWorld.latDeg}`);
+
+const winterfellNode = NODES.winterfell;
+const winterfellWorld = imageToWorld(winterfellNode.coords);
+console.log(` - Winterfell [${winterfellNode.coords}]: ${winterfellWorld.formattedLat} (roughly 55°N expected)`);
+if (Math.abs(winterfellWorld.latDeg - 55.0) > 1.0) throw new Error(`Winterfell latitude mismatch: ${winterfellWorld.latDeg}`);
+
+console.log('✅ All canonical latitudes verified against ground truth (Riverrun ~40°N, White Harbor ~50°N, Winterfell ~55°N, Equator 0°).\n');
 
 // 4. Ground-Truth Land & Water Classification
 console.log('4. WATER & LAND CLASSIFICATION:');

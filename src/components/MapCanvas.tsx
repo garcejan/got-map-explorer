@@ -221,38 +221,52 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     graticuleGroup.clearLayers();
     if (!showGraticules) return;
 
-    // Equator
+    // 10-degree parallels (10°N to 70°N)
+    for (const p of WORLD_GRATICULES.parallels) {
+      const pLine = L.polyline([
+        [p.leafletLat, 0],
+        [p.leafletLat, MAP_WIDTH]
+      ], {
+        color: '#94a3b8',
+        weight: 0.8,
+        opacity: 0.35,
+        dashArray: '4, 8'
+      }).addTo(graticuleGroup);
+      pLine.bindTooltip(`<b>${p.name} Parallel</b>`, { sticky: true, className: 'citadel-tooltip' });
+    }
+
+    // The Canonical Equator (Red Line at 0°)
     const eqLine = L.polyline([
       [WORLD_GRATICULES.equator.leafletLat, 0],
       [WORLD_GRATICULES.equator.leafletLat, MAP_WIDTH]
     ], {
       color: WORLD_GRATICULES.equator.color,
-      weight: 1.5,
-      opacity: 0.65,
-      dashArray: '8, 8'
+      weight: 2.0,
+      opacity: 0.85,
+      dashArray: '10, 6'
     }).addTo(graticuleGroup);
-    eqLine.bindTooltip('<b>THE EQUATOR (0°)</b> — The Equinoctial Line', { sticky: true, className: 'citadel-tooltip' });
+    eqLine.bindTooltip('<b>THE EQUATOR (0°)</b> — The Canonical Red Equinoctial Line', { sticky: true, className: 'citadel-tooltip' });
 
-    // Tropic of Cancer
+    // Tropic of Cancer (23.5° N)
     const trLine = L.polyline([
       [WORLD_GRATICULES.tropicOfCancer.leafletLat, 0],
       [WORLD_GRATICULES.tropicOfCancer.leafletLat, MAP_WIDTH]
     ], {
       color: WORLD_GRATICULES.tropicOfCancer.color,
-      weight: 1.2,
-      opacity: 0.55,
+      weight: 1.4,
+      opacity: 0.7,
       dashArray: '6, 6'
     }).addTo(graticuleGroup);
     trLine.bindTooltip('<b>TROPIC OF CANCER (23.5° N)</b> — Northern Summer Solstice', { sticky: true, className: 'citadel-tooltip' });
 
-    // Arctic Circle
+    // Arctic Circle (66.5° N)
     const arcLine = L.polyline([
       [WORLD_GRATICULES.arcticCircle.leafletLat, 0],
       [WORLD_GRATICULES.arcticCircle.leafletLat, MAP_WIDTH]
     ], {
       color: WORLD_GRATICULES.arcticCircle.color,
-      weight: 1.2,
-      opacity: 0.55,
+      weight: 1.4,
+      opacity: 0.7,
       dashArray: '6, 6'
     }).addTo(graticuleGroup);
     arcLine.bindTooltip('<b>THE ARCTIC CIRCLE (66.5° N)</b> — Lands of Always Winter', { sticky: true, className: 'citadel-tooltip' });
