@@ -449,9 +449,10 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
           style={{
             position: 'absolute',
             top: 'calc(100% + 8px)',
-            left: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
             width: 440,
-            maxWidth: 'calc(100vw - 28px)',
+            maxWidth: 'min(440px, calc(100vw - 28px))',
             maxHeight: 520,
             zIndex: 3000,
             borderRadius: 8,
