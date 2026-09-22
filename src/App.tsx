@@ -199,6 +199,7 @@ export const App: React.FC = () => {
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Full-bleed Map Canvas */}
       <MapCanvas
+        theme={theme}
         originId={originId}
         destinationId={destinationId}
         waypointIds={waypointIds}

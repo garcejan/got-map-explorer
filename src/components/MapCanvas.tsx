@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
 import { Layers, Plus, Minus, RotateCcw } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
+import type { Theme } from './Header';
 import { NODES } from '../data/nodes';
 import { ROADS } from '../data/roads';
 import { SEA_LANES } from '../data/seaLanes';
@@ -12,6 +13,7 @@ import { initWaterNav, getBathymetryZone } from '../engine/waterNav';
 import { TelemetryHUD, type TelemetryData } from './TelemetryHUD';
 
 interface MapCanvasProps {
+  theme?: Theme;
   originId: string;
   destinationId: string;
   waypointIds: string[];
@@ -25,6 +27,7 @@ interface MapCanvasProps {
 }
 
 export const MapCanvas: React.FC<MapCanvasProps> = ({
+  theme = 'dark',
   originId,
   destinationId,
   waypointIds,
@@ -185,12 +188,17 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     roadGroup.clearLayers();
     if (!showRoads) return;
 
+    const isBeige = theme === 'beige';
+    const roadColor = isBeige ? '#92400e' : '#dfb15b';
+    const roadWeight = isBeige ? 2.4 : 2.2;
+    const roadOpacity = isBeige ? 0.75 : 0.6;
+
     for (const road of ROADS) {
       const latLngs = road.waypoints.map(toLeafletLatLng);
       const poly = L.polyline(latLngs, {
-        color: '#dfb15b',
-        weight: 2.2,
-        opacity: 0.55,
+        color: roadColor,
+        weight: roadWeight,
+        opacity: roadOpacity,
         dashArray: '5, 6',
         lineCap: 'round',
         lineJoin: 'round'
@@ -198,12 +206,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       poly.bindTooltip(`
         <div style="font-family: 'Cinzel', serif; padding: 2px;">
-          <strong style="color: #ffd479; font-size: 12px; letter-spacing: 0.5px;">${road.name}</strong><br>
-          <span style="font-size: 11px; color: #cbd5e1; font-family: 'Inter', sans-serif;">Terrain: ${road.terrainType.replace('_', ' ')} • ~${road.distanceMiles} mi</span>
+          <strong style="color: var(--text-gold); font-size: 12px; letter-spacing: 0.5px;">${road.name}</strong><br>
+          <span style="font-size: 11px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">Terrain: ${road.terrainType.replace('_', ' ')} • ~${road.distanceMiles} mi</span>
         </div>
       `, { sticky: true, className: 'citadel-tooltip' });
     }
-  }, [showRoads]);
+  }, [showRoads, theme]);
 
   // Render Maritime Shipping Corridors Overlay
   useEffect(() => {
@@ -212,12 +220,16 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     seaGroup.clearLayers();
     if (!showSeaLanes) return;
 
+    const isBeige = theme === 'beige';
+    const seaColor = isBeige ? '#0369a1' : '#0ea5e9';
+    const seaOpacity = isBeige ? 0.7 : 0.5;
+
     for (const lane of SEA_LANES) {
       const latLngs = lane.waypoints.map(toLeafletLatLng);
       const poly = L.polyline(latLngs, {
-        color: '#0ea5e9',
+        color: seaColor,
         weight: 2.0,
-        opacity: 0.5,
+        opacity: seaOpacity,
         dashArray: '4, 8',
         lineCap: 'round',
         lineJoin: 'round'
@@ -225,12 +237,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       poly.bindTooltip(`
         <div style="font-family: 'Cinzel', serif; padding: 2px;">
-          <strong style="color: #38bdf8; font-size: 12px; letter-spacing: 0.5px;">${lane.name}</strong><br>
-          <span style="font-size: 11px; color: #cbd5e1; font-family: 'Inter', sans-serif;">Maritime Sea Corridor • ~${lane.distanceMiles} mi</span>
+          <strong style="color: var(--accent-blue); font-size: 12px; letter-spacing: 0.5px;">${lane.name}</strong><br>
+          <span style="font-size: 11px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">Maritime Sea Corridor • ~${lane.distanceMiles} mi</span>
         </div>
       `, { sticky: true, className: 'citadel-tooltip' });
     }
-  }, [showSeaLanes]);
+  }, [showSeaLanes, theme]);
 
   // Render World Graticules & Tropics
   useEffect(() => {
@@ -239,15 +251,19 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     graticuleGroup.clearLayers();
     if (!showGraticules) return;
 
+    const isBeige = theme === 'beige';
+    const parallelColor = isBeige ? '#78716c' : '#94a3b8';
+    const parallelOpacity = isBeige ? 0.45 : 0.35;
+
     // 10-degree parallels (10°N to 70°N)
     for (const p of WORLD_GRATICULES.parallels) {
       const pLine = L.polyline([
         [p.leafletLat, 0],
         [p.leafletLat, MAP_WIDTH]
       ], {
-        color: '#94a3b8',
+        color: parallelColor,
         weight: 0.8,
-        opacity: 0.35,
+        opacity: parallelOpacity,
         dashArray: '4, 8'
       }).addTo(graticuleGroup);
       pLine.bindTooltip(`<b>${p.name} Parallel</b>`, { sticky: true, className: 'citadel-tooltip' });
@@ -296,11 +312,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     ], {
       color: WORLD_GRATICULES.primeMeridian.color,
       weight: 1.0,
-      opacity: 0.45,
+      opacity: isBeige ? 0.6 : 0.45,
       dashArray: '4, 8'
     }).addTo(graticuleGroup);
     pmLine.bindTooltip('<b>PRIME MERIDIAN (0°)</b> — Meridian of the Citadel', { sticky: true, className: 'citadel-tooltip' });
-  }, [showGraticules]);
+  }, [showGraticules, theme]);
 
   // Render Navigable Water Mask & Landmass Contours
   useEffect(() => {
@@ -389,7 +405,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           ${innerHtml}
         </div>
         ${showLabels && (isSelected || node.type === 'capital' || node.type === 'major_city') ? `
-          <div class="citadel-node-label" style="position: absolute; top: ${size + 2}px; left: 50%; transform: translateX(-50%); white-space: nowrap; pointer-events: none; font-size: 10px; font-weight: 600; color: #f4ecd8; text-shadow: 0 1px 3px rgba(0,0,0,0.95), 0 0 4px #000; font-family: serif; letter-spacing: 0.5px;">
+          <div class="citadel-node-label" style="top: ${size + 2}px;">
             ${node.name}
           </div>
         ` : ''}
@@ -420,17 +436,17 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       }
 
       popupDiv.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px;">
-          <strong style="font-family: 'Cinzel', serif; font-size: 15px; color: #dfb15b; letter-spacing: 0.5px;">${node.name}</strong>
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 10px;">
+          <strong style="font-family: 'Cinzel', serif; font-size: 15px; color: var(--text-gold); letter-spacing: 0.5px;">${node.name}</strong>
           <div style="display: flex; align-items: center; gap: 5px;">
             ${statusBadge}
-            <span style="font-size: 11px; text-transform: uppercase; background: #1e293b; color: #cbd5e1; font-weight: 600; padding: 3px 6px; border-radius: 4px;">
+            <span class="citadel-popup-type-badge">
               ${node.type.replace('_', ' ')}
             </span>
           </div>
         </div>
-        ${node.allegiance ? `<div style="font-size: 12px; color: #ffd479; margin-bottom: 6px;"><b>Allegiance:</b> ${node.allegiance}</div>` : ''}
-        ${node.loreSnippet ? `<p style="font-size: 12px; color: #94a3b8; margin: 4px 0 10px; font-style: italic; line-height: 1.4;">"${node.loreSnippet}"</p>` : ''}
+        ${node.allegiance ? `<div style="font-size: 12px; color: var(--text-parchment); margin-bottom: 6px;"><b style="color: var(--text-gold);">Allegiance:</b> ${node.allegiance}</div>` : ''}
+        ${node.loreSnippet ? `<p style="font-size: 12px; color: var(--text-muted); margin: 4px 0 10px; font-style: italic; line-height: 1.4;">"${node.loreSnippet}"</p>` : ''}
         ${node.wikiUrl ? `
           <div style="margin-bottom: 10px;">
             <a href="${node.wikiUrl}" target="_blank" rel="noopener noreferrer" class="citadel-popup-wiki-btn" title="View historical records and lore on the Wiki of Westeros">
@@ -644,8 +660,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       legPolyline.bindTooltip(`
         <div style="font-family: 'Cinzel', serif; padding: 3px;">
           <b style="font-size: 13px; color: ${legColor};">${leg.edge.name}</b><br>
-          <span style="font-size: 12px; color: #f4ecd8; font-family: 'Inter', sans-serif;">${leg.distanceMiles} miles (${leg.distanceKm} km) • ~${leg.transitDays} days</span><br>
-          <span style="font-size: 11px; color: #94a3b8; font-family: 'Inter', sans-serif; text-transform: capitalize;">Terrain: ${terrainLabel} (${terrainMod}x speed modifier)</span>
+          <span style="font-size: 12px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">${leg.distanceMiles} miles (${leg.distanceKm} km) • ~${leg.transitDays} days</span><br>
+          <span style="font-size: 11px; color: var(--text-muted); font-family: 'Inter', sans-serif; text-transform: capitalize;">Terrain: ${terrainLabel} (${terrainMod}x speed modifier)</span>
         </div>
       `, {
         sticky: true,
@@ -711,7 +727,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           const stageBadge = L.divIcon({
             className: 'citadel-stage-milestone-icon',
             html: `
-              <div style="background: rgba(15, 23, 42, 0.92); border: 1px solid #dfb15b; color: #ffd479; border-radius: 12px; padding: 2px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,0.8); pointer-events: none; font-family: 'Cinzel', serif;">
+              <div class="citadel-stage-milestone">
                 Stage ${stage.stageIndex} • ${stage.distanceMiles} mi
               </div>
             `,
@@ -901,17 +917,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             <button
               type="button"
               onClick={onCancelPicking}
-              style={{
-                background: 'rgba(255, 255, 255, 0.12)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                color: '#cbd5e1',
-                borderRadius: 14,
-                padding: '3px 10px',
-                fontSize: 11,
-                fontWeight: 600,
-                cursor: 'pointer',
-                marginLeft: 8
-              }}
+              className="citadel-picking-hud-cancel"
             >
               Cancel (Esc)
             </button>
@@ -991,21 +997,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           }}
         >
           {layerPanelOpen && (
-          <div
-            style={{
-              background: 'var(--bg-panel, rgba(16, 22, 31, 0.95))',
-              border: '1px solid var(--border-gold-glow, rgba(223, 177, 91, 0.4))',
-              borderRadius: 12,
-              padding: '14px 16px',
-              width: 260,
-              boxShadow: '0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(223, 177, 91, 0.2)',
-              backdropFilter: 'blur(10px)',
-              color: 'var(--text-parchment, #f4ecd8)',
-              fontFamily: "'Cinzel', serif"
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12, borderBottom: '1px solid rgba(223, 177, 91, 0.2)', paddingBottom: 6 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'var(--text-gold, #dfb15b)' }}>
+          <div className="citadel-layer-panel">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12, borderBottom: '1px solid var(--border-gold-glow)', paddingBottom: 6 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'var(--text-gold)' }}>
                 <Layers size={16} />
                 <span>Citadel Cartography</span>
               </div>
@@ -1015,11 +1009,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: 'var(--text-muted, #94a3b8)',
+                  color: 'var(--text-muted)',
                   cursor: 'pointer',
                   fontSize: 16,
                   lineHeight: 1
                 }}
+                title="Close Cartography Panel"
               >
                 ✕
               </button>
@@ -1028,66 +1023,66 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontFamily: "'Inter', sans-serif", fontSize: 12 }}>
               <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: '#dfb15b' }}>🛣️</span>
+                  <span style={{ color: 'var(--text-gold)' }}>🛣️</span>
                   <span>Imperial Highways</span>
                 </span>
                 <input
                   type="checkbox"
                   checked={showRoads}
                   onChange={(e) => setShowRoads(e.target.checked)}
-                  style={{ accentColor: 'var(--border-gold, #c99738)', cursor: 'pointer' }}
+                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                 />
               </label>
 
               <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: '#0ea5e9' }}>⛵</span>
+                  <span style={{ color: 'var(--accent-blue)' }}>⛵</span>
                   <span>Maritime Corridors</span>
                 </span>
                 <input
                   type="checkbox"
                   checked={showSeaLanes}
                   onChange={(e) => setShowSeaLanes(e.target.checked)}
-                  style={{ accentColor: '#0ea5e9', cursor: 'pointer' }}
+                  style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
                 />
               </label>
 
               <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: '#f59e0b' }}>🏷️</span>
+                  <span style={{ color: 'var(--text-gold)' }}>🏷️</span>
                   <span>Settlement Labels</span>
                 </span>
                 <input
                   type="checkbox"
                   checked={showLabels}
                   onChange={(e) => setShowLabels(e.target.checked)}
-                  style={{ accentColor: 'var(--border-gold, #c99738)', cursor: 'pointer' }}
+                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                 />
               </label>
 
               <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: '#dfb15b' }}>🧭</span>
+                  <span style={{ color: 'var(--text-gold)' }}>🧭</span>
                   <span>World Graticules</span>
                 </span>
                 <input
                   type="checkbox"
                   checked={showGraticules}
                   onChange={(e) => setShowGraticules(e.target.checked)}
-                  style={{ accentColor: 'var(--border-gold, #c99738)', cursor: 'pointer' }}
+                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                 />
               </label>
 
               <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: '#06b6d4' }}>🌊</span>
+                  <span style={{ color: 'var(--accent-blue)' }}>🌊</span>
                   <span>Water Mask & Land</span>
                 </span>
                 <input
                   type="checkbox"
                   checked={showWaterMask}
                   onChange={(e) => setShowWaterMask(e.target.checked)}
-                  style={{ accentColor: '#06b6d4', cursor: 'pointer' }}
+                  style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
                 />
               </label>
             </div>
@@ -1097,24 +1092,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           <button
             type="button"
             onClick={() => setLayerPanelOpen(!layerPanelOpen)}
-            style={{
-              background: layerPanelOpen ? 'var(--border-gold, #c99738)' : 'var(--bg-panel, rgba(16, 22, 31, 0.92))',
-              border: '1px solid var(--border-gold-glow, rgba(223, 177, 91, 0.4))',
-              color: layerPanelOpen ? '#0a0e14' : 'var(--text-parchment, #f4ecd8)',
-              padding: '0 14px',
-              height: 36,
-              boxSizing: 'border-box',
-              borderRadius: 20,
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
-              boxShadow: '0 4px 15px rgba(0,0,0,0.6)',
-              transition: 'all 0.2s ease',
-              fontFamily: "'Cinzel', serif"
-            }}
+            className={`citadel-layer-btn ${layerPanelOpen ? 'active' : ''}`}
             title="Toggle Cartography Overlay Layers"
           >
             <Layers size={16} />
