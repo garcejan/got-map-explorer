@@ -556,18 +556,20 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
           left: 16,
           width: 390,
           maxWidth: 'calc(100vw - 32px)',
-          height: 'calc(90vh - 84px)',
+          maxHeight: 'calc(100vh - 120px)',
           zIndex: 2000,
           display: 'flex',
           flexDirection: 'column',
           boxShadow: '0 16px 45px rgba(0, 0, 0, 0.9)',
           border: '1px solid var(--border-gold-glow)',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          transition: 'box-shadow 0.2s ease'
         }}
       >
         {/* Sidebar Header & Tab Switcher */}
         <div
           style={{
+            flexShrink: 0,
             padding: '10px 12px 8px',
             borderBottom: '1px solid var(--border-subtle)',
             background: 'var(--bg-secondary)'
@@ -693,7 +695,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
         </div>
 
         {/* Scrollable Content Container */}
-        <div style={{ overflowY: 'auto', flex: 1, padding: '14px 16px' }}>
+        <div style={{ overflowY: 'auto', minHeight: 0, flexShrink: 1, padding: '14px 16px' }}>
           {/* =========================================================
               TAB 1: PLAN JOURNEY
              ========================================================= */}
@@ -961,10 +963,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                       role="listbox"
                       aria-label="Expedition Archetypes"
                       style={{
-                        position: 'absolute',
-                        top: 'calc(100% + 4px)',
-                        left: 0,
-                        right: 0,
+                        position: 'relative',
+                        marginTop: 4,
                         maxHeight: 280,
                         overflowY: 'auto',
                         zIndex: 1100,
