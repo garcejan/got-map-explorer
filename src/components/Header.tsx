@@ -1,6 +1,6 @@
 import React from 'react';
 import { Compass, Moon, Sun } from 'lucide-react';
-import { QuickPresets, type PresetJourney } from './QuickPresets';
+import { HistoricalPresetsDropdown, type PresetJourney } from './HistoricalPresetsDropdown';
 import { CitySearch } from './CitySearch';
 
 export type Theme = 'dark' | 'beige';
@@ -9,6 +9,8 @@ interface HeaderProps {
   theme: Theme;
   onSelectTheme: (theme: Theme) => void;
   onSelectPreset: (preset: PresetJourney) => void;
+  activePresetId?: string | null;
+  onClearPreset?: () => void;
   onSelectCity: (nodeId: string) => void;
   onSetOrigin?: (nodeId: string) => void;
   onSetDestination?: (nodeId: string) => void;
@@ -21,6 +23,8 @@ export const Header: React.FC<HeaderProps> = ({
   theme,
   onSelectTheme,
   onSelectPreset,
+  activePresetId,
+  onClearPreset,
   onSelectCity,
   onSetOrigin,
   onSetDestination
@@ -114,9 +118,22 @@ export const Header: React.FC<HeaderProps> = ({
         onSetDestination={onSetDestination}
       />
 
-      {/* Center: Canonical Historic Journeys Carousel */}
-      <div style={{ flex: 1, overflow: 'hidden', minWidth: 0, padding: '0 4px' }}>
-        <QuickPresets onSelectPreset={onSelectPreset} />
+      {/* Center: Canonical Historic Journeys Dropdown */}
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minWidth: 0,
+          padding: '0 6px'
+        }}
+      >
+        <HistoricalPresetsDropdown
+          onSelectPreset={onSelectPreset}
+          activePresetId={activePresetId}
+          onClearPreset={onClearPreset}
+        />
       </div>
 
       {/* Right: Theme Switcher (Dark / Beige) */}

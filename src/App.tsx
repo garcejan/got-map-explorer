@@ -27,6 +27,7 @@ export const App: React.FC = () => {
   const [selectedGoal, setSelectedGoal] = useState<OptimizationGoal>('balanced');
 
   const [routeResult, setRouteResult] = useState<RouteResult | null>(null);
+  const [activePresetId, setActivePresetId] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
   const [focusedCity, setFocusedCity] = useState<{ id: string; timestamp: number } | null>(null);
 
@@ -111,6 +112,7 @@ export const App: React.FC = () => {
 
   // Handle preset selection
   const handleSelectPreset = (preset: PresetJourney) => {
+    setActivePresetId(preset.id);
     setOriginId(preset.originId);
     setDestinationId(preset.destinationId);
     setWaypointIds(preset.waypoints || []);
@@ -124,6 +126,7 @@ export const App: React.FC = () => {
 
   // Handle map node selection from popup or click
   const handleSelectNode = useCallback((nodeId: string, role: 'origin' | 'destination' | 'waypoint') => {
+    setActivePresetId(null);
     if (role === 'origin') {
       setOriginId(nodeId);
     } else if (role === 'destination') {
@@ -186,11 +189,13 @@ export const App: React.FC = () => {
   }, []);
 
   const handleQuickRoute = useCallback((nodeId: string) => {
+    setActivePresetId(null);
     setDestinationId(nodeId);
     setSidebarOpen(true);
   }, []);
 
   const handleClearRoute = useCallback(() => {
+    setActivePresetId(null);
     setOriginId('');
     setDestinationId('');
     setWaypointIds([]);
@@ -219,12 +224,16 @@ export const App: React.FC = () => {
         theme={theme}
         onSelectTheme={setTheme}
         onSelectPreset={handleSelectPreset}
+        activePresetId={activePresetId}
+        onClearPreset={handleClearRoute}
         onSelectCity={handleZoomToCity}
         onSetOrigin={(nodeId) => {
+          setActivePresetId(null);
           setOriginId(nodeId);
           handleZoomToCity(nodeId);
         }}
         onSetDestination={(nodeId) => {
+          setActivePresetId(null);
           setDestinationId(nodeId);
           handleZoomToCity(nodeId);
         }}
@@ -243,9 +252,18 @@ export const App: React.FC = () => {
         autoOptimize={autoOptimize}
         routeResult={routeResult}
         mapPickingTarget={mapPickingTarget}
-        onSetOrigin={setOriginId}
-        onSetDestination={setDestinationId}
-        onSetWaypoints={setWaypointIds}
+        onSetOrigin={(id) => {
+          setActivePresetId(null);
+          setOriginId(id);
+        }}
+        onSetDestination={(id) => {
+          setActivePresetId(null);
+          setDestinationId(id);
+        }}
+        onSetWaypoints={(ids) => {
+          setActivePresetId(null);
+          setWaypointIds(ids);
+        }}
         onStartPicking={handleStartPicking}
         onCancelPicking={handleCancelPicking}
         onOptimizeWaypoints={handleOptimizeWaypoints}
