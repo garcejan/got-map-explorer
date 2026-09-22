@@ -597,6 +597,37 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
       [2404, 5599]
     ]
   },
+  {
+    id: 'sea_braavos_port_of_ibben',
+    from: 'braavos',
+    to: 'port_of_ibben',
+    name: 'Shivering Sea Whaling Corridor (Braavos to Port of Ibben)',
+    terrainType: 'dangerous_sea',
+    waypoints: [
+      [2900, 3717],
+      [3496, 3654],
+      [4144, 3654],
+      [4792, 3654],
+      [5432, 3486],
+      [6080, 3454],
+      [6475, 3108]
+    ]
+  },
+  {
+    id: 'sea_port_of_ibben_nefer',
+    from: 'port_of_ibben',
+    to: 'nefer',
+    name: 'Eastern Shivering Sea Pass (Port of Ibben to Nefer)',
+    terrainType: 'dangerous_sea',
+    waypoints: [
+      [6475, 3108],
+      [6928, 3534],
+      [7448, 3734],
+      [7960, 3766],
+      [8432, 4014],
+      [8764, 4535]
+    ]
+  }
 ];
 
 export const SEA_LANES: RouteEdge[] = RAW_SEA_LANES.map(createSeaEdge);

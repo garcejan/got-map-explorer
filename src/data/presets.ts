@@ -73,5 +73,49 @@ export const PRESET_JOURNEYS: PresetJourney[] = [
     mode: 'land_only',
     goal: 'balanced',
     lore: 'Prince Oberyn Martell and his fierce Dornish retinue riding through the Boneway to seek justice for Elia.'
+  },
+  {
+    id: 'nymeria_ten_thousand_ships',
+    name: "Princess Nymeria's 10,000 Ships",
+    originId: 'volantis',
+    destinationId: 'sunspear',
+    waypoints: ['tall_trees_town'],
+    partyId: 'fleet',
+    mode: 'sea_only',
+    goal: 'balanced',
+    lore: "Princess Nymeria evacuating the surviving Rhoynar in ten thousand ships across the Summer Sea before landing at the Greenblood to unite with Lord Mors Martell."
+  },
+  {
+    id: 'corlys_asshai',
+    name: "The Sea Snake's Voyage to Asshai",
+    originId: 'driftmark',
+    destinationId: 'asshai',
+    waypoints: ['volantis', 'qarth', 'leng_yi'],
+    partyId: 'fleet',
+    mode: 'sea_only',
+    goal: 'balanced',
+    lore: "Lord Corlys Velaryon sailing the *Sea Snake* into the unknown reaches of the Jade Sea to Leng and Asshai-by-the-Shadow, returning with holds laden with gold and silk."
+  },
+  {
+    id: 'corlys_shivering_sea',
+    name: "The Sea Snake's Northern Voyage",
+    originId: 'driftmark',
+    destinationId: 'nefer',
+    waypoints: ['braavos', 'port_of_ibben'],
+    partyId: 'fleet',
+    mode: 'sea_only',
+    goal: 'balanced',
+    lore: "Corlys Velaryon on the *Ice Wolf* exploring the Shivering Sea past the Port of Ibben and Thousand Islands to the mystery-shrouded subterranean city of Nefer."
+  },
+  {
+    id: 'euron_silence',
+    name: "Euron Greyjoy's Silence Expedition",
+    originId: 'pyke',
+    destinationId: 'oldtown',
+    waypoints: ['qarth'],
+    partyId: 'fleet',
+    mode: 'sea_only',
+    goal: 'balanced',
+    lore: "The Crow's Eye raiding along the Summer Sea and Smoking Sea before striking the Whispering Sound and the Arbor with the Iron Fleet."
   }
 ];
