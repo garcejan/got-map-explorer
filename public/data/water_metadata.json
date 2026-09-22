@@ -1,0 +1,14 @@
+{
+  "gridWidth": 1250,
+  "gridHeight": 1038,
+  "mapWidth": 10000,
+  "mapHeight": 8300,
+  "scaleX": 0.125,
+  "scaleY": 0.12506024096385543,
+  "cellMiles": 7.0,
+  "bathymetryThresholds": {
+    "coastalShelfCells": 8,
+    "openOceanCells": 36,
+    "deepOceanCells": 36
+  }
+}
