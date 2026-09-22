@@ -6,7 +6,10 @@ import { NODES } from '../data/nodes';
 import { ROADS } from '../data/roads';
 import { SEA_LANES } from '../data/seaLanes';
 import { TERRAIN_MODIFIERS } from '../engine/parties';
-import { MAP_WIDTH, MAP_HEIGHT, toLeafletLatLng } from '../engine/scale';
+import { MAP_WIDTH, MAP_HEIGHT, toLeafletLatLng, fromLeafletLatLng, pixelDistance, pixelsToMiles } from '../engine/scale';
+import { leafletToWorld, WORLD_GRATICULES } from '../engine/coordinates';
+import { initWaterNav, getBathymetryZone } from '../engine/waterNav';
+import { TelemetryHUD, type TelemetryData } from './TelemetryHUD';
 
 interface MapCanvasProps {
   originId: string;
@@ -39,11 +42,16 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const markerLayersRef = useRef<L.LayerGroup | null>(null);
   const roadLayersRef = useRef<L.LayerGroup | null>(null);
   const seaLaneLayersRef = useRef<L.LayerGroup | null>(null);
+  const graticuleLayersRef = useRef<L.LayerGroup | null>(null);
+  const waterMaskLayersRef = useRef<L.LayerGroup | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
 
   const [showRoads, setShowRoads] = useState<boolean>(false);
   const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
   const [showLabels, setShowLabels] = useState<boolean>(true);
+  const [showGraticules, setShowGraticules] = useState<boolean>(true);
+  const [showWaterMask, setShowWaterMask] = useState<boolean>(false);
+  const [cursorTelemetry, setCursorTelemetry] = useState<TelemetryData | null>(null);
   const [layerPanelOpen, setLayerPanelOpen] = useState<boolean>(false);
 
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -108,16 +116,43 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     // Initial center on Westeros / Narrow Sea
     map.setView([MAP_HEIGHT - 4500, 2200], -1.5);
 
+    // Initialize water navigation binaries
+    initWaterNav();
+
+    const graticuleGroup = L.layerGroup().addTo(map);
+    const waterMaskGroup = L.layerGroup().addTo(map);
     const seaLaneGroup = L.layerGroup().addTo(map);
     const roadGroup = L.layerGroup().addTo(map);
     const markerGroup = L.layerGroup().addTo(map);
     const routeGroup = L.layerGroup().addTo(map);
 
     mapInstanceRef.current = map;
+    graticuleLayersRef.current = graticuleGroup;
+    waterMaskLayersRef.current = waterMaskGroup;
     seaLaneLayersRef.current = seaLaneGroup;
     roadLayersRef.current = roadGroup;
     markerLayersRef.current = markerGroup;
     routeLayersRef.current = routeGroup;
+
+    // Live mouse telemetry tracking
+    map.on('mousemove', (e: L.LeafletMouseEvent) => {
+      const imgCoords = fromLeafletLatLng([e.latlng.lat, e.latlng.lng]);
+      const world = leafletToWorld([e.latlng.lat, e.latlng.lng]);
+      const zone = getBathymetryZone(imgCoords[0], imgCoords[1]);
+      const distPx = pixelDistance(imgCoords, [1031, 5365]);
+      const distMiles = Math.round(pixelsToMiles(distPx));
+
+      setCursorTelemetry({
+        worldCoords: world.formattedFull,
+        imgCoords: `X: ${Math.round(imgCoords[0])}, Y: ${Math.round(imgCoords[1])}`,
+        zone,
+        distanceFromCitadelMiles: distMiles
+      });
+    });
+
+    map.on('mouseout', () => {
+      setCursorTelemetry(null);
+    });
 
     return () => {
       map.remove();
@@ -178,6 +213,87 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       `, { sticky: true, className: 'citadel-tooltip' });
     }
   }, [showSeaLanes]);
+
+  // Render World Graticules & Tropics
+  useEffect(() => {
+    const graticuleGroup = graticuleLayersRef.current;
+    if (!graticuleGroup) return;
+    graticuleGroup.clearLayers();
+    if (!showGraticules) return;
+
+    // Equator
+    const eqLine = L.polyline([
+      [WORLD_GRATICULES.equator.leafletLat, 0],
+      [WORLD_GRATICULES.equator.leafletLat, MAP_WIDTH]
+    ], {
+      color: WORLD_GRATICULES.equator.color,
+      weight: 1.5,
+      opacity: 0.65,
+      dashArray: '8, 8'
+    }).addTo(graticuleGroup);
+    eqLine.bindTooltip('<b>THE EQUATOR (0°)</b> — The Equinoctial Line', { sticky: true, className: 'citadel-tooltip' });
+
+    // Tropic of Cancer
+    const trLine = L.polyline([
+      [WORLD_GRATICULES.tropicOfCancer.leafletLat, 0],
+      [WORLD_GRATICULES.tropicOfCancer.leafletLat, MAP_WIDTH]
+    ], {
+      color: WORLD_GRATICULES.tropicOfCancer.color,
+      weight: 1.2,
+      opacity: 0.55,
+      dashArray: '6, 6'
+    }).addTo(graticuleGroup);
+    trLine.bindTooltip('<b>TROPIC OF CANCER (23.5° N)</b> — Northern Summer Solstice', { sticky: true, className: 'citadel-tooltip' });
+
+    // Arctic Circle
+    const arcLine = L.polyline([
+      [WORLD_GRATICULES.arcticCircle.leafletLat, 0],
+      [WORLD_GRATICULES.arcticCircle.leafletLat, MAP_WIDTH]
+    ], {
+      color: WORLD_GRATICULES.arcticCircle.color,
+      weight: 1.2,
+      opacity: 0.55,
+      dashArray: '6, 6'
+    }).addTo(graticuleGroup);
+    arcLine.bindTooltip('<b>THE ARCTIC CIRCLE (66.5° N)</b> — Lands of Always Winter', { sticky: true, className: 'citadel-tooltip' });
+
+    // Prime Meridian
+    const pmLine = L.polyline([
+      [0, WORLD_GRATICULES.primeMeridian.leafletLng],
+      [MAP_HEIGHT, WORLD_GRATICULES.primeMeridian.leafletLng]
+    ], {
+      color: WORLD_GRATICULES.primeMeridian.color,
+      weight: 1.0,
+      opacity: 0.45,
+      dashArray: '4, 8'
+    }).addTo(graticuleGroup);
+    pmLine.bindTooltip('<b>PRIME MERIDIAN (0°)</b> — Meridian of the Citadel', { sticky: true, className: 'citadel-tooltip' });
+  }, [showGraticules]);
+
+  // Render Navigable Water Mask & Landmass Contours
+  useEffect(() => {
+    const waterGroup = waterMaskLayersRef.current;
+    if (!waterGroup) return;
+    waterGroup.clearLayers();
+    if (!showWaterMask) return;
+
+    fetch('/data/landmasses.geojson')
+      .then(res => res.json())
+      .then(geoJsonData => {
+        if (!waterMaskLayersRef.current) return;
+        L.geoJSON(geoJsonData, {
+          coordsToLatLng: (coords) => L.latLng(MAP_HEIGHT - coords[1], coords[0]),
+          style: {
+            fillColor: '#0f172a',
+            fillOpacity: 0.35,
+            color: '#06b6d4',
+            weight: 1.5,
+            opacity: 0.75
+          }
+        }).addTo(waterGroup);
+      })
+      .catch(err => console.warn('Failed to load landmasses.geojson for overlay:', err));
+  }, [showWaterMask]);
 
   // Render Settlement Markers
   useEffect(() => {
@@ -739,6 +855,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         }}
       />
 
+      {/* Live Citadel Telemetry HUD */}
+      <TelemetryHUD telemetry={cursorTelemetry} />
+
       {/* Top Floating Picking HUD Banner */}
       {mapPickingTarget && (
         <div className="citadel-picking-hud">
@@ -856,6 +975,32 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   checked={showLabels}
                   onChange={(e) => setShowLabels(e.target.checked)}
                   style={{ accentColor: 'var(--border-gold, #c99738)', cursor: 'pointer' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ color: '#dfb15b' }}>🧭</span>
+                  <span>World Graticules</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={showGraticules}
+                  onChange={(e) => setShowGraticules(e.target.checked)}
+                  style={{ accentColor: 'var(--border-gold, #c99738)', cursor: 'pointer' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ color: '#06b6d4' }}>🌊</span>
+                  <span>Water Mask & Land</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={showWaterMask}
+                  onChange={(e) => setShowWaterMask(e.target.checked)}
+                  style={{ accentColor: '#06b6d4', cursor: 'pointer' }}
                 />
               </label>
             </div>
