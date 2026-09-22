@@ -882,5 +882,65 @@ html, body, #root {
   }
 }
 
+/* Citadel Horizontal Zoom Controls */
+.citadel-zoom-dock {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
 
+.citadel-zoom-bar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 20px;
+  padding: 2px 4px;
+  height: 36px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+}
 
+.citadel-zoom-btn {
+  background: none;
+  border: none;
+  color: var(--text-gold);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.citadel-zoom-btn:hover:not(:disabled) {
+  background: var(--bg-tertiary);
+  color: var(--text-gold-bright);
+}
+
+.citadel-zoom-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.citadel-zoom-btn:disabled {
+  color: var(--text-muted);
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.citadel-zoom-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border-subtle);
+  margin: 0 1px;
+}

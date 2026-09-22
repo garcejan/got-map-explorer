@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
-import { Layers } from 'lucide-react';
+import { Layers, Plus, Minus, RotateCcw } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
 import { ROADS } from '../data/roads';
@@ -53,6 +53,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const [showWaterMask, setShowWaterMask] = useState<boolean>(false);
   const [cursorTelemetry, setCursorTelemetry] = useState<TelemetryData | null>(null);
   const [layerPanelOpen, setLayerPanelOpen] = useState<boolean>(false);
+  const [currentZoom, setCurrentZoom] = useState<number>(-1.5);
 
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -76,6 +77,18 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     }, 2800);
   }, []);
 
+  const handleZoomIn = useCallback(() => {
+    mapInstanceRef.current?.zoomIn();
+  }, []);
+
+  const handleZoomOut = useCallback(() => {
+    mapInstanceRef.current?.zoomOut();
+  }, []);
+
+  const handleResetView = useCallback(() => {
+    mapInstanceRef.current?.setView([MAP_HEIGHT - 4500, 2200], -1.5);
+  }, []);
+
   // Cancel picking on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -97,6 +110,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       maxZoom: 2,
       zoomSnap: 0.25,
       zoomDelta: 0.5,
+      zoomControl: false,
       attributionControl: false
     });
 
@@ -152,6 +166,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
     map.on('mouseout', () => {
       setCursorTelemetry(null);
+    });
+
+    map.on('zoomend', () => {
+      setCurrentZoom(map.getZoom());
     });
 
     return () => {
@@ -900,6 +918,51 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           )}
         </div>
       )}
+
+      {/* Citadel Bottom-Left Dock: Horizontal Zoom Controls */}
+      <div
+        className="citadel-zoom-dock"
+        onDoubleClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+      >
+        <div className="citadel-zoom-bar">
+          <button
+            type="button"
+            className="citadel-zoom-btn"
+            onClick={handleZoomIn}
+            disabled={currentZoom >= 2}
+            title="Zoom In (+)"
+            aria-label="Zoom In"
+          >
+            <Plus size={16} />
+          </button>
+
+          <div className="citadel-zoom-divider" />
+
+          <button
+            type="button"
+            className="citadel-zoom-btn"
+            onClick={handleZoomOut}
+            disabled={currentZoom <= -3}
+            title="Zoom Out (-)"
+            aria-label="Zoom Out"
+          >
+            <Minus size={16} />
+          </button>
+
+          <div className="citadel-zoom-divider" />
+
+          <button
+            type="button"
+            className="citadel-zoom-btn"
+            onClick={handleResetView}
+            title="Reset to Westeros Center"
+            aria-label="Reset Map View"
+          >
+            <RotateCcw size={14} />
+          </button>
+        </div>
+      </div>
 
       {/* Citadel Bottom-Right Dock: Telemetry HUD & Cartography Layers */}
       <div
