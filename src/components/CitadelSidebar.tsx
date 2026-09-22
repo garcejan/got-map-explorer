@@ -23,7 +23,9 @@ import {
   Bird,
   Feather,
   Coins,
-  RotateCcw
+  RotateCcw,
+  MapPin,
+  X
 } from 'lucide-react';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
@@ -63,7 +65,8 @@ interface AutocompleteInputProps {
   dotColor: string;
   onChangeId: (id: string) => void;
   isPickingActive?: boolean;
-  onTogglePick?: () => void;
+  onStartPicking?: () => void;
+  onCancelPicking?: () => void;
 }
 
 const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
@@ -73,11 +76,13 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
   dotColor,
   onChangeId,
   isPickingActive = false,
-  onTogglePick
+  onStartPicking,
+  onCancelPicking
 }) => {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (value && NODES[value]) {
@@ -120,6 +125,12 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
       .slice(0, 50);
   }, [query]);
 
+  const handleActivatePicking = () => {
+    if (!isPickingActive && onStartPicking) {
+      onStartPicking();
+    }
+  };
+
   return (
     <div ref={containerRef} style={{ position: 'relative', marginBottom: 12 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
@@ -127,35 +138,112 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
           <span style={{ width: 9, height: 9, borderRadius: '50%', background: dotColor, display: 'inline-block' }} />
           <span>{label}</span>
         </label>
-        {onTogglePick && (
-          <button
-            type="button"
-            className={`btn-pick-map ${isPickingActive ? 'active' : ''}`}
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onTogglePick();
+        {isPickingActive && (
+          <span
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: 'var(--text-gold-bright, #fef08a)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 4
             }}
-            title={isPickingActive ? 'Cancel map picking' : 'Click to select this city directly on the map'}
           >
-            <span>📍</span>
-            <span>{isPickingActive ? 'Picking on Map...' : 'Pick on Map'}</span>
-          </button>
+            <span
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: '50%',
+                backgroundColor: '#ffd700',
+                boxShadow: '0 0 6px #ffd700',
+                display: 'inline-block'
+              }}
+            />
+            <span>Picking on Map...</span>
+          </span>
         )}
       </div>
 
-      <input
-        type="text"
-        className={`citadel-input ${isPickingActive ? 'citadel-input-picking' : ''}`}
-        value={query}
-        placeholder={isPickingActive ? 'Click a city on the map...' : placeholder}
-        onFocus={() => setIsOpen(true)}
-        onChange={(e) => {
-          setQuery(e.target.value);
-          setIsOpen(true);
-        }}
-        style={{ width: '100%', fontSize: 13 }}
-      />
+      <div style={{ position: 'relative', width: '100%' }}>
+        <input
+          ref={inputRef}
+          type="text"
+          className={`citadel-input ${isPickingActive ? 'citadel-input-picking' : ''}`}
+          value={query}
+          placeholder={isPickingActive ? 'Click a city on the map or type to search...' : placeholder}
+          onFocus={() => {
+            setIsOpen(true);
+            handleActivatePicking();
+          }}
+          onClick={() => {
+            handleActivatePicking();
+          }}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setIsOpen(true);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              setIsOpen(false);
+              if (isPickingActive && onCancelPicking) {
+                onCancelPicking();
+              }
+            }
+          }}
+          style={{
+            width: '100%',
+            fontSize: 13,
+            paddingRight: query ? 54 : 32
+          }}
+        />
+
+        <div
+          style={{
+            position: 'absolute',
+            right: 8,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 2,
+            zIndex: 2
+          }}
+        >
+          {query && (
+            <button
+              type="button"
+              className="citadel-input-action-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setQuery('');
+                onChangeId('');
+                inputRef.current?.focus();
+                handleActivatePicking();
+              }}
+              title="Clear selection"
+            >
+              <X size={13} />
+            </button>
+          )}
+
+          <button
+            type="button"
+            className={`citadel-input-action-btn citadel-pin-embedded ${isPickingActive ? 'active' : ''}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (isPickingActive) {
+                onCancelPicking?.();
+              } else {
+                onStartPicking?.();
+                inputRef.current?.focus();
+              }
+            }}
+            title={isPickingActive ? 'Cancel map picking' : 'Click to select this location directly on the map'}
+          >
+            <MapPin size={14} className={isPickingActive ? 'citadel-pin-pulse' : ''} />
+          </button>
+        </div>
+      </div>
 
       {isOpen && filteredNodes.length > 0 && (
         <div
@@ -176,10 +264,12 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
           {filteredNodes.map((node) => (
             <div
               key={node.id}
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 onChangeId(node.id);
                 setQuery(node.name);
                 setIsOpen(false);
+                onCancelPicking?.();
               }}
               style={{
                 padding: '9px 12px',
@@ -296,7 +386,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   onSetDestination,
   onSetWaypoints,
   onStartPicking,
-  onCancelPicking: _onCancelPicking,
+  onCancelPicking,
   onOptimizeWaypoints,
   onToggleAutoOptimize,
   onSelectParty,
@@ -617,7 +707,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                 dotColor="#22c55e"
                 onChangeId={onSetOrigin}
                 isPickingActive={mapPickingTarget?.type === 'origin'}
-                onTogglePick={onStartPicking ? () => onStartPicking({ type: 'origin' }) : undefined}
+                onStartPicking={onStartPicking ? () => onStartPicking({ type: 'origin' }) : undefined}
+                onCancelPicking={onCancelPicking}
               />
 
               {/* Intermediate Stops */}
@@ -631,7 +722,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                       dotColor="#0ea5e9"
                       onChangeId={(newId) => handleUpdateWaypoint(idx, newId)}
                       isPickingActive={mapPickingTarget?.type === 'waypoint' && mapPickingTarget.index === idx}
-                      onTogglePick={onStartPicking ? () => onStartPicking({ type: 'waypoint', index: idx }) : undefined}
+                      onStartPicking={onStartPicking ? () => onStartPicking({ type: 'waypoint', index: idx }) : undefined}
+                      onCancelPicking={onCancelPicking}
                     />
                   </div>
 
@@ -753,7 +845,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                 dotColor="#ef4444"
                 onChangeId={onSetDestination}
                 isPickingActive={mapPickingTarget?.type === 'destination'}
-                onTogglePick={onStartPicking ? () => onStartPicking({ type: 'destination' }) : undefined}
+                onStartPicking={onStartPicking ? () => onStartPicking({ type: 'destination' }) : undefined}
+                onCancelPicking={onCancelPicking}
               />
 
               {/* Expedition Archetype Selection */}
