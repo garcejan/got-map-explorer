@@ -1407,7 +1407,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     setActiveTab('ledger');
                   }}
                   className="btn-citadel"
-                  style={{ flex: 1, padding: '8px 12px', fontSize: 12 }}
+                  style={{ flex: 1 }}
                 >
                   <Navigation size={14} />
                   <span>Calculate Journey</span>
@@ -1418,7 +1418,6 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     type="button"
                     onClick={handleClearRoute}
                     className="btn-citadel-inverse"
-                    style={{ padding: '8px 14px', fontSize: 12 }}
                     title="Clear current route and stops"
                   >
                     <X size={14} />
@@ -1472,25 +1471,6 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                         <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.2)', color: 'var(--text-gold-bright)' }}>
                           {routeResult.optimizationGoal === 'shortest' ? 'Shortest' : routeResult.optimizationGoal === 'fastest' ? 'Fastest' : 'Optimal'}
                         </span>
-                        {/* <button
-                          type="button"
-                          onClick={handleClearRoute}
-                          className="btn-secondary"
-                          style={{
-                            padding: '2px 7px',
-                            fontSize: 11,
-                            color: '#f87171',
-                            borderColor: 'rgba(239, 68, 68, 0.35)',
-                            background: 'rgba(239, 68, 68, 0.08)',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: 4
-                          }}
-                          title="Clear journey"
-                        >
-                          <RotateCcw size={12} />
-                          <span>Clear</span>
-                        </button> */}
                       </div>
                     </div>
 

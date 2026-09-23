@@ -584,7 +584,6 @@ body,
   gap: 6px;
   text-transform: uppercase;
   font-size: 12px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* Primary Action: Royal Citadel Crimson */
@@ -593,17 +592,19 @@ body,
   background: linear-gradient(135deg, #7c1a22 0%, #4a0f14 100%);
   border: 1px solid #c59b27;
   color: #eed68a;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow:
     inset 0 1px 0 rgba(255, 220, 140, 0.25),
     0 2px 5px rgba(0, 0, 0, 0.18);
 }
 
-/* Complementary Secondary Action: Cool Slate / Steel */
+/* Complementary Secondary Action: Cool Slate / Steel (Dark Theme default) */
 .btn-citadel-inverse {
   flex: 0 0 auto;
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   border: 1px solid #334862;
   color: #cbd5e1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   padding: 8px 12px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -653,6 +654,47 @@ body,
   transform: translateY(0);
   background: #0f172a;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Light / Beige Theme Adaptations */
+[data-theme='beige'] .btn-citadel {
+  border-color: #b3802b;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 140, 0.25),
+    0 2px 5px rgba(65, 45, 25, 0.22);
+}
+
+[data-theme='beige'] .btn-citadel:hover {
+  border-color: #8c5d17;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 170, 0.4),
+    0 3px 8px rgba(124, 26, 34, 0.3);
+}
+
+[data-theme='beige'] .btn-citadel-inverse {
+  background: linear-gradient(135deg, #e6ecf2 0%, #d4dde8 100%);
+  border: 1px solid #8e9fab;
+  color: #1e293b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 3px rgba(65, 45, 25, 0.12);
+}
+
+[data-theme='beige'] .btn-citadel-inverse:hover {
+  background: linear-gradient(135deg, #f0f4f8 0%, #dde5ef 100%);
+  border-color: #64748b;
+  color: #0f172a;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 2px 6px rgba(65, 45, 25, 0.18);
+  transform: translateY(-1px);
+}
+
+[data-theme='beige'] .btn-citadel-inverse:active {
+  transform: translateY(0);
+  background: #cbd5e1;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 /* Shared disabled state */
