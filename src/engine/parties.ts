@@ -8,7 +8,7 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
     landSpeedMilesPerDay: 58,
     seaSpeedMilesPerDay: 90,
     description: 'Lone rider switching fresh post-horses at holdfasts and road inns. Fastest overland transit.',
-    tagline: '~58 miles / 93 km per day on road'
+    tagline: '58 miles / 93 km per day on road'
   },
   retinue: {
     id: 'retinue',
@@ -17,7 +17,7 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
     landSpeedMilesPerDay: 18,
     seaSpeedMilesPerDay: 95,
     description: 'Heavy wheelhouses, mounted knights, ladies in litters, and baggage carts (e.g. King Robert traveling to Winterfell).',
-    tagline: '~18 miles / 29 km per day on road'
+    tagline: '18 miles / 29 km per day on road'
   },
   army: {
     id: 'army',
@@ -26,7 +26,7 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
     landSpeedMilesPerDay: 12,
     seaSpeedMilesPerDay: 75,
     description: 'Armored infantry on foot, camp followers, ox-drawn siege engines, and heavy supply trains.',
-    tagline: '~12 miles / 19 km per day on road'
+    tagline: '12 miles / 19 km per day on road'
   },
   caravan: {
     id: 'caravan',
@@ -35,7 +35,7 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
     landSpeedMilesPerDay: 15,
     seaSpeedMilesPerDay: 100,
     description: 'Pack mules, spice wagons, and hired sellsword guards carrying trade goods across Westeros and Essos.',
-    tagline: '~15 miles / 24 km per day on road'
+    tagline: '15 miles / 24 km per day on road'
   },
   fleet: {
     id: 'fleet',
@@ -44,7 +44,7 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
     landSpeedMilesPerDay: 14,
     seaSpeedMilesPerDay: 115,
     description: 'Oared war galleys and triple-masted cogs skimming along coastal shipping lanes and open waters.',
-    tagline: '~115 miles / 185 km per day at sea'
+    tagline: '115 miles / 185 km per day at sea'
   },
   crow: {
     id: 'crow',
@@ -52,8 +52,8 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
     icon: 'Bird',
     landSpeedMilesPerDay: 240,
     seaSpeedMilesPerDay: 240,
-    description: 'Trained rookery raven or messenger crow carrying a scroll canister. Sustained daylight flight (~30-35 mph for 7-8 hours) as the crow flies.',
-    tagline: '~240 miles / 386 km per day (Direct Message Flight)',
+    description: 'Trained rookery raven or messenger crow carrying a scroll canister. Sustained daylight flight (30-35 mph for 7-8 hours) as the crow flies.',
+    tagline: '240 miles / 386 km per day (Direct Message Flight)',
     canFly: true
   },
   dragon: {
@@ -63,7 +63,7 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
     landSpeedMilesPerDay: 520,
     seaSpeedMilesPerDay: 520,
     description: 'High-altitude aerial transit (65-80 mph cruising) over mountains, oceans, and swamps, unaffected by ground obstacles.',
-    tagline: '~520 miles / 837 km per day direct',
+    tagline: '520 miles / 837 km per day direct',
     canFly: true
   }
 };
