@@ -382,15 +382,15 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
       case 'dragon':
         return <Flame size={size} color="var(--icon-dragon, #ef4444)" />;
       case 'crow':
-        return <Bird size={size} color="var(--preset-raven-icon)" />;
+        return <Bird size={size} color="var(--preset-raven-icon, #c084fc)" />;
       case 'retinue':
-        return <Crown size={size} color="var(--text-gold)" />;
+        return <Crown size={size} color="var(--icon-retinue, #fbbf24)" />;
       case 'army':
-        return <Shield size={size} color="var(--icon-army)" />;
+        return <Shield size={size} color="var(--icon-army, #60a5fa)" />;
       case 'fleet':
-        return <Ship size={size} color="var(--icon-fleet)" />;
+        return <Ship size={size} color="var(--icon-fleet, #22d3ee)" />;
       case 'messenger':
-        return <Feather size={size} color="var(--icon-messenger)" />;
+        return <Feather size={size} color="var(--icon-messenger, #4ade80)" />;
       default:
         return <Sparkles size={size} color="var(--text-gold)" />;
     }
@@ -399,15 +399,15 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
   const getModeBadge = (mode: string) => {
     switch (mode) {
       case 'dragon':
-        return { label: 'Dragon Flight', bg: 'rgba(239, 68, 68, 0.15)', color: '#f87171', border: 'rgba(239, 68, 68, 0.4)' };
+        return { label: 'Dragon Flight', className: 'citadel-mode-badge-dragon' };
       case 'crow_flight':
-        return { label: 'Direct Flight', bg: 'var(--preset-raven-bg)', color: 'var(--preset-raven-text)', border: 'var(--preset-raven-border)' };
+        return { label: 'Direct Flight', className: 'citadel-mode-badge-crow' };
       case 'sea_only':
-        return { label: 'Sea Corridor', bg: 'var(--badge-sea-bg)', color: 'var(--badge-sea-val)', border: 'var(--badge-sea-border)' };
+        return { label: 'Sea Corridor', className: 'citadel-mode-badge-sea' };
       case 'land_only':
-        return { label: 'Land Road', bg: 'var(--badge-land-bg)', color: 'var(--badge-land-val)', border: 'var(--badge-land-border)' };
+        return { label: 'Land Road', className: 'citadel-mode-badge-land' };
       default:
-        return { label: 'Multimodal', bg: 'rgba(148, 163, 184, 0.12)', color: 'var(--text-parchment)', border: 'var(--border-subtle)' };
+        return { label: 'Multimodal', className: 'citadel-mode-badge-multimodal' };
     }
   };
 
@@ -886,14 +886,12 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                           )}
 
                           <span
+                            className={modeBadge.className}
                             style={{
                               fontSize: 9,
                               fontWeight: 700,
                               padding: '1px 5px',
-                              borderRadius: 4,
-                              background: modeBadge.bg,
-                              color: modeBadge.color,
-                              border: `1px solid ${modeBadge.border}`
+                              borderRadius: 4
                             }}
                           >
                             {modeBadge.label}

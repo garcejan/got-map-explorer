@@ -11,6 +11,7 @@ import { MAP_WIDTH, MAP_HEIGHT, toLeafletLatLng, fromLeafletLatLng, pixelDistanc
 import { leafletToWorld, WORLD_GRATICULES } from '../engine/coordinates';
 import { initWaterNav, getBathymetryZone } from '../engine/waterNav';
 import { TelemetryHUD, type TelemetryData } from './TelemetryHUD';
+import { THEME_PALETTES, PARTY_ARCHETYPE_COLORS } from '../styles/tokens';
 
 export interface MapCanvasProps {
   theme?: Theme;
@@ -237,8 +238,9 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     if (!showRoads && !showKingdomPaths) return;
 
     const isBeige = theme === 'beige';
-    const highwayColor = isBeige ? '#92400e' : '#dfb15b';
-    const pathColor = isBeige ? '#78350f' : '#ca8a04';
+    const palette = THEME_PALETTES[theme || 'dark'];
+    const highwayColor = palette.highway;
+    const pathColor = palette.path;
 
     fetch('/data/gis_roads.geojson')
       .then((res) => {
@@ -344,7 +346,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     if (!showSeaLanes) return;
 
     const isBeige = theme === 'beige';
-    const seaColor = isBeige ? '#0369a1' : '#0ea5e9';
+    const palette = THEME_PALETTES[theme || 'dark'];
+    const seaColor = palette.routeSea;
     const seaOpacity = isBeige ? 0.7 : 0.5;
 
     for (const lane of SEA_LANES) {
@@ -375,7 +378,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     if (!showGraticules) return;
 
     const isBeige = theme === 'beige';
-    const parallelColor = isBeige ? '#78716c' : '#94a3b8';
+    const palette = THEME_PALETTES[theme || 'dark'];
+    const parallelColor = palette.parallel;
     const parallelOpacity = isBeige ? 0.45 : 0.35;
 
     // 10-degree parallels (10°N to 70°N)
@@ -744,9 +748,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     const isDragonRoute = routeResult.party.id === 'dragon' || routeResult.mode === 'dragon';
     const isCrowRoute = routeResult.party.id === 'crow' || routeResult.party.id === 'raven' || routeResult.mode === 'crow_flight';
 
-    let ambientGlowColor = '#dfb15b';
-    if (isDragonRoute) ambientGlowColor = '#ef4444';
-    else if (isCrowRoute) ambientGlowColor = '#a855f7';
+    const palette = THEME_PALETTES[theme || 'dark'];
+    let ambientGlowColor = palette.routeGlow;
+    if (isDragonRoute) ambientGlowColor = PARTY_ARCHETYPE_COLORS.dragon.hexDark;
+    else if (isCrowRoute) ambientGlowColor = PARTY_ARCHETYPE_COLORS.crow.hexDark;
 
     // Draw background outer ambient glow for entire path
     const glowPolyline = L.polyline(routeResult.allCoordinates, {
@@ -759,17 +764,17 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
     // Draw each leg with thematic glowing stroke & directional chevrons
     for (const leg of routeResult.legs) {
-      let legColor = '#f59e0b'; // Consistent gold/amber for overland travel
+      let legColor = palette.routeLand; // Consistent gold/amber for overland travel
       let dashClass = 'route-flowing-land';
       let weight = 4.5;
 
       if (leg.segmentType === 'sea') {
-        legColor = '#06b6d4'; // Luminous ocean-cyan for maritime corridors
+        legColor = palette.routeSea; // Luminous ocean-cyan for maritime corridors
         dashClass = 'route-flowing-sea';
         weight = 4;
       } else if (leg.segmentType === 'flight') {
         const isDragon = leg.edge.name.toLowerCase().includes('dragon') || isDragonRoute;
-        legColor = isDragon ? '#ef4444' : '#c084fc'; // Crimson strictly for dragon, radiant purple strictly for crow/raven
+        legColor = isDragon ? PARTY_ARCHETYPE_COLORS.dragon.hexDark : PARTY_ARCHETYPE_COLORS.crow.hexDark; // Crimson strictly for dragon, radiant purple strictly for crow/raven
         dashClass = isDragon ? 'route-flowing-flight' : 'route-flowing-crow';
         weight = 3.5;
       }
@@ -1149,123 +1154,123 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           }}
         >
           {layerPanelOpen && (
-          <div className="citadel-layer-panel">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12, borderBottom: '1px solid var(--border-gold-glow)', paddingBottom: 6 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'var(--text-gold)' }}>
-                <Layers size={16} />
-                <span>Citadel Cartography</span>
+            <div className="citadel-layer-panel">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12, borderBottom: '1px solid var(--border-gold-glow)', paddingBottom: 6 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'var(--text-gold)' }}>
+                  <Layers size={16} />
+                  <span>Citadel Cartography</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setLayerPanelOpen(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    fontSize: 16,
+                    lineHeight: 1
+                  }}
+                  title="Close Cartography Panel"
+                >
+                  ✕
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => setLayerPanelOpen(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: 'var(--text-muted)',
-                  cursor: 'pointer',
-                  fontSize: 16,
-                  lineHeight: 1
-                }}
-                title="Close Cartography Panel"
-              >
-                ✕
-              </button>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontFamily: "'Inter', sans-serif", fontSize: 12 }}>
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ color: 'var(--text-gold)' }}>🛣️</span>
+                    <span>Imperial Highways</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showRoads}
+                    onChange={(e) => setShowRoads(e.target.checked)}
+                    style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
+                  />
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ color: '#d97706' }}>🗺️</span>
+                    <span>Kingdom Paths (GIS)</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showKingdomPaths}
+                    onChange={(e) => setShowKingdomPaths(e.target.checked)}
+                    style={{ accentColor: '#d97706', cursor: 'pointer' }}
+                  />
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ color: 'var(--accent-blue)' }}>⛵</span>
+                    <span>Maritime Corridors</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showSeaLanes}
+                    onChange={(e) => setShowSeaLanes(e.target.checked)}
+                    style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
+                  />
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ color: 'var(--text-gold)' }}>➤</span>
+                    <span>Route Direction Arrows</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showRouteArrows}
+                    onChange={(e) => setShowRouteArrows(e.target.checked)}
+                    style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
+                  />
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ color: 'var(--text-gold)' }}>🏷️</span>
+                    <span>Settlement Labels</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showLabels}
+                    onChange={(e) => setShowLabels(e.target.checked)}
+                    style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
+                  />
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ color: 'var(--text-gold)' }}>🧭</span>
+                    <span>World Graticules</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showGraticules}
+                    onChange={(e) => setShowGraticules(e.target.checked)}
+                    style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
+                  />
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ color: 'var(--accent-blue)' }}>🌊</span>
+                    <span>Water Mask & Land</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showWaterMask}
+                    onChange={(e) => setShowWaterMask(e.target.checked)}
+                    style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
+                  />
+                </label>
+              </div>
             </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontFamily: "'Inter', sans-serif", fontSize: 12 }}>
-              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: 'var(--text-gold)' }}>🛣️</span>
-                  <span>Imperial Highways</span>
-                </span>
-                <input
-                  type="checkbox"
-                  checked={showRoads}
-                  onChange={(e) => setShowRoads(e.target.checked)}
-                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
-                />
-              </label>
-
-              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: '#d97706' }}>🗺️</span>
-                  <span>Kingdom Paths (GIS)</span>
-                </span>
-                <input
-                  type="checkbox"
-                  checked={showKingdomPaths}
-                  onChange={(e) => setShowKingdomPaths(e.target.checked)}
-                  style={{ accentColor: '#d97706', cursor: 'pointer' }}
-                />
-              </label>
-
-              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: 'var(--accent-blue)' }}>⛵</span>
-                  <span>Maritime Corridors</span>
-                </span>
-                <input
-                  type="checkbox"
-                  checked={showSeaLanes}
-                  onChange={(e) => setShowSeaLanes(e.target.checked)}
-                  style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
-                />
-              </label>
-
-              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: 'var(--text-gold)' }}>➤</span>
-                  <span>Route Direction Arrows</span>
-                </span>
-                <input
-                  type="checkbox"
-                  checked={showRouteArrows}
-                  onChange={(e) => setShowRouteArrows(e.target.checked)}
-                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
-                />
-              </label>
-
-              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: 'var(--text-gold)' }}>🏷️</span>
-                  <span>Settlement Labels</span>
-                </span>
-                <input
-                  type="checkbox"
-                  checked={showLabels}
-                  onChange={(e) => setShowLabels(e.target.checked)}
-                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
-                />
-              </label>
-
-              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: 'var(--text-gold)' }}>🧭</span>
-                  <span>World Graticules</span>
-                </span>
-                <input
-                  type="checkbox"
-                  checked={showGraticules}
-                  onChange={(e) => setShowGraticules(e.target.checked)}
-                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
-                />
-              </label>
-
-              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ color: 'var(--accent-blue)' }}>🌊</span>
-                  <span>Water Mask & Land</span>
-                </span>
-                <input
-                  type="checkbox"
-                  checked={showWaterMask}
-                  onChange={(e) => setShowWaterMask(e.target.checked)}
-                  style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
-                />
-              </label>
-            </div>
-          </div>
-        )}
+          )}
 
           <button
             type="button"

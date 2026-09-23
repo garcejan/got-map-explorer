@@ -207,23 +207,17 @@ export const CitySearch: React.FC<CitySearchProps> = ({
   };
 
   const getTypeIcon = (type: NodeType, isPort?: boolean) => {
-    if (type === 'capital') return <Crown size={12} color="#ffd700" />;
-    if (isPort || type === 'port') return <Anchor size={12} color="#38bdf8" />;
-    if (type === 'castle') return <Shield size={12} color="#94a3b8" />;
-    return <Building2 size={12} color="#f59e0b" />;
+    if (type === 'capital') return <Crown size={12} color="var(--badge-capital-text, #ffd700)" />;
+    if (isPort || type === 'port') return <Anchor size={12} color="var(--badge-port-text, #38bdf8)" />;
+    if (type === 'castle') return <Shield size={12} color="var(--badge-castle-text, #94a3b8)" />;
+    return <Building2 size={12} color="var(--badge-city-text, #f59e0b)" />;
   };
 
-  const getTypeBadgeStyle = (type: NodeType, isPort?: boolean) => {
-    if (type === 'capital') {
-      return { background: 'rgba(255, 215, 0, 0.15)', color: '#ffd700', border: '1px solid rgba(255, 215, 0, 0.4)' };
-    }
-    if (isPort || type === 'port') {
-      return { background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.4)' };
-    }
-    if (type === 'castle') {
-      return { background: 'rgba(148, 163, 184, 0.15)', color: '#cbd5e1', border: '1px solid rgba(148, 163, 184, 0.3)' };
-    }
-    return { background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid rgba(245, 158, 11, 0.3)' };
+  const getTypeBadgeClass = (type: NodeType, isPort?: boolean) => {
+    if (type === 'capital') return 'citadel-badge-capital';
+    if (isPort || type === 'port') return 'citadel-badge-port';
+    if (type === 'castle') return 'citadel-badge-castle';
+    return 'citadel-badge-city';
   };
 
   return (
@@ -422,7 +416,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
             ) : (
               filteredNodes.map((node, index) => {
                 const isSelected = index === selectedIndex;
-                const badgeStyle = getTypeBadgeStyle(node.type, node.isPort);
+                const badgeClass = getTypeBadgeClass(node.type, node.isPort);
 
                 return (
                   <div
@@ -471,13 +465,13 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                           </span>
                         )}
                         <span
+                          className={badgeClass}
                           style={{
                             fontSize: 8,
                             fontWeight: 700,
                             textTransform: 'uppercase',
                             padding: '1px 5px',
-                            borderRadius: 3,
-                            ...badgeStyle
+                            borderRadius: 3
                           }}
                         >
                           {node.isPort && node.type !== 'port' ? 'Port City' : node.type.replace('_', ' ')}

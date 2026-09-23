@@ -32,41 +32,11 @@ export const Header: React.FC<HeaderProps> = ({
   const isBeige = theme === 'beige';
 
   return (
-    <header
-      className="glass-panel"
-      style={{
-        position: 'absolute',
-        top: 8,
-        left: 12,
-        right: 12,
-        height: 52,
-        zIndex: 2500,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 14px',
-        gap: 14,
-        borderRadius: 8,
-        border: isBeige ? '1px solid var(--border-subtle)' : '1px solid var(--border-gold-glow)',
-        boxShadow: isBeige ? 'none' : '0 8px 30px rgba(0, 0, 0, 0.85)'
-      }}
-    >
+    <header className="glass-panel citadel-header-panel">
       {/* Brand & Citadel Crest */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
-        <div
-          style={{
-            width: 32,
-            height: 32,
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, #dfb15b 0%, #78350f 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: isBeige ? 'none' : '0 0 10px rgba(223, 177, 91, 0.6)',
-            flexShrink: 0
-          }}
-        >
-          <Compass size={18} color="#0a0e14" strokeWidth={2.5} />
+        <div className="citadel-brand-crest">
+          <Compass size={18} color="var(--bg-primary, #0a0e14)" strokeWidth={2.5} />
         </div>
 
         <div>

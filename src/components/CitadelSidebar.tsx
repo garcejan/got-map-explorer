@@ -325,8 +325,8 @@ const EXPEDITION_ARCHETYPES = [
     subtitle: 'Infantry & Baggage Train',
     pace: '12 mi / day',
     category: 'Overland',
-    icon: <Shield size={15} color="var(--icon-army, #ef4444)" />,
-    badgeColor: 'var(--icon-army, #ef4444)'
+    icon: <Shield size={15} color="var(--icon-army, #60a5fa)" />,
+    badgeColor: 'var(--icon-army, #60a5fa)'
   },
   {
     id: 'messenger',
