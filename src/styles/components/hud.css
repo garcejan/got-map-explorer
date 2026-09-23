@@ -1,0 +1,208 @@
+/* Citadel / Maester's Cartography Design System - HUD, Floating Docks & Layers */
+
+/* Floating HUD banner during picking */
+.citadel-picking-hud {
+  position: absolute;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: var(--hud-bg);
+  border: 1px solid var(--border-gold-glow);
+  box-shadow: var(--shadow-lg), 0 0 20px var(--border-gold-glow);
+  backdrop-filter: blur(12px);
+  animation: hud-bounce-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.citadel-picking-hud-cancel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  border-radius: 14px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: all 0.15s ease;
+}
+
+.citadel-picking-hud-cancel:hover {
+  background: var(--bg-hover);
+  color: var(--text-parchment);
+  border-color: var(--border-gold);
+}
+
+/* Cartography Layers Widget Styles */
+.citadel-layer-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 12px;
+  padding: 14px 16px;
+  width: 260px;
+  box-shadow: var(--shadow-lg), 0 0 15px var(--border-gold-glow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-parchment);
+  font-family: var(--font-serif);
+}
+
+.citadel-layer-btn {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  color: var(--text-parchment);
+  padding: 0 14px;
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.2s ease;
+  font-family: var(--font-serif);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.citadel-layer-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+}
+
+.citadel-layer-btn.active {
+  background: var(--bg-hover);
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+}
+
+@keyframes hud-bounce-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -15px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Floating Confirmation Toast */
+.citadel-toast-notification {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 24px;
+  background: var(--toast-bg);
+  border: 1px solid var(--accent-green);
+  box-shadow: var(--shadow-lg), 0 0 16px rgba(34, 197, 94, 0.3);
+  color: var(--text-parchment);
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  animation: toast-slide-up 0.3s ease-out;
+  pointer-events: none;
+}
+
+@keyframes toast-slide-up {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeInSlideDown {
+  0% {
+    opacity: 0;
+    margin-top: -6px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+/* Citadel Horizontal Zoom Controls */
+.citadel-zoom-dock {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.citadel-zoom-bar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 20px;
+  padding: 2px 4px;
+  height: 36px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-lg), 0 0 10px var(--border-gold-glow);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+}
+
+.citadel-zoom-btn {
+  background: none;
+  border: none;
+  color: var(--text-gold);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.citadel-zoom-btn:hover:not(:disabled) {
+  background: var(--bg-tertiary);
+  color: var(--text-gold-bright);
+}
+
+.citadel-zoom-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.citadel-zoom-btn:disabled {
+  color: var(--text-muted);
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.citadel-zoom-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border-subtle);
+  margin: 0 1px;
+}

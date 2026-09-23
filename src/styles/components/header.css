@@ -1,0 +1,70 @@
+/* Citadel / Maester's Cartography Design System - Header Styles */
+
+.citadel-header-panel {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  right: 12px;
+  height: 52px;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  gap: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-gold-glow);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85);
+}
+
+[data-theme='beige'] .citadel-header-panel {
+  border: 1px solid var(--border-subtle);
+  box-shadow: none;
+}
+
+.citadel-brand-crest {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #dfb15b 0%, #78350f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(223, 177, 91, 0.6);
+  flex-shrink: 0;
+}
+
+[data-theme='beige'] .citadel-brand-crest {
+  box-shadow: none;
+}
+
+.citadel-theme-radio-group {
+  display: flex;
+  background: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.citadel-theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-muted);
+  background: transparent;
+  outline: none;
+}
+
+.citadel-theme-toggle-btn.active {
+  background: var(--border-gold);
+  color: #0a0e14;
+  font-weight: 700;
+  box-shadow: 0 0 8px var(--border-gold-glow);
+}

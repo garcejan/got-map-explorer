@@ -1,0 +1,38 @@
+/* Citadel / Maester's Cartography Design System - Search & Type Badges */
+
+.citadel-badge-capital {
+  background: var(--badge-capital-bg);
+  color: var(--badge-capital-text);
+  border: 1px solid var(--badge-capital-border);
+}
+
+.citadel-badge-port {
+  background: var(--badge-port-bg);
+  color: var(--badge-port-text);
+  border: 1px solid var(--badge-port-border);
+}
+
+.citadel-badge-castle {
+  background: var(--badge-castle-bg);
+  color: var(--badge-castle-text);
+  border: 1px solid var(--badge-castle-border);
+}
+
+.citadel-badge-city {
+  background: var(--badge-city-bg);
+  color: var(--badge-city-text);
+  border: 1px solid var(--badge-city-border);
+}
+
+.citadel-badge-junction {
+  background: var(--badge-junction-bg);
+  color: var(--badge-junction-text);
+  border: 1px solid var(--badge-junction-border);
+}
+
+.citadel-search-match-highlight {
+  color: var(--text-gold-bright);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--border-gold);
+}
