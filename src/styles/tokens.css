@@ -109,7 +109,9 @@
 
 [data-theme='beige'] {
   /* Surfaces & Backgrounds */
-  --bg-primary: #f6efe2;
+  --bg-primary: #0a0e14;
+  /*  --bg-primary: #f6efe2; */
+
   --bg-secondary: #ecdfcc;
   --bg-tertiary: #dfcfb8;
   --bg-panel: rgba(248, 242, 232, 0.95);
