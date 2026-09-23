@@ -405,7 +405,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                           >
                             {party.name}
                           </h3>
-                          {isSelected && (
+                          {/* {isSelected && (
                             <span
                               style={{
                                 fontSize: 9,
@@ -422,7 +422,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
                             >
                               <Check size={10} /> SELECTED IN PLANNER
                             </span>
-                          )}
+                          )} */}
                         </div>
                         <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>
                           Category:{' '}
