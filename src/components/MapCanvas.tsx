@@ -162,6 +162,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     const roadGroup = L.layerGroup().addTo(map);
     const markerGroup = L.layerGroup().addTo(map);
     const routeGroup = L.layerGroup().addTo(map);
+    const routeArrowGroup = L.layerGroup().addTo(map);
 
     mapInstanceRef.current = map;
     graticuleLayersRef.current = graticuleGroup;
@@ -171,6 +172,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     roadLayersRef.current = roadGroup;
     markerLayersRef.current = markerGroup;
     routeLayersRef.current = routeGroup;
+    routeArrowLayersRef.current = routeArrowGroup;
 
     // Live mouse telemetry tracking
     map.on('mousemove', (e: L.LeafletMouseEvent) => {
@@ -205,6 +207,23 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       mapInstanceRef.current = null;
     };
   }, []);
+
+  // Toggle Route Directional Chevrons
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    const arrowGroup = routeArrowLayersRef.current;
+    if (!map || !arrowGroup) return;
+
+    if (showRouteArrows) {
+      if (!map.hasLayer(arrowGroup)) {
+        map.addLayer(arrowGroup);
+      }
+    } else {
+      if (map.hasLayer(arrowGroup)) {
+        map.removeLayer(arrowGroup);
+      }
+    }
+  }, [showRouteArrows]);
 
   // Render Imperial Highways & Kingdom Paths (GIS) Overlays
   useEffect(() => {
@@ -714,9 +733,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   useEffect(() => {
     const map = mapInstanceRef.current;
     const routeGroup = routeLayersRef.current;
+    const arrowGroup = routeArrowLayersRef.current;
     if (!map || !routeGroup) return;
 
     routeGroup.clearLayers();
+    if (arrowGroup) arrowGroup.clearLayers();
 
     if (!routeResult || routeResult.legs.length === 0) return;
 
@@ -791,8 +812,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           }
         }
 
-        if (subsegments.length > 0) {
-          const chevronSpacing = 65; // Coordinate units between chevrons
+        if (subsegments.length > 0 && cumulativeDist >= 60) {
+          const chevronSpacing = 160; // Clean, non-disruptive spacing between directional cues
           const count = Math.max(1, Math.floor(cumulativeDist / chevronSpacing));
           const step = cumulativeDist / (count + 1);
 
@@ -811,17 +832,19 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             const chevronIcon = L.divIcon({
               className: 'route-chevron-icon',
               html: `
-                <div style="width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; transform: rotate(${angleDeg}deg); transform-origin: center; pointer-events: none;">
-                  <svg width="14" height="14" viewBox="0 0 14 14" style="filter: drop-shadow(0 0 3px rgba(0,0,0,0.95));">
-                    <path d="M 4 2 L 10 7 L 4 12" fill="none" stroke="${legColor}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+                <div style="width: 10px; height: 10px; display: flex; align-items: center; justify-content: center; transform: rotate(${angleDeg}deg); transform-origin: center; pointer-events: none; opacity: 0.85;">
+                  <svg width="9" height="9" viewBox="0 0 9 9" style="filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.85));">
+                    <path d="M 2.5 1.5 L 6 4.5 L 2.5 7.5" fill="none" stroke="${legColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </div>
               `,
-              iconSize: [16, 16],
-              iconAnchor: [8, 8]
+              iconSize: [10, 10],
+              iconAnchor: [5, 5]
             });
 
-            L.marker([lat, lng], { icon: chevronIcon, interactive: false }).addTo(routeGroup);
+            if (arrowGroup) {
+              L.marker([lat, lng], { icon: chevronIcon, interactive: false }).addTo(arrowGroup);
+            }
           }
         }
       }
@@ -1186,6 +1209,19 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   checked={showSeaLanes}
                   onChange={(e) => setShowSeaLanes(e.target.checked)}
                   style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ color: 'var(--text-gold)' }}>➤</span>
+                  <span>Route Direction Arrows</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={showRouteArrows}
+                  onChange={(e) => setShowRouteArrows(e.target.checked)}
+                  style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                 />
               </label>
 
