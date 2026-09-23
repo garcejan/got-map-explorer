@@ -555,6 +555,77 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
     }
   };
 
+  const hasDraggedCollapsedRef = useRef(false);
+
+  const handleCollapsedPointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.button !== 0) return;
+
+    hasDraggedCollapsedRef.current = false;
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const initialPosX = currentPos.x;
+    const initialPosY = currentPos.y;
+
+    const onPointerMove = (moveEv: PointerEvent) => {
+      const deltaX = moveEv.clientX - startX;
+      const deltaY = moveEv.clientY - startY;
+
+      if (!hasDraggedCollapsedRef.current) {
+        if (Math.hypot(deltaX, deltaY) > 4) {
+          hasDraggedCollapsedRef.current = true;
+          setIsDragging(true);
+          document.body.classList.add('citadel-dragging-active');
+        } else {
+          return;
+        }
+      }
+
+      const buttonWidth = 175;
+      const minX = 12;
+      const maxX = Math.max(12, window.innerWidth - buttonWidth - 12);
+      const minY = 68;
+      const maxY = Math.max(68, window.innerHeight - 50);
+
+      const nextPos = {
+        x: Math.min(Math.max(minX, initialPosX + deltaX), maxX),
+        y: Math.min(Math.max(minY, initialPosY + deltaY), maxY)
+      };
+      updatePos(nextPos);
+    };
+
+    const onPointerUp = (upEv: PointerEvent) => {
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+
+      if (hasDraggedCollapsedRef.current) {
+        setIsDragging(false);
+        document.body.classList.remove('citadel-dragging-active');
+        upEv.preventDefault();
+        upEv.stopPropagation();
+      }
+    };
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+  };
+
+  const handleCollapsedClick = (e: React.MouseEvent) => {
+    if (hasDraggedCollapsedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      hasDraggedCollapsedRef.current = false;
+      return;
+    }
+    const sidebarWidth = Math.min(390, window.innerWidth - 32);
+    const maxX = Math.max(12, window.innerWidth - sidebarWidth - 12);
+    if (currentPos.x > maxX) {
+      updatePos({ x: maxX, y: currentPos.y });
+    }
+    onToggle();
+  };
+
   const hasActiveRoute = Boolean(originId || destinationId || waypointIds.length > 0 || routeResult);
 
   const handleClearRoute = () => {
@@ -669,37 +740,50 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   };
 
   if (!isOpen) {
-    const collapsedX = isDockedRight
-      ? Math.max(16, window.innerWidth - 170)
-      : Math.min(currentPos.x, window.innerWidth - 170);
-    const collapsedY = Math.min(currentPos.y, window.innerHeight - 60);
+    const buttonWidth = 175;
+    const maxCollapsedX = Math.max(12, window.innerWidth - buttonWidth - 12);
+    const isAtRightDock = Math.abs(currentPos.x - (window.innerWidth - 390 - 16)) < 15;
+    const collapsedX = isAtRightDock
+      ? maxCollapsedX
+      : Math.min(Math.max(12, currentPos.x), maxCollapsedX);
+    const collapsedY = Math.min(Math.max(68, currentPos.y), window.innerHeight - 50);
 
     return (
       <button
-        onClick={onToggle}
-        className="glass-panel citadel-collapsed-toggle"
+        type="button"
+        onClick={handleCollapsedClick}
+        onPointerDown={handleCollapsedPointerDown}
+        className={`glass-panel citadel-collapsed-toggle ${isDragging ? 'is-dragging' : ''}`}
         style={{
           position: 'absolute',
           transform: `translate3d(${collapsedX}px, ${collapsedY}px, 0)`,
           top: 0,
           left: 0,
           zIndex: 2000,
-          padding: '10px 16px',
+          padding: '10px 14px',
           display: 'flex',
           alignItems: 'center',
           gap: 8,
-          cursor: 'pointer',
+          cursor: isDragging ? 'grabbing' : 'grab',
           color: 'var(--text-gold)',
           fontWeight: 700,
           fontSize: 13,
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.9)'
+          boxShadow: isDragging
+            ? '0 20px 45px rgba(0, 0, 0, 0.95), 0 0 25px rgba(223, 177, 91, 0.5)'
+            : '0 10px 30px rgba(0, 0, 0, 0.9)',
+          border: '1px solid var(--border-gold-glow)',
+          userSelect: 'none',
+          touchAction: 'none'
         }}
-        title="Open Citadel Wayfinding Ledger"
+        title="Open Citadel Wayfinding Ledger (Click to open • Drag to move)"
       >
+        <div className="citadel-drag-grip" title="Drag Handle" style={{ marginRight: -2 }}>
+          <GripHorizontal size={14} />
+        </div>
         <Navigation size={16} color="var(--text-gold)" />
         <span className="font-serif">Open Ledger</span>
         {routeResult && (
-          <span className="citadel-badge-pill" style={{ background: '#38bdf840', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
+          <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.25)', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
             {routeResult.totalDays}d
           </span>
         )}
