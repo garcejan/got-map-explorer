@@ -44,12 +44,14 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const routeLayersRef = useRef<L.LayerGroup | null>(null);
   const markerLayersRef = useRef<L.LayerGroup | null>(null);
   const roadLayersRef = useRef<L.LayerGroup | null>(null);
+  const kingdomPathLayersRef = useRef<L.LayerGroup | null>(null);
   const seaLaneLayersRef = useRef<L.LayerGroup | null>(null);
   const graticuleLayersRef = useRef<L.LayerGroup | null>(null);
   const waterMaskLayersRef = useRef<L.LayerGroup | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
 
   const [showRoads, setShowRoads] = useState<boolean>(false);
+  const [showKingdomPaths, setShowKingdomPaths] = useState<boolean>(false);
   const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
   const [showLabels, setShowLabels] = useState<boolean>(true);
   const [showGraticules, setShowGraticules] = useState<boolean>(true);
@@ -139,6 +141,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     const graticuleGroup = L.layerGroup().addTo(map);
     const waterMaskGroup = L.layerGroup().addTo(map);
     const seaLaneGroup = L.layerGroup().addTo(map);
+    const kingdomPathGroup = L.layerGroup().addTo(map);
     const roadGroup = L.layerGroup().addTo(map);
     const markerGroup = L.layerGroup().addTo(map);
     const routeGroup = L.layerGroup().addTo(map);
@@ -147,6 +150,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     graticuleLayersRef.current = graticuleGroup;
     waterMaskLayersRef.current = waterMaskGroup;
     seaLaneLayersRef.current = seaLaneGroup;
+    kingdomPathLayersRef.current = kingdomPathGroup;
     roadLayersRef.current = roadGroup;
     markerLayersRef.current = markerGroup;
     routeLayersRef.current = routeGroup;
@@ -181,37 +185,116 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     };
   }, []);
 
-  // Render Imperial Highways Overlay
+  // Render Imperial Highways & Kingdom Paths (GIS) Overlays
   useEffect(() => {
+    let cancelled = false;
     const roadGroup = roadLayersRef.current;
-    if (!roadGroup) return;
-    roadGroup.clearLayers();
-    if (!showRoads) return;
+    const kingdomGroup = kingdomPathLayersRef.current;
+
+    if (roadGroup) roadGroup.clearLayers();
+    if (kingdomGroup) kingdomGroup.clearLayers();
+
+    if (!showRoads && !showKingdomPaths) return;
 
     const isBeige = theme === 'beige';
-    const roadColor = isBeige ? '#92400e' : '#dfb15b';
-    const roadWeight = isBeige ? 2.4 : 2.2;
-    const roadOpacity = isBeige ? 0.75 : 0.6;
+    const highwayColor = isBeige ? '#92400e' : '#dfb15b';
+    const pathColor = isBeige ? '#78350f' : '#ca8a04';
 
-    for (const road of ROADS) {
-      const latLngs = road.waypoints.map(toLeafletLatLng);
-      const poly = L.polyline(latLngs, {
-        color: roadColor,
-        weight: roadWeight,
-        opacity: roadOpacity,
-        dashArray: '5, 6',
-        lineCap: 'round',
-        lineJoin: 'round'
-      }).addTo(roadGroup);
+    fetch('/data/gis_roads.geojson')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to load gis_roads.geojson');
+        return res.json();
+      })
+      .then((data) => {
+        if (cancelled) return;
+        const features = (data.features || []) as Array<{
+          properties: {
+            name: string;
+            category: 'major_highway' | 'kingdom_path';
+            continent: string;
+            lengthMiles: number;
+          };
+          geometry: {
+            leafletCoordinates: [number, number][];
+          };
+        }>;
 
-      poly.bindTooltip(`
-        <div style="font-family: 'Cinzel', serif; padding: 2px;">
-          <strong style="color: var(--text-gold); font-size: 12px; letter-spacing: 0.5px;">${road.name}</strong><br>
-          <span style="font-size: 11px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">Terrain: ${road.terrainType.replace('_', ' ')} • ~${road.distanceMiles} mi</span>
-        </div>
-      `, { sticky: true, className: 'citadel-tooltip' });
-    }
-  }, [showRoads, theme]);
+        // 1. Render Imperial Highways
+        if (showRoads && roadGroup) {
+          roadGroup.clearLayers();
+          const highways = features.filter((f) => f.properties.category === 'major_highway');
+          if (highways.length > 0) {
+            for (const feat of highways) {
+              const poly = L.polyline(feat.geometry.leafletCoordinates, {
+                color: highwayColor,
+                weight: isBeige ? 2.6 : 2.4,
+                opacity: isBeige ? 0.85 : 0.8,
+                lineCap: 'round',
+                lineJoin: 'round'
+              }).addTo(roadGroup);
+
+              poly.bindTooltip(`
+                <div style="font-family: 'Cinzel', serif; padding: 2px;">
+                  <strong style="color: var(--text-gold); font-size: 12px; letter-spacing: 0.5px;">${feat.properties.name}</strong><br>
+                  <span style="font-size: 11px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">Imperial Highway • ${feat.properties.continent} • ~${feat.properties.lengthMiles} mi</span>
+                </div>
+              `, { sticky: true, className: 'citadel-tooltip' });
+            }
+          }
+        }
+
+        // 2. Render Kingdom Paths (GIS)
+        if (showKingdomPaths && kingdomGroup) {
+          kingdomGroup.clearLayers();
+          const paths = features.filter((f) => f.properties.category === 'kingdom_path');
+          for (const feat of paths) {
+            const poly = L.polyline(feat.geometry.leafletCoordinates, {
+              color: pathColor,
+              weight: isBeige ? 1.8 : 1.6,
+              opacity: isBeige ? 0.75 : 0.65,
+              dashArray: '4, 5',
+              lineCap: 'round',
+              lineJoin: 'round'
+            }).addTo(kingdomGroup);
+
+            poly.bindTooltip(`
+              <div style="font-family: 'Cinzel', serif; padding: 2px;">
+                <strong style="color: #f59e0b; font-size: 11px; letter-spacing: 0.5px;">${feat.properties.name}</strong><br>
+                <span style="font-size: 10px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">Kingdom Path • ${feat.properties.continent} • ~${feat.properties.lengthMiles} mi</span>
+              </div>
+            `, { sticky: true, className: 'citadel-tooltip' });
+          }
+        }
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        console.warn('Fallback to canonical roads:', err);
+        if (showRoads && roadGroup) {
+          for (const road of ROADS) {
+            const latLngs = road.waypoints.map(toLeafletLatLng);
+            const poly = L.polyline(latLngs, {
+              color: highwayColor,
+              weight: isBeige ? 2.4 : 2.2,
+              opacity: isBeige ? 0.75 : 0.6,
+              dashArray: '5, 6',
+              lineCap: 'round',
+              lineJoin: 'round'
+            }).addTo(roadGroup);
+
+            poly.bindTooltip(`
+              <div style="font-family: 'Cinzel', serif; padding: 2px;">
+                <strong style="color: var(--text-gold); font-size: 12px; letter-spacing: 0.5px;">${road.name}</strong><br>
+                <span style="font-size: 11px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">Terrain: ${road.terrainType.replace('_', ' ')} • ~${road.distanceMiles} mi</span>
+              </div>
+            `, { sticky: true, className: 'citadel-tooltip' });
+          }
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [showRoads, showKingdomPaths, theme]);
 
   // Render Maritime Shipping Corridors Overlay
   useEffect(() => {
@@ -1035,6 +1118,19 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   checked={showRoads}
                   onChange={(e) => setShowRoads(e.target.checked)}
                   style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ color: '#d97706' }}>🗺️</span>
+                  <span>Kingdom Paths (GIS)</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={showKingdomPaths}
+                  onChange={(e) => setShowKingdomPaths(e.target.checked)}
+                  style={{ accentColor: '#d97706', cursor: 'pointer' }}
                 />
               </label>
 
