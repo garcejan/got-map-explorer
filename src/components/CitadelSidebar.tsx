@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import {
   Compass,
   Navigation,
@@ -25,7 +25,10 @@ import {
   Coins,
   RotateCcw,
   MapPin,
-  X
+  X,
+  GripHorizontal,
+  PanelLeft,
+  PanelRight
 } from 'lucide-react';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
@@ -56,6 +59,8 @@ export interface CitadelSidebarProps {
   onSelectGoal: (goal: OptimizationGoal) => void;
   onCalculateRoute: () => void;
   onClearRoute?: () => void;
+  position?: { x: number; y: number };
+  onPositionChange?: (pos: { x: number; y: number }) => void;
 }
 
 interface AutocompleteInputProps {
@@ -393,12 +398,162 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   onSelectMode,
   onSelectGoal,
   onCalculateRoute,
-  onClearRoute
+  onClearRoute,
+  position: propPosition,
+  onPositionChange
 }) => {
   const [activeTab, setActiveTab] = useState<'planner' | 'ledger'>('planner');
   const [ledgerSubTab, setLedgerSubTab] = useState<'overview' | 'roads' | 'corridors' | 'guide'>('overview');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [showPartyInfoModal, setShowPartyInfoModal] = useState(false);
+
+  // Position and free dragging state
+  const [internalPos, setInternalPos] = useState<{ x: number; y: number }>(() => {
+    if (typeof window === 'undefined') return { x: 16, y: 70 };
+    try {
+      const saved = localStorage.getItem('citadel_sidebar_position');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (typeof parsed?.x === 'number' && typeof parsed?.y === 'number') {
+          const sidebarWidth = Math.min(390, window.innerWidth - 32);
+          const minX = 12;
+          const maxX = Math.max(12, window.innerWidth - sidebarWidth - 12);
+          const minY = 68;
+          const maxY = Math.max(68, window.innerHeight - 120);
+          return {
+            x: Math.min(Math.max(minX, parsed.x), maxX),
+            y: Math.min(Math.max(minY, parsed.y), maxY)
+          };
+        }
+      }
+    } catch {
+      // fallback
+    }
+    return { x: 16, y: 70 };
+  });
+
+  const currentPos = propPosition ?? internalPos;
+
+  const updatePos = useCallback((newPos: { x: number; y: number }) => {
+    setInternalPos(newPos);
+    if (onPositionChange) {
+      onPositionChange(newPos);
+    }
+    try {
+      localStorage.setItem('citadel_sidebar_position', JSON.stringify(newPos));
+    } catch {
+      // ignore
+    }
+  }, [onPositionChange]);
+
+  // Clamping on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setInternalPos((prev) => {
+        const sidebarWidth = Math.min(390, window.innerWidth - 32);
+        const minX = 12;
+        const maxX = Math.max(12, window.innerWidth - sidebarWidth - 12);
+        const minY = 68;
+        const maxY = Math.max(68, window.innerHeight - 120);
+        const clamped = {
+          x: Math.min(Math.max(minX, prev.x), maxX),
+          y: Math.min(Math.max(minY, prev.y), maxY)
+        };
+        if (clamped.x !== prev.x || clamped.y !== prev.y) {
+          try {
+            localStorage.setItem('citadel_sidebar_position', JSON.stringify(clamped));
+          } catch {
+            // ignore
+          }
+        }
+        return clamped;
+      });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartRef = useRef<{
+    startX: number;
+    startY: number;
+    posX: number;
+    posY: number;
+  }>({ startX: 0, startY: 0, posX: 0, posY: 0 });
+
+  const handleHeaderPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('button, input, select, a, [role="button"]')) {
+      return;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+
+    dragStartRef.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      posX: currentPos.x,
+      posY: currentPos.y
+    };
+    setIsDragging(true);
+    document.body.classList.add('citadel-dragging-active');
+
+    const onPointerMove = (moveEv: PointerEvent) => {
+      const deltaX = moveEv.clientX - dragStartRef.current.startX;
+      const deltaY = moveEv.clientY - dragStartRef.current.startY;
+      const sidebarWidth = Math.min(390, window.innerWidth - 32);
+      const minX = 12;
+      const maxX = Math.max(12, window.innerWidth - sidebarWidth - 12);
+      const minY = 68;
+      const maxY = Math.max(68, window.innerHeight - 100);
+
+      const nextPos = {
+        x: Math.min(Math.max(minX, dragStartRef.current.posX + deltaX), maxX),
+        y: Math.min(Math.max(minY, dragStartRef.current.posY + deltaY), maxY)
+      };
+      updatePos(nextPos);
+    };
+
+    const onPointerUp = () => {
+      setIsDragging(false);
+      document.body.classList.remove('citadel-dragging-active');
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+    };
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+  };
+
+  const isDockedRight = currentPos.x > (window.innerWidth - 450) / 2;
+
+  const handleDockLeft = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    updatePos({ x: 16, y: 70 });
+  };
+
+  const handleDockRight = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    const sidebarWidth = Math.min(390, window.innerWidth - 32);
+    updatePos({ x: Math.max(16, window.innerWidth - sidebarWidth - 16), y: 70 });
+  };
+
+  const handleResetPosition = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    updatePos({ x: 16, y: 70 });
+  };
+
+  const handleHeaderDoubleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('button, input, select, a, [role="button"]')) return;
+    if (isDockedRight) {
+      handleDockLeft();
+    } else {
+      handleDockRight();
+    }
+  };
 
   const hasActiveRoute = Boolean(originId || destinationId || waypointIds.length > 0 || routeResult);
 
@@ -514,14 +669,20 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   };
 
   if (!isOpen) {
+    const collapsedX = isDockedRight
+      ? Math.max(16, window.innerWidth - 170)
+      : Math.min(currentPos.x, window.innerWidth - 170);
+    const collapsedY = Math.min(currentPos.y, window.innerHeight - 60);
+
     return (
       <button
         onClick={onToggle}
-        className="glass-panel"
+        className="glass-panel citadel-collapsed-toggle"
         style={{
           position: 'absolute',
-          top: 70,
-          left: 16,
+          transform: `translate3d(${collapsedX}px, ${collapsedY}px, 0)`,
+          top: 0,
+          left: 0,
           zIndex: 2000,
           padding: '10px 16px',
           display: 'flex',
@@ -538,7 +699,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
         <Navigation size={16} color="var(--text-gold)" />
         <span className="font-serif">Open Ledger</span>
         {routeResult && (
-          <span className="citadel-badge-pill" style={{ background: 'rgba(56, 189, 248, 0.25)', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
+          <span className="citadel-badge-pill" style={{ background: '#38bdf840', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
             {routeResult.totalDays}d
           </span>
         )}
@@ -549,25 +710,30 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   return (
     <>
       <aside
-        className="glass-panel"
+        className={`glass-panel citadel-sidebar-movable ${isDragging ? 'is-dragging' : ''}`}
         style={{
           position: 'absolute',
-          top: 100,
-          left: 16,
+          top: 0,
+          left: 0,
+          transform: `translate3d(${currentPos.x}px, ${currentPos.y}px, 0)`,
           width: 390,
           maxWidth: 'calc(100vw - 32px)',
-          maxHeight: 'calc(100vh - 120px)',
+          maxHeight: `calc(100vh - ${Math.max(currentPos.y + 16, 80)}px)`,
           zIndex: 2000,
           display: 'flex',
           flexDirection: 'column',
-          boxShadow: '0 16px 45px rgba(0, 0, 0, 0.9)',
+          boxShadow: isDragging ? '0 24px 65px rgba(0, 0, 0, 0.95), 0 0 25px rgba(223, 177, 91, 0.45)' : '0 16px 45px rgba(0, 0, 0, 0.9)',
           border: '1px solid var(--border-gold-glow)',
           overflow: 'hidden',
-          transition: 'box-shadow 0.2s ease'
+          transition: isDragging ? 'none' : 'box-shadow 0.2s ease, border-color 0.2s ease'
         }}
       >
         {/* Sidebar Header & Tab Switcher */}
         <div
+          className="citadel-drag-header"
+          onPointerDown={handleHeaderPointerDown}
+          onDoubleClick={handleHeaderDoubleClick}
+          title="Drag anywhere here to move ledger across the map • Double-click to dock to other side"
           style={{
             flexShrink: 0,
             padding: '10px 12px 8px',
@@ -576,7 +742,10 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+              <div className="citadel-drag-grip" title="Drag Handle (move around map)">
+                <GripHorizontal size={15} />
+              </div>
               <div
                 style={{
                   width: 24,
@@ -605,33 +774,31 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               </span>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              {/* {hasActiveRoute && (
-                <button
-                  type="button"
-                  onClick={handleClearRoute}
-                  className="btn-secondary"
-                  style={{
-                    padding: '4px 8px',
-                    fontSize: 11,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                    color: '#f87171',
-                    borderColor: 'rgba(239, 68, 68, 0.35)',
-                    background: 'rgba(239, 68, 68, 0.08)'
-                  }}
-                  title="Clear Current Route"
-                >
-                  <RotateCcw size={12} />
-                  <span>Clear</span>
-                </button>
-              )} */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+              {/* Dock to opposite side */}
+              <button
+                type="button"
+                onClick={isDockedRight ? handleDockLeft : handleDockRight}
+                className="citadel-header-action-btn"
+                title={isDockedRight ? "Dock Ledger to Left side" : "Dock Ledger to Right side (reveal Westeros)"}
+              >
+                {isDockedRight ? <PanelLeft size={13} /> : <PanelRight size={13} />}
+              </button>
+
+              {/* Reset to default position */}
+              <button
+                type="button"
+                onClick={handleResetPosition}
+                className="citadel-header-action-btn"
+                title="Reset Position (Top-Left)"
+              >
+                <RotateCcw size={12} />
+              </button>
 
               <button
+                type="button"
                 onClick={onToggle}
-                className="btn-secondary"
-                style={{ padding: '4px 8px', fontSize: 12 }}
+                className="citadel-header-action-btn"
                 title="Minimize Ledger"
               >
                 <Minimize2 size={13} />

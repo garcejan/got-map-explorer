@@ -536,15 +536,15 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                               handleSelect(node.id);
                             }}
                             className="citadel-popup-btn citadel-popup-btn-origin"
-                            // style={{
-                            //   background: ' #16a34a',
-                            //   border: '1px solid #16a34a',
-                            //   color: '#86efac',
-                            //   padding: '2px 6px',
-                            //   borderRadius: 3,
-                            //   fontSize: 9,
-                            //   cursor: 'pointer'
-                            // }}
+                            style={{
+                              // background: ' #16a34a',
+                              // border: '1px solid #16a34a',
+                              // color: '#86efac',
+                              padding: '2px 6px',
+                              borderRadius: 3,
+                              fontSize: 9,
+                              cursor: 'pointer'
+                            }}
                             title="Set as Journey Origin"
                           >
                             Origin
@@ -558,10 +558,11 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                               onSetDestination(node.id);
                               handleSelect(node.id);
                             }}
+                            className="citadel-popup-btn citadel-popup-btn-dest"
                             style={{
-                              background: '#b91c1c',
-                              border: '1px solid #b91c1c',
-                              color: '#fca5a5',
+                              // background: '#b91c1c',
+                              // border: '1px solid #b91c1c',
+                              // color: '#fca5a5',
                               padding: '2px 6px',
                               borderRadius: 3,
                               fontSize: 9,
