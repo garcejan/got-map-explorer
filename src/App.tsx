@@ -195,9 +195,49 @@ export const App: React.FC = () => {
     setMapPickingTarget(null);
   }, []);
 
+  // Citadel Sidebar position & docking state
+  const [sidebarPos, setSidebarPos] = useState<{ x: number; y: number }>(() => {
+    if (typeof window === 'undefined') return { x: 16, y: 70 };
+    try {
+      const saved = localStorage.getItem('citadel_sidebar_position');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (typeof parsed?.x === 'number' && typeof parsed?.y === 'number') {
+          return parsed;
+        }
+      }
+    } catch {
+      // ignore
+    }
+    return { x: 16, y: 70 };
+  });
+
+  const isSidebarDockedRight = sidebarPos.x > (typeof window !== 'undefined' ? (window.innerWidth - 450) / 2 : 500);
+
+  const handleDockSidebarLeft = useCallback(() => {
+    const newPos = { x: 16, y: 70 };
+    setSidebarPos(newPos);
+    try {
+      localStorage.setItem('citadel_sidebar_position', JSON.stringify(newPos));
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  const handleDockSidebarRight = useCallback(() => {
+    const sidebarWidth = Math.min(390, window.innerWidth - 32);
+    const newPos = { x: Math.max(16, window.innerWidth - sidebarWidth - 16), y: 70 };
+    setSidebarPos(newPos);
+    try {
+      localStorage.setItem('citadel_sidebar_position', JSON.stringify(newPos));
+    } catch {
+      // ignore
+    }
+  }, []);
+
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
-      {/* Full-bleed Map Canvas */}
+      {/* Full-bleed Map Canvas with Overlays */}
       <MapCanvas
         theme={theme}
         originId={originId}
@@ -210,7 +250,53 @@ export const App: React.FC = () => {
         onNodePicked={handleNodePicked}
         onCancelPicking={handleCancelPicking}
         onQuickRoute={handleQuickRoute}
-      />
+        isSidebarOpen={sidebarOpen}
+        onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+        isSidebarDockedRight={isSidebarDockedRight}
+        onDockSidebarLeft={handleDockSidebarLeft}
+        onDockSidebarRight={handleDockSidebarRight}
+      >
+        {/* Consolidated Movable Citadel Ledger (Plan Journey + Itinerary + Corridors + Guide) */}
+        <CitadelSidebar
+          isOpen={sidebarOpen}
+          onToggle={() => setSidebarOpen(!sidebarOpen)}
+          originId={originId}
+          destinationId={destinationId}
+          waypointIds={waypointIds}
+          selectedPartyId={selectedPartyId}
+          selectedMode={selectedMode}
+          selectedGoal={selectedGoal}
+          autoOptimize={autoOptimize}
+          routeResult={routeResult}
+          mapPickingTarget={mapPickingTarget}
+          position={sidebarPos}
+          onPositionChange={setSidebarPos}
+          onSetOrigin={(id) => {
+            setActivePresetId(null);
+            setOriginId(id);
+            setMapPickingTarget(null);
+          }}
+          onSetDestination={(id) => {
+            setActivePresetId(null);
+            setDestinationId(id);
+            setMapPickingTarget(null);
+          }}
+          onSetWaypoints={(ids) => {
+            setActivePresetId(null);
+            setWaypointIds(ids);
+            setMapPickingTarget(null);
+          }}
+          onStartPicking={handleStartPicking}
+          onCancelPicking={handleCancelPicking}
+          onOptimizeWaypoints={handleOptimizeWaypoints}
+          onToggleAutoOptimize={setAutoOptimize}
+          onSelectParty={handleSelectParty}
+          onSelectMode={handleSelectMode}
+          onSelectGoal={setSelectedGoal}
+          onCalculateRoute={handleCalculate}
+          onClearRoute={handleClearRoute}
+        />
+      </MapCanvas>
 
       {/* Top Banner Navigation Bar */}
       <Header
@@ -230,45 +316,8 @@ export const App: React.FC = () => {
           setDestinationId(nodeId);
           handleZoomToCity(nodeId);
         }}
-      />
-
-      {/* Consolidated Left Citadel Ledger (Plan Journey + Itinerary + Corridors + Guide) */}
-      <CitadelSidebar
-        isOpen={sidebarOpen}
-        onToggle={() => setSidebarOpen(!sidebarOpen)}
-        originId={originId}
-        destinationId={destinationId}
-        waypointIds={waypointIds}
-        selectedPartyId={selectedPartyId}
-        selectedMode={selectedMode}
-        selectedGoal={selectedGoal}
-        autoOptimize={autoOptimize}
-        routeResult={routeResult}
-        mapPickingTarget={mapPickingTarget}
-        onSetOrigin={(id) => {
-          setActivePresetId(null);
-          setOriginId(id);
-          setMapPickingTarget(null);
-        }}
-        onSetDestination={(id) => {
-          setActivePresetId(null);
-          setDestinationId(id);
-          setMapPickingTarget(null);
-        }}
-        onSetWaypoints={(ids) => {
-          setActivePresetId(null);
-          setWaypointIds(ids);
-          setMapPickingTarget(null);
-        }}
-        onStartPicking={handleStartPicking}
-        onCancelPicking={handleCancelPicking}
-        onOptimizeWaypoints={handleOptimizeWaypoints}
-        onToggleAutoOptimize={setAutoOptimize}
-        onSelectParty={handleSelectParty}
-        onSelectMode={handleSelectMode}
-        onSelectGoal={setSelectedGoal}
-        onCalculateRoute={handleCalculate}
-        onClearRoute={handleClearRoute}
+        isSidebarOpen={sidebarOpen}
+        onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
       />
     </div>
   );
