@@ -1420,8 +1420,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     className="btn-citadel-inverse"
                     title="Clear current route and stops"
                   >
-                    <X size={14} />
-                    <span>Clear</span>
+                    <X size={14} className='citadel-label' style={{ margin: 0 }} />
+                    <span className='citadel-label' style={{ margin: 0 }}>Clear</span>
                   </button>
                 )}
               </div>
