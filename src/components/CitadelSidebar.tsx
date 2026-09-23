@@ -783,7 +783,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
         <Navigation size={16} color="var(--text-gold)" />
         <span className="font-serif">Open Ledger</span>
         {routeResult && (
-          <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.25)', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
+          <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.25)', color: 'var(--text-gold-bright)' }}>
             {routeResult.totalDays}d
           </span>
         )}
@@ -937,7 +937,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               <Compass size={13} />
               <span>Itinerary</span>
               {routeResult && (
-                <span style={{ fontSize: 10, padding: '1px 5px', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)', borderRadius: 3, fontWeight: 800 }}>
+                <span style={{ fontSize: 10, padding: '1px 5px', background: '#dfb25d40', color: 'var(--text-gold-bright)', borderRadius: 3, fontWeight: 800 }}>
                   ({routeResult.totalDays}d)
                 </span>
               )}

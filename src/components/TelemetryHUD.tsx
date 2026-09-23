@@ -54,9 +54,8 @@ export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry, style, cl
 
       {/* Distance from Oldtown / Citadel */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: 'var(--text-muted)', fontSize: 11 }}>
-        <span>Citadel:</span>
-        <span style={{ color: 'var(--text-gold)', fontWeight: 600 }}>~{telemetry.distanceFromCitadelMiles} mi</span>
+        <span style={{ fontSize: 13, fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>Citadel distance: {telemetry.distanceFromCitadelMiles} mi</span>
       </div>
-    </div>
+    </div >
   );
 };

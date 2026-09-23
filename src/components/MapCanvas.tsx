@@ -60,11 +60,13 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const seaLaneLayersRef = useRef<L.LayerGroup | null>(null);
   const graticuleLayersRef = useRef<L.LayerGroup | null>(null);
   const waterMaskLayersRef = useRef<L.LayerGroup | null>(null);
+  const routeArrowLayersRef = useRef<L.LayerGroup | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
 
   const [showRoads, setShowRoads] = useState<boolean>(false);
   const [showKingdomPaths, setShowKingdomPaths] = useState<boolean>(false);
   const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
+  const [showRouteArrows, setShowRouteArrows] = useState<boolean>(true);
   const [showLabels, setShowLabels] = useState<boolean>(true);
   const [showGraticules, setShowGraticules] = useState<boolean>(true);
   const [showWaterMask, setShowWaterMask] = useState<boolean>(false);
