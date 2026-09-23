@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { Search, X, Compass, MapPin, Navigation, Anchor, Shield, Crown, Building2, ExternalLink } from 'lucide-react';
+import { Search, X, Compass, MapPin, Anchor, Shield, Crown, Building2, ExternalLink } from 'lucide-react';
 import { NODES } from '../data/nodes';
 import type { LocationNode, NodeType } from '../types';
 
@@ -535,15 +535,16 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                               onSetOrigin(node.id);
                               handleSelect(node.id);
                             }}
-                            style={{
-                              background: 'rgba(21, 128, 61, 0.25)',
-                              border: '1px solid #16a34a',
-                              color: '#86efac',
-                              padding: '2px 6px',
-                              borderRadius: 3,
-                              fontSize: 9,
-                              cursor: 'pointer'
-                            }}
+                            className="citadel-popup-btn citadel-popup-btn-origin"
+                            // style={{
+                            //   background: ' #16a34a',
+                            //   border: '1px solid #16a34a',
+                            //   color: '#86efac',
+                            //   padding: '2px 6px',
+                            //   borderRadius: 3,
+                            //   fontSize: 9,
+                            //   cursor: 'pointer'
+                            // }}
                             title="Set as Journey Origin"
                           >
                             Origin
@@ -558,7 +559,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                               handleSelect(node.id);
                             }}
                             style={{
-                              background: 'rgba(185, 28, 28, 0.25)',
+                              background: '#b91c1c',
                               border: '1px solid #b91c1c',
                               color: '#fca5a5',
                               padding: '2px 6px',
@@ -607,7 +608,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                           </a>
                         )}
 
-                        <span
+                        {/* <span
                           style={{
                             display: 'inline-flex',
                             alignItems: 'center',
@@ -621,7 +622,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
                         >
                           <Navigation size={9} />
                           Zoom In
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                   </div>
