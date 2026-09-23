@@ -258,7 +258,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
           ref={inputRef}
           type="text"
           value={query}
-          placeholder="Search 320+ cities, castles, ports, lore... (⌘K)"
+          placeholder="Search 320+ cities, castles, ports, lore..."
           onFocus={() => setIsOpen(true)}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -365,8 +365,8 @@ export const CitySearch: React.FC<CitySearchProps> = ({
               {query
                 ? `Results (${filteredNodes.length})`
                 : typeFilter === 'all'
-                ? `Known World Settlements (${filteredNodes.length})`
-                : `${typeFilter.toUpperCase()} (${filteredNodes.length})`}
+                  ? `Known World Settlements (${filteredNodes.length})`
+                  : `${typeFilter.toUpperCase()} (${filteredNodes.length})`}
             </span>
 
             <div style={{ display: 'flex', gap: 3 }}>

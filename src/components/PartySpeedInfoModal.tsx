@@ -48,7 +48,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     seaSpeedMiles: 520,
     seaSpeedKm: 837,
     howFastPace: 'Cruising at 65–80 mph (105–130 km/h) with high-speed dive and sprint bursts exceeding 100 mph.',
-    dailyEndurance: '~7–8 hours sustained flight per day. Limited primarily by the human dragonrider\'s stamina against high-altitude freezing winds and thin air.',
+    dailyEndurance: '7–8 hours sustained flight per day. Limited primarily by the human dragonrider\'s stamina against high-altitude freezing winds and thin air.',
     whyLogistics:
       'Massive apex aerial predators whose enormous wingspans and Valyrian fire-magic allow them to effortlessly ride high-altitude thermal currents. They completely bypass all terrestrial obstacles (swamps, mountains, oceans, forests) and fly in direct straight lines ("as the dragon flies").',
     canonExample:
@@ -65,9 +65,9 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     seaSpeedMiles: 240,
     seaSpeedKm: 386,
     howFastPace: 'Continuous direct flight at 30–35 mph (48–56 km/h) carrying lightweight scroll canisters.',
-    dailyEndurance: '~7–8 hours of daylight flight. Birds must roost at dusk, avoid nocturnal predators, forage for grain/insects, and seek shelter during gales.',
+    dailyEndurance: '7–8 hours of daylight flight. Birds must roost at dusk, avoid nocturnal predators, forage for grain/insects, and seek shelter during gales.',
     whyLogistics:
-      'Trained citadel ravens (Corvus corax) and carrier birds. While swift and unburdened by terrain, their biological endurance requires rest and water. Flight from the Wall to King\'s Landing (~1,500 direct miles) canonically takes ~6–7 days in fair weather.',
+      'Trained citadel ravens (Corvus corax) and carrier birds. While swift and unburdened by terrain, their biological endurance requires rest and water. Flight from the Wall to King\'s Landing (1,500 direct miles) canonically takes 6–7 days in fair weather.',
     canonExample:
       'Urgent black ravens dispatched between the rookeries of Castle Black, Winterfell, and the Red Keep.',
     quoteOrLore: 'Citadel Maesters breed black ravens specifically for high stamina and homing instincts to specific castle towers.'
@@ -81,7 +81,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     landSpeedKm: 93,
     seaSpeedMiles: 90,
     seaSpeedKm: 145,
-    howFastPace: 'Sustained canter and trot on road (~5–7 mph average over long days). Up to 72 mi/day on paved Valyrian highways.',
+    howFastPace: 'Sustained canter and trot on road (5–7 mph average over long days). Up to 72 mi/day on paved Valyrian highways.',
     dailyEndurance: '10–12 hours per day using a relay system of fresh post-horses at road inns, waycastles, and holdfasts.',
     whyLogistics:
       'Modeled after historical relay couriers (Roman Cursus Publicus, Mongol Yam, American Pony Express). Switching to fresh mounts every 15–20 miles prevents horse exhaustion. Sea transit reflects chartered swift dispatch cutters or packet boats.',
@@ -98,10 +98,10 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     landSpeedKm: 29,
     seaSpeedMiles: 95,
     seaSpeedKm: 153,
-    howFastPace: 'Leisurely carriage pace (~2.5–3.5 mph) along maintained highways.',
+    howFastPace: 'Leisurely carriage pace (2.5–3.5 mph) along maintained highways.',
     dailyEndurance: '5–6 hours of travel per day; frequent delays for broken wagon wheels, muddy ruts, ceremonial feasts, and pitching noble pavilions.',
     whyLogistics:
-      'Heavily burdened by Queen Cersei\'s double-decked oak wheelhouse, luggage carts, litters, courtly ladies, and armed escorts. King Robert Baratheon\'s progress from King\'s Landing to Winterfell (~1,500 miles) took slightly over two months (~18–20 miles/day).',
+      'Heavily burdened by Queen Cersei\'s double-decked oak wheelhouse, luggage carts, litters, courtly ladies, and armed escorts. King Robert Baratheon\'s progress from King\'s Landing to Winterfell (1,500 miles) took slightly over two months (18–20 miles/day).',
     canonExample:
       'King Robert Baratheon and the Lannister royal court journeying north to Winterfell to name Eddard Stark Hand of the King.',
     quoteOrLore: 'Robert Baratheon: "We have been a month on the road... and the queen\'s wheelhouse has broken another axle."'
@@ -115,7 +115,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     landSpeedKm: 19,
     seaSpeedMiles: 75,
     seaSpeedKm: 121,
-    howFastPace: 'Heavy military column march (~2 mph) pacing to the slowest ox-cart and armored infantry levy.',
+    howFastPace: 'Heavy military column march (2 mph) pacing to the slowest ox-cart and armored infantry levy.',
     dailyEndurance: '6–7 hours of marching per day; extensive daily labor required to construct palisades, forage, dig latrines, and post sentries.',
     whyLogistics:
       'Historical medieval and Roman military logistics. Thousands of armored levies on foot, ox-drawn siege engines, baggage trains, and camp followers. Massive naval transport fleets (75 mi/day) move at the speed of the slowest transport barge to avoid scattering.',
@@ -132,10 +132,10 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     landSpeedKm: 24,
     seaSpeedMiles: 100,
     seaSpeedKm: 161,
-    howFastPace: 'Steady laden wagon pace (~2.0–2.5 mph) through commercial road corridors.',
+    howFastPace: 'Steady laden wagon pace (2.0–2.5 mph) through commercial road corridors.',
     dailyEndurance: '6–8 hours per day; draft animals require daily pasturage, shoe maintenance, and river ferry crossings.',
     whyLogistics:
-      'Pack mules and loaded cargo wagons moving trade goods across Westeros and Essos. Commercial convoys prioritize cargo preservation over raw speed. Sea speed (100 mi/day, ~4.1 knots) reflects standard merchant trade cogs.',
+      'Pack mules and loaded cargo wagons moving trade goods across Westeros and Essos. Commercial convoys prioritize cargo preservation over raw speed. Sea speed (100 mi/day, 4.1 knots) reflects standard merchant trade cogs.',
     canonExample:
       'Spice and silk caravans traveling the Roseroad, the Goldroad, or braving the Red Waste to the gates of Qarth.',
     quoteOrLore: 'Essential for transporting grain, wine, weapons, and exotic eastern luxuries between trading hubs.'
@@ -149,7 +149,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     landSpeedKm: 22,
     seaSpeedMiles: 115,
     seaSpeedKm: 185,
-    howFastPace: 'Cruising speed of ~4.8 knots over open water under sail and oars. Reaches ~150 mi/day (6.2 knots) with trade winds.',
+    howFastPace: 'Cruising speed of 4.8 knots over open water under sail and oars. Reaches 150 mi/day (6.2 knots) with trade winds.',
     dailyEndurance: 'Capable of 24-hour continuous navigation with rotating watch crews when fair winds and coastal landmarks permit.',
     whyLogistics:
       'Oared war galleys and triple-masted merchant cogs skimming along coastal shipping lanes. Overland speed (14 mi/day) represents disembarked sailors or Ironborn reavers marching without horses.',
@@ -287,7 +287,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
           <Zap size={18} color="#ef4444" style={{ flexShrink: 0 }} />
           <div style={{ fontSize: 11, color: 'var(--text-parchment)', lineHeight: 1.4 }}>
             <strong style={{ color: '#ef4444' }}>Aerial Calibration: </strong>
-            <strong>Dragon Flight (520 miles / day)</strong> is calibrated to <strong>~2.17× faster</strong> than a{' '}
+            <strong>Dragon Flight (520 miles / day)</strong> is calibrated to <strong>2.17× faster</strong> than a{' '}
             <strong>Messenger Raven (240 miles / day)</strong>, aligning with George R.R. Martin canon in{' '}
             <em>Fire & Blood</em> where dragons outpace all heralds and rookeries across Westeros.
           </div>
@@ -611,7 +611,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
         >
           <div>
             Speeds are calibrated to the canonical <strong>300-mile Wall</strong> (Shadow Tower to Eastwatch: 297.4 mi)
-            and the Kingsroad royal progress milestone (~1,500 mi in ~2 months).
+            and the Kingsroad royal progress milestone (1,500 mi in 2 months).
           </div>
           <button onClick={onClose} className="btn-secondary" style={{ padding: '4px 12px', fontSize: 11 }}>
             Close Guide

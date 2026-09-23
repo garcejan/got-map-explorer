@@ -43,7 +43,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   aegon_crossing: {
     category: 'sea_voyage',
     categoryLabel: 'The Conquest',
-    stats: '~392 mi • ~3.4 days',
+    stats: '392 mi • 3.4 days',
     originName: 'Dragonstone',
     destName: "King's Landing",
     waypointNames: []
@@ -51,7 +51,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   balerion_harrenhal: {
     category: 'dragon',
     categoryLabel: 'Dragon Flight',
-    stats: '~307 mi • ~0.6 days',
+    stats: '307 mi • 0.6 days',
     originName: "King's Landing",
     destName: 'Harrenhal',
     waypointNames: []
@@ -59,7 +59,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   torrhen_stark_march: {
     category: 'royal_war',
     categoryLabel: 'Northern Host',
-    stats: '~1,886 mi • ~219 days',
+    stats: '1,886 mi • 219 days',
     originName: 'Winterfell',
     destName: 'Harrenhal',
     waypointNames: ['Moat Cailin']
@@ -69,7 +69,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   alysanne_silverwing_wall: {
     category: 'dragon',
     categoryLabel: 'Dragon Flight',
-    stats: '~621 mi • ~1.2 days',
+    stats: '621 mi • 1.2 days',
     originName: 'Winterfell',
     destName: 'Castle Black',
     waypointNames: []
@@ -79,7 +79,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   daemon_caraxes_harrenhal: {
     category: 'dragon',
     categoryLabel: 'Dragon Flight',
-    stats: '~507 mi • ~1.0 days',
+    stats: '507 mi • 1.0 days',
     originName: 'Dragonstone',
     destName: 'Harrenhal',
     waypointNames: []
@@ -87,7 +87,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   jacaerys_vermax_winterfell: {
     category: 'dragon',
     categoryLabel: 'Dragon Flight',
-    stats: '~1,479 mi • ~2.9 days',
+    stats: '1,479 mi • 2.9 days',
     originName: 'Dragonstone',
     destName: 'Winterfell',
     waypointNames: ['The Eyrie', 'White Harbor']
@@ -95,7 +95,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   lucerys_arrax_storm: {
     category: 'dragon',
     categoryLabel: 'Dragon Flight',
-    stats: '~476 mi • ~0.9 days',
+    stats: '476 mi • 0.9 days',
     originName: 'Dragonstone',
     destName: "Storm's End",
     waypointNames: []
@@ -103,7 +103,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   red_keep_war_raven: {
     category: 'rookery',
     categoryLabel: 'Rookery Flight',
-    stats: '~1,047 mi • ~4.4 days',
+    stats: '1,047 mi • 4.4 days',
     originName: "King's Landing",
     destName: 'Oldtown',
     waypointNames: []
@@ -113,7 +113,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   daemon_blackfyre_rebellion: {
     category: 'royal_war',
     categoryLabel: 'Rebel March',
-    stats: '~195 mi • ~14.8 days',
+    stats: '195 mi • 14.8 days',
     originName: "King's Landing",
     destName: 'Tumbleton',
     waypointNames: []
@@ -121,7 +121,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   dunk_and_egg_ashford: {
     category: 'royal_war',
     categoryLabel: 'Hedge Knight',
-    stats: '~1,039 mi • ~63 days',
+    stats: '1,039 mi • 63 days',
     originName: 'Summerhall',
     destName: 'Ashford',
     waypointNames: []
@@ -131,7 +131,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   tourney_harrenhal_false_spring: {
     category: 'royal_war',
     categoryLabel: 'Tourney Journey',
-    stats: '~2,076 mi • ~132 days',
+    stats: '2,076 mi • 132 days',
     originName: 'Winterfell',
     destName: 'Harrenhal',
     waypointNames: ['Moat Cailin']
@@ -139,7 +139,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   robert_progress: {
     category: 'royal_war',
     categoryLabel: 'Royal Progress',
-    stats: '~1,538 mi • ~128 days',
+    stats: '1,538 mi • 128 days',
     originName: "King's Landing",
     destName: 'Winterfell',
     waypointNames: []
@@ -149,7 +149,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   raven_message: {
     category: 'rookery',
     categoryLabel: 'Rookery Flight',
-    stats: '~1,509 mi • ~6.3 days',
+    stats: '1,509 mi • 6.3 days',
     originName: 'Winterfell',
     destName: "King's Landing",
     waypointNames: []
@@ -157,7 +157,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   citadel_white_raven: {
     category: 'rookery',
     categoryLabel: 'Citadel White Raven',
-    stats: '~2,226 mi • ~9.3 days',
+    stats: '2,226 mi • 9.3 days',
     originName: 'Oldtown',
     destName: 'Winterfell',
     waypointNames: []
@@ -165,7 +165,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   castle_black_plea_dragonstone: {
     category: 'rookery',
     categoryLabel: "Night's Watch Plea",
-    stats: '~1,925 mi • ~8.0 days',
+    stats: '1,925 mi • 8.0 days',
     originName: 'Castle Black',
     destName: 'Dragonstone',
     waypointNames: []
@@ -175,7 +175,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   wall_patrol: {
     category: 'royal_war',
     categoryLabel: "Night's Watch",
-    stats: '~321 mi • ~41 days',
+    stats: '321 mi • 41 days',
     originName: 'Shadow Tower',
     destName: 'Eastwatch-by-the-Sea',
     waypointNames: []
@@ -183,7 +183,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   dany_slavers_bay: {
     category: 'royal_war',
     categoryLabel: 'Conquest & Siege',
-    stats: '~514 mi • ~39 days',
+    stats: '514 mi • 39 days',
     originName: 'Astapor',
     destName: 'Meereen',
     waypointNames: ['Yunkai']
@@ -191,7 +191,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   oberyn_vengeance: {
     category: 'royal_war',
     categoryLabel: 'Dornish Retinue',
-    stats: '~1,402 mi • ~38 days',
+    stats: '1,402 mi • 38 days',
     originName: 'Sunspear',
     destName: "King's Landing",
     waypointNames: []
@@ -201,7 +201,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   arya_braavos: {
     category: 'sea_voyage',
     categoryLabel: 'Narrow Sea Crossing',
-    stats: '~929 mi • ~8.1 days',
+    stats: '929 mi • 8.1 days',
     originName: 'Saltpans',
     destName: 'Braavos',
     waypointNames: []
@@ -209,7 +209,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   nymeria_ten_thousand_ships: {
     category: 'sea_voyage',
     categoryLabel: 'Rhoynar Exodus',
-    stats: '~10,654 mi • ~80 days',
+    stats: '10,654 mi • 80 days',
     originName: 'Volantis',
     destName: 'Sunspear',
     waypointNames: ['Tall Trees Town']
@@ -217,7 +217,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   corlys_asshai: {
     category: 'sea_voyage',
     categoryLabel: 'Jade Sea Odyssey',
-    stats: '~9,070 mi • ~68 days',
+    stats: '9,070 mi • 68 days',
     originName: 'Driftmark',
     destName: 'Asshai',
     waypointNames: ['Volantis', 'Qarth', 'Leng']
@@ -225,7 +225,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   corlys_shivering_sea: {
     category: 'sea_voyage',
     categoryLabel: 'Shivering Sea Voyage',
-    stats: '~6,718 mi • ~80 days',
+    stats: '6,718 mi • 80 days',
     originName: 'Driftmark',
     destName: 'Nefer',
     waypointNames: ['Braavos', 'Port of Ibben']
@@ -233,7 +233,7 @@ const PRESET_META: Record<string, PresetMetadata> = {
   euron_silence: {
     category: 'sea_voyage',
     categoryLabel: 'Iron Fleet Raid',
-    stats: '~13,339 mi • ~97 days',
+    stats: '13,339 mi • 97 days',
     originName: 'Pyke',
     destName: 'Oldtown',
     waypointNames: ['Qarth']
@@ -444,8 +444,8 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
           border: isOpen
             ? '1px solid var(--border-gold)'
             : activePreset
-            ? '1px solid var(--border-gold)'
-            : '1px solid var(--border-subtle)',
+              ? '1px solid var(--border-gold)'
+              : '1px solid var(--border-subtle)',
           boxShadow: 'none',
           transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
         }}
@@ -466,8 +466,8 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                 ? activePreset.partyId === 'crow'
                   ? 'var(--preset-raven-bg)'
                   : activePreset.partyId === 'dragon'
-                  ? 'rgba(239, 68, 68, 0.15)'
-                  : 'rgba(223, 177, 91, 0.15)'
+                    ? 'rgba(239, 68, 68, 0.15)'
+                    : 'rgba(223, 177, 91, 0.15)'
                 : 'transparent',
               border: activePreset
                 ? activePreset.partyId === 'dragon'
@@ -808,13 +808,13 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                       background: isSelected
                         ? 'rgba(223, 177, 91, 0.15)'
                         : isFocused
-                        ? 'var(--bg-hover)'
-                        : 'transparent',
+                          ? 'var(--bg-hover)'
+                          : 'transparent',
                       border: isSelected
                         ? '1px solid var(--border-gold)'
                         : isFocused
-                        ? '1px solid var(--border-gold-glow)'
-                        : '1px solid transparent',
+                          ? '1px solid var(--border-gold-glow)'
+                          : '1px solid transparent',
                       transition: 'all 0.12s ease'
                     }}
                   >
@@ -833,18 +833,18 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                           preset.partyId === 'crow'
                             ? 'var(--preset-raven-bg)'
                             : preset.partyId === 'fleet'
-                            ? 'var(--badge-sea-bg)'
-                            : preset.partyId === 'dragon'
-                            ? 'rgba(239, 68, 68, 0.15)'
-                            : 'rgba(223, 177, 91, 0.15)',
+                              ? 'var(--badge-sea-bg)'
+                              : preset.partyId === 'dragon'
+                                ? 'rgba(239, 68, 68, 0.15)'
+                                : 'rgba(223, 177, 91, 0.15)',
                         border:
                           preset.partyId === 'crow'
                             ? '1px solid var(--preset-raven-border)'
                             : preset.partyId === 'fleet'
-                            ? '1px solid var(--badge-sea-border)'
-                            : preset.partyId === 'dragon'
-                            ? '1px solid rgba(239, 68, 68, 0.35)'
-                            : '1px solid var(--border-gold-glow)'
+                              ? '1px solid var(--badge-sea-border)'
+                              : preset.partyId === 'dragon'
+                                ? '1px solid rgba(239, 68, 68, 0.35)'
+                                : '1px solid var(--border-gold-glow)'
                       }}
                     >
                       {getPartyIcon(preset.partyId, 16)}

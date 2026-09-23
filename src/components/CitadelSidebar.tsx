@@ -309,7 +309,7 @@ const EXPEDITION_ARCHETYPES = [
     id: 'retinue',
     name: 'Noble Retinue',
     subtitle: 'Royal Progress & Court Carriages',
-    pace: '~18 mi / day',
+    pace: '18 mi / day',
     category: 'Overland',
     icon: <Crown size={15} color="var(--icon-retinue, #fbbf24)" />,
     badgeColor: 'var(--badge-land-val, #f59e0b)'
@@ -318,7 +318,7 @@ const EXPEDITION_ARCHETYPES = [
     id: 'army',
     name: 'Marching Host',
     subtitle: 'Infantry & Baggage Train',
-    pace: '~12 mi / day',
+    pace: '12 mi / day',
     category: 'Overland',
     icon: <Shield size={15} color="var(--icon-army, #ef4444)" />,
     badgeColor: 'var(--icon-army, #ef4444)'
@@ -327,7 +327,7 @@ const EXPEDITION_ARCHETYPES = [
     id: 'messenger',
     name: 'Fast Courier',
     subtitle: 'Raven Rider & Relay Remounts',
-    pace: '~58 mi / day',
+    pace: '58 mi / day',
     category: 'Overland',
     icon: <Feather size={15} color="var(--icon-messenger, #4ade80)" />,
     badgeColor: 'var(--icon-messenger, #4ade80)'
@@ -336,7 +336,7 @@ const EXPEDITION_ARCHETYPES = [
     id: 'caravan',
     name: 'Merchant Caravan',
     subtitle: 'Pack Mules & Trade Wagons',
-    pace: '~15 mi / day',
+    pace: '15 mi / day',
     category: 'Overland',
     icon: <Coins size={15} color="var(--icon-caravan, #fb923c)" />,
     badgeColor: 'var(--icon-caravan, #fb923c)'
@@ -345,7 +345,7 @@ const EXPEDITION_ARCHETYPES = [
     id: 'fleet',
     name: 'War Galley & Fleet',
     subtitle: 'Ironborn / Royal Navy Skiffs',
-    pace: '~115 mi / day',
+    pace: '115 mi / day',
     category: 'Naval',
     icon: <Ship size={15} color="var(--icon-fleet, #22d3ee)" />,
     badgeColor: 'var(--badge-sea-val, #06b6d4)'
@@ -354,7 +354,7 @@ const EXPEDITION_ARCHETYPES = [
     id: 'crow',
     name: 'Messenger Crow / Raven',
     subtitle: 'Direct Rookery Message Flight',
-    pace: '~240 mi / day',
+    pace: '240 mi / day',
     category: 'Aerial',
     icon: <Bird size={15} color="var(--icon-crow, #c084fc)" />,
     badgeColor: 'var(--icon-crow, #c084fc)'
@@ -363,7 +363,7 @@ const EXPEDITION_ARCHETYPES = [
     id: 'dragon',
     name: 'Dragon Flight',
     subtitle: 'Direct High-Altitude Flight',
-    pace: '~520 mi / day',
+    pace: '520 mi / day',
     category: 'Aerial',
     icon: <Flame size={15} color="var(--icon-dragon, #ef4444)" />,
     badgeColor: 'var(--icon-dragon, #ef4444)'
@@ -538,7 +538,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
         <Navigation size={16} color="var(--text-gold)" />
         <span className="font-serif">Open Ledger</span>
         {routeResult && (
-          <span className="citadel-badge-pill" style={{ background: 'rgba(56, 189, 248, 0.25)', color: '#38bdf8' }}>
+          <span className="citadel-badge-pill" style={{ background: 'rgba(56, 189, 248, 0.25)', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
             {routeResult.totalDays}d
           </span>
         )}
@@ -606,7 +606,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              {hasActiveRoute && (
+              {/* {hasActiveRoute && (
                 <button
                   type="button"
                   onClick={handleClearRoute}
@@ -626,7 +626,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                   <RotateCcw size={12} />
                   <span>Clear</span>
                 </button>
-              )}
+              )} */}
 
               <button
                 onClick={onToggle}
@@ -678,7 +678,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: 6,
-                background: activeTab === 'ledger' ? 'rgba(223, 177, 91, 0.25)' : 'transparent',
+                background: activeTab === 'ledger' ? '#dfb15b40' : 'transparent',
                 color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)',
                 transition: 'all 0.15s ease'
               }}
@@ -686,8 +686,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               <Compass size={13} />
               <span>Itinerary</span>
               {routeResult && (
-                <span style={{ fontSize: 10, padding: '1px 5px', background: 'rgba(56, 189, 248, 0.25)', color: '#38bdf8', borderRadius: 3, fontWeight: 800 }}>
-                  {routeResult.totalDays}d
+                <span style={{ fontSize: 10, padding: '1px 5px', color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)', borderRadius: 3, fontWeight: 800 }}>
+                  ({routeResult.totalDays}d)
                 </span>
               )}
             </button>
@@ -811,8 +811,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     <Sparkles size={14} />
                     <span>
                       {routeResult?.isSuboptimalOrder && routeResult.potentialSavingsMiles
-                        ? `⚡ Optimize Stops (Save ${routeResult.potentialSavingsMiles.toLocaleString()} mi)`
-                        : '⚡ Optimize Stop Order'}
+                        ? `Optimize Stops (Save ${routeResult.potentialSavingsMiles.toLocaleString()} mi)`
+                        : 'Optimize Stop Order'}
                     </span>
                   </button>
 
@@ -1229,7 +1229,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                         <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.2)', color: 'var(--text-gold-bright)' }}>
                           {routeResult.optimizationGoal === 'shortest' ? 'Shortest' : routeResult.optimizationGoal === 'fastest' ? 'Fastest' : 'Optimal'}
                         </span>
-                        <button
+                        {/* <button
                           type="button"
                           onClick={handleClearRoute}
                           className="btn-secondary"
@@ -1247,13 +1247,13 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                         >
                           <RotateCcw size={12} />
                           <span>Clear</span>
-                        </button>
+                        </button> */}
                       </div>
                     </div>
 
                     <div style={{ fontSize: 12, color: 'var(--text-muted)', display: 'flex', justifyContent: 'space-between' }}>
                       <span>Party: <b style={{ color: 'var(--text-gold-bright)' }}>{routeResult.party.name}</b></span>
-                      <span>Mode: <b style={{ color: '#38bdf8' }}>{routeResult.mode.replace('_', ' ')}</b></span>
+                      <span>Mode: <b style={{ color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>{routeResult.mode.replace('_', ' ')}</b></span>
                     </div>
                   </div>
 
@@ -1277,7 +1277,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                       </div>
                       <p style={{ fontSize: 12, color: 'var(--text-parchment)', margin: '0 0 8px 0', lineHeight: 1.4 }}>
                         Reordering stops along the corridor will save{' '}
-                        <b>{routeResult.potentialSavingsMiles?.toLocaleString()} miles</b> (~{routeResult.potentialSavingsDays} days).
+                        <b>{routeResult.potentialSavingsMiles?.toLocaleString()} miles</b> ({routeResult.potentialSavingsDays} days).
                       </p>
                       <button
                         type="button"
@@ -1313,7 +1313,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                           {routeResult.totalMiles.toLocaleString()} <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--text-parchment)' }}>miles</span>
                         </div>
                         <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
-                          ~{routeResult.totalLeagues.toLocaleString()} leagues • {routeResult.totalKm.toLocaleString()} km
+                          {routeResult.totalLeagues.toLocaleString()} leagues • {routeResult.totalKm.toLocaleString()} km
                         </div>
                       </div>
                     </div>
@@ -1324,11 +1324,11 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                         <span>Travel Duration</span>
                       </div>
                       <div style={{ marginTop: 4 }}>
-                        <div style={{ fontSize: 20, fontWeight: 800, color: '#38bdf8' }}>
+                        <div style={{ fontSize: 20, fontWeight: 800, color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
                           {routeResult.totalDays} <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--text-parchment)' }}>days</span>
                         </div>
                         <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
-                          ~{(routeResult.totalDays / 7).toFixed(1)} weeks • {(routeResult.totalDays / 28).toFixed(1)} moons
+                          {(routeResult.totalDays / 7).toFixed(1)} weeks • {(routeResult.totalDays / 28).toFixed(1)} moons
                         </div>
                       </div>
                     </div>
@@ -1457,8 +1457,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                                   {stage.fromNode.name} &rarr; {stage.toNode.name}
                                 </strong>
                               </div>
-                              <span style={{ fontSize: 13, fontWeight: 700, color: '#38bdf8' }}>
-                                ~{stage.totalDays}d
+                              <span style={{ fontSize: 13, fontWeight: 700, color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
+                                {stage.totalDays}d
                               </span>
                             </div>
 
@@ -1490,8 +1490,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                             <strong style={{ fontSize: 13, color: 'var(--text-parchment)' }}>
                               {idx + 1}. {leg.edge.name}
                             </strong>
-                            <span style={{ fontSize: 12, fontWeight: 700, color: '#38bdf8' }}>
-                              ~{leg.transitDays}d
+                            <span style={{ fontSize: 12, fontWeight: 700, color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>
+                              {leg.transitDays}d
                             </span>
                           </div>
                           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--text-muted)' }}>
@@ -1577,7 +1577,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                                 <div>
                                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, fontWeight: 700 }}>
                                     <span style={{ color: 'var(--text-gold-bright)' }}>{c.route.totalMiles.toLocaleString()} miles</span>
-                                    <span style={{ color: '#38bdf8' }}>~{c.route.totalDays} days</span>
+                                    <span style={{ color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)' }}>{c.route.totalDays} days</span>
                                   </div>
 
                                   {!isCurrent && (
@@ -1615,7 +1615,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                         <div style={{ fontSize: 12, color: 'var(--text-parchment)', background: 'var(--bg-secondary)', padding: 8, borderRadius: 4, lineHeight: 1.5 }}>
                           • 1 pixel = <b>0.875 miles</b> (0.292 leagues • 1.408 km)<br />
                           • The Wall (Shadow Tower to Eastwatch): <b>305 miles</b><br />
-                          • Kingsroad (King's Landing to Winterfell): <b>~1,565 miles</b>
+                          • Kingsroad (King's Landing to Winterfell): <b>1,565 miles</b>
                         </div>
                       </div>
 
