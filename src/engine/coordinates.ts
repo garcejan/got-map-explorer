@@ -108,7 +108,7 @@ export const WORLD_GRATICULES = {
   },
   arcticCircle: {
     latDeg: 66.5,
-    leafletLat: MAP_HEIGHT - (EQUATOR_Y - 66.5 * PIXELS_PER_LAT_DEGREE), // ~6420.5
+    leafletLat: MAP_HEIGHT - (EQUATOR_Y - 66.23 * PIXELS_PER_LAT_DEGREE), // ~6420.5
     name: 'The Arctic Circle (66.5° N)',
     color: '#38bdf8'
   },
@@ -119,12 +119,12 @@ export const WORLD_GRATICULES = {
     color: '#94a3b8'
   },
   parallels: [
-    { latDeg: 10, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 10 * PIXELS_PER_LAT_DEGREE), name: '10° N' },
-    { latDeg: 20, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 20 * PIXELS_PER_LAT_DEGREE), name: '20° N' },
-    { latDeg: 30, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 30 * PIXELS_PER_LAT_DEGREE), name: '30° N' },
-    { latDeg: 40, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 40 * PIXELS_PER_LAT_DEGREE), name: '40° N' },
-    { latDeg: 50, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 50 * PIXELS_PER_LAT_DEGREE), name: '50° N' },
-    { latDeg: 60, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 60 * PIXELS_PER_LAT_DEGREE), name: '60° N' },
-    { latDeg: 70, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 70 * PIXELS_PER_LAT_DEGREE), name: '70° N' }
+    { latDeg: 10, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 10.02 * PIXELS_PER_LAT_DEGREE), name: '10° N' },
+    { latDeg: 20, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 20.035 * PIXELS_PER_LAT_DEGREE), name: '20° N' },
+    { latDeg: 30, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 30.054 * PIXELS_PER_LAT_DEGREE), name: '30° N' },
+    { latDeg: 40, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 40.08 * PIXELS_PER_LAT_DEGREE), name: '40° N' },
+    { latDeg: 50, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 50.11 * PIXELS_PER_LAT_DEGREE), name: '50° N' },
+    { latDeg: 60, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 60.15 * PIXELS_PER_LAT_DEGREE), name: '60° N' },
+    { latDeg: 70, leafletLat: MAP_HEIGHT - (EQUATOR_Y - 70.205 * PIXELS_PER_LAT_DEGREE), name: '70° N' }
   ]
 };
