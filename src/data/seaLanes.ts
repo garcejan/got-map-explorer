@@ -39,7 +39,6 @@ function createSeaEdge(raw: RawSeaEdge): RouteEdge {
 }
 
 const RAW_SEA_LANES: RawSeaEdge[] = [
-  // ================= THE NARROW SEA (NORTH) =================
   {
     id: 'sea_bay_of_seals',
     from: 'eastwatch',
@@ -47,12 +46,14 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Bay of Seals Coastal Lane',
     terrainType: 'coastal_sea',
     waypoints: [
-      [1775, 2235],
-      [1950, 2400],
-      [2080, 2750],
-      [2050, 3050],
-      [1950, 3230],
-      [1840, 3320]
+      [2070, 2248],
+      [2064, 2191],
+      [2152, 2063],
+      [2568, 2287],
+      [2392, 3302],
+      [1880, 3478],
+      [1848, 3414],
+      [1848, 3300]
     ]
   },
   {
@@ -62,11 +63,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'The Bite to Gulltown Lane',
     terrainType: 'coastal_sea',
     waypoints: [
-      [1840, 3320],
-      [1980, 3500],
-      [2120, 3750],
-      [2200, 3950],
-      [2230, 4130]
+      [1848, 3300],
+      [1872, 3478],
+      [2488, 3526],
+      [2576, 4038],
+      [2432, 4086],
+      [2419, 4070]
     ]
   },
   {
@@ -76,11 +78,10 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Narrow Sea Northern Trade Crossing',
     terrainType: 'coastal_sea',
     waypoints: [
-      [1840, 3320],
-      [2100, 3400],
-      [2400, 3480],
-      [2650, 3550],
-      [2870, 3630]
+      [1848, 3300],
+      [1872, 3478],
+      [2512, 3526],
+      [2900, 3717]
     ]
   },
   {
@@ -90,10 +91,9 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Braavosi Coast to Lorath (Shivering Sea)',
     terrainType: 'coastal_sea',
     waypoints: [
-      [2870, 3630],
-      [3050, 3650],
-      [3220, 3680],
-      [3360, 3750]
+      [2900, 3717],
+      [3032, 3638],
+      [3288, 3832]
     ]
   },
   {
@@ -103,14 +103,13 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Narrow Sea Central Passage',
     terrainType: 'coastal_sea',
     waypoints: [
-      [2230, 4130],
-      [2450, 4280],
-      [2700, 4460],
-      [2990, 4670]
+      [2419, 4070],
+      [2832, 4614],
+      [2848, 4606],
+      [2856, 4598],
+      [2893, 4593]
     ]
   },
-
-  // ================= BLACKWATER BAY & THE GULLET =================
   {
     id: 'sea_maidenpool_dragonstone',
     from: 'maidenpool',
@@ -119,8 +118,14 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [2073, 4323],
-      [2180, 4330],
-      [2280, 4370],
+      [2064, 4278],
+      [2104, 4254],
+      [2312, 4206],
+      [2462, 4134],
+      [2494, 4120],
+      [2506, 4116],
+      [2512, 4116],
+      [2400, 4406],
       [2349, 4409]
     ]
   },
@@ -132,7 +137,9 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [1971, 4223],
-      [2020, 4270],
+      [1984, 4206],
+      [2048, 4254],
+      [2064, 4278],
       [2073, 4323]
     ]
   },
@@ -144,8 +151,8 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [1942, 4589],
-      [2030, 4560],
-      [2180, 4500],
+      [1976, 4598],
+      [2096, 4606],
       [2326, 4433]
     ]
   },
@@ -168,28 +175,26 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [2349, 4409],
-      [2500, 4480],
-      [2700, 4540],
+      [2840, 4614],
+      [2856, 4598],
       [2893, 4593]
     ]
   },
-
-  // ================= SHIPBREAKER BAY & THE STEPSTONES =================
   {
     id: 'sea_kings_landing_storms_end',
     from: 'kings_landing',
     to: 'storms_end',
-    name: "Massey's Hook Coastal Lane",
+    name: 'Massey\'s Hook Coastal Lane',
     terrainType: 'coastal_sea',
     waypoints: [
       [1942, 4589],
-      [2100, 4530],
-      [2260, 4480],
-      [2360, 4500],
-      [2380, 4580],
-      [2350, 4700],
-      [2310, 4820],
-      [2270, 4890],
+      [1976, 4598],
+      [2096, 4606],
+      [2384, 4454],
+      [2448, 4550],
+      [2352, 4966],
+      [2272, 4974],
+      [2264, 4966],
       [2253, 4945]
     ]
   },
@@ -201,7 +206,8 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'dangerous_sea',
     waypoints: [
       [2253, 4945],
-      [2330, 4935],
+      [2264, 4966],
+      [2288, 4982],
       [2412, 4921]
     ]
   },
@@ -213,8 +219,7 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'dangerous_sea',
     waypoints: [
       [2412, 4921],
-      [2500, 5020],
-      [2600, 5110],
+      [2456, 5014],
       [2700, 5195]
     ]
   },
@@ -226,8 +231,7 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [2700, 5195],
-      [2850, 5210],
-      [2990, 5170],
+      [2808, 5094],
       [3093, 5122]
     ]
   },
@@ -239,8 +243,11 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'dangerous_sea',
     waypoints: [
       [2700, 5195],
-      [2790, 5330],
-      [2880, 5470],
+      [2688, 5221],
+      [2688, 5301],
+      [2736, 5349],
+      [2736, 5389],
+      [2904, 5565],
       [2946, 5614]
     ]
   },
@@ -252,8 +259,10 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [2700, 5195],
-      [2600, 5350],
-      [2500, 5480],
+      [2680, 5237],
+      [2680, 5333],
+      [2512, 5589],
+      [2424, 5597],
       [2404, 5599]
     ]
   },
@@ -265,7 +274,10 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [2404, 5599],
-      [2340, 5618],
+      [2424, 5597],
+      [2432, 5613],
+      [2328, 5693],
+      [2304, 5677],
       [2276, 5632]
     ]
   },
@@ -276,10 +288,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Summer Sea Volantene Run',
     terrainType: 'fair_winds',
     waypoints: [
-      [2980, 5840],
-      [3200, 5740],
-      [3450, 5620],
-      [3710, 5460]
+      [2946, 5614],
+      [3016, 5573],
+      [3784, 5829],
+      [3872, 5701],
+      [3856, 5661],
+      [3825, 5632]
     ]
   },
   {
@@ -289,26 +303,31 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Trans-Summer Sea Commercial Highway',
     terrainType: 'fair_winds',
     waypoints: [
-      [2280, 5630],
-      [2650, 5720],
-      [3150, 5720],
-      [3500, 5600],
-      [3710, 5460]
+      [2404, 5599],
+      [2424, 5597],
+      [3128, 5789],
+      [3612, 5784],
+      [3781, 5780],
+      [3840, 5777],
+      [3861, 5776],
+      [3872, 5774],
+      [3856, 5661],
+      [3825, 5632]
     ]
   },
-
-  // ================= THE SUNSET SEA & WESTERLANDS =================
   {
     id: 'sea_pyke_lannisport',
     from: 'pyke',
     to: 'lannisport',
-    name: "Ironman's Bay to Lannisport Passage",
+    name: 'Ironman\'s Bay to Lannisport Passage',
     terrainType: 'coastal_sea',
     waypoints: [
-      [930, 3960],
-      [960, 4120],
-      [990, 4300],
-      [1015, 4450]
+      [1051, 4043],
+      [808, 4502],
+      [840, 4526],
+      [984, 4494],
+      [992, 4494],
+      [1020, 4500]
     ]
   },
   {
@@ -318,11 +337,13 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Sunset Sea Coastal Lane',
     terrainType: 'coastal_sea',
     waypoints: [
-      [1015, 4450],
-      [890, 4650],
-      [860, 4920],
-      [890, 5180],
-      [990, 5380]
+      [1020, 4500],
+      [992, 4494],
+      [904, 4510],
+      [808, 5445],
+      [896, 5469],
+      [1000, 5389],
+      [1031, 5365]
     ]
   },
   {
@@ -332,10 +353,10 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Whispering Sound Lane',
     terrainType: 'fair_winds',
     waypoints: [
-      [990, 5380],
-      [920, 5480],
-      [860, 5550],
-      [800, 5600]
+      [1031, 5365],
+      [1000, 5389],
+      [856, 5533],
+      [825, 5590]
     ]
   },
   {
@@ -345,12 +366,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Redwyne Straits & South Dorne Pass',
     terrainType: 'coastal_sea',
     waypoints: [
-      [800, 5600],
-      [1020, 5720],
-      [1350, 5780],
-      [1750, 5780],
-      [2100, 5710],
-      [2280, 5630]
+      [825, 5590],
+      [1480, 5797],
+      [2344, 5725],
+      [2432, 5613],
+      [2424, 5597],
+      [2404, 5599]
     ]
   },
   {
@@ -360,14 +381,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Swan Ship Passage to Summer Isles',
     terrainType: 'fair_winds',
     waypoints: [
-      [800, 5600],
-      [1150, 6000],
-      [1600, 6450],
-      [2280, 6950]
+      [825, 5590],
+      [1096, 5789],
+      [2656, 7588],
+      [2847, 7661]
     ]
   },
-
-  // ================= THE GULF OF GRIEF & SLAVER'S BAY =================
   {
     id: 'sea_volantis_astapor',
     from: 'volantis',
@@ -375,13 +394,13 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Gulf of Grief Slaver Route (Valyria Bypass)',
     terrainType: 'fair_winds',
     waypoints: [
-      [3710, 5460],
-      [3900, 6000],
-      [4150, 6500],
-      [4400, 6780],
-      [4750, 6780],
-      [5050, 6450],
-      [5180, 6050],
+      [3825, 5632],
+      [3856, 5661],
+      [4064, 6565],
+      [4536, 6613],
+      [4800, 6085],
+      [4768, 5757],
+      [4976, 5717],
       [5216, 5834]
     ]
   },
@@ -389,11 +408,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     id: 'sea_astapor_yunkai',
     from: 'astapor',
     to: 'yunkai',
-    name: "Slaver's Bay Southern Waterway",
+    name: 'Slaver\'s Bay Southern Waterway',
     terrainType: 'coastal_sea',
     waypoints: [
       [5216, 5834],
-      [5180, 5660],
+      [5240, 5461],
+      [5248, 5461],
       [5288, 5494]
     ]
   },
@@ -401,11 +421,13 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     id: 'sea_yunkai_meereen',
     from: 'yunkai',
     to: 'meereen',
-    name: "Slaver's Bay Northern Waterway",
+    name: 'Slaver\'s Bay Northern Waterway',
     terrainType: 'coastal_sea',
     waypoints: [
       [5288, 5494],
-      [5240, 5430],
+      [5360, 5389],
+      [5376, 5381],
+      [5384, 5381],
       [5421, 5371]
     ]
   },
@@ -417,12 +439,14 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [5216, 5834],
-      [5440, 6050],
+      [4888, 5733],
+      [4728, 5853],
+      [4920, 6165],
+      [5312, 6573],
+      [5360, 6541],
       [5356, 6522]
     ]
   },
-
-  // ================= THE JADE GATES & JADE SEA =================
   {
     id: 'sea_volantis_qarth',
     from: 'volantis',
@@ -431,11 +455,10 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'fair_winds',
     waypoints: [
       [3825, 5632],
-      [4050, 6300],
-      [4350, 6800],
-      [4850, 6800],
-      [5500, 6650],
-      [6200, 6400],
+      [3856, 5661],
+      [4064, 6565],
+      [5104, 6661],
+      [6872, 6205],
       [6884, 6196]
     ]
   },
@@ -447,7 +470,10 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'fair_winds',
     waypoints: [
       [6884, 6196],
-      [6820, 6380],
+      [6649, 6428],
+      [6626, 6491],
+      [6728, 6613],
+      [6768, 6589],
       [6778, 6573]
     ]
   },
@@ -458,10 +484,11 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Northern Jade Sea Lane to Yi Ti',
     terrainType: 'fair_winds',
     waypoints: [
-      [6570, 5820],
-      [6900, 6250],
-      [7250, 6500],
-      [7500, 6680]
+      [6884, 6196],
+      [6912, 6229],
+      [7200, 6301],
+      [7824, 6613],
+      [7841, 6592]
     ]
   },
   {
@@ -471,10 +498,15 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Great Moraq to Leng Trade Wind Corridor',
     terrainType: 'fair_winds',
     waypoints: [
-      [6580, 6430],
-      [7150, 6550],
-      [7750, 6580],
-      [8300, 6530]
+      [6778, 6573],
+      [6768, 6589],
+      [6752, 6685],
+      [7016, 7165],
+      [8216, 6637],
+      [8344, 6445],
+      [8488, 6469],
+      [8488, 6477],
+      [8473, 6501]
     ]
   },
   {
@@ -484,9 +516,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Imperial Yi Ti Coast Waterway',
     terrainType: 'coastal_sea',
     waypoints: [
-      [7500, 6680],
-      [7950, 6580],
-      [8400, 6420]
+      [7841, 6592],
+      [8208, 6677],
+      [8336, 6445],
+      [8552, 6365],
+      [8600, 6365],
+      [8626, 6365]
     ]
   },
   {
@@ -496,10 +531,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Saffron Straits Corridor to Asshai',
     terrainType: 'fair_winds',
     waypoints: [
-      [8400, 6420],
-      [8650, 6800],
-      [8900, 7150],
-      [9050, 7450]
+      [8626, 6365],
+      [8600, 6365],
+      [8552, 6365],
+      [8528, 6405],
+      [8656, 6733],
+      [8907, 7442]
     ]
   },
   {
@@ -509,13 +546,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Jade Sea Deep Crossing to Shadow Lands',
     terrainType: 'fair_winds',
     waypoints: [
-      [8300, 6530],
-      [8600, 6900],
-      [8850, 7200],
-      [9050, 7450]
+      [8473, 6501],
+      [8488, 6477],
+      [8656, 6573],
+      [8907, 7442]
     ]
   },
-  // ================= DIRECT CORRIDORS & CROSSINGS =================
   {
     id: 'sea_storms_end_sunspear',
     from: 'storms_end',
@@ -523,11 +559,15 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Sea of Dorne Coastal Route (Shipbreaker to Sunspear)',
     terrainType: 'coastal_sea',
     waypoints: [
-      [2252, 4961],
-      [2340, 5080],
-      [2380, 5240],
-      [2420, 5420],
-      [2409, 5608]
+      [2253, 4945],
+      [2264, 4966],
+      [2288, 4982],
+      [2544, 5078],
+      [2472, 5413],
+      [2544, 5493],
+      [2456, 5597],
+      [2424, 5597],
+      [2404, 5599]
     ]
   },
   {
@@ -537,24 +577,24 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Bay of Crabs Outer Reach (Dragonstone to Gulltown)',
     terrainType: 'coastal_sea',
     waypoints: [
-      [2255, 4425],
-      [2260, 4320],
-      [2245, 4220],
-      [2230, 4130]
+      [2349, 4409],
+      [2432, 4374],
+      [2496, 4102],
+      [2419, 4070]
     ]
   },
   {
     id: 'sea_saltpans_braavos',
     from: 'saltpans',
     to: 'braavos',
-    name: "Narrow Sea Crossing (Titan's Daughter Route)",
+    name: 'Narrow Sea Crossing (Titan\'s Daughter Route)',
     terrainType: 'coastal_sea',
     waypoints: [
-      [1835, 4153],
-      [2050, 4170],
-      [2350, 4050],
-      [2650, 3850],
-      [2900, 3697]
+      [1971, 4223],
+      [1984, 4206],
+      [2048, 4246],
+      [2264, 4238],
+      [2900, 3717]
     ]
   },
   {
@@ -564,10 +604,9 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     name: 'Vale to Braavos Trade Crossing',
     terrainType: 'coastal_sea',
     waypoints: [
-      [2230, 4130],
-      [2450, 3980],
-      [2700, 3820],
-      [2900, 3697]
+      [2419, 4070],
+      [2560, 4062],
+      [2900, 3717]
     ]
   },
   {
@@ -578,8 +617,12 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [1031, 5365],
-      [1080, 5460],
-      [1180, 5500],
+      [1000, 5389],
+      [864, 5517],
+      [1008, 5701],
+      [1232, 5573],
+      [1272, 5533],
+      [1280, 5525],
       [1290, 5475]
     ]
   },
@@ -591,9 +634,13 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'coastal_sea',
     waypoints: [
       [1290, 5475],
-      [1550, 5650],
-      [1850, 5700],
-      [2150, 5660],
+      [1280, 5525],
+      [1264, 5541],
+      [1184, 5693],
+      [1344, 5797],
+      [2336, 5733],
+      [2432, 5613],
+      [2424, 5597],
       [2404, 5599]
     ]
   },
@@ -605,11 +652,11 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'dangerous_sea',
     waypoints: [
       [2900, 3717],
-      [3496, 3654],
-      [4144, 3654],
-      [4792, 3654],
-      [5432, 3486],
-      [6080, 3454],
+      [3048, 3630],
+      [6344, 3422],
+      [6560, 3310],
+      [6536, 3174],
+      [6504, 3142],
       [6475, 3108]
     ]
   },
@@ -621,10 +668,15 @@ const RAW_SEA_LANES: RawSeaEdge[] = [
     terrainType: 'dangerous_sea',
     waypoints: [
       [6475, 3108],
-      [6928, 3534],
-      [7448, 3734],
-      [7960, 3766],
-      [8432, 4014],
+      [6504, 3142],
+      [6928, 3638],
+      [8344, 3766],
+      [8344, 3798],
+      [8400, 3910],
+      [8408, 3990],
+      [8552, 4230],
+      [8768, 4446],
+      [8768, 4494],
       [8764, 4535]
     ]
   }
