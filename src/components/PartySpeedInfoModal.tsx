@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import {
   X,
   Flame,
@@ -172,6 +173,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
+        e.stopPropagation();
         onClose();
       }
     };
@@ -180,14 +182,16 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
+  if (typeof document === 'undefined') return null;
 
   const filteredArchetypes = ARCHETYPE_DETAILS.filter((item) => {
     if (filterCategory === 'all') return true;
     return item.category === filterCategory;
   });
 
-  return (
+  return createPortal(
     <div
+      className="citadel-modal-backdrop"
       style={{
         position: 'fixed',
         top: 0,
@@ -196,16 +200,19 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
         bottom: 0,
         backgroundColor: 'var(--modal-backdrop)',
         backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         zIndex: 5000,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20
+        padding: 20,
+        pointerEvents: 'auto'
       }}
       onClick={onClose}
+      onWheel={(e) => e.stopPropagation()}
     >
       <div
-        className="glass-panel"
+        className="glass-panel citadel-modal-dialog"
         style={{
           width: '100%',
           maxWidth: 960,
@@ -216,9 +223,12 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
           border: '1px solid var(--border-gold)',
           borderRadius: 8,
           overflow: 'hidden',
-          background: 'var(--bg-panel)'
+          background: 'var(--bg-panel)',
+          pointerEvents: 'auto'
         }}
         onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+        onPointerDown={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div
@@ -618,6 +628,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
