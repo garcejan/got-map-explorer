@@ -1,0 +1,296 @@
+/* Citadel / Maester's Cartography Design System - Base Styles */
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-dim);
+  opacity: 0.85;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  font-family: var(--font-sans);
+  color: var(--text-parchment);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-gold);
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-medieval {
+  font-family: var(--font-medieval);
+}
+
+.text-gold {
+  color: var(--text-gold);
+}
+
+.text-gold-bright {
+  color: var(--text-gold-bright);
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: var(--bg-panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-gold-glow);
+  box-shadow: var(--shadow-lg), var(--shadow-inner-panel);
+  border-radius: 10px;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--border-gold);
+  background: var(--bg-hover);
+}
+
+/* Custom Buttons: Citadel Action Palette */
+.btn-citadel,
+.btn-citadel-inverse {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* Primary Action: Royal Citadel Crimson */
+.btn-citadel {
+  flex: 1.4;
+  background: linear-gradient(135deg, #7c1a22 0%, #4a0f14 100%);
+  border: 1px solid #c59b27;
+  color: #eed68a;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 140, 0.25),
+    0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+/* Complementary Secondary Action: Cool Slate / Steel (Dark Theme default) */
+.btn-citadel-inverse {
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid #334862;
+  color: #cbd5e1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+/* Container adjustment: gives the primary action priority */
+.button-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.btn-citadel svg,
+.btn-citadel-inverse svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.btn-citadel:hover {
+  background: linear-gradient(135deg, #8f212a 0%, #581219 100%);
+  border-color: #dfb15b;
+  color: #fff0be;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 170, 0.4),
+    0 3px 8px rgba(124, 26, 34, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-citadel:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-citadel-inverse:hover {
+  background: linear-gradient(135deg, #2a374d 0%, #162233 100%);
+  border-color: #4f709c;
+  color: #ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 3px 8px rgba(15, 23, 42, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-citadel-inverse:active {
+  transform: translateY(0);
+  background: #0f172a;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Light / Beige Theme Adaptations */
+[data-theme='beige'] .btn-citadel {
+  border-color: #b3802b;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 140, 0.25),
+    0 2px 5px rgba(65, 45, 25, 0.22);
+}
+
+[data-theme='beige'] .btn-citadel:hover {
+  border-color: #8c5d17;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 170, 0.4),
+    0 3px 8px rgba(124, 26, 34, 0.3);
+}
+
+[data-theme='beige'] .btn-citadel-inverse {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  color: var(--text-parchment);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+[data-theme='beige'] .btn-citadel-inverse:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+  transform: translateY(-1px);
+}
+
+[data-theme='beige'] .btn-citadel-inverse:active {
+  transform: translateY(0);
+  background: #cbd5e1;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Shared disabled state */
+.btn-citadel:disabled,
+.btn-citadel-inverse:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  filter: grayscale(30%);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-parchment);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-gold);
+  color: var(--text-gold);
+  background: var(--bg-hover);
+}
+
+/* Inputs */
+.citadel-input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-parchment);
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.citadel-input:focus {
+  border-color: var(--border-gold);
+  box-shadow: 0 0 8px rgba(223, 177, 91, 0.3);
+}
+
+/* Select */
+.citadel-select {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-parchment);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.citadel-select:focus {
+  border-color: var(--border-gold);
+}
+
+/* Base human-readable typography & contrast improvements */
+.citadel-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.citadel-badge-pill {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
