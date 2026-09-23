@@ -39,7 +39,6 @@ function createRoadEdge(raw: RawEdge): RouteEdge {
 }
 
 const RAW_ROADS: RawEdge[] = [
-  // ================= THE WALL =================
   {
     id: 'road_shadow_nightfort',
     from: 'shadow_tower',
@@ -74,8 +73,6 @@ const RAW_ROADS: RawEdge[] = [
       [2070, 2248]
     ]
   },
-
-  // ================= THE KINGSROAD: NORTHERN SECTION =================
   {
     id: 'road_kingsroad_wall_winterfell',
     from: 'castle_black',
@@ -116,7 +113,8 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'dirt_track',
     waypoints: [
       [1631, 2892],
-      [1500, 2770],
+      [1632, 2895],
+      [1368, 2671],
       [1370, 2655]
     ]
   },
@@ -124,7 +122,7 @@ const RAW_ROADS: RawEdge[] = [
     id: 'road_winterfell_torrhens',
     from: 'winterfell',
     to: 'torrhens_square',
-    name: "Lake Road to Torrhen's Square",
+    name: 'Lake Road to Torrhen\'s Square',
     terrainType: 'dirt_track',
     waypoints: [
       [1631, 2892],
@@ -140,9 +138,9 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'royal_road',
     waypoints: [
       [1631, 2892],
-      [1615, 2957],
-      [1670, 3070],
-      [1740, 3180],
+      [1632, 2895],
+      [1856, 3294],
+      [1856, 3302],
       [1848, 3300]
     ]
   },
@@ -221,8 +219,6 @@ const RAW_ROADS: RawEdge[] = [
       [1667, 3392]
     ]
   },
-
-  // ================= THE NECK & RIVERLANDS =================
   {
     id: 'road_kingsroad_neck_direct',
     from: 'moat_cailin',
@@ -230,14 +226,14 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Kingsroad (Causeway through the Neck)',
     terrainType: 'swamp_causeway',
     waypoints: [
-      [1670, 3392],
+      [1667, 3392],
       [1675, 3500],
       [1685, 3620],
       [1700, 3750],
       [1715, 3860],
       [1745, 3960],
       [1790, 4070],
-      [1838, 4161]
+      [1845, 4153]
     ]
   },
   {
@@ -247,11 +243,11 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Causeway of the Neck',
     terrainType: 'swamp_causeway',
     waypoints: [
-      [1580, 3445],
+      [1667, 3392],
       [1560, 3530],
       [1540, 3620],
       [1525, 3710],
-      [1500, 3810]
+      [1570, 3840]
     ]
   },
   {
@@ -261,9 +257,9 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Crannog Bog Secret Channels',
     terrainType: 'swamp_causeway',
     waypoints: [
-      [1580, 3445],
+      [1667, 3392],
       [1510, 3560],
-      [1420, 3680]
+      [1550, 3643]
     ]
   },
   {
@@ -273,11 +269,11 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Kingsroad (Trident Crossing)',
     terrainType: 'royal_road',
     waypoints: [
-      [1500, 3810],
+      [1570, 3840],
       [1540, 3910],
       [1590, 4010],
       [1630, 4070],
-      [1670, 4120]
+      [1845, 4153]
     ]
   },
   {
@@ -317,8 +313,6 @@ const RAW_ROADS: RawEdge[] = [
       [1971, 4223]
     ]
   },
-
-  // ================= THE VALE OF ARRYN =================
   {
     id: 'road_high_road_bloody_gate',
     from: 'crossroads_inn',
@@ -351,13 +345,12 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'royal_road',
     waypoints: [
       [2060, 3975],
-      [2150, 4020],
-      [2280, 4050],
+      [2064, 3974],
+      [2376, 4030],
+      [2408, 4054],
       [2419, 4070]
     ]
   },
-
-  // ================= THE WESTERLANDS =================
   {
     id: 'road_riverrun_golden_tooth',
     from: 'riverrun',
@@ -412,10 +405,10 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Ocean Road (North Section)',
     terrainType: 'royal_road',
     waypoints: [
-      [1015, 4450],
-      [970, 4550],
-      [935, 4620],
-      [920, 4680]
+      [1020, 4500],
+      [1024, 4502],
+      [928, 4694],
+      [925, 4690]
     ]
   },
   {
@@ -425,16 +418,14 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Ocean Road (Reach Section)',
     terrainType: 'royal_road',
     waypoints: [
-      [920, 4680],
+      [925, 4690],
       [950, 4770],
       [980, 4850],
       [1080, 4920],
       [1190, 4980],
-      [1290, 5020]
+      [1260, 5078]
     ]
   },
-
-  // ================= CROWNLANDS & THE GOLDROAD =================
   {
     id: 'road_kingsroad_crossroads_kings_landing',
     from: 'crossroads_inn',
@@ -442,7 +433,7 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Kingsroad (Crownlands)',
     terrainType: 'royal_road',
     waypoints: [
-      [1838, 4161],
+      [1845, 4153],
       [1845, 4200],
       [1875, 4250],
       [1875, 4300],
@@ -450,7 +441,7 @@ const RAW_ROADS: RawEdge[] = [
       [1880, 4420],
       [1885, 4460],
       [1920, 4550],
-      [1949, 4616]
+      [1942, 4589]
     ]
   },
   {
@@ -488,14 +479,12 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Blackwater Coastal Way',
     terrainType: 'royal_road',
     waypoints: [
-      [2070, 4420],
-      [2030, 4520],
-      [1985, 4600],
-      [1955, 4670]
+      [2115, 4468],
+      [2112, 4470],
+      [1944, 4590],
+      [1942, 4589]
     ]
   },
-
-  // ================= THE REACH & THE ROSEROAD =================
   {
     id: 'road_roseroad_kings_landing_tumbleton',
     from: 'kings_landing',
@@ -527,10 +516,10 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Roseroad (Heart of the Reach)',
     terrainType: 'royal_road',
     waypoints: [
-      [1520, 4800],
+      [1572, 4828],
       [1450, 4880],
       [1370, 4950],
-      [1290, 5020]
+      [1260, 5078]
     ]
   },
   {
@@ -540,15 +529,13 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Roseroad (Honeywine Section)',
     terrainType: 'royal_road',
     waypoints: [
-      [1290, 5020],
+      [1260, 5078],
       [1220, 5130],
       [1140, 5230],
       [1060, 5310],
-      [990, 5380]
+      [1031, 5365]
     ]
   },
-
-  // ================= STORMLANDS & DORNE PASSES =================
   {
     id: 'road_kingsroad_kings_landing_summerhall',
     from: 'kings_landing',
@@ -579,7 +566,7 @@ const RAW_ROADS: RawEdge[] = [
     id: 'road_bronzegate_storms_end',
     from: 'bronzegate',
     to: 'storms_end',
-    name: "Storm's End Spur",
+    name: 'Storm\'s End Spur',
     terrainType: 'royal_road',
     waypoints: [
       [2195, 4817],
@@ -594,8 +581,8 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'dirt_track',
     waypoints: [
       [2253, 4945],
-      [2150, 5000],
-      [2030, 5020],
+      [2256, 4942],
+      [1912, 5022],
       [1909, 5023]
     ]
   },
@@ -607,8 +594,10 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'mountain_pass',
     waypoints: [
       [1909, 5023],
-      [1850, 5130],
-      [1800, 5250],
+      [1912, 5022],
+      [1752, 5373],
+      [1752, 5389],
+      [1760, 5397],
       [1784, 5397]
     ]
   },
@@ -616,16 +605,16 @@ const RAW_ROADS: RawEdge[] = [
     id: 'road_princes_pass_highgarden_starfall',
     from: 'highgarden',
     to: 'starfall',
-    name: "The Prince's Pass (Tower of Joy)",
+    name: 'The Prince\'s Pass (Tower of Joy)',
     terrainType: 'mountain_pass',
     waypoints: [
-      [1290, 5020],
+      [1260, 5078],
       [1370, 5100],
       [1440, 5160],
       [1475, 5210],
       [1480, 5280],
       [1400, 5370],
-      [1320, 5450]
+      [1290, 5475]
     ]
   },
   {
@@ -635,12 +624,12 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Greenblood River Road',
     terrainType: 'desert_waste',
     waypoints: [
-      [1740, 5320],
+      [1784, 5397],
       [1860, 5420],
       [1990, 5500],
       [2130, 5580],
       [2220, 5620],
-      [2280, 5630]
+      [2404, 5599]
     ]
   },
   {
@@ -650,15 +639,13 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Dornish South Coast Trail',
     terrainType: 'desert_waste',
     waypoints: [
-      [1320, 5450],
+      [1290, 5475],
       [1500, 5530],
       [1750, 5560],
       [2010, 5580],
-      [2280, 5630]
+      [2404, 5599]
     ]
   },
-
-  // ================= ESSOS: VALYRIAN FUSED-STONE HIGHWAYS =================
   {
     id: 'road_valyrian_pentos_norvos',
     from: 'pentos',
@@ -666,11 +653,11 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Valyrian Fused Highway (Pentos to Norvos)',
     terrainType: 'paved_highway',
     waypoints: [
-      [2990, 4670],
+      [2893, 4593],
       [3130, 4550],
       [3270, 4440],
       [3410, 4330],
-      [3550, 4230]
+      [3468, 4272]
     ]
   },
   {
@@ -680,10 +667,10 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Valyrian Fused Highway (Norvos to Qohor)',
     terrainType: 'paved_highway',
     waypoints: [
-      [3550, 4230],
+      [3468, 4272],
       [3650, 4340],
       [3760, 4460],
-      [3880, 4590]
+      [3945, 4580]
     ]
   },
   {
@@ -693,12 +680,12 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Great Rhoyne Valyrian Road',
     terrainType: 'paved_highway',
     waypoints: [
-      [3550, 4230],
+      [3468, 4272],
       [3530, 4770],
       [3560, 5130],
       [3670, 5320],
       [3700, 5420],
-      [3710, 5460]
+      [3825, 5632]
     ]
   },
   {
@@ -708,11 +695,13 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Braavosi Coast Track',
     terrainType: 'dirt_track',
     waypoints: [
-      [2870, 3630],
-      [2880, 3950],
-      [2850, 4250],
-      [2920, 4500],
-      [2990, 4670]
+      [2900, 3717],
+      [2904, 3726],
+      [2912, 3806],
+      [2904, 3814],
+      [2920, 3934],
+      [2896, 4582],
+      [2893, 4593]
     ]
   },
   {
@@ -722,10 +711,15 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Flatlands Highway',
     terrainType: 'royal_road',
     waypoints: [
-      [2990, 4670],
-      [3050, 4850],
-      [3120, 5050],
-      [3220, 5260]
+      [2893, 4593],
+      [2896, 4582],
+      [2904, 4582],
+      [2920, 4598],
+      [2944, 4638],
+      [3120, 4974],
+      [3120, 5118],
+      [3112, 5126],
+      [3093, 5122]
     ]
   },
   {
@@ -735,10 +729,14 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Disputed Lands Highway',
     terrainType: 'dirt_track',
     waypoints: [
-      [3220, 5260],
-      [3080, 5330],
-      [2930, 5390],
-      [2790, 5440]
+      [3093, 5122],
+      [3140, 5180],
+      [3140, 5260],
+      [2950, 5320],
+      [2785, 5190],
+      [2768, 5190],
+      [2730, 5190],
+      [2700, 5195]
     ]
   },
   {
@@ -748,14 +746,13 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Orange Shore Valyrian Road',
     terrainType: 'paved_highway',
     waypoints: [
-      [3220, 5260],
-      [3380, 5400],
-      [3540, 5480],
-      [3710, 5460]
+      [3093, 5122],
+      [3112, 5126],
+      [3296, 5245],
+      [3824, 5629],
+      [3825, 5632]
     ]
   },
-
-  // ================= THE DEMON ROAD & SLAVER'S BAY =================
   {
     id: 'road_demon_road_volantis_mantarys',
     from: 'volantis',
@@ -763,7 +760,7 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Demon Road (Sea of Sighs)',
     terrainType: 'mountain_pass',
     waypoints: [
-      [3710, 5460],
+      [3825, 5632],
       [3950, 5480],
       [4180, 5490],
       [4499, 5531]
@@ -777,7 +774,9 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'paved_highway',
     waypoints: [
       [4499, 5531],
-      [4470, 5820],
+      [4496, 5533],
+      [4504, 5669],
+      [4448, 6093],
       [4447, 6110]
     ]
   },
@@ -789,7 +788,13 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'paved_highway',
     waypoints: [
       [4447, 6110],
-      [4590, 5880],
+      [4448, 6093],
+      [4536, 5685],
+      [4576, 5621],
+      [4648, 5605],
+      [4664, 5605],
+      [4696, 5629],
+      [4728, 5661],
       [4727, 5664]
     ]
   },
@@ -800,9 +805,9 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Demon Road (Black Cliffs)',
     terrainType: 'mountain_pass',
     waypoints: [
-      [4440, 5450],
+      [4499, 5531],
       [4650, 5410],
-      [4870, 5370]
+      [4977, 5400]
     ]
   },
   {
@@ -812,21 +817,24 @@ const RAW_ROADS: RawEdge[] = [
     name: 'The Demon Road (Approach to Meereen)',
     terrainType: 'paved_highway',
     waypoints: [
-      [4870, 5370],
+      [4977, 5400],
       [5100, 5360],
-      [5360, 5370]
+      [5421, 5371]
     ]
   },
   {
     id: 'road_slavers_coast_meereen_yunkai',
     from: 'meereen',
     to: 'yunkai',
-    name: "Slaver's Coast Coastal Road",
+    name: 'Slaver\'s Coast Coastal Road',
     terrainType: 'royal_road',
     waypoints: [
-      [5360, 5370],
-      [5400, 5430],
-      [5430, 5500]
+      [5421, 5371],
+      [5424, 5373],
+      [5344, 5477],
+      [5312, 5493],
+      [5288, 5493],
+      [5288, 5494]
     ]
   },
   {
@@ -837,13 +845,14 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'royal_road',
     waypoints: [
       [5288, 5494],
-      [5320, 5600],
-      [5340, 5700],
+      [5288, 5493],
+      [5296, 5653],
+      [5256, 5805],
+      [5224, 5837],
+      [5216, 5837],
       [5216, 5834]
     ]
   },
-
-  // ================= DOTHRAKI SEA, QARTH & THE FAR EAST =================
   {
     id: 'road_dothraki_sea_qohor_vaes_dothrak',
     from: 'qohor',
@@ -852,8 +861,10 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'dirt_track',
     waypoints: [
       [3945, 4580],
-      [4600, 4550],
-      [5400, 4480],
+      [3944, 4582],
+      [6232, 4414],
+      [6376, 4382],
+      [6392, 4350],
       [6394, 4352]
     ]
   },
@@ -879,8 +890,12 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'royal_road',
     waypoints: [
       [6884, 6196],
-      [7150, 6350],
-      [7500, 6480],
+      [6880, 6189],
+      [6920, 6149],
+      [7272, 6077],
+      [7328, 6093],
+      [7632, 6341],
+      [7840, 6589],
       [7841, 6592]
     ]
   },
@@ -892,8 +907,12 @@ const RAW_ROADS: RawEdge[] = [
     terrainType: 'paved_highway',
     waypoints: [
       [7841, 6592],
-      [8100, 6500],
-      [8350, 6430],
+      [7840, 6589],
+      [8296, 6365],
+      [8472, 6317],
+      [8600, 6317],
+      [8624, 6357],
+      [8624, 6365],
       [8626, 6365]
     ]
   },
@@ -904,10 +923,16 @@ const RAW_ROADS: RawEdge[] = [
     name: 'Vale of Shadows Mountain Pass',
     terrainType: 'mountain_pass',
     waypoints: [
-      [8400, 6420],
-      [8650, 6750],
-      [8850, 7100],
-      [9050, 7450]
+      [8626, 6365],
+      [9904, 6829],
+      [9984, 6901],
+      [9992, 6909],
+      [9992, 7181],
+      [9968, 7197],
+      [9624, 7316],
+      [9464, 7385],
+      [8920, 7440],
+      [8907, 7442]
     ]
   }
 ];

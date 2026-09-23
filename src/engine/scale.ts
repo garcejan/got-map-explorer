@@ -91,32 +91,23 @@ export function sanitizeRouteWaypoints(
     return [fromCoords, toCoords];
   }
 
-  let wps: [number, number][] = rawWps.map(wp => [wp[0], wp[1]]);
+  const wps: [number, number][] = rawWps.map(wp => [wp[0], wp[1]]);
   wps[0] = fromCoords;
   wps[wps.length - 1] = toCoords;
 
-  const vx = toCoords[0] - fromCoords[0];
-  const vy = toCoords[1] - fromCoords[1];
-  const vLenSq = vx * vx + vy * vy;
-
-  if (vLenSq < 1e-4) {
-    return [fromCoords, toCoords];
-  }
-
-  // Filter out points that project behind start or past destination along the overall vector
-  const filtered: [number, number][] = [fromCoords];
-  for (let i = 1; i < wps.length - 1; i++) {
-    const p = wps[i];
-    const proj = ((p[0] - fromCoords[0]) * vx + (p[1] - fromCoords[1]) * vy) / vLenSq;
-    if (proj >= -0.05 && proj <= 1.05) {
-      filtered.push(p);
+  // Remove zero-distance duplicates
+  const cleaned: [number, number][] = [wps[0]];
+  for (let i = 1; i < wps.length; i++) {
+    const prev = cleaned[cleaned.length - 1];
+    const curr = wps[i];
+    if (Math.hypot(curr[0] - prev[0], curr[1] - prev[1]) > 0.5) {
+      cleaned.push(curr);
     }
   }
-  filtered.push(toCoords);
 
-  // Iteratively prune sharp hairpin turns (> 95 degrees)
+  // Iteratively prune severe hairpin reversals (> 150 degrees) that double-back on themselves
   let changed = true;
-  let current = filtered;
+  let current = cleaned;
   while (changed && current.length > 2) {
     changed = false;
     const next: [number, number][] = [current[0]];
@@ -137,7 +128,8 @@ export function sanitizeRouteWaypoints(
       const dot = (v1x * v2x + v1y * v2y) / (len1 * len2);
       const angle = (Math.acos(Math.max(-1, Math.min(1, dot))) * 180) / Math.PI;
 
-      if (angle > 95) {
+      // Only eliminate true hairpins (sharp double-backs > 150°), never normal 90-120° geographic turns
+      if (angle > 150) {
         changed = true;
       } else {
         next.push(p2);
