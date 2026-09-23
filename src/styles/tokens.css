@@ -1,0 +1,214 @@
+/* Citadel / Maester's Cartography Design System - CSS Tokens */
+
+:root,
+[data-theme='dark'] {
+  /* Surfaces & Backgrounds */
+  --bg-primary: #0a0e14;
+  --bg-secondary: #121820;
+  --bg-tertiary: #1b232f;
+  --bg-panel: rgba(16, 22, 31, 0.94);
+  --bg-card: rgba(24, 32, 45, 0.75);
+  --bg-hover: rgba(40, 52, 70, 0.8);
+  --bg-subtle: rgba(15, 23, 42, 0.85);
+
+  /* Citadel Gold Borders & Accents */
+  --border-gold: #c99738;
+  --border-gold-glow: rgba(223, 177, 91, 0.4);
+  --border-subtle: #2d3848;
+
+  /* Typography / Text */
+  --text-gold: #dfb15b;
+  --text-gold-bright: #ffd479;
+  --text-parchment: #f4ecd8;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  /* Accent Colors */
+  --accent-red: #991b1b;
+  --accent-red-hover: #b91c1c;
+  --accent-blue: #0284c7;
+  --accent-green: #15803d;
+  --accent-purple: #7e22ce;
+
+  /* Fonts */
+  --font-serif: 'Cinzel', serif;
+  --font-medieval: 'MedievalSharp', cursive;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadows */
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 15px rgba(223, 177, 91, 0.25);
+  --shadow-inner-panel: inset 0 0 20px rgba(0, 0, 0, 0.5);
+
+  /* Controls & Overlay Elements */
+  --scrollbar-thumb: #334155;
+  --input-bg: #090d13;
+  --leaflet-bg: #090d12;
+  --hud-bg: rgba(10, 14, 20, 0.92);
+  --toast-bg: rgba(15, 23, 42, 0.95);
+  --modal-backdrop: rgba(5, 8, 14, 0.82);
+
+  /* Raven / Direct Flight Presets */
+  --preset-raven-bg: rgba(168, 85, 247, 0.18);
+  --preset-raven-border: rgba(168, 85, 247, 0.5);
+  --preset-raven-text: #e9d5ff;
+  --preset-raven-icon: #c084fc;
+
+  /* Terrain & Corridor Badges */
+  --badge-land-bg: rgba(245, 158, 11, 0.12);
+  --badge-land-border: rgba(245, 158, 11, 0.35);
+  --badge-land-title: #f59e0b;
+  --badge-land-val: #fbbf24;
+
+  --badge-sea-bg: rgba(6, 182, 212, 0.12);
+  --badge-sea-border: rgba(6, 182, 212, 0.35);
+  --badge-sea-title: #06b6d4;
+  --badge-sea-val: #38bdf8;
+
+  --badge-success-bg: rgba(34, 197, 94, 0.15);
+  --badge-success-border: rgba(34, 197, 94, 0.35);
+  --badge-success-text: #4ade80;
+
+  /* Expedition Party Archetype Colors */
+  --icon-dragon: #ef4444;
+  --icon-crow: #c084fc;
+  --icon-messenger: #4ade80;
+  --icon-retinue: #fbbf24;
+  --icon-army: #60a5fa;
+  --icon-caravan: #fb923c;
+  --icon-fleet: #22d3ee;
+
+  /* Route Corridors on Map */
+  --route-land: #f59e0b;
+  --route-sea: #06b6d4;
+  --route-flight: #c084fc;
+  --route-dragon: #ef4444;
+  --route-glow: #dfb15b;
+
+  /* Settlement Node Type Badges */
+  --badge-capital-bg: rgba(255, 215, 0, 0.15);
+  --badge-capital-border: rgba(255, 215, 0, 0.4);
+  --badge-capital-text: #ffd700;
+
+  --badge-port-bg: rgba(56, 189, 248, 0.15);
+  --badge-port-border: rgba(56, 189, 248, 0.4);
+  --badge-port-text: #38bdf8;
+
+  --badge-castle-bg: rgba(148, 163, 184, 0.15);
+  --badge-castle-border: rgba(148, 163, 184, 0.3);
+  --badge-castle-text: #cbd5e1;
+
+  --badge-city-bg: rgba(245, 158, 11, 0.15);
+  --badge-city-border: rgba(245, 158, 11, 0.3);
+  --badge-city-text: #f59e0b;
+
+  --badge-junction-bg: rgba(100, 116, 139, 0.15);
+  --badge-junction-border: rgba(100, 116, 139, 0.3);
+  --badge-junction-text: #94a3b8;
+}
+
+[data-theme='beige'] {
+  /* Surfaces & Backgrounds */
+  --bg-primary: #f6efe2;
+  --bg-secondary: #ecdfcc;
+  --bg-tertiary: #dfcfb8;
+  --bg-panel: rgba(248, 242, 232, 0.95);
+  --bg-card: rgba(240, 232, 220, 0.9);
+  --bg-hover: rgba(226, 214, 196, 0.95);
+  --bg-subtle: rgba(235, 224, 208, 0.92);
+
+  /* Citadel Gold Borders & Accents */
+  --border-gold: #b3802b;
+  --border-gold-glow: rgba(179, 128, 43, 0.45);
+  --border-subtle: #cbb9a0;
+
+  /* Typography / Text */
+  --text-gold: #7d4f0b;
+  --text-gold-bright: #523101;
+  --text-parchment: #221a12;
+  --text-muted: #645341;
+  --text-dim: #8c7862;
+
+  /* Accent Colors */
+  --accent-red: #941b1b;
+  --accent-red-hover: #b91c1c;
+  --accent-blue: #0b69a3;
+  --accent-green: #147539;
+  --accent-purple: #7022b3;
+
+  /* Fonts */
+  --font-serif: 'Cinzel', serif;
+  --font-medieval: 'MedievalSharp', cursive;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadows */
+  --shadow-lg: 0 10px 25px -5px rgba(65, 45, 25, 0.2), 0 8px 10px -6px rgba(65, 45, 25, 0.12);
+  --shadow-gold: 0 0 15px rgba(179, 128, 43, 0.22);
+  --shadow-inner-panel: inset 0 0 18px rgba(179, 128, 43, 0.08);
+
+  /* Controls & Overlay Elements */
+  --scrollbar-thumb: #c4b39b;
+  --input-bg: #fdfaf4;
+  --leaflet-bg: #ded2be;
+  --hud-bg: rgba(246, 240, 230, 0.96);
+  --toast-bg: rgba(246, 240, 230, 0.98);
+  --modal-backdrop: rgba(45, 35, 25, 0.65);
+
+  /* Raven / Direct Flight Presets */
+  --preset-raven-bg: rgba(147, 51, 234, 0.12);
+  --preset-raven-border: rgba(147, 51, 234, 0.4);
+  --preset-raven-text: #581c87;
+  --preset-raven-icon: #7e22ce;
+
+  /* Terrain & Corridor Badges */
+  --badge-land-bg: rgba(180, 83, 9, 0.12);
+  --badge-land-border: rgba(180, 83, 9, 0.35);
+  --badge-land-title: #92400e;
+  --badge-land-val: #78350f;
+
+  --badge-sea-bg: rgba(2, 132, 199, 0.12);
+  --badge-sea-border: rgba(2, 132, 199, 0.35);
+  --badge-sea-title: #0369a1;
+  --badge-sea-val: #075985;
+
+  --badge-success-bg: rgba(20, 117, 57, 0.12);
+  --badge-success-border: rgba(20, 117, 57, 0.35);
+  --badge-success-text: #14532d;
+
+  /* Expedition Party Archetype Colors */
+  --icon-dragon: #b91c1c;
+  --icon-crow: #7e22ce;
+  --icon-messenger: #15803d;
+  --icon-retinue: #b45309;
+  --icon-army: #1d4ed8;
+  --icon-caravan: #c2410c;
+  --icon-fleet: #0e7490;
+
+  /* Route Corridors on Map */
+  --route-land: #92400e;
+  --route-sea: #0369a1;
+  --route-flight: #7e22ce;
+  --route-dragon: #b91c1c;
+  --route-glow: #b3802b;
+
+  /* Settlement Node Type Badges */
+  --badge-capital-bg: rgba(179, 128, 43, 0.15);
+  --badge-capital-border: rgba(179, 128, 43, 0.4);
+  --badge-capital-text: #7d4f0b;
+
+  --badge-port-bg: rgba(3, 105, 161, 0.12);
+  --badge-port-border: rgba(3, 105, 161, 0.35);
+  --badge-port-text: #0369a1;
+
+  --badge-castle-bg: rgba(100, 83, 65, 0.12);
+  --badge-castle-border: rgba(100, 83, 65, 0.3);
+  --badge-castle-text: #645341;
+
+  --badge-city-bg: rgba(180, 83, 9, 0.12);
+  --badge-city-border: rgba(180, 83, 9, 0.35);
+  --badge-city-text: #92400e;
+
+  --badge-junction-bg: rgba(120, 113, 108, 0.12);
+  --badge-junction-border: rgba(120, 113, 108, 0.3);
+  --badge-junction-text: #78716c;
+}
