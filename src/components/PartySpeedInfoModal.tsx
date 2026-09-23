@@ -623,9 +623,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
             Speeds are calibrated to the canonical <strong>300-mile Wall</strong> (Shadow Tower to Eastwatch: 297.4 mi)
             and the Kingsroad royal progress milestone (1,500 mi in 2 months).
           </div>
-          <button onClick={onClose} className="btn-secondary" style={{ padding: '4px 12px', fontSize: 11 }}>
-            Close Guide
-          </button>
+
         </div>
       </div>
     </div>,
