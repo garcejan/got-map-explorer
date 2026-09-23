@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { MapCanvas } from './components/MapCanvas';
 import { Header, type Theme } from './components/Header';
 import { CitadelSidebar } from './components/CitadelSidebar';
-import type { PresetJourney } from './components/QuickPresets';
+import type { PresetJourney } from './components/HistoricalPresetsDropdown';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from './types';
 import { calculateRealisticRoute, optimizeWaypointOrder } from './engine/pathfinder';
 
