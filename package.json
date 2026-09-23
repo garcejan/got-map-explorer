@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint src",
-    "test": "tsx scripts/verify_all_nodes_routing.ts && tsx scripts/audit_all_routes.ts",
+    "test": "tsx scripts/audit_collisions.ts && tsx scripts/verify_all_nodes_routing.ts && tsx scripts/audit_all_routes.ts",
+    "test:collisions": "tsx scripts/audit_collisions.ts",
     "preview": "vite preview"
   },
   "dependencies": {
