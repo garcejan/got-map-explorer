@@ -1407,9 +1407,9 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     setActiveTab('ledger');
                   }}
                   className="btn-citadel"
-                  style={{ flex: 1, padding: '12px', fontSize: 14 }}
+                  style={{ flex: 1, padding: '8px 12px', fontSize: 12 }}
                 >
-                  <Navigation size={16} />
+                  <Navigation size={14} />
                   <span>Calculate Journey</span>
                 </button>
 
@@ -1418,10 +1418,10 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     type="button"
                     onClick={handleClearRoute}
                     className="btn-citadel-inverse"
-                    style={{ padding: '12px 16px', fontSize: 14 }}
+                    style={{ padding: '8px 14px', fontSize: 12 }}
                     title="Clear current route and stops"
                   >
-                    <X size={15} />
+                    <X size={14} />
                     <span>Clear</span>
                   </button>
                 )}

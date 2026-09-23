@@ -1,5 +1,6 @@
 import React from 'react';
 import type { BathymetryZone } from '../engine/waterNav';
+import { Compass } from 'lucide-react';
 
 export interface TelemetryData {
   worldCoords: string;
@@ -44,7 +45,9 @@ export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry, style, cl
     >
       {/* World Lat / Lng */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-        <span style={{ fontSize: 13 }}>🧭</span>
+        {/* <span style={{ fontSize: 13 }}>🧭</span> */}
+        <Compass size={15} color="var(--text-gold)" />
+
         <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>
           {telemetry.worldCoords}
         </span>

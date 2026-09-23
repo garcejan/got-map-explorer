@@ -92,8 +92,9 @@ export const Header: React.FC<HeaderProps> = ({
                 borderRadius: 4,
                 background: 'rgba(223, 177, 91, 0.25)',
                 color: 'var(--text-gold-bright)',
-                fontWeight: 800,
-                letterSpacing: '0.6px'
+                fontWeight: 700,
+                fontFamily: "'Cinzel', serif",
+                letterSpacing: 0.5
               }}
             >
               CITADEL
@@ -105,7 +106,9 @@ export const Header: React.FC<HeaderProps> = ({
               color: 'var(--text-muted)',
               margin: '2px 0 0',
               letterSpacing: '0.3px',
+              fontFamily: "'Cinzel', serif",
               whiteSpace: 'nowrap'
+
             }}
           >
             Curved Roads & Sea Corridors
