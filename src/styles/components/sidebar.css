@@ -11,6 +11,11 @@
   z-index: 2000;
 }
 
+.citadel-map-overlays .citadel-modal-backdrop,
+.citadel-map-overlays .citadel-modal-dialog {
+  pointer-events: auto;
+}
+
 .citadel-sidebar-movable {
   position: absolute;
   width: 390px;

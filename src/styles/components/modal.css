@@ -4,20 +4,22 @@
   position: fixed;
   inset: 0;
   background: var(--modal-backdrop);
-  z-index: 3000;
+  z-index: 5000;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: auto;
 }
 
 .citadel-modal-dialog {
-  max-width: 800px;
+  max-width: 960px;
   width: calc(100vw - 32px);
   max-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  box-shadow: var(--shadow-lg), 0 0 30px var(--shadow-gold);
+  pointer-events: auto;
 }
