@@ -150,7 +150,9 @@ textarea::placeholder {
   padding: 0;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -165,13 +167,16 @@ html, body, #root {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--border-gold);
 }
@@ -180,12 +185,15 @@ html, body, #root {
 .font-serif {
   font-family: var(--font-serif);
 }
+
 .font-medieval {
   font-family: var(--font-medieval);
 }
+
 .text-gold {
   color: var(--text-gold);
 }
+
 .text-gold-bright {
   color: var(--text-gold-bright);
 }
@@ -201,6 +209,7 @@ html, body, #root {
   color: var(--text-gold) !important;
   border-bottom: 1px solid var(--border-subtle) !important;
 }
+
 .leaflet-bar a:hover {
   background-color: var(--bg-tertiary) !important;
   color: var(--text-gold-bright) !important;
@@ -215,14 +224,17 @@ html, body, #root {
   box-shadow: var(--shadow-lg), var(--shadow-gold);
   padding: 0;
 }
+
 .citadel-popup .leaflet-popup-tip {
   background: var(--bg-panel);
   border: 1px solid var(--border-gold);
 }
+
 .citadel-popup .leaflet-popup-content {
   margin: 12px 14px;
   line-height: 1.4;
 }
+
 .citadel-popup .leaflet-popup-close-button {
   color: var(--text-muted) !important;
   padding: 8px 10px 0 0 !important;
@@ -231,6 +243,7 @@ html, body, #root {
   text-decoration: none !important;
   transition: color 0.15s ease !important;
 }
+
 .citadel-popup .leaflet-popup-close-button:hover {
   color: var(--text-gold-bright) !important;
 }
@@ -260,16 +273,20 @@ html, body, #root {
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
 }
+
 .citadel-tooltip::before,
 .citadel-tooltip.leaflet-tooltip-top::before {
   border-top-color: var(--border-gold) !important;
 }
+
 .citadel-tooltip.leaflet-tooltip-bottom::before {
   border-bottom-color: var(--border-gold) !important;
 }
+
 .citadel-tooltip.leaflet-tooltip-left::before {
   border-left-color: var(--border-gold) !important;
 }
+
 .citadel-tooltip.leaflet-tooltip-right::before {
   border-right-color: var(--border-gold) !important;
 }
@@ -331,6 +348,7 @@ html, body, #root {
   color: #ffffff;
   border-color: #22c55e;
 }
+
 .citadel-popup-btn-origin:hover {
   background: #16a34a;
   box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
@@ -341,6 +359,7 @@ html, body, #root {
   color: #ffffff;
   border-color: #ef4444;
 }
+
 .citadel-popup-btn-dest:hover {
   background: #dc2626;
   box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
@@ -351,6 +370,7 @@ html, body, #root {
   color: #ffffff;
   border-color: #38bdf8;
 }
+
 .citadel-popup-btn-way:hover {
   background: #0284c7;
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
@@ -361,6 +381,7 @@ html, body, #root {
   color: #ffffff;
   border-color: #fb923c;
 }
+
 .citadel-popup-btn-way-active:hover {
   background: #ea580c;
   box-shadow: 0 0 8px rgba(251, 146, 60, 0.4);
@@ -375,6 +396,7 @@ html, body, #root {
   transition: transform 0.2s ease, filter 0.2s ease;
   cursor: pointer;
 }
+
 .citadel-marker:hover {
   transform: scale(1.3);
   filter: drop-shadow(0 0 8px rgba(223, 177, 91, 0.9));
@@ -386,24 +408,29 @@ html, body, #root {
   border: 2px solid #ffffff;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
+
 .marker-city {
   background: radial-gradient(circle, #f59e0b 0%, #78350f 100%);
   border: 1.5px solid #ffffff;
   box-shadow: 0 0 6px rgba(245, 158, 11, 0.7);
 }
+
 .marker-castle {
   background: radial-gradient(circle, #cbd5e1 0%, #334155 100%);
   border: 1.5px solid #94a3b8;
 }
+
 .marker-port {
   background: radial-gradient(circle, #38bdf8 0%, #0369a1 100%);
   border: 1.5px solid #ffffff;
   box-shadow: 0 0 6px rgba(56, 189, 248, 0.7);
 }
+
 .marker-junction {
   background: #64748b;
   border: 1px solid #94a3b8;
 }
+
 .marker-selected {
   animation: pulse-ring 1.5s infinite;
 }
@@ -436,9 +463,11 @@ html, body, #root {
   0% {
     box-shadow: 0 0 0 0 rgba(223, 177, 91, 0.8), 0 0 12px rgba(223, 177, 91, 0.9);
   }
+
   70% {
     box-shadow: 0 0 0 12px rgba(223, 177, 91, 0), 0 0 16px rgba(223, 177, 91, 0.5);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(223, 177, 91, 0), 0 0 12px rgba(223, 177, 91, 0.9);
   }
@@ -448,9 +477,11 @@ html, body, #root {
   0% {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.8), 0 0 12px rgba(34, 197, 94, 0.9);
   }
+
   70% {
     box-shadow: 0 0 0 12px rgba(34, 197, 94, 0), 0 0 16px rgba(34, 197, 94, 0.5);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0), 0 0 12px rgba(34, 197, 94, 0.9);
   }
@@ -460,9 +491,11 @@ html, body, #root {
   0% {
     box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8), 0 0 12px rgba(239, 68, 68, 0.9);
   }
+
   70% {
     box-shadow: 0 0 0 12px rgba(239, 68, 68, 0), 0 0 16px rgba(239, 68, 68, 0.5);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(239, 68, 68, 0), 0 0 12px rgba(239, 68, 68, 0.9);
   }
@@ -472,9 +505,11 @@ html, body, #root {
   0% {
     box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.8), 0 0 12px rgba(14, 165, 233, 0.9);
   }
+
   70% {
     box-shadow: 0 0 0 12px rgba(14, 165, 233, 0), 0 0 16px rgba(14, 165, 233, 0.5);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(14, 165, 233, 0), 0 0 12px rgba(14, 165, 233, 0.9);
   }
@@ -485,6 +520,7 @@ html, body, #root {
   from {
     stroke-dashoffset: 40;
   }
+
   to {
     stroke-dashoffset: 0;
   }
@@ -494,14 +530,17 @@ html, body, #root {
   stroke-dasharray: 8, 8;
   animation: flowEmber 1.2s linear infinite;
 }
+
 .route-flowing-sea {
   stroke-dasharray: 10, 10;
   animation: flowEmber 1.8s linear infinite;
 }
+
 .route-flowing-flight {
   stroke-dasharray: 6, 6;
   animation: flowEmber 0.8s linear infinite;
 }
+
 .route-flowing-crow {
   stroke-dasharray: 5, 5;
   animation: flowEmber 0.7s linear infinite;
@@ -523,21 +562,22 @@ html, body, #root {
   border-radius: 8px;
   transition: all 0.2s ease;
 }
+
 .glass-card:hover {
   border-color: var(--border-gold);
   background: var(--bg-hover);
 }
 
-/* Custom Buttons */
-.btn-citadel {
-  background: linear-gradient(135deg, #8b2626 0%, #5a1414 100%);
-  color: #fce7f3;
-  border: 1px solid #dc2626;
+/* Custom Buttons: Citadel Action Palette */
+.btn-citadel,
+.btn-citadel-inverse {
   font-family: var(--font-serif);
   font-weight: 700;
   letter-spacing: 0.5px;
   padding: 10px 18px;
   border-radius: 6px;
+  border: 1px solid #c59b27;
+  color: #eed68a;
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-flex;
@@ -546,23 +586,78 @@ html, body, #root {
   gap: 8px;
   text-transform: uppercase;
   font-size: 13px;
-  box-shadow: 0 4px 12px rgba(139, 38, 38, 0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 140, 0.25),
+    0 2px 5px rgba(0, 0, 0, 0.18);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
+
+.btn-citadel {
+  flex: 1.4;
+  background: linear-gradient(135deg, #7c1a22 0%, #4a0f14 100%);
+}
+
+.btn-citadel-inverse {
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #58151b 0%, #340a0e 100%);
+  padding: 10px 16px;
+}
+
+/* Container adjustment: gives the primary action priority */
+.button-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.btn-citadel svg,
+.btn-citadel-inverse svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
 .btn-citadel:hover {
-  background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
-  box-shadow: 0 0 16px rgba(220, 38, 38, 0.6);
+  background: linear-gradient(135deg, #8f212a 0%, #581219 100%);
+  border-color: #dfb15b;
+  color: #fff0be;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 170, 0.4),
+    0 3px 8px rgba(124, 26, 34, 0.35);
   transform: translateY(-1px);
 }
+
 .btn-citadel:active {
   transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-.btn-citadel:disabled {
+
+.btn-citadel-inverse:hover {
+  background: linear-gradient(135deg, #701c24 0%, #440d13 100%);
+  border-color: #dfb15b;
+  color: #fff0be;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 170, 0.4),
+    0 3px 8px rgba(124, 26, 34, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-citadel-inverse:active {
+  transform: translateY(0);
+  background: #2a080c;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Shared disabled state */
+.btn-citadel:disabled,
+.btn-citadel-inverse:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
-  filter: grayscale(40%);
+  filter: grayscale(30%);
 }
+
 
 .btn-secondary {
   background: var(--bg-tertiary);
@@ -577,11 +672,14 @@ html, body, #root {
   gap: 6px;
   transition: all 0.2s ease;
 }
+
 .btn-secondary:hover {
   border-color: var(--border-gold);
   color: var(--text-gold);
   background: var(--bg-hover);
 }
+
+/* ---------------------- */
 
 /* Inputs */
 .citadel-input {
@@ -595,6 +693,7 @@ html, body, #root {
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 .citadel-input:focus {
   border-color: var(--border-gold);
   box-shadow: 0 0 8px rgba(223, 177, 91, 0.3);
@@ -612,6 +711,7 @@ html, body, #root {
   outline: none;
   cursor: pointer;
 }
+
 .citadel-select:focus {
   border-color: var(--border-gold);
 }
@@ -677,6 +777,7 @@ html, body, #root {
     transform: translate(-50%, -50%) scale(0.8);
     opacity: 0.7;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1.3);
     opacity: 1;
@@ -691,6 +792,7 @@ html, body, #root {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+
   100% {
     width: 90px;
     height: 90px;
@@ -735,6 +837,7 @@ html, body, #root {
     transform: scale(0.7);
     opacity: 1;
   }
+
   100% {
     transform: scale(1.8);
     opacity: 0;
@@ -843,6 +946,7 @@ html, body, #root {
   0% {
     filter: drop-shadow(0 0 2px rgba(223, 177, 91, 0.4));
   }
+
   100% {
     filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 14px rgba(223, 177, 91, 0.6));
   }
@@ -939,6 +1043,7 @@ html, body, #root {
     opacity: 0;
     transform: translate(-50%, -15px) scale(0.95);
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, 0) scale(1);
@@ -957,6 +1062,7 @@ html, body, #root {
     box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
     border-color: #eab308;
   }
+
   100% {
     box-shadow: 0 0 16px rgba(255, 215, 0, 0.85);
     border-color: #fef08a;
@@ -1036,6 +1142,7 @@ html, body, #root {
     transform: scale(0.95);
     filter: drop-shadow(0 0 2px #ffd700);
   }
+
   100% {
     transform: scale(1.15);
     filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
@@ -1070,6 +1177,7 @@ html, body, #root {
     opacity: 0;
     transform: translate(-50%, 20px);
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, 0);
@@ -1081,6 +1189,7 @@ html, body, #root {
     opacity: 0;
     margin-top: -6px;
   }
+
   100% {
     opacity: 1;
     margin-top: 0;
@@ -1265,4 +1374,3 @@ body.citadel-dragging-active .leaflet-container {
   border-color: var(--border-gold) !important;
   transition: none !important;
 }
-

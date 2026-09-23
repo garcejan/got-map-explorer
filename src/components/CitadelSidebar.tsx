@@ -851,6 +851,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                   fontWeight: 900,
                   letterSpacing: '1px',
                   color: 'var(--text-gold)',
+                  fontFamily: "'Cinzel', serif",
+
                   textTransform: 'uppercase'
                 }}
               >
@@ -937,8 +939,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               <Compass size={13} />
               <span>Itinerary</span>
               {routeResult && (
-                <span style={{ fontSize: 10, padding: '1px 5px', background: '#dfb25d40', color: 'var(--text-gold-bright)', borderRadius: 3, fontWeight: 800 }}>
-                  ({routeResult.totalDays}d)
+                <span style={{ fontSize: 10, padding: '1px 5px', color: 'var(--text-gold-bright)', borderRadius: 3, fontWeight: 800 }}>
+                  [{routeResult.totalDays}d]
                 </span>
               )}
             </button>
@@ -1189,10 +1191,10 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                         fontSize: 10,
                         fontWeight: 700,
                         color: currentArchetype.badgeColor,
-                        background: 'rgba(0, 0, 0, 0.25)',
+                        // background: 'rgba(0, 0, 0, 0.25)',
                         padding: '2px 6px',
                         borderRadius: 4,
-                        border: '1px solid rgba(223, 177, 91, 0.2)'
+                        border: '2px solid rgba(223, 177, 91, 0.2)'
                       }}>
                         {currentArchetype.pace}
                       </span>
@@ -1290,7 +1292,9 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                                       fontSize: 10,
                                       fontWeight: 700,
                                       color: arch.badgeColor,
-                                      background: 'rgba(0, 0, 0, 0.25)',
+                                      // background: 'rgba(0, 0, 0, 0.25)',
+                                      border: '2px solid rgba(223, 177, 91, 0.2)',
+
                                       padding: '1px 5px',
                                       borderRadius: 4
                                     }}>
@@ -1413,24 +1417,12 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                   <button
                     type="button"
                     onClick={handleClearRoute}
-                    className="btn-secondary"
-                    style={{
-                      padding: '12px 16px',
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: '#f87171',
-                      borderColor: 'rgba(239, 68, 68, 0.4)',
-                      background: 'rgba(239, 68, 68, 0.08)',
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 6
-                    }}
+                    className="btn-citadel-inverse"
+                    style={{ padding: '12px 16px', fontSize: 14 }}
                     title="Clear current route and stops"
                   >
-                    <RotateCcw size={15} />
-                    <span>Clear Route</span>
+                    <X size={15} />
+                    <span>Clear</span>
                   </button>
                 )}
               </div>
