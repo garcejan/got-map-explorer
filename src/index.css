@@ -672,22 +672,17 @@ body,
 }
 
 [data-theme='beige'] .btn-citadel-inverse {
-  background: linear-gradient(135deg, #e6ecf2 0%, #d4dde8 100%);
-  border: 1px solid #8e9fab;
-  color: #1e293b;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  color: var(--text-parchment);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 1px 3px rgba(65, 45, 25, 0.12);
+
 }
 
 [data-theme='beige'] .btn-citadel-inverse:hover {
-  background: linear-gradient(135deg, #f0f4f8 0%, #dde5ef 100%);
-  border-color: #64748b;
-  color: #0f172a;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 1),
-    0 2px 6px rgba(65, 45, 25, 0.18);
+  background: var(--bg-hover);
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
   transform: translateY(-1px);
 }
 
@@ -1081,10 +1076,10 @@ body,
 }
 
 .citadel-layer-btn.active {
-  background: var(--border-gold);
-  color: var(--bg-primary);
+
+  background: var(--bg-hover);
   border-color: var(--border-gold);
-  box-shadow: 0 0 12px var(--border-gold-glow);
+  color: var(--text-gold-bright);
 }
 
 @keyframes hud-bounce-in {
