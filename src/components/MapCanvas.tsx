@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
-import { Layers, Plus, Minus, RotateCcw } from 'lucide-react';
+import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
 import type { Theme } from './Header';
 import { NODES } from '../data/nodes';
@@ -12,7 +12,7 @@ import { leafletToWorld, WORLD_GRATICULES } from '../engine/coordinates';
 import { initWaterNav, getBathymetryZone } from '../engine/waterNav';
 import { TelemetryHUD, type TelemetryData } from './TelemetryHUD';
 
-interface MapCanvasProps {
+export interface MapCanvasProps {
   theme?: Theme;
   originId: string;
   destinationId: string;
@@ -24,6 +24,12 @@ interface MapCanvasProps {
   onNodePicked?: (nodeId: string, target: NonNullable<MapPickingTarget>) => void;
   onCancelPicking?: () => void;
   onQuickRoute: (nodeId: string) => void;
+  children?: React.ReactNode;
+  onToggleSidebar?: () => void;
+  isSidebarOpen?: boolean;
+  isSidebarDockedRight?: boolean;
+  onDockSidebarLeft?: () => void;
+  onDockSidebarRight?: () => void;
 }
 
 export const MapCanvas: React.FC<MapCanvasProps> = ({
@@ -37,7 +43,13 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   onSelectNode,
   onNodePicked,
   onCancelPicking,
-  onQuickRoute
+  onQuickRoute,
+  children,
+  onToggleSidebar: _onToggleSidebar,
+  isSidebarOpen: _isSidebarOpen,
+  isSidebarDockedRight = false,
+  onDockSidebarLeft,
+  onDockSidebarRight
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -109,6 +121,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
+    const bounds = L.latLngBounds([0, 0], [MAP_HEIGHT, MAP_WIDTH]);
+    // Restrain panning boundaries so at least a significant portion of the map is always visible on screen.
+    // Padded slightly (8%) so edge settlements (Lonely Light, Starfish Harbor, The Wall, Asshai) can be centered
+    // and viewed comfortably clear of the Citadel Ledger sidebar and Header bar, while strictly preventing infinite drift into the void.
+    const maxBounds = bounds.pad(0.08);
+
     const map = L.map(mapContainerRef.current, {
       crs: L.CRS.Simple,
       minZoom: -3,
@@ -116,13 +134,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       zoomSnap: 0.25,
       zoomDelta: 0.5,
       zoomControl: false,
-      attributionControl: false
+      attributionControl: false,
+      maxBounds: maxBounds,
+      maxBoundsViscosity: 1.0
     });
-
-    const bounds: L.LatLngBoundsExpression = [
-      [0, 0],
-      [MAP_HEIGHT, MAP_WIDTH]
-    ];
 
     // High-resolution local image overlay with online fallback
     const localMapUrl = '/assets/known_world_map.jpg';
@@ -158,6 +173,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     // Live mouse telemetry tracking
     map.on('mousemove', (e: L.LeafletMouseEvent) => {
       const imgCoords = fromLeafletLatLng([e.latlng.lat, e.latlng.lng]);
+      if (imgCoords[0] < 0 || imgCoords[0] > MAP_WIDTH || imgCoords[1] < 0 || imgCoords[1] > MAP_HEIGHT) {
+        setCursorTelemetry(null);
+        return;
+      }
       const world = leafletToWorld([e.latlng.lat, e.latlng.lng]);
       const zone = getBathymetryZone(imgCoords[0], imgCoords[1]);
       const distPx = pixelDistance(imgCoords, [1031, 5365]);
@@ -1054,6 +1073,27 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           >
             <RotateCcw size={14} />
           </button>
+
+          {(onDockSidebarLeft || onDockSidebarRight) && (
+            <>
+              <div className="citadel-zoom-divider" />
+              <button
+                type="button"
+                className="citadel-zoom-btn"
+                onClick={() => {
+                  if (isSidebarDockedRight) {
+                    onDockSidebarLeft?.();
+                  } else {
+                    onDockSidebarRight?.();
+                  }
+                }}
+                title={isSidebarDockedRight ? "Move Ledger to Left side" : "Move Ledger to Right side (reveal Westeros)"}
+                aria-label="Reposition Citadel Ledger"
+              >
+                <ArrowRightLeft size={14} />
+              </button>
+            </>
+          )}
         </div>
       </div>
 
@@ -1206,6 +1246,13 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         <div className="citadel-toast-notification">
           <span>✨</span>
           <span>{toastMessage}</span>
+        </div>
+      )}
+
+      {/* Floating Children Overlays (e.g. Movable CitadelSidebar) */}
+      {children && (
+        <div className="citadel-map-overlays">
+          {children}
         </div>
       )}
     </div>
