@@ -2,12 +2,8 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import {
   Compass,
-  MapPin,
-  Users,
-  Route,
   Swords,
   BookOpen,
-  Sliders,
   X,
   Sparkles,
   Move,
@@ -128,7 +124,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({ isOpen, on
                 <div className="citadel-guide-step-num">1</div>
                 <div className="citadel-guide-step-content">
                   <div className="citadel-guide-step-heading">
-                    <MapPin size={14} color="var(--text-gold)" />
+                    {/* <MapPin size={14} color="var(--text-gold)" /> */}
                     <strong>Select Origin & Destination</strong>
                   </div>
                   <p>
@@ -141,7 +137,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({ isOpen, on
                 <div className="citadel-guide-step-num">2</div>
                 <div className="citadel-guide-step-content">
                   <div className="citadel-guide-step-heading">
-                    <Users size={14} color="var(--text-gold)" />
+                    {/* <Users size={14} color="var(--text-gold)" /> */}
                     <strong>Choose Travel Party</strong>
                   </div>
                   <p>
@@ -154,7 +150,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({ isOpen, on
                 <div className="citadel-guide-step-num">3</div>
                 <div className="citadel-guide-step-content">
                   <div className="citadel-guide-step-heading">
-                    <Route size={14} color="var(--text-gold)" />
+                    {/* <Route size={14} color="var(--text-gold)" /> */}
                     <strong>Add Waypoints & Optimize</strong>
                   </div>
                   <p>
@@ -167,7 +163,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({ isOpen, on
                 <div className="citadel-guide-step-num">4</div>
                 <div className="citadel-guide-step-content">
                   <div className="citadel-guide-step-heading">
-                    <Sliders size={14} color="var(--text-gold)" />
+                    {/* <Sliders size={14} color="var(--text-gold)" /> */}
                     <strong>Inspect Route & Corridors</strong>
                   </div>
                   <p>
@@ -293,7 +289,10 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({ isOpen, on
           <button
             type="button"
             onClick={onClose}
-            className="citadel-guide-confirm-btn"
+            className="btn-citadel"
+            style={{
+              width: "auto"
+            }}
           >
             <span>Understood, Archmaester</span>
           </button>
