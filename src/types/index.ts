@@ -123,3 +123,32 @@ export type MapPickingTarget =
   | { type: 'destination' }
   | { type: 'waypoint'; index: number }
   | null;
+
+export interface BattleCombatantSide {
+  name: string;
+  commanders: string[];
+  forces?: string;
+  factions?: string[];
+}
+
+export type BattleVictorySide = 'sideA' | 'sideB' | 'stalemate' | 'pyrrhic';
+
+export interface MajorBattle {
+  id: string;
+  name: string;
+  conflict: string;
+  year: string;
+  coords: [number, number]; // [x, y] in 10000 x 8300 image coordinate space
+  locationName: string;
+  region: string;
+  description: string;
+  combatants: {
+    sideA: BattleCombatantSide;
+    sideB: BattleCombatantSide;
+  };
+  victor: string;
+  victorySide: BattleVictorySide;
+  outcomeDetails?: string;
+  wikiUrl: string;
+}
+
