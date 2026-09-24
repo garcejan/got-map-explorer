@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
-import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft, Compass, Ship, House, Crown, Earth, LineSquiggle } from 'lucide-react';
+import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft, Compass, Ship, House, Crown, Earth, LineSquiggle, Swords } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
 import type { Theme } from './Header';
 import { NODES } from '../data/nodes';
 import { ROADS } from '../data/roads';
 import { SEA_LANES } from '../data/seaLanes';
+import { MAJOR_BATTLES } from '../data/battles';
 import { TERRAIN_MODIFIERS } from '../engine/parties';
 import { MAP_WIDTH, MAP_HEIGHT, toLeafletLatLng, fromLeafletLatLng, pixelDistance, pixelsToMiles } from '../engine/scale';
 import { leafletToWorld, WORLD_GRATICULES } from '../engine/coordinates';
@@ -61,12 +62,14 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const seaLaneLayersRef = useRef<L.LayerGroup | null>(null);
   const graticuleLayersRef = useRef<L.LayerGroup | null>(null);
   const waterMaskLayersRef = useRef<L.LayerGroup | null>(null);
+  const battleLayersRef = useRef<L.LayerGroup | null>(null);
   const routeArrowLayersRef = useRef<L.LayerGroup | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
 
   const [showRoads, setShowRoads] = useState<boolean>(false);
   const [showKingdomPaths, setShowKingdomPaths] = useState<boolean>(false);
   const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
+  const [showBattles, setShowBattles] = useState<boolean>(true);
   const [showRouteArrows] = useState<boolean>(false);
   const [showLabels, setShowLabels] = useState<boolean>(true);
   const [showGraticules, setShowGraticules] = useState<boolean>(true);
@@ -161,6 +164,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     const seaLaneGroup = L.layerGroup().addTo(map);
     const kingdomPathGroup = L.layerGroup().addTo(map);
     const roadGroup = L.layerGroup().addTo(map);
+    const battleGroup = L.layerGroup().addTo(map);
     const markerGroup = L.layerGroup().addTo(map);
     const routeGroup = L.layerGroup().addTo(map);
     const routeArrowGroup = L.layerGroup().addTo(map);
@@ -171,6 +175,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
     seaLaneLayersRef.current = seaLaneGroup;
     kingdomPathLayersRef.current = kingdomPathGroup;
     roadLayersRef.current = roadGroup;
+    battleLayersRef.current = battleGroup;
     markerLayersRef.current = markerGroup;
     routeLayersRef.current = routeGroup;
     routeArrowLayersRef.current = routeArrowGroup;
@@ -469,6 +474,122 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       })
       .catch(err => console.warn('Failed to load landmasses.geojson for overlay:', err));
   }, [showWaterMask]);
+
+  // Render Major Battles Cartography Layer
+  useEffect(() => {
+    const battleGroup = battleLayersRef.current;
+    if (!battleGroup) return;
+    battleGroup.clearLayers();
+    if (!showBattles) return;
+
+    for (const battle of MAJOR_BATTLES) {
+      const latLng = toLeafletLatLng(battle.coords);
+
+      const iconHtml = `
+        <div class="citadel-battle-marker" title="${battle.name} (${battle.year})">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
+            <line x1="13" y1="19" x2="19" y2="13"></line>
+            <line x1="16" y1="16" x2="20" y2="20"></line>
+            <line x1="19" y1="21" x2="21" y2="19"></line>
+            <polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline>
+            <line x1="5" y1="14" x2="9" y2="18"></line>
+            <line x1="7" y1="17" x2="4" y2="20"></line>
+            <line x1="3" y1="19" x2="5" y2="21"></line>
+          </svg>
+        </div>
+      `;
+
+      const icon = L.divIcon({
+        html: iconHtml,
+        className: 'citadel-battle-div-icon',
+        iconSize: [26, 26],
+        iconAnchor: [13, 13]
+      });
+
+      const marker = L.marker(latLng, { icon }).addTo(battleGroup);
+
+      marker.bindTooltip(`
+        <div style="font-family: 'Cinzel', serif; padding: 2px;">
+          <strong style="color: #f87171; font-size: 12px; letter-spacing: 0.5px;">⚔️ ${battle.name}</strong><br>
+          <span style="font-size: 11px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">${battle.conflict} • ${battle.year}</span>
+        </div>
+      `, { sticky: true, className: 'citadel-tooltip' });
+
+      const popupDiv = document.createElement('div');
+      popupDiv.className = 'citadel-battle-popup-container';
+
+      const isStalemate = battle.victorySide === 'stalemate' || battle.victorySide === 'pyrrhic';
+
+      popupDiv.innerHTML = `
+        <div class="citadel-battle-popup-header">
+          <div class="citadel-battle-title-row">
+            <div class="citadel-battle-name">⚔️ ${battle.name}</div>
+            <span class="citadel-battle-year-badge">${battle.year}</span>
+          </div>
+          <div class="citadel-battle-meta">
+            <span class="citadel-battle-conflict-tag">${battle.conflict}</span>
+            <span>•</span>
+            <span>📍 ${battle.locationName}</span>
+          </div>
+        </div>
+
+        <div class="citadel-battle-combatants">
+          <div class="citadel-battle-side">
+            <span class="citadel-battle-side-name">${battle.combatants.sideA.name}</span>
+            <div class="citadel-battle-commanders"><strong style="color: var(--text-gold);">Commanders:</strong> ${battle.combatants.sideA.commanders.join(', ')}</div>
+            ${battle.combatants.sideA.forces ? `<div class="citadel-battle-forces">${battle.combatants.sideA.forces}</div>` : ''}
+          </div>
+
+          <div class="citadel-battle-vs">VS</div>
+
+          <div class="citadel-battle-side">
+            <span class="citadel-battle-side-name">${battle.combatants.sideB.name}</span>
+            <div class="citadel-battle-commanders"><strong style="color: var(--text-gold);">Commanders:</strong> ${battle.combatants.sideB.commanders.join(', ')}</div>
+            ${battle.combatants.sideB.forces ? `<div class="citadel-battle-forces">${battle.combatants.sideB.forces}</div>` : ''}
+          </div>
+        </div>
+
+        <div class="citadel-battle-victor-banner ${isStalemate ? 'stalemate' : ''}">
+          <div class="citadel-battle-victor-title">
+            <span>${isStalemate ? '⚖️' : '👑'}</span>
+            <span>VICTOR: ${battle.victor.toUpperCase()}</span>
+          </div>
+          ${battle.outcomeDetails ? `<div class="citadel-battle-outcome-text">${battle.outcomeDetails}</div>` : ''}
+        </div>
+
+        <p class="citadel-battle-description">
+          "${battle.description}"
+        </p>
+
+        <div>
+          <a href="${battle.wikiUrl}" target="_blank" rel="noopener noreferrer" class="citadel-popup-wiki-btn" title="View historical records and tactical accounts on the Wiki of Westeros">
+            <span style="display: flex; align-items: center; gap: 6px;">
+              <span>📜</span>
+              <span>Wiki of Westeros Details</span>
+            </span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      `;
+
+      L.DomEvent.disableClickPropagation(popupDiv);
+      L.DomEvent.disableScrollPropagation(popupDiv);
+
+      const wikiLink = popupDiv.querySelector('.citadel-popup-wiki-btn') as HTMLAnchorElement | null;
+      if (wikiLink) {
+        L.DomEvent.on(wikiLink, 'click', (e) => {
+          L.DomEvent.stopPropagation(e);
+        });
+      }
+
+      marker.bindPopup(popupDiv, {
+        className: 'citadel-popup',
+        autoPanPaddingTopLeft: L.point(40, 80),
+        autoPanPaddingBottomRight: L.point(40, 40)
+      });
+    }
+  }, [showBattles]);
 
   // Render Settlement Markers
   useEffect(() => {
@@ -1214,6 +1335,19 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                     checked={showSeaLanes}
                     onChange={(e) => setShowSeaLanes(e.target.checked)}
                     style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
+                  />
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Swords size={16} style={{ color: '#ef4444' }}></Swords>
+                    <span>Major battles</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={showBattles}
+                    onChange={(e) => setShowBattles(e.target.checked)}
+                    style={{ accentColor: '#ef4444', cursor: 'pointer' }}
                   />
                 </label>
                 {/* 
