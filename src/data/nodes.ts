@@ -2925,7 +2925,7 @@ export const NODES: Record<string, LocationNode> = {
     name: "Lhazosh",
     region: "dothraki_sea",
     type: "city",
-    coords: [5984, 5594],
+    coords: [5921, 5593],
     allegiance: "Lhazareen",
     loreSnippet: "Hill fortress of the pastoral Lhazareen shepherds perched in the heights above Meereen.",
     wikiUrl: "https://gameofthrones.fandom.com/wiki/Lhazareen",
