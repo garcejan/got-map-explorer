@@ -23,3 +23,240 @@
   box-shadow: var(--shadow-lg), 0 0 30px var(--shadow-gold);
   pointer-events: auto;
 }
+
+/* Citadel Guide / Tutorial Modal Styles */
+.citadel-guide-modal {
+  max-width: 840px;
+  max-height: 88vh;
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  background: var(--bg-panel);
+}
+
+.citadel-guide-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-gold-glow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgba(223, 177, 91, 0.12) 0%, var(--bg-secondary) 100%);
+  flex-shrink: 0;
+}
+
+.citadel-modal-close-btn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.citadel-modal-close-btn:hover {
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+  background: rgba(223, 177, 91, 0.15);
+}
+
+.citadel-guide-body {
+  padding: 18px 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.citadel-guide-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-gold-bright);
+  margin-bottom: 12px;
+}
+
+.citadel-guide-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.citadel-guide-step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.citadel-guide-step-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.citadel-guide-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--border-gold);
+  color: #0a0e14;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--border-gold-glow);
+}
+
+.citadel-guide-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11.5px;
+  color: var(--text-parchment);
+  line-height: 1.35;
+}
+
+.citadel-guide-step-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-gold);
+}
+
+.citadel-guide-step-content p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.citadel-guide-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+}
+
+.citadel-guide-feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: all 0.2s ease;
+}
+
+.citadel-guide-feature-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.citadel-guide-feature-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.citadel-guide-feature-card h4 {
+  margin: 0 0 4px 0;
+  font-size: 12.5px;
+  color: var(--text-gold);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.citadel-guide-feature-card p {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.citadel-guide-tips-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+
+.citadel-guide-tips-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 11.5px;
+  color: var(--text-parchment);
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.citadel-guide-tips-list li {
+  color: var(--text-muted);
+}
+
+.citadel-guide-tips-list li strong {
+  color: var(--text-parchment);
+}
+
+.citadel-kbd {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: monospace;
+  color: var(--text-gold);
+}
+
+.citadel-guide-footer {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border-gold-glow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.citadel-guide-confirm-btn {
+  background: linear-gradient(135deg, #dfb15b 0%, #b3802b 100%);
+  color: #0a0e14;
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 7px 16px;
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.citadel-guide-confirm-btn:hover {
+  background: linear-gradient(135deg, #ffd479 0%, #c99738 100%);
+  box-shadow: 0 0 10px var(--border-gold-glow);
+  transform: translateY(-1px);
+}
+
