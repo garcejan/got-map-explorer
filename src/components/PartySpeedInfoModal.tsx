@@ -9,7 +9,6 @@ import {
   Shield,
   Coins,
   Ship,
-  Check,
   Clock,
   Compass,
   BookOpen
