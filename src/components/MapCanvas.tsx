@@ -13,7 +13,6 @@ import { leafletToWorld, WORLD_GRATICULES } from '../engine/coordinates';
 import { initWaterNav, getBathymetryZone } from '../engine/waterNav';
 import { TelemetryHUD, type TelemetryData } from './TelemetryHUD';
 import { THEME_PALETTES, PARTY_ARCHETYPE_COLORS } from '../styles/tokens';
-import { CitadelMouseGuide } from './CitadelMouseGuide';
 
 export interface MapCanvasProps {
   theme?: Theme;
@@ -33,10 +32,6 @@ export interface MapCanvasProps {
   isSidebarDockedRight?: boolean;
   onDockSidebarLeft?: () => void;
   onDockSidebarRight?: () => void;
-  isMouseGuideOpen?: boolean;
-  onToggleMouseGuide?: () => void;
-  isCustomCursorActive?: boolean;
-  onToggleCustomCursor?: () => void;
 }
 
 export const MapCanvas: React.FC<MapCanvasProps> = ({
@@ -56,11 +51,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   isSidebarOpen: _isSidebarOpen,
   isSidebarDockedRight = false,
   onDockSidebarLeft,
-  onDockSidebarRight,
-  isMouseGuideOpen,
-  onToggleMouseGuide,
-  isCustomCursorActive,
-  onToggleCustomCursor
+  onDockSidebarRight
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -1190,17 +1181,6 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             </button>
           )}
         </div>
-      )}
-
-      {/* Citadel Floating Mouse Navigation Guide */}
-      {onToggleMouseGuide && (
-        <CitadelMouseGuide
-          isOpen={Boolean(isMouseGuideOpen)}
-          onToggleOpen={onToggleMouseGuide}
-          isCustomCursorActive={Boolean(isCustomCursorActive)}
-          onToggleCustomCursor={onToggleCustomCursor || (() => {})}
-          theme={theme}
-        />
       )}
 
       {/* Citadel Bottom-Left Dock: Horizontal Zoom Controls */}

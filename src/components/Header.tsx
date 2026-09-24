@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Moon, Sun, Info, Mouse } from 'lucide-react';
+import { Compass, Moon, Sun, Info } from 'lucide-react';
 import { HistoricalPresetsDropdown, type PresetJourney } from './HistoricalPresetsDropdown';
 import { CitySearch } from './CitySearch';
 import { CitadelGuideModal } from './CitadelGuideModal';
@@ -18,8 +18,6 @@ interface HeaderProps {
   onToggleSidebar?: () => void;
   isSidebarOpen?: boolean;
   routeDays?: number | null;
-  isMouseGuideOpen?: boolean;
-  onToggleMouseGuide?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -30,9 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
   onClearPreset,
   onSelectCity,
   onSetOrigin,
-  onSetDestination,
-  isMouseGuideOpen,
-  onToggleMouseGuide
+  onSetDestination
 }) => {
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const isBeige = theme === 'beige';
@@ -120,20 +116,6 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Right: Info / Guide Button & Theme Switcher */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-        {/* Citadel Mouse & Navigation Guide Button */}
-        {onToggleMouseGuide && (
-          <button
-            type="button"
-            onClick={onToggleMouseGuide}
-            className={`citadel-guide-header-btn ${isMouseGuideOpen ? 'active' : ''}`}
-            title="Citadel Mouse & Navigation Guide (Floating over screen)"
-            aria-label="Toggle Citadel Mouse Guide"
-          >
-            <Mouse size={14} />
-            <span>Mouse</span>
-          </button>
-        )}
-
         {/* Citadel Guide / Tutorial Button */}
         <button
           type="button"

@@ -104,22 +104,8 @@
   transform: translateY(-1px);
 }
 
-.citadel-guide-header-btn.active {
-  background: rgba(223, 177, 91, 0.2);
-  border-color: #ffd700;
-  color: var(--text-gold-bright);
-  box-shadow: 0 0 10px var(--border-gold-glow);
-}
-
-[data-theme='beige'] .citadel-guide-header-btn.active {
-  background: rgba(179, 128, 43, 0.2);
-  border-color: var(--border-gold);
-  color: var(--text-gold-bright);
-}
-
 [data-theme='beige'] .citadel-guide-header-btn:hover {
   border-color: var(--border-gold);
   background: var(--bg-card);
   box-shadow: 0 2px 6px rgba(179, 128, 43, 0.2);
 }
-
