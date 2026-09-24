@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { MapCanvas } from './components/MapCanvas';
 import { Header, type Theme } from './components/Header';
 import { CitadelSidebar } from './components/CitadelSidebar';
+import { CitadelCustomCursor } from './components/CitadelCustomCursor';
 import type { PresetJourney } from './components/HistoricalPresetsDropdown';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from './types';
 import { calculateRealisticRoute, optimizeWaypointOrder } from './engine/pathfinder';
@@ -30,6 +31,43 @@ export const App: React.FC = () => {
   const [activePresetId, setActivePresetId] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
   const [focusedCity, setFocusedCity] = useState<{ id: string; timestamp: number } | null>(null);
+
+  // On-Screen Citadel Mouse Guide and Custom Cursor States
+  const [isMouseGuideOpen, setIsMouseGuideOpen] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return true;
+    const saved = localStorage.getItem('citadel_mouse_guide_open');
+    return saved !== null ? saved === 'true' : true;
+  });
+
+  const [isCustomCursorActive, setIsCustomCursorActive] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return true;
+    const saved = localStorage.getItem('citadel_custom_cursor_active');
+    return saved !== null ? saved === 'true' : true;
+  });
+
+  const handleToggleMouseGuide = useCallback(() => {
+    setIsMouseGuideOpen((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('citadel_mouse_guide_open', String(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  }, []);
+
+  const handleToggleCustomCursor = useCallback(() => {
+    setIsCustomCursorActive((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('citadel_custom_cursor_active', String(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  }, []);
 
   const handleZoomToCity = (nodeId: string) => {
     setFocusedCity({ id: nodeId, timestamp: Date.now() });
@@ -255,6 +293,10 @@ export const App: React.FC = () => {
         isSidebarDockedRight={isSidebarDockedRight}
         onDockSidebarLeft={handleDockSidebarLeft}
         onDockSidebarRight={handleDockSidebarRight}
+        isMouseGuideOpen={isMouseGuideOpen}
+        onToggleMouseGuide={handleToggleMouseGuide}
+        isCustomCursorActive={isCustomCursorActive}
+        onToggleCustomCursor={handleToggleCustomCursor}
       >
         {/* Consolidated Movable Citadel Ledger (Plan Journey + Itinerary + Corridors + Guide) */}
         <CitadelSidebar
@@ -318,6 +360,14 @@ export const App: React.FC = () => {
         }}
         isSidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+        isMouseGuideOpen={isMouseGuideOpen}
+        onToggleMouseGuide={handleToggleMouseGuide}
+      />
+
+      {/* Citadel Custom Mouse Cursor & Astrolabe Reticle Follower */}
+      <CitadelCustomCursor
+        isActive={isCustomCursorActive}
+        mapPickingTarget={mapPickingTarget}
       />
     </div>
   );

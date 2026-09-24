@@ -1,0 +1,452 @@
+/* Citadel / Maester's Cartography Design System - Citadel Mouse & Cursor Styles */
+
+/* ==========================================================================
+   1. On-Screen Floating Citadel Mouse Guide Widget
+   ========================================================================== */
+
+/* Main floating container hovering above the map canvas */
+.citadel-mouse-guide-dock {
+  position: absolute;
+  bottom: 74px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+  user-select: none;
+  font-family: var(--font-sans);
+}
+
+/* Gentle floating / hovering animation */
+.citadel-mouse-floating {
+  animation: citadel-mouse-hover-float 3.5s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+@keyframes citadel-mouse-hover-float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Pause floating animation when user is interacting */
+.citadel-mouse-guide-dock:hover .citadel-mouse-floating {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .citadel-mouse-floating {
+    animation: none !important;
+  }
+}
+
+/* Compact Floating Mouse Badge (when collapsed or standalone) */
+.citadel-mouse-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg), 0 0 14px var(--border-gold-glow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-parchment);
+}
+
+.citadel-mouse-badge:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(223, 177, 91, 0.55);
+  transform: translateY(-2px);
+}
+
+.citadel-mouse-badge-label {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-gold);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.citadel-mouse-badge-sub {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.2px;
+  text-transform: none;
+}
+
+/* Expanded Citadel Mouse Guidance Card */
+.citadel-mouse-card {
+  width: 280px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg), 0 0 22px var(--border-gold-glow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 14px 16px;
+  color: var(--text-parchment);
+  animation: citadel-mouse-card-pop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom left;
+}
+
+@keyframes citadel-mouse-card-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.citadel-mouse-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-gold-glow);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.citadel-mouse-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-gold-bright);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.citadel-mouse-card-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.citadel-mouse-card-close:hover {
+  background: var(--bg-hover);
+  color: var(--text-gold);
+}
+
+/* Illustrated Citadel Mouse Preview with Live Action Highlights */
+.citadel-mouse-visual-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 0 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.citadel-mouse-svg {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px var(--border-gold-glow));
+  transition: filter 0.2s ease;
+}
+
+.citadel-mouse-live-status {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.citadel-mouse-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(223, 177, 91, 0.15);
+  border: 1px solid var(--border-gold-glow);
+  color: var(--text-gold);
+  transition: all 0.2s ease;
+}
+
+.citadel-mouse-status-pill.active {
+  background: rgba(255, 215, 0, 0.25);
+  border-color: #ffd700;
+  color: #ffd700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Instructions List */
+.citadel-mouse-controls-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.citadel-mouse-control-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.3;
+}
+
+.citadel-mouse-key-badge {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-gold);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-serif);
+}
+
+.citadel-mouse-key-badge.highlight {
+  border-color: var(--border-gold);
+  background: rgba(223, 177, 91, 0.2);
+  color: var(--text-gold-bright);
+}
+
+/* Wheel Pulse Animation */
+@keyframes citadel-wheel-pulse {
+  0% {
+    transform: scaleY(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleY(1.3);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #ffd700);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0.8;
+  }
+}
+
+.citadel-wheel-active {
+  animation: citadel-wheel-pulse 0.4s ease-out;
+}
+
+/* Footer / Cursor Toggle inside Mouse Guide */
+.citadel-mouse-card-footer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.citadel-cursor-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-glow);
+  color: var(--text-gold);
+  border-radius: 14px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-serif);
+}
+
+.citadel-cursor-toggle-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+}
+
+.citadel-cursor-toggle-btn.active {
+  background: rgba(223, 177, 91, 0.2);
+  border-color: #ffd700;
+  color: #ffd700;
+  box-shadow: 0 0 8px rgba(223, 177, 91, 0.3);
+}
+
+/* ==========================================================================
+   2. Citadel Custom Cursor & Astrolabe Follower System
+   ========================================================================== */
+
+/* Outer Follower Astrolabe Reticle */
+.citadel-custom-reticle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  margin-top: -16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-gold);
+  box-shadow: 0 0 10px rgba(223, 177, 91, 0.45);
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate3d(-100px, -100px, 0);
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  will-change: transform;
+}
+
+/* Four Cardinal Tick Marks on the Astrolabe Ring */
+.citadel-custom-reticle::before,
+.citadel-custom-reticle::after {
+  content: '';
+  position: absolute;
+  background: var(--border-gold);
+}
+
+/* North & South ticks */
+.citadel-custom-reticle::before {
+  top: -4px;
+  bottom: -4px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  opacity: 0.6;
+}
+
+/* East & West ticks */
+.citadel-custom-reticle::after {
+  left: -4px;
+  right: -4px;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+  opacity: 0.6;
+}
+
+/* Reticle Hover State over Interactive Elements */
+.citadel-custom-reticle.is-hovering {
+  width: 48px;
+  height: 48px;
+  margin-left: -24px;
+  margin-top: -24px;
+  border-color: #ffd700;
+  border-width: 2px;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.8), 0 0 28px rgba(223, 177, 91, 0.5);
+  background: rgba(223, 177, 91, 0.08);
+}
+
+/* Reticle Drag / Pan State */
+.citadel-custom-reticle.is-dragging {
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  margin-top: -12px;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 12px var(--accent-blue);
+}
+
+/* Reticle Picking Mode State */
+.citadel-custom-reticle.is-picking {
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  margin-top: -22px;
+  border-color: #ef4444;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.8);
+  animation: citadel-reticle-spin 4s linear infinite;
+}
+
+@keyframes citadel-reticle-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Central Pointer Core Dot */
+.citadel-custom-core {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: #ffd700;
+  box-shadow: 0 0 6px #ffd700, 0 0 10px rgba(223, 177, 91, 0.9);
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+}
+
+/* Hover coordinate badge trailing the mouse */
+.citadel-cursor-coords-badge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold-glow);
+  color: var(--text-gold);
+  font-family: var(--font-serif);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: translate3d(-100px, -100px, 0);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.citadel-cursor-coords-badge.visible {
+  opacity: 0.9;
+}
+
+/* Hide custom cursor on touch screens */
+@media (hover: none) and (pointer: coarse) {
+  .citadel-custom-reticle,
+  .citadel-custom-core,
+  .citadel-cursor-coords-badge {
+    display: none !important;
+  }
+}
