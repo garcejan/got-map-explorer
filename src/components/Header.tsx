@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
           flex: 1,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'right',
           minWidth: 0,
           padding: '0 6px'
         }}

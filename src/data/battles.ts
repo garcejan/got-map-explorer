@@ -783,7 +783,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     victor: 'Royal Fleet (House Baratheon)',
     victorySide: 'sideA',
     outcomeDetails: 'Decisive Royal naval victory; broke Ironborn naval dominance and allowed the invasion of Pyke.',
-    wikiUrl: 'https://gameofthrones.fandom.com/wiki/Battle_of_Fair_Isle'
+    wikiUrl: 'https://gameofthrones.fandom.com/wiki/Sea_battle_off_Fair_Isle'
   },
   {
     id: 'fall_of_astapor',

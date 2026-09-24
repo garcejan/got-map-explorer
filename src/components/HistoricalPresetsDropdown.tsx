@@ -486,6 +486,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                 fontWeight: 600,
                 color: activePreset ? 'var(--text-gold-bright)' : 'var(--text-parchment)',
                 whiteSpace: 'nowrap',
+                font: 'Cinzel',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 lineHeight: 1.2
@@ -721,10 +722,10 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
             >
               {[
                 { id: 'all' as CategoryFilter, label: `All (${categoryCounts.all})` },
-                { id: 'dragon' as CategoryFilter, label: `🐉 Dragon (${categoryCounts.dragon})` },
-                { id: 'rookery' as CategoryFilter, label: `🦅 Rookery (${categoryCounts.rookery})` },
-                { id: 'royal_war' as CategoryFilter, label: `👑 Land & War (${categoryCounts.royal_war})` },
-                { id: 'sea_voyage' as CategoryFilter, label: `🌊 Sea (${categoryCounts.sea_voyage})` }
+                { id: 'dragon' as CategoryFilter, label: `Dragon (${categoryCounts.dragon})` },
+                { id: 'rookery' as CategoryFilter, label: `Rookery (${categoryCounts.rookery})` },
+                { id: 'royal_war' as CategoryFilter, label: `Land & War (${categoryCounts.royal_war})` },
+                { id: 'sea_voyage' as CategoryFilter, label: `Sea (${categoryCounts.sea_voyage})` }
               ].map((tab) => {
                 const isSelected = activeCategory === tab.id;
                 return (

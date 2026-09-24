@@ -554,7 +554,6 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
         <div class="citadel-battle-victor-banner ${isStalemate ? 'stalemate' : ''}">
           <div class="citadel-battle-victor-title">
-            <span>${isStalemate ? '⚖️' : '👑'}</span>
             <span>VICTOR: ${battle.victor.toUpperCase()}</span>
           </div>
           ${battle.outcomeDetails ? `<div class="citadel-battle-outcome-text">${battle.outcomeDetails}</div>` : ''}
@@ -1415,7 +1414,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             title="Toggle Cartography Overlay Layers"
           >
             <Layers size={16} />
-            <span>Cartography Layers</span>
+            <span style={{ fontSize: 13, fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>Cartography Layers</span>
           </button>
         </div>
       </div>
