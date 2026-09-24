@@ -68,3 +68,45 @@
   font-weight: 700;
   box-shadow: 0 0 8px var(--border-gold-glow);
 }
+
+.citadel-guide-header-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-gold-glow);
+  color: var(--text-gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+[data-theme='beige'] .citadel-guide-header-btn {
+  border: 1px solid var(--border-subtle);
+  box-shadow: none;
+  color: var(--text-gold);
+}
+
+.citadel-guide-header-btn:hover {
+  background: var(--bg-card);
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+  box-shadow: 0 0 10px var(--border-gold-glow);
+  transform: translateY(-1px);
+}
+
+[data-theme='beige'] .citadel-guide-header-btn:hover {
+  border-color: var(--border-gold);
+  background: var(--bg-card);
+  box-shadow: 0 2px 6px rgba(179, 128, 43, 0.2);
+}
+

@@ -1,7 +1,8 @@
-import React from 'react';
-import { Compass, Moon, Sun } from 'lucide-react';
+import React, { useState } from 'react';
+import { Compass, Moon, Sun, Info } from 'lucide-react';
 import { HistoricalPresetsDropdown, type PresetJourney } from './HistoricalPresetsDropdown';
 import { CitySearch } from './CitySearch';
+import { CitadelGuideModal } from './CitadelGuideModal';
 
 export type Theme = 'dark' | 'beige';
 
@@ -29,7 +30,9 @@ export const Header: React.FC<HeaderProps> = ({
   onSetOrigin,
   onSetDestination
 }) => {
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   const isBeige = theme === 'beige';
+
 
   return (
     <header className="glass-panel citadel-header-panel">
@@ -111,8 +114,21 @@ export const Header: React.FC<HeaderProps> = ({
         />
       </div>
 
-      {/* Right: Theme Switcher (Dark / Beige) */}
+      {/* Right: Info / Guide Button & Theme Switcher */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
+        {/* Citadel Guide / Tutorial Button */}
+        <button
+          type="button"
+          onClick={() => setIsGuideOpen(true)}
+          className="citadel-guide-header-btn"
+          title="Citadel Navigator Guide & Tutorial"
+          aria-label="How to use this app and explore the Known World"
+        >
+          <Info size={14} />
+          <span>Guide</span>
+        </button>
+
+        {/* Theme Switcher (Dark / Beige) */}
         <div
           role="radiogroup"
           aria-label="Theme selector"
@@ -193,6 +209,12 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Citadel Navigator Guide / Tutorial Modal */}
+      <CitadelGuideModal
+        isOpen={isGuideOpen}
+        onClose={() => setIsGuideOpen(false)}
+      />
     </header>
   );
 };
