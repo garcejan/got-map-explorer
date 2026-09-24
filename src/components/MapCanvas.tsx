@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
-import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft, Compass, Ship, House, Crown, Landmark, Earth, LineSquiggle } from 'lucide-react';
+import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft, Compass, Ship, House, Crown, Earth, LineSquiggle } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
 import type { Theme } from './Header';
 import { NODES } from '../data/nodes';
@@ -67,7 +67,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const [showRoads, setShowRoads] = useState<boolean>(false);
   const [showKingdomPaths, setShowKingdomPaths] = useState<boolean>(false);
   const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
-  const [showRouteArrows, setShowRouteArrows] = useState<boolean>(false);
+  const [showRouteArrows] = useState<boolean>(false);
   const [showLabels, setShowLabels] = useState<boolean>(true);
   const [showGraticules, setShowGraticules] = useState<boolean>(true);
   const [showWaterMask, setShowWaterMask] = useState<boolean>(false);
