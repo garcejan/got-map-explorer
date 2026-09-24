@@ -1,10 +1,12 @@
 import React from 'react';
 import type { BathymetryZone } from '../engine/waterNav';
-import { Compass } from 'lucide-react';
+import { Compass, Crosshair } from 'lucide-react';
 
 export interface TelemetryData {
   worldCoords: string;
   imgCoords: string;
+  x?: number;
+  y?: number;
   zone: BathymetryZone;
   distanceFromCitadelMiles: number;
 }
@@ -17,6 +19,12 @@ interface TelemetryHUDProps {
 
 export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry, style, className }) => {
   if (!telemetry) return null;
+
+  const displayCoords =
+    telemetry.imgCoords ||
+    (telemetry.x !== undefined && telemetry.y !== undefined
+      ? `X: ${telemetry.x}, Y: ${telemetry.y}`
+      : '');
 
   return (
     <div
@@ -44,8 +52,7 @@ export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry, style, cl
       }}
     >
       {/* World Lat / Lng */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-        {/* <span style={{ fontSize: 13 }}>🧭</span> */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} title="World Geodetic Coordinates (ArcGIS calibrated)">
         <Compass size={15} color="var(--text-gold)" />
 
         <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>
@@ -53,12 +60,28 @@ export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry, style, cl
         </span>
       </div>
 
+      {displayCoords && (
+        <>
+          <div style={{ width: 1, height: 16, background: 'var(--border-subtle)' }} />
+
+          {/* Cartographic X, Y Image Coordinates */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} title="Cartographic Pixel Coordinates (X, Y in 10,000 x 8,300 px)">
+            <Crosshair size={14} color="var(--text-gold)" />
+            <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>
+              {displayCoords}
+            </span>
+          </div>
+        </>
+      )}
+
       <div style={{ width: 1, height: 16, background: 'var(--border-subtle)' }} />
 
       {/* Distance from Oldtown / Citadel */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: 'var(--text-muted)', fontSize: 11 }}>
-        <span style={{ fontSize: 13, fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>Citadel distance: {telemetry.distanceFromCitadelMiles} mi</span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: 'var(--text-muted)', fontSize: 11 }} title="Direct Distance from Citadel of Oldtown">
+        <span style={{ fontSize: 13, fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>
+          Citadel distance: {telemetry.distanceFromCitadelMiles} mi
+        </span>
       </div>
-    </div >
+    </div>
   );
 };

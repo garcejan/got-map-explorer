@@ -195,6 +195,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       setCursorTelemetry({
         worldCoords: world.formattedFull,
         imgCoords: `X: ${Math.round(imgCoords[0])}, Y: ${Math.round(imgCoords[1])}`,
+        x: Math.round(imgCoords[0]),
+        y: Math.round(imgCoords[1]),
         zone,
         distanceFromCitadelMiles: distMiles
       });
