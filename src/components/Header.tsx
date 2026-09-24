@@ -78,8 +78,8 @@ export const Header: React.FC<HeaderProps> = ({
               fontSize: 11,
               color: 'var(--text-muted)',
               margin: '2px 0 0',
-              letterSpacing: '0.3px',
-              fontFamily: "'Cinzel', serif",
+              letterSpacing: '0.2px',
+              fontFamily: "'Cinzel'",
               whiteSpace: 'nowrap'
 
             }}

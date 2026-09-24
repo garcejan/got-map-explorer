@@ -213,7 +213,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({ isOpen, on
                 <div>
                   <h4 className="font-serif">Canonical Historic Journeys</h4>
                   <p>
-                    Top dropdown loads famous routes: Robert&apos;s Progress, Nymeria&apos;s 10,000 Ships, Aegon&apos;s Conquest, and Sea Snake voyages.
+                    Top dropdown loads famous routes: Robert&apos;s Progress, Nymeria&apos;s 10,000 Ships, Aegon&apos;s Conquest, Sea Snake voyages and many more.
                   </p>
                 </div>
               </div>
@@ -290,15 +290,13 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({ isOpen, on
             type="button"
             onClick={onClose}
             className="btn-citadel"
-            style={{
-              width: "auto"
-            }}
+            style={{ flex: '0 0 auto', padding: '8px 20px' }}
           >
             <span>Understood, Archmaester</span>
           </button>
         </div>
       </div>
-    </div>,
+    </div >,
     document.body
   );
 };

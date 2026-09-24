@@ -286,7 +286,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     name: 'Burning of Harrenhal',
     conflict: "Aegon's Conquest",
     year: '2 BC',
-    coords: [1785, 4275],
+    coords: [1823, 4287],
     locationName: 'Harrenhal, Riverlands',
     region: 'riverlands',
     description: "King Harren the Black believed his titan fortress with five stone towers was impregnable. Aegon Targaryen took flight upon Balerion the Black Dread at nightfall, soaring above the clouds before breathing dragonflame that turned stone to molten slag, incinerating Harren and his entire line.",

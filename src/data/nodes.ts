@@ -414,7 +414,7 @@ export const NODES: Record<string, LocationNode> = {
     name: "Harrenhal",
     region: "riverlands",
     type: "castle",
-    coords: [1785, 4275],
+    coords: [1823, 4287],
     isHub: true,
     loreSnippet: "Mighty ruined fortress of black stone, melted and scarred by dragonflame of Balerion.",
     wikiUrl: "https://gameofthrones.fandom.com/wiki/Harrenhal",

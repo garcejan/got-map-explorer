@@ -939,8 +939,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               <Compass size={13} />
               <span>Itinerary</span>
               {routeResult && (
-                <span style={{ fontSize: 10, padding: '1px 5px', color: 'var(--text-gold-bright)', borderRadius: 3, fontWeight: 800 }}>
-                  [{routeResult.totalDays}d]
+                <span style={{ fontSize: 10, padding: '0px 3px', color: 'var(--text-gold-bright)', border: '3px solid #dfb15b40', borderRadius: 3, fontWeight: 800 }}>
+                  {routeResult.totalDays}d
                 </span>
               )}
             </button>
@@ -1328,6 +1328,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                     justifyContent: 'space-between',
                     cursor: 'pointer',
                     color: 'var(--text-gold)',
+                    fontFamily: "'Cinzel'",
+
                     fontSize: 12,
                     fontWeight: 700
                   }}
