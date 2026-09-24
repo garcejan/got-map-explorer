@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
-import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft } from 'lucide-react';
+import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft, Compass, Ship, House, Crown, Landmark, Earth, LineSquiggle } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
 import type { Theme } from './Header';
 import { NODES } from '../data/nodes';
@@ -67,7 +67,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const [showRoads, setShowRoads] = useState<boolean>(false);
   const [showKingdomPaths, setShowKingdomPaths] = useState<boolean>(false);
   const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
-  const [showRouteArrows, setShowRouteArrows] = useState<boolean>(true);
+  const [showRouteArrows, setShowRouteArrows] = useState<boolean>(false);
   const [showLabels, setShowLabels] = useState<boolean>(true);
   const [showGraticules, setShowGraticules] = useState<boolean>(true);
   const [showWaterMask, setShowWaterMask] = useState<boolean>(false);
@@ -1180,8 +1180,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontFamily: "'Inter', sans-serif", fontSize: 12 }}>
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ color: 'var(--text-gold)' }}>🛣️</span>
-                    <span>Imperial Highways</span>
+                    <Crown size={16} style={{ color: 'var(--text-gold)' }}></Crown>
+                    <span>Imperial highways</span>
                   </span>
                   <input
                     type="checkbox"
@@ -1193,8 +1193,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ color: '#d97706' }}>🗺️</span>
-                    <span>Kingdom Paths (GIS)</span>
+                    <LineSquiggle size={16} style={{ color: '#d97706' }}></LineSquiggle>
+                    <span>Kingdom paths</span>
                   </span>
                   <input
                     type="checkbox"
@@ -1206,8 +1206,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ color: 'var(--accent-blue)' }}>⛵</span>
-                    <span>Maritime Corridors</span>
+                    <Ship size={16} style={{ color: 'var(--accent-blue)' }}></Ship>
+                    <span>Maritime routes</span>
                   </span>
                   <input
                     type="checkbox"
@@ -1216,7 +1216,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                     style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
                   />
                 </label>
-
+                {/* 
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                     <span style={{ color: 'var(--text-gold)' }}>➤</span>
@@ -1228,12 +1228,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                     onChange={(e) => setShowRouteArrows(e.target.checked)}
                     style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                   />
-                </label>
+                </label> */}
 
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ color: 'var(--text-gold)' }}>🏷️</span>
-                    <span>Settlement Labels</span>
+                    <House size={16} style={{ color: 'var(--text-gold)' }}></House>
+                    <span>Settlement labels</span>
                   </span>
                   <input
                     type="checkbox"
@@ -1245,8 +1245,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ color: 'var(--text-gold)' }}>🧭</span>
-                    <span>World Graticules</span>
+                    <Compass size={16} style={{ color: 'var(--text-gold)' }}></Compass>
+                    <span>World graticules</span>
                   </span>
                   <input
                     type="checkbox"
@@ -1258,8 +1258,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ color: 'var(--accent-blue)' }}>🌊</span>
-                    <span>Water Mask & Land</span>
+                    <Earth size={16} style={{ color: 'var(--accent-blue)' }}></Earth>
+                    <span>Water mask & land</span>
                   </span>
                   <input
                     type="checkbox"
