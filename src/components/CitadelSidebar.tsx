@@ -28,7 +28,11 @@ import {
   X,
   GripHorizontal,
   PanelLeft,
-  PanelRight
+  PanelRight,
+  Swords,
+  Castle,
+  Anchor,
+  Star
 } from 'lucide-react';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
@@ -902,7 +906,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
         <Compass size={13} />
         <span>Itinerary</span>
         {routeResult && (
-          <span style={{ fontSize: 10, padding: '0px 3px', color: 'var(--text-gold-bright)', border: '3px solid #dfb15b40', borderRadius: 3, fontWeight: 800 }}>
+          <span className="citadel-badge-pill" style={{ fontSize: 10, background: 'rgba(223, 177, 91, 0.25)', color: 'var(--text-gold-bright)', fontWeight: 800 }}>
             {routeResult.totalDays}d
           </span>
         )}
@@ -928,21 +932,21 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
           isMobile
             ? undefined
             : {
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                transform: `translate3d(${currentPos.x}px, ${currentPos.y}px, 0)`,
-                width: 390,
-                maxWidth: 'calc(100vw - 32px)',
-                maxHeight: `calc(100vh - ${Math.max(currentPos.y + 16, 80)}px)`,
-                zIndex: 2000,
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: isDragging ? '0 24px 65px rgba(0, 0, 0, 0.95), 0 0 25px rgba(223, 177, 91, 0.45)' : '0 16px 45px rgba(0, 0, 0, 0.9)',
-                border: '1px solid var(--border-gold-glow)',
-                overflow: 'hidden',
-                transition: isDragging ? 'none' : 'box-shadow 0.2s ease, border-color 0.2s ease'
-              }
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              transform: `translate3d(${currentPos.x}px, ${currentPos.y}px, 0)`,
+              width: 390,
+              maxWidth: 'calc(100vw - 32px)',
+              maxHeight: `calc(100vh - ${Math.max(currentPos.y + 16, 80)}px)`,
+              zIndex: 2000,
+              display: 'flex',
+              flexDirection: 'column',
+              boxShadow: isDragging ? '0 24px 65px rgba(0, 0, 0, 0.95), 0 0 25px rgba(223, 177, 91, 0.45)' : '0 16px 45px rgba(0, 0, 0, 0.9)',
+              border: '1px solid var(--border-gold-glow)',
+              overflow: 'hidden',
+              transition: isDragging ? 'none' : 'box-shadow 0.2s ease, border-color 0.2s ease'
+            }
         }
       >
         {isMobile ? (
@@ -2021,10 +2025,10 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                           <BookOpen size={14} /> Settlement Hierarchy
                         </strong>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 12 }}>
-                          <div>★ <b>Regional Capital</b> (King's Landing, Winterfell, Oldtown)</div>
-                          <div>⚓ <b>Seaport / Anchorage</b> (White Harbor, Gulltown, Lannisport)</div>
-                          <div>🏰 <b>Castle / Stronghold</b> (The Twins, Harrenhal, Riverrun)</div>
-                          <div>⚔️ <b>Strategic Pass</b> (Moat Cailin, Bloody Gate, Golden Tooth)</div>
+                          <div><Star size={12} color="var(--border-gold)" /> <b>Regional Capital</b> (King's Landing, Winterfell, Oldtown)</div>
+                          <div><Anchor size={12} color="var(--border-gold)" /> <b>Seaport / Anchorage</b> (White Harbor, Gulltown, Lannisport)</div>
+                          <div><Castle size={12} color="var(--border-gold)" /> <b>Castle / Stronghold</b> (The Twins, Harrenhal, Riverrun)</div>
+                          <div><Swords size={12} color="var(--border-gold)" /> <b>Strategic Pass</b> (Moat Cailin, Bloody Gate, Golden Tooth)</div>
                         </div>
                       </div>
                     </div>

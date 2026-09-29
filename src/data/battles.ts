@@ -6,7 +6,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     name: 'Battle of the Trident',
     conflict: "Robert's Rebellion",
     year: '283 AC',
-    coords: [1830, 4196],
+    coords: [1829, 4171],
     locationName: 'The Ruby Ford, The Trident',
     region: 'riverlands',
     description: "The decisive battle of Robert's Rebellion fought upon the fords of the Trident. Lord Robert Baratheon and Crown Prince Rhaegar Targaryen met in climactic single combat in the rushing water. Robert smashed Rhaegar's rubied breastplate with his warhammer, routing the royal host and sealing the doom of the Targaryen dynasty.",

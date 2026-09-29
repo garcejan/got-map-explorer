@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import L from 'leaflet';
-import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft, Compass, Ship, House, Crown, Earth, LineSquiggle, Swords } from 'lucide-react';
+import { Layers, Plus, Minus, RotateCcw, ArrowRightLeft, Compass, Ship, House, Crown, Earth, LineSquiggle, Swords, Pin, BookOpen } from 'lucide-react';
 import type { RouteResult, MapPickingTarget } from '../types';
 import type { Theme } from './Header';
 import { NODES } from '../data/nodes';
@@ -522,7 +522,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         <div class="citadel-battle-popup-header">
           <div class="citadel-battle-title-row">
             <div class="citadel-battle-name">
-              ${renderToStaticMarkup(<Swords size={14} color="#ef4444" strokeWidth={2.2} />)}
+              ${renderToStaticMarkup(<Swords size={16} color="var(--text-gold)" strokeWidth={2.2} />)}
               <span>${battle.name}</span>
             </div>
             <span class="citadel-battle-year-badge">${battle.year}</span>
@@ -530,7 +530,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           <div class="citadel-battle-meta">
             <span class="citadel-battle-conflict-tag">${battle.conflict}</span>
             <span>•</span>
-            <span>📍 ${battle.locationName}</span>
+            ${renderToStaticMarkup(<Pin size={12} />)}
+            <span>${battle.locationName}</span>
           </div>
         </div>
 
@@ -564,7 +565,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         <div>
           <a href="${battle.wikiUrl}" target="_blank" rel="noopener noreferrer" class="citadel-popup-wiki-btn" title="View historical records and tactical accounts on the Wiki of Westeros">
             <span style="display: flex; align-items: center; gap: 6px;">
-              <span>📜</span>
+              ${renderToStaticMarkup(<BookOpen size={12} />)}
               <span>Wiki of Westeros Details</span>
             </span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
