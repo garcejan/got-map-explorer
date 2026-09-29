@@ -13,7 +13,8 @@ import {
   BookOpen,
   ArrowRight,
   Shuffle,
-  Flame
+  Flame,
+  Coins
 } from 'lucide-react';
 import { PRESET_JOURNEYS, type PresetJourney } from '../data/presets';
 import { NODES } from '../data/nodes';
@@ -393,17 +394,76 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
       case 'dragon':
         return <Flame size={size} color="var(--icon-dragon, #ef4444)" />;
       case 'crow':
+      case 'raven':
         return <Bird size={size} color="var(--preset-raven-icon, #c084fc)" />;
       case 'retinue':
         return <Crown size={size} color="var(--icon-retinue, #fbbf24)" />;
       case 'army':
+      case 'host':
         return <Shield size={size} color="var(--icon-army, #60a5fa)" />;
       case 'fleet':
+      case 'war_galley':
         return <Ship size={size} color="var(--icon-fleet, #22d3ee)" />;
       case 'messenger':
+      case 'courier':
+      case 'fast_courier':
         return <Feather size={size} color="var(--icon-messenger, #4ade80)" />;
+      case 'caravan':
+      case 'merchant_caravan':
+        return <Coins size={size} color="var(--icon-caravan, #fb923c)" />;
       default:
         return <Sparkles size={size} color="var(--text-gold)" />;
+    }
+  };
+
+  const getPartyBadgeStyle = (partyId?: string) => {
+    switch (partyId) {
+      case 'crow':
+      case 'raven':
+        return {
+          background: 'var(--preset-raven-bg)',
+          border: '1px solid var(--preset-raven-border)'
+        };
+      case 'fleet':
+      case 'war_galley':
+        return {
+          background: 'var(--badge-sea-bg)',
+          border: '1px solid var(--badge-sea-border)'
+        };
+      case 'dragon':
+        return {
+          background: 'rgba(239, 68, 68, 0.15)',
+          border: '1px solid rgba(239, 68, 68, 0.35)'
+        };
+      case 'messenger':
+      case 'courier':
+      case 'fast_courier':
+        return {
+          background: 'rgba(74, 222, 128, 0.15)',
+          border: '1px solid rgba(74, 222, 128, 0.35)'
+        };
+      case 'caravan':
+      case 'merchant_caravan':
+        return {
+          background: 'rgba(251, 146, 60, 0.15)',
+          border: '1px solid rgba(251, 146, 60, 0.35)'
+        };
+      case 'army':
+      case 'host':
+        return {
+          background: 'rgba(96, 165, 250, 0.15)',
+          border: '1px solid rgba(96, 165, 250, 0.35)'
+        };
+      case 'retinue':
+        return {
+          background: 'rgba(223, 177, 91, 0.15)',
+          border: '1px solid var(--border-gold-glow)'
+        };
+      default:
+        return {
+          background: 'rgba(223, 177, 91, 0.15)',
+          border: '1px solid var(--border-gold-glow)'
+        };
     }
   };
 
@@ -739,22 +799,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      background:
-                        preset.partyId === 'crow'
-                          ? 'var(--preset-raven-bg)'
-                          : preset.partyId === 'fleet'
-                            ? 'var(--badge-sea-bg)'
-                            : preset.partyId === 'dragon'
-                              ? 'rgba(239, 68, 68, 0.15)'
-                              : 'rgba(223, 177, 91, 0.15)',
-                      border:
-                        preset.partyId === 'crow'
-                          ? '1px solid var(--preset-raven-border)'
-                          : preset.partyId === 'fleet'
-                            ? '1px solid var(--badge-sea-border)'
-                            : preset.partyId === 'dragon'
-                              ? '1px solid rgba(239, 68, 68, 0.35)'
-                              : '1px solid var(--border-gold-glow)'
+                      ...getPartyBadgeStyle(preset.partyId)
                     }}
                   >
                     {getPartyIcon(preset.partyId, 16)}
@@ -957,18 +1002,10 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
-              background: activePreset
-                ? activePreset.partyId === 'crow'
-                  ? 'var(--preset-raven-bg)'
-                  : activePreset.partyId === 'dragon'
-                    ? 'rgba(239, 68, 68, 0.15)'
-                    : 'rgba(223, 177, 91, 0.15)'
-                : 'transparent',
-              border: activePreset
-                ? activePreset.partyId === 'dragon'
-                  ? '1px solid rgba(239, 68, 68, 0.35)'
-                  : '1px solid var(--border-gold-glow)'
-                : '1px solid var(--border-subtle)'
+              ...(activePreset ? getPartyBadgeStyle(activePreset.partyId) : {
+                background: 'transparent',
+                border: '1px solid var(--border-subtle)'
+              })
             }}
           >
             {activePreset ? getPartyIcon(activePreset.partyId, 13) : <BookOpen size={13} color="var(--text-gold)" />}
@@ -1354,22 +1391,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        background:
-                          preset.partyId === 'crow'
-                            ? 'var(--preset-raven-bg)'
-                            : preset.partyId === 'fleet'
-                              ? 'var(--badge-sea-bg)'
-                              : preset.partyId === 'dragon'
-                                ? 'rgba(239, 68, 68, 0.15)'
-                                : 'rgba(223, 177, 91, 0.15)',
-                        border:
-                          preset.partyId === 'crow'
-                            ? '1px solid var(--preset-raven-border)'
-                            : preset.partyId === 'fleet'
-                              ? '1px solid var(--badge-sea-border)'
-                              : preset.partyId === 'dragon'
-                                ? '1px solid rgba(239, 68, 68, 0.35)'
-                                : '1px solid var(--border-gold-glow)'
+                        ...getPartyBadgeStyle(preset.partyId)
                       }}
                     >
                       {getPartyIcon(preset.partyId, 16)}
