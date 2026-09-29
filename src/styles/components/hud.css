@@ -206,3 +206,58 @@
   background: var(--border-subtle);
   margin: 0 1px;
 }
+
+/* Mobile adjustments (< 768px) */
+@media (max-width: 767px) {
+  /* Hide wide TelemetryHUD on mobile canvas */
+  .citadel-telemetry-hud {
+    display: none !important;
+  }
+
+  /* Reposition zoom dock above the bottom sheet */
+  .citadel-zoom-dock {
+    bottom: calc(var(--safe-bottom) + 68px) !important;
+    left: 14px !important;
+  }
+
+  /* Hide dock ledger to left/right button on mobile */
+  .citadel-zoom-dock-reposition {
+    display: none !important;
+  }
+
+  /* Reposition bottom-right layer control above bottom sheet */
+  .citadel-bottom-right-dock {
+    bottom: calc(var(--safe-bottom) + 68px) !important;
+    right: 14px !important;
+  }
+
+  /* Target picking banner on mobile */
+  .citadel-picking-hud {
+    top: calc(var(--safe-top) + 54px) !important;
+    width: calc(100vw - 28px) !important;
+    max-width: 420px !important;
+    padding: 8px 12px !important;
+    box-sizing: border-box !important;
+    border-radius: 18px !important;
+  }
+
+  .citadel-picking-hud span {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Floating confirmation toast on mobile */
+  .citadel-toast-notification {
+    bottom: calc(var(--safe-bottom) + 72px) !important;
+    max-width: calc(100vw - 32px) !important;
+    font-size: 12px !important;
+    padding: 8px 14px !important;
+  }
+
+  /* Cartography layers popover on mobile */
+  .citadel-layer-panel {
+    width: calc(100vw - 36px) !important;
+    max-width: 280px !important;
+  }
+}
+

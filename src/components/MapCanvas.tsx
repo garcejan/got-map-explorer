@@ -584,10 +584,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         });
       }
 
+      const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 768;
       marker.bindPopup(popupDiv, {
         className: 'citadel-popup',
-        autoPanPaddingTopLeft: L.point(40, 80),
-        autoPanPaddingBottomRight: L.point(40, 40)
+        autoPanPaddingTopLeft: isMobileScreen ? L.point(16, 68) : L.point(40, 80),
+        autoPanPaddingBottomRight: isMobileScreen ? L.point(16, 80) : L.point(40, 40)
       });
     }
   }, [showBattles]);
@@ -759,10 +760,11 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         });
       }
 
+      const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 768;
       marker.bindPopup(popupDiv, {
         className: 'citadel-popup',
-        autoPanPaddingTopLeft: L.point(40, 80),
-        autoPanPaddingBottomRight: L.point(40, 40)
+        autoPanPaddingTopLeft: isMobileScreen ? L.point(16, 68) : L.point(40, 80),
+        autoPanPaddingBottomRight: isMobileScreen ? L.point(16, 80) : L.point(40, 40)
       });
 
       // Direct 1-click selection during map picking mode
@@ -1228,10 +1230,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
           {(onDockSidebarLeft || onDockSidebarRight) && (
             <>
-              <div className="citadel-zoom-divider" />
+              <div className="citadel-zoom-divider citadel-zoom-dock-reposition" />
               <button
                 type="button"
-                className="citadel-zoom-btn"
+                className="citadel-zoom-btn citadel-zoom-dock-reposition"
                 onClick={() => {
                   if (isSidebarDockedRight) {
                     onDockSidebarLeft?.();
@@ -1251,6 +1253,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       {/* Citadel Bottom-Right Dock: Telemetry HUD & Cartography Layers */}
       <div
+        className="citadel-bottom-right-dock"
         style={{
           position: 'absolute',
           bottom: 24,
@@ -1263,7 +1266,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
         }}
       >
         {/* Live Citadel Telemetry HUD */}
-        <TelemetryHUD telemetry={cursorTelemetry} />
+        <TelemetryHUD className="citadel-telemetry-hud" telemetry={cursorTelemetry} />
 
         {/* Citadel Cartography Layer Toggle Widget */}
         <div
