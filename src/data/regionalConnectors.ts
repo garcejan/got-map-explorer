@@ -576,8 +576,10 @@ const RAW_CONNECTORS: RawConnector[] = [
     segmentType: 'land',
     terrainType: 'royal_road',
     waypoints: [
-      [1785, 4275],
-      [1730, 4275],
+      [1823, 4287],
+      [1823, 4245],
+      [1823, 4230],
+      [1730, 4230],
       [1730, 4349],
       [1740, 4349]
     ]
@@ -590,9 +592,9 @@ const RAW_CONNECTORS: RawConnector[] = [
     segmentType: 'land',
     terrainType: 'royal_road',
     waypoints: [
-      [1785, 4275],
-      [1730, 4260],
-      [1730, 4230],
+      [1823, 4287],
+      [1823, 4245],
+      [1823, 4230],
       [1888, 4230],
       [1888, 4316],
       [1866, 4316]
