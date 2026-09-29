@@ -167,7 +167,7 @@ export const DEFAULT_CARTOGRAPHY_LAYERS: CartographyLayersConfig = {
   kingdomPaths: false,
   seaLanes: false,
   battles: true,
-  labels: true,
+  labels: false,
   graticules: true,
   waterMask: false
 };
