@@ -69,7 +69,7 @@ An authentic, interactive expedition planner and cartographic explorer built in 
 
 Looking for the math, algorithms, and engineering details behind the engine?
 
-👉 **Read the comprehensive [Technical Architecture & Engineering Guide (TECHNICAL.md)](file:///Users/gary/Documents/Personal/got-map-explorer/TECHNICAL.md)** for:
+👉 **Read the comprehensive [Technical Architecture & Engineering Guide (TECHNICAL.md)](./TECHNICAL.md)** for:
 * **Tri-Coordinate Geodesy:** Mathematical projections between pixel space, Leaflet space, and real-world latitude/longitude calibrated against the ArcGIS Online Game of Thrones spatial dataset.
 * **Pathfinding Algorithms:** Multimodal Dijkstra and A* routing graph, TSP 2-opt multi-stop waypoint optimization, and port transition logistics penalties.
 * **Water Mask & Bathymetry:** Packed 1-bit binary raster masks and Euclidean distance transform fields for sub-30ms obstacle-avoiding maritime navigation.
