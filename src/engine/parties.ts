@@ -68,6 +68,14 @@ export const TRAVEL_PARTIES: Record<string, TravelParty> = {
   }
 };
 
+// Canonical aliases for lookup robustness
+TRAVEL_PARTIES.courier = TRAVEL_PARTIES.messenger;
+TRAVEL_PARTIES.fast_courier = TRAVEL_PARTIES.messenger;
+TRAVEL_PARTIES.merchant_caravan = TRAVEL_PARTIES.caravan;
+TRAVEL_PARTIES.war_galley = TRAVEL_PARTIES.fleet;
+TRAVEL_PARTIES.raven = TRAVEL_PARTIES.crow;
+TRAVEL_PARTIES.host = TRAVEL_PARTIES.army;
+
 export const TERRAIN_MODIFIERS: Record<TerrainType, { speedMultiplier: number; label: string; color: string; description: string }> = {
   paved_highway: {
     speedMultiplier: 1.25,

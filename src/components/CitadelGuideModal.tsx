@@ -16,6 +16,7 @@ import {
   Flame,
   Ship,
   Coins,
+  Feather,
   Layers,
   Ruler,
   ChevronLeft,
@@ -313,7 +314,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
                       </div>
                     </div>
                     <div className="citadel-party-chip">
-                      <Navigation size={16} color="#34d399" />
+                      <Feather size={16} color="#4ade80" />
                       <div>
                         <strong>Fast Courier</strong>
                         <span>58 mi/day • Relay horse</span>

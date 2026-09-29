@@ -770,7 +770,10 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   // Current archetype resolution
   const currentArchetypeId = useMemo(() => {
     if (selectedPartyId === 'war_galley') return 'fleet';
-    if (selectedPartyId === 'courier') return 'messenger';
+    if (selectedPartyId === 'courier' || selectedPartyId === 'fast_courier') return 'messenger';
+    if (selectedPartyId === 'merchant_caravan') return 'caravan';
+    if (selectedPartyId === 'host') return 'army';
+    if (selectedPartyId === 'raven') return 'crow';
     if (EXPEDITION_ARCHETYPES.some((a) => a.id === selectedPartyId)) {
       return selectedPartyId;
     }
