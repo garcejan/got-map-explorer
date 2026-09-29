@@ -6,6 +6,7 @@ import { CitadelSidebar } from './components/CitadelSidebar';
 import type { PresetJourney } from './components/HistoricalPresetsDropdown';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from './types';
 import { calculateRealisticRoute, optimizeWaypointOrder } from './engine/pathfinder';
+import { useIsMobile } from './hooks/useIsMobile';
 
 export const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -17,6 +18,8 @@ export const App: React.FC = () => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('citadel_theme', theme);
   }, [theme]);
+
+  const isMobile = useIsMobile();
 
   const [originId, setOriginId] = useState<string>('kings_landing');
   const [destinationId, setDestinationId] = useState<string>('winterfell');
@@ -237,7 +240,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100vw', height: '100dvh', minHeight: '100vh', overflow: 'hidden' }}>
       <Analytics />
       {/* Full-bleed Map Canvas with Overlays */}
       <MapCanvas
@@ -320,6 +323,7 @@ export const App: React.FC = () => {
         }}
         isSidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+        isMobile={isMobile}
       />
     </div>
   );

@@ -18,6 +18,7 @@ interface HeaderProps {
   onToggleSidebar?: () => void;
   isSidebarOpen?: boolean;
   routeDays?: number | null;
+  isMobile?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({

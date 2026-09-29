@@ -48,6 +48,15 @@
   --toast-bg: rgba(15, 23, 42, 0.95);
   --modal-backdrop: rgba(5, 8, 14, 0.82);
 
+  /* Mobile Safe Area & Layout Dimensions */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --header-height-desktop: 52px;
+  --header-height-mobile: 48px;
+  --bottom-sheet-peek: 68px;
+
   /* Raven / Direct Flight Presets */
   --preset-raven-bg: rgba(168, 85, 247, 0.18);
   --preset-raven-border: rgba(168, 85, 247, 0.5);
