@@ -20,6 +20,7 @@ node_modules/
 dist/
 dist-ssr/
 .vite/
+.vercel
 *.tsbuildinfo
 .eslintcache
 

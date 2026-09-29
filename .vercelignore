@@ -1,0 +1,7 @@
+# Vercel Deployment Ignore
+.agents/
+.github/
+scripts/
+scratch/
+*.tmp
+*.bak
