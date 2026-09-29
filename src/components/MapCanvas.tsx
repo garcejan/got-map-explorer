@@ -34,6 +34,20 @@ export interface MapCanvasProps {
   onDockSidebarRight?: () => void;
 }
 
+/** Helper to generate clean Lucide Swords icon SVG markup for Leaflet tooltips, popups, and marker pins */
+const renderSwordsSvg = (size = 14, color = 'currentColor', strokeWidth = 2.2): string => `
+  <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; flex-shrink: 0;">
+    <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
+    <line x1="13" y1="19" x2="19" y2="13"></line>
+    <line x1="16" y1="16" x2="20" y2="20"></line>
+    <line x1="19" y1="21" x2="21" y2="19"></line>
+    <polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline>
+    <line x1="5" y1="14" x2="9" y2="18"></line>
+    <line x1="7" y1="17" x2="4" y2="20"></line>
+    <line x1="3" y1="19" x2="5" y2="21"></line>
+  </svg>
+`.trim();
+
 export const MapCanvas: React.FC<MapCanvasProps> = ({
   theme = 'dark',
   originId,
@@ -489,16 +503,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       const iconHtml = `
         <div class="citadel-battle-marker" title="${battle.name} (${battle.year})">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
-            <line x1="13" y1="19" x2="19" y2="13"></line>
-            <line x1="16" y1="16" x2="20" y2="20"></line>
-            <line x1="19" y1="21" x2="21" y2="19"></line>
-            <polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline>
-            <line x1="5" y1="14" x2="9" y2="18"></line>
-            <line x1="7" y1="17" x2="4" y2="20"></line>
-            <line x1="3" y1="19" x2="5" y2="21"></line>
-          </svg>
+          ${renderSwordsSvg(14, 'currentColor', 2.3)}
         </div>
       `;
 
@@ -513,7 +518,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       marker.bindTooltip(`
         <div style="font-family: 'Cinzel', serif; padding: 2px;">
-          <strong style="color: #f87171; font-size: 12px; letter-spacing: 0.5px;">⚔️ ${battle.name}</strong><br>
+          <strong style="color: #f87171; font-size: 12px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 5px;">
+            ${renderSwordsSvg(12, '#f87171', 2.2)}
+            <span>${battle.name}</span>
+          </strong><br>
           <span style="font-size: 11px; color: var(--text-parchment); font-family: 'Inter', sans-serif;">${battle.conflict} • ${battle.year}</span>
         </div>
       `, { sticky: true, className: 'citadel-tooltip' });
@@ -526,7 +534,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       popupDiv.innerHTML = `
         <div class="citadel-battle-popup-header">
           <div class="citadel-battle-title-row">
-            <div class="citadel-battle-name">⚔️ ${battle.name}</div>
+            <div class="citadel-battle-name">
+              ${renderSwordsSvg(14, '#ef4444', 2.2)}
+              <span>${battle.name}</span>
+            </div>
             <span class="citadel-battle-year-badge">${battle.year}</span>
           </div>
           <div class="citadel-battle-meta">
