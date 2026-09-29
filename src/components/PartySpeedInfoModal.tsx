@@ -304,6 +304,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
 
         {/* Filter Navigation Tabs */}
         <div
+          className="citadel-party-tabs-row"
           style={{
             padding: '8px 20px',
             borderBottom: '1px solid var(--border-subtle)',
@@ -313,7 +314,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
             background: 'var(--bg-card)'
           }}
         >
-          <div style={{ display: 'flex', gap: 6 }}>
+          <div className="citadel-party-tabs-list" style={{ display: 'flex', gap: 6 }}>
             {(
               [
                 { id: 'all', label: 'All 7 Archetypes' },
