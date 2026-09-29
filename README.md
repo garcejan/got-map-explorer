@@ -83,3 +83,10 @@ Looking for the math, algorithms, and engineering details behind the engine?
 * **Cartography:** Inspired by the official cartographic illustrations of *The Lands of Ice and Fire* (drawn by Jonathan Roberts).
 * **Spatial Reference Data:** Calibrated using open GIS data layers from the [ArcGIS Online Game of Thrones Spatial Dataset](https://www.arcgis.com/home/item.html?id=43d03779288048bfb5d3c46e4bc4ccb0#overview).
 * **License:** Released under the MIT License. Built for fans, scholars, and cartographers of the Known World.
+
+---
+
+
+**Author:** [@garcejan](https://github.com/garcejan)
+
+
