@@ -59,6 +59,7 @@ export interface CitadelSidebarProps {
   onSelectGoal: (goal: OptimizationGoal) => void;
   onCalculateRoute: () => void;
   onClearRoute?: () => void;
+  isMobile?: boolean;
   position?: { x: number; y: number };
   onPositionChange?: (pos: { x: number; y: number }) => void;
 }
@@ -399,6 +400,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   onSelectGoal,
   onCalculateRoute,
   onClearRoute,
+  isMobile = false,
   position: propPosition,
   onPositionChange
 }) => {
@@ -406,6 +408,32 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   const [ledgerSubTab, setLedgerSubTab] = useState<'overview' | 'roads' | 'corridors' | 'guide'>('overview');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [showPartyInfoModal, setShowPartyInfoModal] = useState(false);
+
+  const originNode = useMemo(() => (originId ? NODES[originId] : undefined), [originId]);
+  const destNode = useMemo(() => (destinationId ? NODES[destinationId] : undefined), [destinationId]);
+
+  // Mobile Bottom Sheet state & swipe gestures
+  const [mobileSheetState, setMobileSheetState] = useState<'peek' | 'half' | 'full'>('peek');
+  const touchStartYRef = useRef<number | null>(null);
+
+  const handleMobileTouchStart = (e: React.TouchEvent) => {
+    touchStartYRef.current = e.touches[0].clientY;
+  };
+
+  const handleMobileTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartYRef.current === null) return;
+    const endY = e.changedTouches[0].clientY;
+    const diffY = endY - touchStartYRef.current;
+    touchStartYRef.current = null;
+
+    if (diffY < -35) {
+      // Swiped UP
+      setMobileSheetState((current) => (current === 'peek' ? 'half' : 'full'));
+    } else if (diffY > 35) {
+      // Swiped DOWN
+      setMobileSheetState((current) => (current === 'full' ? 'half' : 'peek'));
+    }
+  };
 
   // Position and free dragging state
   const [internalPos, setInternalPos] = useState<{ x: number; y: number }>(() => {
@@ -740,6 +768,40 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   };
 
   if (!isOpen) {
+    if (isMobile) {
+      return (
+        <button
+          type="button"
+          onClick={onToggle}
+          className="citadel-mobile-fab-ledger"
+          title="Open Citadel Wayfinding Ledger"
+        >
+          <div
+            style={{
+              width: 22,
+              height: 22,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, #dfb15b 0%, #78350f 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 0 8px rgba(223, 177, 91, 0.6)'
+            }}
+          >
+            <Compass size={13} color="#0a0e14" strokeWidth={2.5} />
+          </div>
+          <span className="font-serif" style={{ fontSize: 13, fontWeight: 800, color: 'var(--text-gold)' }}>
+            Ledger
+          </span>
+          {routeResult && (
+            <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.25)', color: 'var(--text-gold-bright)', fontSize: 11, padding: '1px 5px' }}>
+              {routeResult.totalDays}d
+            </span>
+          )}
+        </button>
+      );
+    }
+
     const buttonWidth = 175;
     const maxCollapsedX = Math.max(12, window.innerWidth - buttonWidth - 12);
     const isAtRightDock = Math.abs(currentPos.x - (window.innerWidth - 390 - 16)) < 15;
@@ -791,164 +853,274 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
     );
   }
 
-  return (
-    <>
-      <aside
-        className={`glass-panel citadel-sidebar-movable ${isDragging ? 'is-dragging' : ''}`}
+  const tabsElement = (
+    <div style={{ display: 'flex', gap: 6, background: 'var(--bg-secondary)', padding: 3, borderRadius: 6, border: '1px solid var(--border-subtle)' }}>
+      <button
+        type="button"
+        onClick={() => setActiveTab('planner')}
         style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          transform: `translate3d(${currentPos.x}px, ${currentPos.y}px, 0)`,
-          width: 390,
-          maxWidth: 'calc(100vw - 32px)',
-          maxHeight: `calc(100vh - ${Math.max(currentPos.y + 16, 80)}px)`,
-          zIndex: 2000,
+          flex: 1,
+          padding: '7px 10px',
+          fontSize: 12,
+          fontWeight: 700,
+          borderRadius: 4,
+          border: 'none',
+          cursor: 'pointer',
           display: 'flex',
-          flexDirection: 'column',
-          boxShadow: isDragging ? '0 24px 65px rgba(0, 0, 0, 0.95), 0 0 25px rgba(223, 177, 91, 0.45)' : '0 16px 45px rgba(0, 0, 0, 0.9)',
-          border: '1px solid var(--border-gold-glow)',
-          overflow: 'hidden',
-          transition: isDragging ? 'none' : 'box-shadow 0.2s ease, border-color 0.2s ease'
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 6,
+          background: activeTab === 'planner' ? 'rgba(223, 177, 91, 0.25)' : 'transparent',
+          color: activeTab === 'planner' ? 'var(--text-gold-bright)' : 'var(--text-muted)',
+          transition: 'all 0.15s ease'
         }}
       >
-        {/* Sidebar Header & Tab Switcher */}
+        <Navigation size={13} />
+        <span>Plan Journey</span>
+      </button>
+
+      <button
+        type="button"
+        onClick={() => setActiveTab('ledger')}
+        style={{
+          flex: 1,
+          padding: '7px 10px',
+          fontSize: 12,
+          fontWeight: 700,
+          borderRadius: 4,
+          border: 'none',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 6,
+          background: activeTab === 'ledger' ? '#dfb15b40' : 'transparent',
+          color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)',
+          transition: 'all 0.15s ease'
+        }}
+      >
+        <Compass size={13} />
+        <span>Itinerary</span>
+        {routeResult && (
+          <span style={{ fontSize: 10, padding: '0px 3px', color: 'var(--text-gold-bright)', border: '3px solid #dfb15b40', borderRadius: 3, fontWeight: 800 }}>
+            {routeResult.totalDays}d
+          </span>
+        )}
+      </button>
+    </div>
+  );
+
+  return (
+    <>
+      {isMobile && mobileSheetState !== 'peek' && (
         <div
-          className="citadel-drag-header"
-          onPointerDown={handleHeaderPointerDown}
-          onDoubleClick={handleHeaderDoubleClick}
-          title="Drag anywhere here to move ledger across the map • Double-click to dock to other side"
-          style={{
-            flexShrink: 0,
-            padding: '10px 12px 8px',
-            borderBottom: '1px solid var(--border-subtle)',
-            background: 'var(--bg-secondary)'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div className="citadel-drag-grip" title="Drag Handle (move around map)">
-                <GripHorizontal size={15} />
-              </div>
-              <div
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, #dfb15b 0%, #78350f 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 0 8px rgba(223, 177, 91, 0.6)'
-                }}
-              >
-                <Compass size={14} color="#0a0e14" strokeWidth={2.5} />
-              </div>
-              <span
-                className="font-serif"
-                style={{
-                  fontSize: 13,
-                  fontWeight: 900,
-                  letterSpacing: '1px',
-                  color: 'var(--text-gold)',
-                  fontFamily: "'Cinzel', serif",
-
-                  textTransform: 'uppercase'
-                }}
-              >
-                Citadel Ledger
-              </span>
+          className="citadel-bottom-sheet-backdrop"
+          onClick={() => setMobileSheetState('peek')}
+        />
+      )}
+      <aside
+        className={
+          isMobile
+            ? `glass-panel citadel-mobile-bottom-sheet state-${mobileSheetState}`
+            : `glass-panel citadel-sidebar-movable ${isDragging ? 'is-dragging' : ''}`
+        }
+        style={
+          isMobile
+            ? undefined
+            : {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                transform: `translate3d(${currentPos.x}px, ${currentPos.y}px, 0)`,
+                width: 390,
+                maxWidth: 'calc(100vw - 32px)',
+                maxHeight: `calc(100vh - ${Math.max(currentPos.y + 16, 80)}px)`,
+                zIndex: 2000,
+                display: 'flex',
+                flexDirection: 'column',
+                boxShadow: isDragging ? '0 24px 65px rgba(0, 0, 0, 0.95), 0 0 25px rgba(223, 177, 91, 0.45)' : '0 16px 45px rgba(0, 0, 0, 0.9)',
+                border: '1px solid var(--border-gold-glow)',
+                overflow: 'hidden',
+                transition: isDragging ? 'none' : 'box-shadow 0.2s ease, border-color 0.2s ease'
+              }
+        }
+      >
+        {isMobile ? (
+          <>
+            {/* Mobile Drag Handle */}
+            <div
+              className="citadel-mobile-drag-handle"
+              onTouchStart={handleMobileTouchStart}
+              onTouchEnd={handleMobileTouchEnd}
+              onClick={() => setMobileSheetState((s) => (s === 'peek' ? 'half' : s === 'half' ? 'full' : 'peek'))}
+            >
+              <div className="citadel-mobile-drag-pill" />
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              {/* Dock to opposite side */}
-              <button
-                type="button"
-                onClick={isDockedRight ? handleDockLeft : handleDockRight}
-                className="citadel-header-action-btn"
-                title={isDockedRight ? "Dock Ledger to Left side" : "Dock Ledger to Right side (reveal Westeros)"}
-              >
-                {isDockedRight ? <PanelLeft size={13} /> : <PanelRight size={13} />}
-              </button>
-
-              {/* Reset to default position */}
-              <button
-                type="button"
-                onClick={handleResetPosition}
-                className="citadel-header-action-btn"
-                title="Reset Position (Top-Left)"
-              >
-                <RotateCcw size={12} />
-              </button>
-
-              <button
-                type="button"
-                onClick={onToggle}
-                className="citadel-header-action-btn"
-                title="Minimize Ledger"
-              >
-                <Minimize2 size={13} />
-              </button>
+            {/* Mobile Peek Bar */}
+            <div
+              className="citadel-mobile-peek-bar"
+              onClick={() => {
+                if (mobileSheetState === 'peek') setMobileSheetState('half');
+              }}
+            >
+              <div className="citadel-mobile-peek-summary">
+                <div
+                  style={{
+                    width: 22,
+                    height: 22,
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, #dfb15b 0%, #78350f 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 0 8px rgba(223, 177, 91, 0.6)',
+                    flexShrink: 0
+                  }}
+                >
+                  <Compass size={13} color="#0a0e14" strokeWidth={2.5} />
+                </div>
+                <div className="citadel-mobile-peek-text">
+                  {originNode && destNode ? (
+                    <span>{originNode.name} → {destNode.name}</span>
+                  ) : (
+                    <span>Citadel Wayfinding Ledger</span>
+                  )}
+                </div>
+                {routeResult && (
+                  <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.25)', color: 'var(--text-gold-bright)', fontSize: 11 }}>
+                    {routeResult.totalDays}d
+                  </span>
+                )}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <button
+                  type="button"
+                  className="citadel-header-action-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileSheetState((s) => (s === 'peek' ? 'half' : s === 'half' ? 'full' : 'peek'));
+                  }}
+                  title={mobileSheetState === 'peek' ? 'Expand' : 'Collapse'}
+                >
+                  {mobileSheetState === 'peek' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                <button
+                  type="button"
+                  className="citadel-header-action-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onToggle();
+                  }}
+                  title="Close Ledger"
+                >
+                  <X size={15} />
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Primary View Tabs */}
-          <div style={{ display: 'flex', gap: 6, background: 'var(--bg-secondary)', padding: 3, borderRadius: 6, border: '1px solid var(--border-subtle)' }}>
-            <button
-              onClick={() => setActiveTab('planner')}
-              style={{
-                flex: 1,
-                padding: '7px 10px',
-                fontSize: 12,
-                fontWeight: 700,
-                borderRadius: 4,
-                border: 'none',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 6,
-                background: activeTab === 'planner' ? 'rgba(223, 177, 91, 0.25)' : 'transparent',
-                color: activeTab === 'planner' ? 'var(--text-gold-bright)' : 'var(--text-muted)',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              <Navigation size={13} />
-              <span>Plan Journey</span>
-            </button>
+            {/* Primary View Tabs for Mobile */}
+            <div className="citadel-sheet-tabs" style={{ padding: '0 12px 8px', flexShrink: 0 }}>
+              {tabsElement}
+            </div>
+          </>
+        ) : (
+          /* Sidebar Header & Tab Switcher (Desktop) */
+          <div
+            className="citadel-drag-header"
+            onPointerDown={handleHeaderPointerDown}
+            onDoubleClick={handleHeaderDoubleClick}
+            title="Drag anywhere here to move ledger across the map • Double-click to dock to other side"
+            style={{
+              flexShrink: 0,
+              padding: '10px 12px 8px',
+              borderBottom: '1px solid var(--border-subtle)',
+              background: 'var(--bg-secondary)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                <div className="citadel-drag-grip" title="Drag Handle (move around map)">
+                  <GripHorizontal size={15} />
+                </div>
+                <div
+                  style={{
+                    width: 24,
+                    height: 24,
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, #dfb15b 0%, #78350f 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 0 8px rgba(223, 177, 91, 0.6)'
+                  }}
+                >
+                  <Compass size={14} color="#0a0e14" strokeWidth={2.5} />
+                </div>
+                <span
+                  className="font-serif"
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 900,
+                    letterSpacing: '1px',
+                    color: 'var(--text-gold)',
+                    fontFamily: "'Cinzel', serif",
 
-            <button
-              onClick={() => setActiveTab('ledger')}
-              style={{
-                flex: 1,
-                padding: '7px 10px',
-                fontSize: 12,
-                fontWeight: 700,
-                borderRadius: 4,
-                border: 'none',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 6,
-                background: activeTab === 'ledger' ? '#dfb15b40' : 'transparent',
-                color: activeTab === 'ledger' ? 'var(--text-gold-bright)' : 'var(--text-muted)',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              <Compass size={13} />
-              <span>Itinerary</span>
-              {routeResult && (
-                <span style={{ fontSize: 10, padding: '0px 3px', color: 'var(--text-gold-bright)', border: '3px solid #dfb15b40', borderRadius: 3, fontWeight: 800 }}>
-                  {routeResult.totalDays}d
+                    textTransform: 'uppercase'
+                  }}
+                >
+                  Citadel Ledger
                 </span>
-              )}
-            </button>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                {/* Dock to opposite side */}
+                <button
+                  type="button"
+                  onClick={isDockedRight ? handleDockLeft : handleDockRight}
+                  className="citadel-header-action-btn"
+                  title={isDockedRight ? "Dock Ledger to Left side" : "Dock Ledger to Right side (reveal Westeros)"}
+                >
+                  {isDockedRight ? <PanelLeft size={13} /> : <PanelRight size={13} />}
+                </button>
+
+                {/* Reset to default position */}
+                <button
+                  type="button"
+                  onClick={handleResetPosition}
+                  className="citadel-header-action-btn"
+                  title="Reset Position (Top-Left)"
+                >
+                  <RotateCcw size={12} />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={onToggle}
+                  className="citadel-header-action-btn"
+                  title="Minimize Ledger"
+                >
+                  <Minimize2 size={13} />
+                </button>
+              </div>
+            </div>
+
+            {/* Primary View Tabs (Desktop) */}
+            {tabsElement}
           </div>
-        </div>
+        )}
 
         {/* Scrollable Content Container */}
-        <div style={{ overflowY: 'auto', minHeight: 0, flexShrink: 1, padding: '14px 16px' }}>
+        <div
+          className={isMobile ? 'citadel-sheet-scrollable' : undefined}
+          style={{
+            overflowY: 'auto',
+            minHeight: 0,
+            flexShrink: 1,
+            flex: isMobile ? 1 : undefined,
+            padding: isMobile ? '8px 14px 20px' : '14px 16px'
+          }}
+        >
           {/* =========================================================
               TAB 1: PLAN JOURNEY
              ========================================================= */}

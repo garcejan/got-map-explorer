@@ -265,6 +265,7 @@ export const App: React.FC = () => {
         <CitadelSidebar
           isOpen={sidebarOpen}
           onToggle={() => setSidebarOpen(!sidebarOpen)}
+          isMobile={isMobile}
           originId={originId}
           destinationId={destinationId}
           waypointIds={waypointIds}

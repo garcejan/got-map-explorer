@@ -219,3 +219,126 @@ body.citadel-dragging-active .leaflet-container {
     filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
   }
 }
+
+/* Mobile Bottom Sheet Styles (< 768px) */
+@media (max-width: 767px) {
+  .citadel-bottom-sheet-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1800;
+    pointer-events: auto;
+    transition: opacity 0.25s ease;
+  }
+
+  .citadel-mobile-bottom-sheet {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    transform: none !important;
+    border-radius: 16px 16px 0 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-top: 1px solid var(--border-gold) !important;
+    box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.95), 0 0 15px var(--border-gold-glow) !important;
+    z-index: 1900 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--bg-panel) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+    overflow: hidden !important;
+    touch-action: pan-y !important;
+  }
+
+  .citadel-mobile-drag-handle {
+    width: 100%;
+    padding: 8px 0 4px;
+    display: flex;
+    justify-content: center;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+  }
+
+  .citadel-mobile-drag-pill {
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border-gold);
+    opacity: 0.8;
+  }
+
+  /* Peek bar header */
+  .citadel-mobile-peek-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 14px 10px;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .citadel-mobile-peek-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .citadel-mobile-peek-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-gold-bright);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* When bottom sheet is in peek state, scrollable content and tabs are hidden */
+  .citadel-mobile-bottom-sheet.state-peek {
+    height: calc(54px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .citadel-mobile-bottom-sheet.state-peek .citadel-sheet-tabs,
+  .citadel-mobile-bottom-sheet.state-peek .citadel-sheet-scrollable {
+    display: none !important;
+  }
+
+  .citadel-mobile-bottom-sheet.state-half {
+    height: 58dvh !important;
+  }
+
+  .citadel-mobile-bottom-sheet.state-full {
+    height: calc(100dvh - 58px) !important;
+  }
+
+  .citadel-mobile-fab-ledger {
+    position: fixed;
+    bottom: calc(var(--safe-bottom) + 16px);
+    right: 16px;
+    z-index: 1700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gold);
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75), 0 0 12px var(--border-gold-glow);
+    color: var(--text-gold);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+  }
+}
