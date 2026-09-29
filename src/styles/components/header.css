@@ -117,20 +117,50 @@
     left: 8px;
     right: 8px;
     height: var(--header-height-mobile, 48px);
-    padding: 0 8px;
-    gap: 8px;
+    padding: 0 6px;
+    gap: 6px;
     border-radius: 8px;
   }
 
+  .citadel-mobile-title-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
   .citadel-brand-crest {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .citadel-mobile-title {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    color: var(--text-gold);
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .citadel-mobile-btn-cluster {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
   }
 
   .citadel-mobile-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
     background: var(--bg-secondary);
     border: 1px solid var(--border-gold-glow);
     color: var(--text-gold);
@@ -186,5 +216,11 @@
     border: 1px solid var(--border-gold);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
     background: var(--bg-panel);
+  }
+}
+
+@media (max-width: 350px) {
+  .citadel-mobile-title {
+    display: none;
   }
 }

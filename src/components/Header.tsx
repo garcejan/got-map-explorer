@@ -45,29 +45,18 @@ export const Header: React.FC<HeaderProps> = ({
       {isMobile ? (
         <>
           {/* Mobile Brand Crest & Title */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-            <div className="citadel-brand-crest" style={{ width: 28, height: 28 }}>
-              <Compass size={16} color="var(--bg-primary, #0a0e14)" strokeWidth={2.5} />
+          <div className="citadel-mobile-title-container">
+            <div className="citadel-brand-crest">
+              <Compass size={14} color="var(--bg-primary, #0a0e14)" strokeWidth={2.5} />
             </div>
 
-            <h1
-              className="font-serif"
-              style={{
-                fontSize: 13.5,
-                fontWeight: 900,
-                letterSpacing: '0.8px',
-                color: 'var(--text-gold)',
-                textTransform: 'uppercase',
-                lineHeight: 1,
-                margin: 0
-              }}
-            >
+            <h1 className="font-serif citadel-mobile-title">
               The Known World
             </h1>
           </div>
 
           {/* Mobile Quick Action Buttons Cluster */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+          <div className="citadel-mobile-btn-cluster">
             {/* Search Trigger */}
             <button
               type="button"
@@ -79,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
               title="Search settlements and lore"
               aria-label="Search Known World settlements"
             >
-              <Search size={15} />
+              <Search size={14} />
             </button>
 
             {/* Presets / Chronicles Trigger */}
@@ -93,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({
               title="Historical Chronicles"
               aria-label="Historical preset journeys"
             >
-              <BookOpen size={15} />
+              <BookOpen size={14} />
             </button>
 
             {/* Theme Switcher Toggle (1-click) */}
@@ -104,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({
               title={`Switch to ${isBeige ? 'Dark' : 'Beige'} Theme`}
               aria-label={`Switch to ${isBeige ? 'Dark' : 'Beige'} Theme`}
             >
-              {isBeige ? <Moon size={15} /> : <Sun size={15} />}
+              {isBeige ? <Moon size={14} /> : <Sun size={14} />}
             </button>
 
             {/* Guide Button */}
@@ -115,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({
               title="Citadel Guide & Tutorial"
               aria-label="Citadel Tutorial"
             >
-              <Info size={15} />
+              <Info size={14} />
             </button>
 
             {/* Ledger Toggle Button */}
@@ -127,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({
                 title={isSidebarOpen ? "Collapse Citadel Ledger" : "Open Citadel Ledger"}
                 aria-label="Toggle Citadel Ledger"
               >
-                <Navigation size={15} />
+                <Navigation size={14} />
               </button>
             )}
           </div>
