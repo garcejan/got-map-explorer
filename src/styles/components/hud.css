@@ -85,6 +85,10 @@
   color: var(--text-gold-bright);
 }
 
+.citadel-layer-btn .citadel-layer-btn-label-mobile {
+  display: none;
+}
+
 @keyframes hud-bounce-in {
   0% {
     opacity: 0;
