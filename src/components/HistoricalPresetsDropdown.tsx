@@ -25,6 +25,8 @@ interface HistoricalPresetsDropdownProps {
   onSelectPreset: (preset: PresetJourney) => void;
   activePresetId?: string | null;
   onClearPreset?: () => void;
+  isMobile?: boolean;
+  onClose?: () => void;
 }
 
 type CategoryFilter = 'all' | 'dragon' | 'rookery' | 'royal_war' | 'sea_voyage';
@@ -243,12 +245,20 @@ const PRESET_META: Record<string, PresetMetadata> = {
 export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps> = ({
   onSelectPreset,
   activePresetId,
-  onClearPreset
+  onClearPreset,
+  isMobile = false,
+  onClose
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(isMobile);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
   const [focusedIndex, setFocusedIndex] = useState(0);
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsOpen(true);
+    }
+  }, [isMobile]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -345,10 +355,11 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
           const selected = filteredPresets[clampedIndex];
           onSelectPreset(selected);
           setIsOpen(false);
+          onClose?.();
         }
       }
     },
-    [isOpen, filteredPresets, clampedIndex, onSelectPreset]
+    [isOpen, filteredPresets, clampedIndex, onSelectPreset, onClose]
   );
 
   // Focus search input on open
@@ -375,6 +386,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
     const chosen = PRESET_JOURNEYS[randomIndex];
     onSelectPreset(chosen);
     setIsOpen(false);
+    onClose?.();
   };
 
   const getPartyIcon = (partyId: string, size = 15) => {
@@ -417,10 +429,11 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
       onKeyDown={handleKeyDown}
       style={{
         position: 'relative',
-        display: 'inline-block',
+        display: isMobile ? 'block' : 'inline-block',
         minWidth: 0,
-        maxWidth: 340,
-        flex: '1 1 auto'
+        maxWidth: isMobile ? '100%' : 340,
+        width: isMobile ? '100%' : undefined,
+        flex: isMobile ? 'none' : '1 1 auto'
       }}
     >
       {/* Dropdown Trigger Button */}
@@ -588,14 +601,15 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
           role="listbox"
           aria-label="Historical Chronicles of the Realm"
           style={{
-            position: 'absolute',
-            top: 'calc(100% + 8px)',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 440,
-            maxWidth: 'min(440px, calc(100vw - 28px))',
-            maxHeight: 520,
-            zIndex: 3000,
+            position: isMobile ? 'fixed' : 'absolute',
+            top: isMobile ? 'calc(var(--safe-top) + 60px)' : 'calc(100% + 8px)',
+            left: isMobile ? 8 : '50%',
+            right: isMobile ? 8 : undefined,
+            transform: isMobile ? 'none' : 'translateX(-50%)',
+            width: isMobile ? 'auto' : 440,
+            maxWidth: isMobile ? 'calc(100vw - 16px)' : 'min(440px, calc(100vw - 28px))',
+            maxHeight: isMobile ? 'calc(100dvh - 80px)' : 520,
+            zIndex: 3500,
             borderRadius: 8,
             border: '1px solid var(--border-gold-glow)',
             background: 'var(--bg-panel)',
@@ -634,28 +648,56 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                 </h3>
               </div>
 
-              <button
-                type="button"
-                onClick={handlePickRandom}
-                className="btn-secondary"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 4,
-                  padding: '3px 8px',
-                  borderRadius: 4,
-                  fontSize: 11,
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  background: 'rgba(223, 177, 91, 0.12)',
-                  border: '1px solid var(--border-gold-glow)',
-                  color: 'var(--text-gold)'
-                }}
-                title="Explore a random canonical journey"
-              >
-                <Shuffle size={11} />
-                <span>Random Route</span>
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <button
+                  type="button"
+                  onClick={handlePickRandom}
+                  className="btn-secondary"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                    padding: '3px 8px',
+                    borderRadius: 4,
+                    fontSize: 11,
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    background: 'rgba(223, 177, 91, 0.12)',
+                    border: '1px solid var(--border-gold-glow)',
+                    color: 'var(--text-gold)'
+                  }}
+                  title="Explore a random canonical journey"
+                >
+                  <Shuffle size={11} />
+                  <span>Random</span>
+                </button>
+
+                {(isMobile || onClose) && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsOpen(false);
+                      onClose?.();
+                    }}
+                    style={{
+                      background: 'transparent',
+                      border: '1px solid var(--border-subtle)',
+                      color: 'var(--text-muted)',
+                      borderRadius: 4,
+                      width: 26,
+                      height: 26,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer'
+                    }}
+                    title="Close Chronicles"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Quick Search Input */}
@@ -797,6 +839,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
                     onClick={() => {
                       onSelectPreset(preset);
                       setIsOpen(false);
+                      onClose?.();
                     }}
                     onMouseEnter={() => setFocusedIndex(index)}
                     style={{

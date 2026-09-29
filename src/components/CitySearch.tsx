@@ -7,6 +7,8 @@ interface CitySearchProps {
   onSelectCity: (nodeId: string) => void;
   onSetOrigin?: (nodeId: string) => void;
   onSetDestination?: (nodeId: string) => void;
+  isMobile?: boolean;
+  onClose?: () => void;
 }
 
 const FEATURED_CITY_IDS = [
@@ -23,7 +25,9 @@ const FEATURED_CITY_IDS = [
 export const CitySearch: React.FC<CitySearchProps> = ({
   onSelectCity,
   onSetOrigin,
-  onSetDestination
+  onSetDestination,
+  isMobile = false,
+  onClose
 }) => {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -141,6 +145,14 @@ export const CitySearch: React.FC<CitySearchProps> = ({
     }
   }, [selectedIndex]);
 
+  useEffect(() => {
+    if (isMobile) {
+      setIsOpen(true);
+      const timer = setTimeout(() => inputRef.current?.focus(), 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
+
   const handleSelect = (nodeId: string) => {
     const node = NODES[nodeId];
     if (node) {
@@ -148,6 +160,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
     }
     setIsOpen(false);
     onSelectCity(nodeId);
+    onClose?.();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -226,9 +239,9 @@ export const CitySearch: React.FC<CitySearchProps> = ({
       style={{
         position: 'relative',
         width: '100%',
-        maxWidth: 320,
-        minWidth: 200,
-        flexShrink: 0
+        maxWidth: isMobile ? '100%' : 320,
+        minWidth: isMobile ? 0 : 200,
+        flexShrink: isMobile ? 1 : 0
       }}
     >
       {/* Search Input Box */}
@@ -242,7 +255,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
           border: isOpen ? '1px solid var(--border-gold)' : '1px solid var(--border-subtle)',
           boxShadow: isOpen ? '0 0 10px var(--border-gold-glow)' : 'none',
           transition: 'all 0.2s ease',
-          height: 32,
+          height: isMobile ? 38 : 32,
           padding: '0 8px'
         }}
       >
@@ -265,7 +278,7 @@ export const CitySearch: React.FC<CitySearchProps> = ({
             border: 'none',
             outline: 'none',
             color: 'var(--text-parchment)',
-            fontSize: 12,
+            fontSize: isMobile ? 16 : 12,
             fontFamily: 'var(--font-sans)',
             padding: 0,
             width: '100%'
@@ -294,20 +307,46 @@ export const CitySearch: React.FC<CitySearchProps> = ({
             <X size={13} />
           </button>
         ) : (
-          <kbd
-            style={{
-              fontSize: 9,
-              padding: '2px 5px',
-              borderRadius: 4,
-              background: 'var(--bg-card)',
-              color: 'var(--text-dim)',
-              border: '1px solid var(--border-subtle)',
-              fontFamily: 'monospace',
-              pointerEvents: 'none'
+          !isMobile && (
+            <kbd
+              style={{
+                fontSize: 9,
+                padding: '2px 5px',
+                borderRadius: 4,
+                background: 'var(--bg-card)',
+                color: 'var(--text-dim)',
+                border: '1px solid var(--border-subtle)',
+                fontFamily: 'monospace',
+                pointerEvents: 'none'
+              }}
+            >
+              ⌘K
+            </kbd>
+          )
+        )}
+
+        {isMobile && onClose && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
             }}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '2px 4px',
+              marginLeft: 4,
+              color: 'var(--text-muted)'
+            }}
+            title="Close search"
           >
-            ⌘K
-          </kbd>
+            <X size={16} />
+          </button>
         )}
       </div>
 
@@ -316,19 +355,20 @@ export const CitySearch: React.FC<CitySearchProps> = ({
         <div
           className="glass-panel"
           style={{
-            position: 'absolute',
-            top: 'calc(100% + 6px)',
-            left: 0,
-            width: 420,
-            maxWidth: '92vw',
+            position: isMobile ? 'relative' : 'absolute',
+            top: isMobile ? undefined : 'calc(100% + 6px)',
+            left: isMobile ? undefined : 0,
+            width: isMobile ? '100%' : 420,
+            maxWidth: isMobile ? '100%' : '92vw',
             zIndex: 3000,
-            maxHeight: 460,
+            maxHeight: isMobile ? 'min(460px, calc(72dvh - 60px))' : 460,
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
             boxShadow: '0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--border-gold-glow)',
             border: '1px solid var(--border-gold)',
-            borderRadius: 8
+            borderRadius: 8,
+            marginTop: isMobile ? 8 : 0
           }}
         >
           {/* Filter Chips Bar */}

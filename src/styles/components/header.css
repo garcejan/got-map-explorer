@@ -109,3 +109,82 @@
   background: var(--bg-card);
   box-shadow: 0 2px 6px rgba(179, 128, 43, 0.2);
 }
+
+/* Mobile Header Enhancements (< 768px) */
+@media (max-width: 767px) {
+  .citadel-header-panel {
+    top: calc(var(--safe-top) + 6px);
+    left: 8px;
+    right: 8px;
+    height: var(--header-height-mobile, 48px);
+    padding: 0 8px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  .citadel-brand-crest {
+    width: 28px;
+    height: 28px;
+  }
+
+  .citadel-mobile-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-gold-glow);
+    color: var(--text-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .citadel-mobile-btn:active {
+    transform: scale(0.92);
+  }
+
+  .citadel-mobile-btn.active {
+    background: var(--border-gold);
+    color: #0a0e14;
+    box-shadow: 0 0 10px var(--border-gold-glow);
+  }
+
+  /* Full screen / slide-down modal for mobile city search */
+  .citadel-mobile-search-modal {
+    position: fixed;
+    top: calc(var(--safe-top) + 58px);
+    left: 8px;
+    right: 8px;
+    z-index: 3500;
+    max-height: calc(100dvh - 75px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
+    background: var(--bg-panel);
+    padding: 10px;
+  }
+
+  /* Mobile historical presets modal */
+  .citadel-mobile-presets-modal {
+    position: fixed;
+    top: calc(var(--safe-top) + 58px);
+    left: 8px;
+    right: 8px;
+    z-index: 3500;
+    max-height: calc(100dvh - 75px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
+    background: var(--bg-panel);
+  }
+}
