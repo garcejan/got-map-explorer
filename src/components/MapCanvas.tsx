@@ -1062,30 +1062,38 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
           }
         }
 
-        let defaultPartyEmoji = '👑';
-        let defaultTokenBg = 'radial-gradient(circle, #f59e0b 0%, #78350f 100%)';
-        let defaultTokenBorder = '#ffd700';
+        let defaultPartyEmoji = '🧭';
+        let defaultTokenBg = 'radial-gradient(circle, #64748b 0%, #1e293b 100%)';
+        let defaultTokenBorder = '#94a3b8';
 
-        if (routeResult.party.id === 'dragon' || isDragonRoute) {
+        if (routeResult.party.id === 'retinue') {
+          defaultPartyEmoji = '👑';
+          defaultTokenBg = PARTY_ARCHETYPE_COLORS.retinue.bgDark;
+          defaultTokenBorder = PARTY_ARCHETYPE_COLORS.retinue.borderDark;
+        } else if (routeResult.party.id === 'dragon' || isDragonRoute) {
           defaultPartyEmoji = '🐉';
-          defaultTokenBg = 'radial-gradient(circle, #ef4444 0%, #7f1d1d 100%)';
-          defaultTokenBorder = '#f87171';
+          defaultTokenBg = PARTY_ARCHETYPE_COLORS.dragon.bgDark;
+          defaultTokenBorder = PARTY_ARCHETYPE_COLORS.dragon.borderDark;
         } else if (routeResult.party.id === 'crow' || routeResult.party.id === 'raven' || isCrowRoute) {
           defaultPartyEmoji = '🦅';
-          defaultTokenBg = 'radial-gradient(circle, #a855f7 0%, #581c87 100%)';
-          defaultTokenBorder = '#c084fc';
+          defaultTokenBg = PARTY_ARCHETYPE_COLORS.crow.bgDark;
+          defaultTokenBorder = PARTY_ARCHETYPE_COLORS.crow.borderDark;
         } else if (routeResult.party.id === 'fleet' || routeResult.party.id === 'war_galley' || routeResult.mode === 'sea_only') {
           defaultPartyEmoji = '⛵';
-          defaultTokenBg = 'radial-gradient(circle, #06b6d4 0%, #0e7490 100%)';
-          defaultTokenBorder = '#38bdf8';
+          defaultTokenBg = PARTY_ARCHETYPE_COLORS.fleet.bgDark;
+          defaultTokenBorder = PARTY_ARCHETYPE_COLORS.fleet.borderDark;
         } else if (routeResult.party.id === 'army' || routeResult.party.id === 'host') {
           defaultPartyEmoji = '🛡️';
-          defaultTokenBg = 'radial-gradient(circle, #e11d48 0%, #881337 100%)';
-          defaultTokenBorder = '#fb7185';
-        } else if (routeResult.party.id === 'courier' || routeResult.party.id === 'fast_courier') {
+          defaultTokenBg = PARTY_ARCHETYPE_COLORS.army.bgDark;
+          defaultTokenBorder = PARTY_ARCHETYPE_COLORS.army.borderDark;
+        } else if (routeResult.party.id === 'messenger' || routeResult.party.id === 'courier' || routeResult.party.id === 'fast_courier') {
           defaultPartyEmoji = '🐎';
-          defaultTokenBg = 'radial-gradient(circle, #10b981 0%, #065f46 100%)';
-          defaultTokenBorder = '#34d399';
+          defaultTokenBg = PARTY_ARCHETYPE_COLORS.messenger.bgDark;
+          defaultTokenBorder = PARTY_ARCHETYPE_COLORS.messenger.borderDark;
+        } else if (routeResult.party.id === 'caravan' || routeResult.party.id === 'merchant_caravan') {
+          defaultPartyEmoji = '🪙';
+          defaultTokenBg = PARTY_ARCHETYPE_COLORS.caravan.bgDark;
+          defaultTokenBorder = PARTY_ARCHETYPE_COLORS.caravan.borderDark;
         }
 
         const createTravelerIcon = (emoji: string, bg: string, border: string) => L.divIcon({
@@ -1138,8 +1146,8 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
               activeBorder = '#38bdf8';
             } else if (currentMode === 'flight') {
               activeEmoji = isDragonRoute ? '🐉' : '🦅';
-              activeBg = isDragonRoute ? 'radial-gradient(circle, #ef4444 0%, #7f1d1d 100%)' : 'radial-gradient(circle, #a855f7 0%, #581c87 100%)';
-              activeBorder = isDragonRoute ? '#f87171' : '#c084fc';
+              activeBg = isDragonRoute ? PARTY_ARCHETYPE_COLORS.dragon.bgDark : PARTY_ARCHETYPE_COLORS.crow.bgDark;
+              activeBorder = isDragonRoute ? PARTY_ARCHETYPE_COLORS.dragon.borderDark : PARTY_ARCHETYPE_COLORS.crow.borderDark;
             } else {
               activeEmoji = defaultPartyEmoji;
               activeBg = defaultTokenBg;
@@ -1208,7 +1216,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
       {/* Top Floating Picking HUD Banner */}
       {mapPickingTarget && (
         <div className="citadel-picking-hud">
-          <span style={{ fontSize: 16 }}>📍</span>
+          <Pin size={16} color='var(--text-parchment)' />
           <span style={{ fontSize: 13, color: 'var(--text-parchment)', fontWeight: 600 }}>
             {mapPickingTarget.type === 'origin' && 'Select Departure Point — Click any settlement on the map'}
             {mapPickingTarget.type === 'destination' && 'Select Arrival Point — Click any settlement on the map'}
