@@ -110,8 +110,8 @@ export const PARTY_ARCHETYPE_COLORS = {
     varName: 'var(--icon-caravan, #fb923c)',
     hexDark: '#fb923c',
     hexBeige: '#c2410c',
-    bgDark: 'radial-gradient(circle, #f59e0b 0%, #78350f 100%)',
-    borderDark: '#ffd700'
+    bgDark: 'radial-gradient(circle, #ea580c 0%, #7c2d12 100%)',
+    borderDark: '#fb923c'
   },
   fleet: {
     varName: 'var(--icon-fleet, #22d3ee)',
