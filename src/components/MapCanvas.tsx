@@ -707,30 +707,37 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
       // Popup Content built as DOM element with isolated click propagation
       const popupDiv = document.createElement('div');
-      popupDiv.style.minWidth = '240px';
-      popupDiv.style.fontFamily = "'Inter', sans-serif";
+      popupDiv.className = 'citadel-settlement-popup-container';
 
       let statusBadge = '';
       if (isOrigin) {
-        statusBadge = `<span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #15803d; color: #fff; padding: 3px 8px; border-radius: 4px;">Departure</span>`;
+        statusBadge = `<span class="citadel-popup-status-badge citadel-popup-status-origin">Departure</span>`;
       } else if (isDestination) {
-        statusBadge = `<span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #b91c1c; color: #fff; padding: 3px 8px; border-radius: 4px;">Arrival</span>`;
+        statusBadge = `<span class="citadel-popup-status-badge citadel-popup-status-dest">Arrival</span>`;
       } else if (isWaypoint) {
-        statusBadge = `<span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #0369a1; color: #fff; padding: 3px 8px; border-radius: 4px;">Stop ${wpIndex + 1}</span>`;
+        statusBadge = `<span class="citadel-popup-status-badge citadel-popup-status-way">Stop ${wpIndex + 1}</span>`;
       }
 
+      let typeBadgeClass = 'citadel-badge-city';
+      if (node.type === 'capital') typeBadgeClass = 'citadel-badge-capital';
+      else if (node.isPort || node.type === 'port') typeBadgeClass = 'citadel-badge-port';
+      else if (node.type === 'castle') typeBadgeClass = 'citadel-badge-castle';
+      else if (node.type === 'junction' || node.type === 'ruin') typeBadgeClass = 'citadel-badge-junction';
+
       popupDiv.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 10px;">
-          <strong style="font-family: 'Cinzel', serif; font-size: 15px; color: var(--text-gold); letter-spacing: 0.5px;">${node.name}</strong>
-          <div style="display: flex; align-items: center; gap: 5px;">
-            ${statusBadge}
-            <span class="citadel-popup-type-badge">
-              ${node.type.replace('_', ' ')}
-            </span>
+        <div class="citadel-settlement-popup-header">
+          <div class="citadel-settlement-popup-title-row">
+            <strong class="citadel-settlement-popup-title">${node.name}</strong>
+            <div class="citadel-settlement-popup-badges">
+              ${statusBadge}
+              <span class="citadel-popup-type-badge ${typeBadgeClass}">
+                ${node.type.replace('_', ' ')}
+              </span>
+            </div>
           </div>
         </div>
-        ${node.allegiance ? `<div style="font-size: 12px; color: var(--text-parchment); margin-bottom: 6px;"><b style="color: var(--text-gold);">Allegiance:</b> ${node.allegiance}</div>` : ''}
-        ${node.loreSnippet ? `<p style="font-size: 12px; color: var(--text-muted); margin: 4px 0 10px; font-style: italic; line-height: 1.4;">"${node.loreSnippet}"</p>` : ''}
+        ${node.allegiance ? `<div class="citadel-settlement-allegiance"><b>Allegiance:</b> ${node.allegiance}</div>` : ''}
+        ${node.loreSnippet ? `<p class="citadel-settlement-lore">"${node.loreSnippet}"</p>` : ''}
         ${node.wikiUrl ? `
           <div style="margin-bottom: 10px;">
             <a href="${node.wikiUrl}" target="_blank" rel="noopener noreferrer" class="citadel-popup-wiki-btn" title="View historical records and lore on the Wiki of Westeros">
