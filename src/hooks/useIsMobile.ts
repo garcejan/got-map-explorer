@@ -17,19 +17,26 @@ export function useIsMobile(breakpoint: number = MOBILE_BREAKPOINT): boolean {
 
     const mediaQuery = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
 
-    const updateMatches = (e: MediaQueryListEvent | MediaQueryList) => {
-      setIsMobile(e.matches);
+    const updateMatches = () => {
+      setIsMobile(window.innerWidth < breakpoint || mediaQuery.matches);
     };
 
-    updateMatches(mediaQuery);
+    updateMatches();
 
+    window.addEventListener('resize', updateMatches);
     if (typeof mediaQuery.addEventListener === 'function') {
       mediaQuery.addEventListener('change', updateMatches);
-      return () => mediaQuery.removeEventListener('change', updateMatches);
+      return () => {
+        window.removeEventListener('resize', updateMatches);
+        mediaQuery.removeEventListener('change', updateMatches);
+      };
     } else {
       // Legacy fallback
       mediaQuery.addListener(updateMatches);
-      return () => mediaQuery.removeListener(updateMatches);
+      return () => {
+        window.removeEventListener('resize', updateMatches);
+        mediaQuery.removeListener(updateMatches);
+      };
     }
   }, [breakpoint]);
 
