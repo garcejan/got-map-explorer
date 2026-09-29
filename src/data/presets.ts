@@ -198,7 +198,7 @@ export const PRESET_JOURNEYS: PresetJourney[] = [
     partyId: 'army',
     mode: 'land_only',
     goal: 'balanced',
-    lore: "Marching the newly freed 8,000 Unsullied from Astapor through Yunkai to lay siege to Meereen."
+    lore: "Marching the newly freed 8 000 Unsullied from Astapor through Yunkai to lay siege to Meereen."
   },
   {
     id: 'oberyn_vengeance',
@@ -224,7 +224,7 @@ export const PRESET_JOURNEYS: PresetJourney[] = [
   },
   {
     id: 'nymeria_ten_thousand_ships',
-    name: "Princess Nymeria's 10,000 Ships",
+    name: "Princess Nymeria's 10 000 Ships",
     originId: 'volantis',
     destinationId: 'sunspear',
     waypoints: ['tall_trees_town'],

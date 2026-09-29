@@ -14,13 +14,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Rebel Coalition',
         commanders: ['Lord Robert Baratheon', 'Lord Eddard Stark', 'Lord Jon Arryn', 'Lord Hoster Tully'],
-        forces: '~35,000 men (Stormlands, North, Vale, Riverlands)',
+        forces: '~35 000 men (Stormlands, North, Vale, Riverlands)',
         factions: ['House Baratheon', 'House Stark', 'House Arryn', 'House Tully']
       },
       sideB: {
         name: 'Targaryen Loyalists',
         commanders: ['Prince Rhaegar Targaryen †', 'Ser Barristan Selmy', 'Prince Lewyn Martell †', 'Lord Jon Darry †'],
-        forces: '~40,000 men (Crownlands, Reach, Dorne)',
+        forces: '~40 000 men (Crownlands, Reach, Dorne)',
         factions: ['House Targaryen', 'House Martell', 'House Darry']
       }
     },
@@ -42,13 +42,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'House Baratheon of Dragonstone',
         commanders: ['King Stannis Baratheon', 'Ser Davos Seaworth', 'Ser Imry Florent †'],
-        forces: '20,000 soldiers & ~200 warships',
+        forces: '20 000 soldiers & ~200 warships',
         factions: ['House Baratheon of Dragonstone', 'House Florent', 'Lysene Mercenaries']
       },
       sideB: {
         name: 'Iron Throne Alliance (Lannister & Tyrell)',
         commanders: ['Lord Tywin Lannister', 'Tyrion Lannister', 'Ser Loras Tyrell', 'King Joffrey Baratheon'],
-        forces: '7,000 garrison + 60,000 Tyrell/Lannister relief army',
+        forces: '7 000 garrison + 60 000 Tyrell/Lannister relief army',
         factions: ['House Lannister', 'House Tyrell', 'City Watch of King\'s Landing']
       }
     },
@@ -65,18 +65,18 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     coords: [1420, 4830],
     locationName: 'Plains of the Northern Reach',
     region: 'reach',
-    description: 'The only battle in Westerosi history where all three Targaryen dragons—Balerion, Vhagar, and Meraxes—were unleashed together upon the battlefield. The combined host of the Two Kings outnumbered Aegon five to one, but dragonflame ignited the dry plains into an inferno that burned over 4,000 allied soldiers alive and broke the ancient kingdoms.',
+    description: 'The only battle in Westerosi history where all three Targaryen dragons—Balerion, Vhagar, and Meraxes—were unleashed together upon the battlefield. The combined host of the Two Kings outnumbered Aegon five to one, but dragonflame ignited the dry plains into an inferno that burned over 4 000 allied soldiers alive and broke the ancient kingdoms.',
     combatants: {
       sideA: {
         name: 'Host of the Two Kings',
         commanders: ['King Mern IX Gardener †', 'King Loren I Lannister'],
-        forces: '55,000 knights, horsemen, and footmen',
+        forces: '55 000 knights, horsemen, and footmen',
         factions: ['Kingdom of the Reach (House Gardener)', 'Kingdom of the Rock (House Lannister)']
       },
       sideB: {
         name: 'House Targaryen',
         commanders: ['King Aegon I Targaryen', 'Queen Visenya Targaryen', 'Queen Rhaenys Targaryen'],
-        forces: '11,000 infantry + 3 Dragons (Balerion, Vhagar, Meraxes)',
+        forces: '11 000 infantry + 3 Dragons (Balerion, Vhagar, Meraxes)',
         factions: ['House Targaryen']
       }
     },
@@ -98,13 +98,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Stark-Arryn Coalition',
         commanders: ['Jon Snow', 'Sansa Stark', 'Tormund Giantsbane', 'Lord Petyr Baelish', 'Wun Wun †'],
-        forces: '~2,500 Free Folk & loyalist Northerners + ~2,000 Knights of the Vale',
+        forces: '~2 500 Free Folk & loyalist Northerners + ~2 000 Knights of the Vale',
         factions: ['House Stark', 'Free Folk', 'Knights of the Vale', 'House Mormont']
       },
       sideB: {
         name: 'House Bolton & Northern Allies',
         commanders: ['Lord Ramsay Bolton', 'Lord Harald Karstark', 'Lord Smalljon Umber †'],
-        forces: '~6,000 heavy cavalry, archers, and pikemen',
+        forces: '~6 000 heavy cavalry, archers, and pikemen',
         factions: ['House Bolton', 'House Umber', 'House Karstark']
       }
     },
@@ -126,13 +126,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'The Coalition of the Living',
         commanders: ['Jon Snow', 'Queen Daenerys Targaryen', 'Arya Stark', 'Ser Jorah Mormont †', 'Theon Greyjoy †'],
-        forces: '~40,000 soldiers, 2 Dragons (Drogon, Rhaegal)',
+        forces: '~40 000 soldiers, 2 Dragons (Drogon, Rhaegal)',
         factions: ['House Stark', 'House Targaryen', 'Knights of the Vale', 'Dothraki', 'Unsullied', 'Free Folk']
       },
       sideB: {
         name: 'The Army of the Dead',
         commanders: ['The Night King †', 'White Walkers', 'Undead Viserion †'],
-        forces: '100,000+ Wights, Giants, Ice Dragon',
+        forces: '100 000+ Wights, Giants, Ice Dragon',
         factions: ['The White Walkers', 'Army of the Dead']
       }
     },
@@ -154,13 +154,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Northern Army',
         commanders: ['Robb Stark', 'Ser Brynden Tully', 'Lord Greatjon Umber'],
-        forces: '6,000 northern cavalry & Freys',
+        forces: '6 000 northern cavalry & Freys',
         factions: ['House Stark', 'House Tully', 'House Frey']
       },
       sideB: {
         name: 'Lannister Vanguard',
         commanders: ['Ser Jaime Lannister (captured)', 'Lord Leo Lefford'],
-        forces: '15,000 western horse and foot',
+        forces: '15 000 western horse and foot',
         factions: ['House Lannister']
       }
     },
@@ -233,18 +233,18 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     coords: [1930, 2248],
     locationName: 'Castle Black, The Wall',
     region: 'the_wall',
-    description: "Mance Rayder brought a massive host of 100,000 wildlings, mammoths, and giants to breach the Wall. Jon Snow and a small garrison held the gate. As the defenders reached exhaustion, King Stannis Baratheon arrived with 1,500 mounted knights in a devastating double envelopment through the forest.",
+    description: "Mance Rayder brought a massive host of 100 000 wildlings, mammoths, and giants to breach the Wall. Jon Snow and a small garrison held the gate. As the defenders reached exhaustion, King Stannis Baratheon arrived with 1 500 mounted knights in a devastating double envelopment through the forest.",
     combatants: {
       sideA: {
         name: "Night's Watch & House Baratheon",
         commanders: ['Jon Snow', 'Maester Aemon', 'King Stannis Baratheon', 'Ser Davos Seaworth'],
-        forces: "~100 Night's Watch brothers + ~1,500 Baratheon heavy cavalry",
+        forces: "~100 Night's Watch brothers + ~1 500 Baratheon heavy cavalry",
         factions: ["Night's Watch", 'House Baratheon of Dragonstone']
       },
       sideB: {
         name: 'Free Folk Host',
         commanders: ['Mance Rayder (captured)', 'Tormund Giantsbane', 'Mag Mar Tun Doh Weg †'],
-        forces: '100,000 wildlings, giants, mammoths, and wargs',
+        forces: '100 000 wildlings, giants, mammoths, and wargs',
         factions: ['Free Folk / Wildlings']
       }
     },
@@ -266,13 +266,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Targaryen Loyalists',
         commanders: ['Prince Baelor Breakspear', 'Prince Maekar Targaryen', 'Brynden Rivers (Bloodraven)'],
-        forces: '~35,000 loyalist forces',
+        forces: '~35 000 loyalist forces',
         factions: ['House Targaryen', 'House Martell', 'House Arryn']
       },
       sideB: {
         name: 'Blackfyre Rebels',
         commanders: ['Daemon I Blackfyre †', 'Ser Aegor Rivers (Bittersteel)', 'Ser Gwayne Corbray'],
-        forces: '~35,000 rebel lords and knights',
+        forces: '~35 000 rebel lords and knights',
         factions: ['House Blackfyre', 'House Bracken', 'House Peake']
       }
     },
@@ -300,7 +300,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideB: {
         name: 'House Targaryen & Riverlander Rebels',
         commanders: ['King Aegon I Targaryen', 'Lord Edmyn Tully'],
-        forces: 'Aegon I atop Balerion + 8,000 Riverlander rebels',
+        forces: 'Aegon I atop Balerion + 8 000 Riverlander rebels',
         factions: ['House Targaryen', 'House Tully']
       }
     },
@@ -322,13 +322,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Kingdom of the Storm',
         commanders: ['King Argilac Durrandon (The Arrogant) †'],
-        forces: '10,000 Stormland knights and infantry',
+        forces: '10 000 Stormland knights and infantry',
         factions: ['House Durrandon']
       },
       sideB: {
         name: 'House Targaryen',
         commanders: ['Orys Baratheon', 'Queen Rhaenys Targaryen'],
-        forces: '4,000 Targaryen soldiers & Dragon Meraxes',
+        forces: '4 000 Targaryen soldiers & Dragon Meraxes',
         factions: ['House Targaryen', 'House Baratheon']
       }
     },
@@ -378,7 +378,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'House Lannister',
         commanders: ['Lord Tywin Lannister', 'Ser Jaime Lannister', 'Ser Gregor Clegane'],
-        forces: '12,000 western knights and foot',
+        forces: '12 000 western knights and foot',
         factions: ['House Lannister']
       },
       sideB: {
@@ -412,7 +412,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideB: {
         name: 'Baratheon-Stark Coalition',
         commanders: ['King Robert Baratheon', 'Lord Eddard Stark', 'Thoros of Myr', 'Ser Jorah Mormont'],
-        forces: 'Royal army and fleet (~15,000)',
+        forces: 'Royal army and fleet (~15 000)',
         factions: ['House Baratheon', 'House Stark', 'Iron Throne']
       }
     },
@@ -434,13 +434,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Lannister-Tarly Army',
         commanders: ['Ser Jaime Lannister', 'Lord Randyll Tarly †', 'Dickon Tarly †', 'Ser Bronn'],
-        forces: '~10,000 soldiers and caravan guards',
+        forces: '~10 000 soldiers and caravan guards',
         factions: ['House Lannister', 'House Tarly']
       },
       sideB: {
         name: 'House Targaryen',
         commanders: ['Queen Daenerys Targaryen', 'Drogon'],
-        forces: 'Dothraki Khalasar (~10,000 riders) & Drogon',
+        forces: 'Dothraki Khalasar (~10 000 riders) & Drogon',
         factions: ['House Targaryen', 'Dothraki']
       }
     },
@@ -462,13 +462,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Northern & Riverlander Host',
         commanders: ['Robb Stark', 'Ser Brynden Tully', 'Lord Tytos Blackwood'],
-        forces: '6,000 horse + Riverrun garrison',
+        forces: '6 000 horse + Riverrun garrison',
         factions: ['House Stark', 'House Tully', 'House Blackwood']
       },
       sideB: {
         name: 'Lannister Besieging Army',
         commanders: ['Lord Andros Brax †', 'Ser Forley Prester'],
-        forces: '12,000 men distributed across three camps',
+        forces: '12 000 men distributed across three camps',
         factions: ['House Lannister']
       }
     },
@@ -490,13 +490,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Northern Foot',
         commanders: ['Lord Roose Bolton', 'Robett Glover', 'Harrion Karstark (captured)'],
-        forces: '~17,000 northern infantry',
+        forces: '~17 000 northern infantry',
         factions: ['House Bolton', 'House Stark', 'House Karstark']
       },
       sideB: {
         name: 'Lannister Main Host',
         commanders: ['Lord Tywin Lannister', 'Ser Gregor Clegane', 'Tyrion Lannister'],
-        forces: '~20,000 western knights and men-at-arms',
+        forces: '~20 000 western knights and men-at-arms',
         factions: ['House Lannister']
       }
     },
@@ -518,13 +518,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Northern Army',
         commanders: ['King Robb Stark', 'Ser Brynden Tully', 'Grey Wind'],
-        forces: '6,000 northern horse',
+        forces: '6 000 northern horse',
         factions: ['House Stark', 'House Tully']
       },
       sideB: {
         name: 'Newly-Raised Western Army',
         commanders: ['Ser Stafford Lannister †', 'Lord Antario Jast'],
-        forces: '10,000 recruits and knights',
+        forces: '10 000 recruits and knights',
         factions: ['House Lannister']
       }
     },
@@ -546,13 +546,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Riverlands Defense',
         commanders: ['Ser Edmure Tully', 'Lord Jason Mallister'],
-        forces: '11,000 rivermen',
+        forces: '11 000 rivermen',
         factions: ['House Tully', 'House Mallister']
       },
       sideB: {
         name: 'Lannister Main Army',
         commanders: ['Lord Tywin Lannister', 'Ser Gregor Clegane', 'Lord Leo Lefford †'],
-        forces: '20,000 soldiers',
+        forces: '20 000 soldiers',
         factions: ['House Lannister']
       }
     },
@@ -574,13 +574,13 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'The Blacks',
         commanders: ['Lord Roderick Dustin †', 'Ser Addam Velaryon', 'Hugh Hammer (defected)', 'Ulf White (defected)'],
-        forces: '9,000 Riverlanders and Northmen',
+        forces: '9 000 Riverlanders and Northmen',
         factions: ['House Dustin', 'House Footly']
       },
       sideB: {
         name: 'The Greens',
         commanders: ['Lord Ormund Hightower †', 'Prince Daeron Targaryen upon Tessarion'],
-        forces: '15,000 Reachmen & 1 Dragon',
+        forces: '15 000 Reachmen & 1 Dragon',
         factions: ['House Hightower', 'House Targaryen (Greens)']
       }
     },
@@ -597,12 +597,12 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     coords: [1770, 4728],
     locationName: 'Tumbleton Ruins, The Reach',
     region: 'reach',
-    description: 'Determined to prove that bastards need not be traitors, Ser Addam Velaryon assembled 4,000 Riverlanders and launched a surprise night attack on the drunken Green encampment at Tumbleton. In the chaotic dawn, Vermithor, Seasmoke, and Tessarion clashed in a three-way dragon melee where all three perished.',
+    description: 'Determined to prove that bastards need not be traitors, Ser Addam Velaryon assembled 4 000 Riverlanders and launched a surprise night attack on the drunken Green encampment at Tumbleton. In the chaotic dawn, Vermithor, Seasmoke, and Tessarion clashed in a three-way dragon melee where all three perished.',
     combatants: {
       sideA: {
         name: 'The Blacks',
         commanders: ['Ser Addam Velaryon † upon Seasmoke †'],
-        forces: '4,000 Riverlander knights and men',
+        forces: '4 000 Riverlander knights and men',
         factions: ['House Velaryon', 'House Tully']
       },
       sideB: {
@@ -625,18 +625,18 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     coords: [3955, 4575],
     locationName: 'Gates of Qohor, Essos',
     region: 'essos',
-    description: 'During the Century of Blood, Khal Temmo led 50,000 Dothraki to sack Qohor. With sellswords fleeing, Qohor hired 3,000 Unsullied spearmen from Astapor. In eighteen consecutive charges, the Dothraki broke against the disciplined spear hedge until over 12,000 horselords fell, forcing the Dothraki to cut their braids in tribute.',
+    description: 'During the Century of Blood, Khal Temmo led 50 000 Dothraki to sack Qohor. With sellswords fleeing, Qohor hired 3 000 Unsullied spearmen from Astapor. In eighteen consecutive charges, the Dothraki broke against the disciplined spear hedge until over 12 000 horselords fell, forcing the Dothraki to cut their braids in tribute.',
     combatants: {
       sideA: {
         name: 'Defenders of Qohor',
         commanders: ['The Three Thousand Unsullied'],
-        forces: '3,000 Unsullied spearmen',
+        forces: '3 000 Unsullied spearmen',
         factions: ['City of Qohor', 'Unsullied']
       },
       sideB: {
         name: 'Dothraki Khalasar',
         commanders: ['Khal Temmo †'],
-        forces: '50,000 Dothraki mounted warriors',
+        forces: '50 000 Dothraki mounted warriors',
         factions: ['Dothraki Horde']
       }
     },
@@ -686,7 +686,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideA: {
         name: 'Free Folk & Night\'s Watch',
         commanders: ['Jon Snow', 'Tormund Giantsbane', 'Karsi †', 'Eddison Tollett'],
-        forces: '~5,000 evacuees and brothers',
+        forces: '~5 000 evacuees and brothers',
         factions: ['Free Folk', "Night's Watch"]
       },
       sideB: {
@@ -698,7 +698,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     },
     victor: 'The Army of the Dead',
     victorySide: 'sideB',
-    outcomeDetails: 'Catastrophic slaughter of the Free Folk; ~5,000 dead reanimated; remaining survivors evacuated south.',
+    outcomeDetails: 'Catastrophic slaughter of the Free Folk; ~5 000 dead reanimated; remaining survivors evacuated south.',
     wikiUrl: 'https://gameofthrones.fandom.com/wiki/Massacre_at_Hardhome'
   },
   {
@@ -720,7 +720,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
       sideB: {
         name: 'Reach Loyalist Host',
         commanders: ['Lord Mace Tyrell', 'Lord Paxter Redwyne', 'Lord Randyll Tarly'],
-        forces: '~30,000 Reachmen and Redwyne Fleet',
+        forces: '~30 000 Reachmen and Redwyne Fleet',
         factions: ['House Tyrell', 'House Redwyne']
       }
     },
@@ -793,12 +793,12 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     coords: [5216, 5834],
     locationName: 'Plaza of Punishment, Astapor',
     region: 'essos',
-    description: "Pretending to trade her dragon Drogon to the Good Masters for 8,000 Unsullied, Daenerys Targaryen accepted the harpy's scourge as master of the army. She immediately turned to Drogon and uttered 'Dracarys', incinerating Kraznys mo Nakloz and commanding the Unsullied to free all slaves.",
+    description: "Pretending to trade her dragon Drogon to the Good Masters for 8 000 Unsullied, Daenerys Targaryen accepted the harpy's scourge as master of the army. She immediately turned to Drogon and uttered 'Dracarys', incinerating Kraznys mo Nakloz and commanding the Unsullied to free all slaves.",
     combatants: {
       sideA: {
         name: 'House Targaryen',
         commanders: ['Queen Daenerys Targaryen', 'Drogon', 'Ser Jorah Mormont', 'Ser Barristan Selmy'],
-        forces: '8,000 newly acquired Unsullied & Drogon',
+        forces: '8 000 newly acquired Unsullied & Drogon',
         factions: ['House Targaryen', 'Unsullied']
       },
       sideB: {
@@ -810,7 +810,7 @@ export const MAJOR_BATTLES: MajorBattle[] = [
     },
     victor: 'House Targaryen',
     victorySide: 'sideA',
-    outcomeDetails: 'Decisive Targaryen victory; Astapor conquered; 8,000 Unsullied liberated as free soldiers.',
+    outcomeDetails: 'Decisive Targaryen victory; Astapor conquered; 8 000 Unsullied liberated as free soldiers.',
     wikiUrl: 'https://gameofthrones.fandom.com/wiki/Fall_of_Astapor'
   },
   {

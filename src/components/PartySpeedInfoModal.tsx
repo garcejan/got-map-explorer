@@ -67,7 +67,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     howFastPace: 'Continuous direct flight at 30–35 mph (48–56 km/h) carrying lightweight scroll canisters.',
     dailyEndurance: '7–8 hours of daylight flight. Birds must roost at dusk, avoid nocturnal predators, forage for grain/insects, and seek shelter during gales.',
     whyLogistics:
-      'Trained citadel ravens (Corvus corax) and carrier birds. While swift and unburdened by terrain, their biological endurance requires rest and water. Flight from the Wall to King\'s Landing (1,500 direct miles) canonically takes 6–7 days in fair weather.',
+      'Trained citadel ravens (Corvus corax) and carrier birds. While swift and unburdened by terrain, their biological endurance requires rest and water. Flight from the Wall to King\'s Landing (1 500 direct miles) canonically takes 6–7 days in fair weather.',
     canonExample:
       'Urgent black ravens dispatched between the rookeries of Castle Black, Winterfell, and the Red Keep.',
     quoteOrLore: 'Citadel Maesters breed black ravens specifically for high stamina and homing instincts to specific castle towers.'
@@ -101,7 +101,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     howFastPace: 'Leisurely carriage pace (2.5–3.5 mph) along maintained highways.',
     dailyEndurance: '5–6 hours of travel per day; frequent delays for broken wagon wheels, muddy ruts, ceremonial feasts, and pitching noble pavilions.',
     whyLogistics:
-      'Heavily burdened by Queen Cersei\'s double-decked oak wheelhouse, luggage carts, litters, courtly ladies, and armed escorts. King Robert Baratheon\'s progress from King\'s Landing to Winterfell (1,500 miles) took slightly over two months (18–20 miles/day).',
+      'Heavily burdened by Queen Cersei\'s double-decked oak wheelhouse, luggage carts, litters, courtly ladies, and armed escorts. King Robert Baratheon\'s progress from King\'s Landing to Winterfell (1 500 miles) took slightly over two months (18–20 miles/day).',
     canonExample:
       'King Robert Baratheon and the Lannister royal court journeying north to Winterfell to name Eddard Stark Hand of the King.',
     quoteOrLore: 'Robert Baratheon: "We have been a month on the road... and the queen\'s wheelhouse has broken another axle."'
@@ -120,7 +120,7 @@ const ARCHETYPE_DETAILS: ArchetypeDetail[] = [
     whyLogistics:
       'Historical medieval and Roman military logistics. Thousands of armored levies on foot, ox-drawn siege engines, baggage trains, and camp followers. Massive naval transport fleets (75 mi/day) move at the speed of the slowest transport barge to avoid scattering.',
     canonExample:
-      'Robb Stark marching 20,000 Northmen south to Riverrun; Tywin Lannister maneuvering his disciplined Westermen hosts across the Riverlands.',
+      'Robb Stark marching 20 000 Northmen south to Riverrun; Tywin Lannister maneuvering his disciplined Westermen hosts across the Riverlands.',
     quoteOrLore: 'Armies march on their stomachs; logistical baggage trains and livestock dictate the pace of conquest.'
   },
   {
@@ -621,7 +621,7 @@ export const PartySpeedInfoModal: React.FC<PartySpeedInfoModalProps> = ({
         >
           <div>
             Speeds are calibrated to the canonical <strong>300-mile Wall</strong> (Shadow Tower to Eastwatch: 297.4 mi)
-            and the Kingsroad royal progress milestone (1,500 mi in 2 months).
+            and the Kingsroad royal progress milestone (1 500 mi in 2 months).
           </div>
 
         </div>

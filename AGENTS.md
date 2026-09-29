@@ -12,7 +12,7 @@
 All AI agents, subagents, and automated workflows operating in this repository must strictly adhere to these core invariants:
 
 1. **Coordinate System Invariant:**
-   * **Image Space:** `[x, y]` in `10,000 x 8,300` px space (`[0, 0]` is Top-Left).
+   * **Image Space:** `[x, y]` in `10 000 x 8 300` px space (`[0, 0]` is Top-Left).
    * **Leaflet Space:** `[lat, lng]` in `CRS.Simple` where `lat = 8300 - y` and `lng = x` (`[0, 0]` is Bottom-Left).
    * **Mandatory Conversions:** Always use `toLeafletLatLng([x, y])` and `fromLeafletLatLng([lat, lng])` from [scale.ts](file:///Users/gary/Documents/Personal/got-map-explorer/src/engine/scale.ts).
    * **Strict Boundary:** Never pass Leaflet `[lat, lng]` into data files or engine calculations, and never pass raw image `[x, y]` to Leaflet map layers.
@@ -49,7 +49,7 @@ All AI agents, subagents, and automated workflows operating in this repository m
 * **Physics & Scale Calibration:** Exact pixel-to-mile, pixel-to-league, and pixel-to-kilometer conversions calibrated against the 600-mile cartographer's scale bar and the canonical 300-mile length of the Wall.
 * **Terrain & Party Travel Simulation:** Real-world transit time calculations accounting for party composition (Raven, Dragon, Royal Progress, Armored Host, Caravan, Fleet) and terrain speed multipliers (paved Valyrian roads to neck bogs and desert wastes).
 * **Multi-Stop Itineraries & TSP Optimization:** Dynamic waypoint sequencing with Traveling Salesperson Problem (TSP) 2-opt permutations and backtracking detection.
-* **Interactive Citadel Cartography:** Leaflet-powered 10,000 x 8,300 custom canvas rendering with glow effects, route elevation/terrain composition breakdowns, hazard alerts, alternative route comparisons, and dynamic animated traveler tokens.
+* **Interactive Citadel Cartography:** Leaflet-powered 10 000 x 8 300 custom canvas rendering with glow effects, route elevation/terrain composition breakdowns, hazard alerts, alternative route comparisons, and dynamic animated traveler tokens.
 * **Geodetic World Coordinates:** Real-world latitude and longitude projection calibrated against the ArcGIS Game of Thrones Spatial Dataset.
 * **Water Navigation & Bathymetry:** O(1) raster land/water classification and obstacle-avoiding maritime routing.
 * **Major Historical Battles Layer:** Interactive tactical battle sites (Trident, Blackwater, Field of Fire, Redgrass Field, etc.) with commanders, combatant factions, casualties, outcomes, and lore wiki links.
@@ -82,8 +82,8 @@ The engine operates across two distinct coordinate spaces. **Agents must NEVER c
                   [0, 0] ───────────────────────► [10000, 0] (x)
                     │                                 │
      Image Space    │   (0,0) is Top-Left             │
-     [x, y]         │   Width:  10,000 px             │
-                    │   Height:  8,300 px             │
+     [x, y]         │   Width:  10 000 px             │
+                    │   Height:  8 300 px             │
                     ▼                                 ▼
                  [0, 8300] ─────────────────────► [10000, 8300]
 
@@ -286,7 +286,7 @@ got-map-explorer/
 ├── tsconfig.app.json           # Client TypeScript configuration (strict mode)
 ├── .oxlintrc.json              # Oxlint linting rules
 ├── public/
-│   ├── map_known_world.jpg     # Master 10,000 x 8,300 cartographic raster map
+│   ├── map_known_world.jpg     # Master 10 000 x 8 300 cartographic raster map
 │   ├── favicon.ico             # Citadel astrolabe favicon
 │   └── data/
 │       ├── water_mask.bin      # Binary traversability mask (1250x1038)

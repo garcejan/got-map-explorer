@@ -65,7 +65,7 @@ export const TelemetryHUD: React.FC<TelemetryHUDProps> = ({ telemetry, style, cl
           <div style={{ width: 1, height: 16, background: 'var(--border-subtle)' }} />
 
           {/* Cartographic X, Y Image Coordinates */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} title="Cartographic Pixel Coordinates (X, Y in 10,000 x 8,300 px)">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} title="Cartographic Pixel Coordinates (X, Y in 10 000 x 8 300 px)">
             <Crosshair size={14} color="var(--text-gold)" />
             <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>
               {displayCoords}

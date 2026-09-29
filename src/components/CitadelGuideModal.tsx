@@ -276,7 +276,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
                     <div className="citadel-point-item">
                       <div className="citadel-point-num">✓</div>
                       <div>
-                        <strong>10,000 × 8,300 Canvas:</strong> High-definition cartography rendered with glowing route overlays and animated traveler tokens.
+                        <strong>10 000 × 8 300 Canvas:</strong> High-definition cartography rendered with glowing route overlays and animated traveler tokens.
                       </div>
                     </div>
                   </div>
@@ -382,7 +382,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
                   </div>
                   <h3 className="citadel-slide-title font-serif">Relive Canonical Lore Journeys</h3>
                   <p className="citadel-slide-subtitle">
-                    Select from 14 pre-calibrated historic chronicles across the history of the Seven Kingdoms.
+                    Select from pre-calibrated historic chronicles across the history of the Seven Kingdoms.
                   </p>
 
                   <div className="citadel-presets-preview-grid">
@@ -409,10 +409,10 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
                     <div className="citadel-preset-card-mini">
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                         <Ship size={14} color="#38bdf8" />
-                        <strong style={{ color: 'var(--text-gold)' }}>Nymeria&apos;s 10,000 Ships</strong>
+                        <strong style={{ color: 'var(--text-gold)' }}>Nymeria&apos;s 10 000 Ships</strong>
                       </div>
                       <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
-                        Volantis → Sunspear via the Summer Sea & Sothoryos • 11,000+ miles
+                        Volantis → Sunspear via the Summer Sea & Sothoryos • 11 000+ miles
                       </span>
                     </div>
 
@@ -465,7 +465,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
                       <div>
                         <strong style={{ color: 'var(--text-gold)' }}>Battle of the Trident (283 AC)</strong>
                         <p style={{ margin: '2px 0 0', fontSize: 11.5, color: 'var(--text-muted)' }}>
-                          Robert Baratheon slays Rhaegar Targaryen in the river shallows. 75,000 men.
+                          Robert Baratheon slays Rhaegar Targaryen in the river shallows. 75 000 men.
                         </p>
                       </div>
                     </div>
@@ -695,7 +695,7 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
                     <div>
                       <h4 className="font-serif">Canonical Historic Journeys</h4>
                       <p>
-                        Top dropdown loads famous routes: Robert&apos;s Progress, Nymeria&apos;s 10,000 Ships, Aegon&apos;s Conquest, Sea Snake voyages and more.
+                        Top dropdown loads famous routes: Robert&apos;s Progress, Nymeria&apos;s 10 000 Ships, Aegon&apos;s Conquest, Sea Snake voyages and more.
                       </p>
                     </div>
                   </div>
@@ -815,7 +815,9 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
               {currentSlide < totalSlides - 1 ? (
                 <button
                   type="button"
-                  className="citadel-slide-nav-btn primary"
+                  className="btn-citadel"
+                  style={{ flex: '0 0 auto', padding: '8px 20px' }}
+
                   onClick={handleNext}
                   aria-label="Next slide"
                 >
@@ -825,8 +827,9 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
               ) : (
                 <button
                   type="button"
-                  className="citadel-slide-nav-btn primary"
-                  onClick={handleClose}
+
+                  className="btn-citadel"
+                  style={{ flex: '0 0 auto', padding: '8px 20px' }} onClick={handleClose}
                   aria-label="Finish tutorial"
                 >
                   <span>Enter Citadel</span>

@@ -32,7 +32,7 @@ Calibrated against canonical literature benchmarks and real-world GIS spatial co
 
 ## 🌟 Key Features
 
-* **Interactive High-Resolution Citadel Canvas:** Pan and zoom across a custom 10,000 × 8,300 pixel raster map rendered with Leaflet `L.CRS.Simple`, featuring glowing path vectors, node markers, and responsive coordinate telemetry.
+* **Interactive High-Resolution Citadel Canvas:** Pan and zoom across a custom 10 000 × 8 300 pixel raster map rendered with Leaflet `L.CRS.Simple`, featuring glowing path vectors, node markers, and responsive coordinate telemetry.
 * **325+ Canonical Settlements:** Castles, ports, crossroads, citadels, ruins, and landmark waypoints spanning Westeros, Essos, the Summer Isles, and the Far East.
 * **Tri-Coordinate Geodetic Engine:** Seamlessly translates between raster image pixels (`[x, y]`), Leaflet canvas space (`[lat, lng]`), and real-world geodetic coordinates (`latDeg, lngDeg` in degrees & minutes, e.g. `54° 52' N, 35° 05' W`).
 * **ArcGIS Spatial Data Calibration:** Calibrated via bivariate least-squares regression against official Game of Thrones GIS layers hosted on ArcGIS Online ([Item #43d03779288048bfb5d3c46e4bc4ccb0](https://www.arcgis.com/home/item.html?id=43d03779288048bfb5d3c46e4bc4ccb0#overview)).
@@ -55,8 +55,8 @@ The engine operates across three synchronized coordinate reference frames:
                            [0, 0] ───────────────────────► [10000, 0] (x)
                              │                                 │
               Image Space    │   (0,0) is Top-Left             │
-              [x, y]         │   Width:  10,000 px             │
-                             │   Height:  8,300 px             │
+              [x, y]         │   Width:  10 000 px             │
+                             │   Height:  8 300 px             │
                              ▼                                 ▼
                           [0, 8300] ─────────────────────► [10000, 8300]
 
@@ -278,7 +278,7 @@ The pathfinding graph combines four datasets to guarantee **100% reachability**:
 got-map-explorer/
 ├── public/
 │   ├── assets/
-│   │   └── known_world_map.jpg        # 10,000 x 8,300 px high-res map
+│   │   └── known_world_map.jpg        # 10 000 x 8 300 px high-res map
 │   ├── data/                          # Precomputed GIS and binary navigation assets
 │   │   ├── crs_transform.json         # Affine transform matrices (Image <-> GIS)
 │   │   ├── landmasses.geojson         # Reprojected continental & island boundaries
@@ -398,7 +398,7 @@ The engine features 23 pre-configured canonical expeditions accessible via the H
 * ⚔️ **The Blackfyre Rebellions:** Daemon Blackfyre's march on Tumbleton and Dunk & Egg's journey to the Ashford Tourney.
 * 👑 **Robert's Rebellion & Reign:** King Robert's Royal Progress to Winterfell, the Tourney at Harrenhal, and Prince Oberyn Martell's ride from Sunspear.
 * ❄️ **The Northern Watches:** The 300-mile Wall Patrol from Shadow Tower to Eastwatch, and Night's Watch pleas to Dragonstone.
-* ⛵ **Great Voyages & Exiles:** Princess Nymeria's 10,000 Ships, Corlys Velaryon's Nine Voyages to Asshai and Nefer, Euron Greyjoy's *Silence* expedition, and Arya Stark's passage to Braavos.
+* ⛵ **Great Voyages & Exiles:** Princess Nymeria's 10 000 Ships, Corlys Velaryon's Nine Voyages to Asshai and Nefer, Euron Greyjoy's *Silence* expedition, and Arya Stark's passage to Braavos.
 * 🦅 **The Rookery Relays:** Citadel White Ravens announcing Autumn's end and urgent war ravens from the Red Keep.
 
 ---
