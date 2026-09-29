@@ -204,11 +204,14 @@
   /* Mobile historical presets modal */
   .citadel-mobile-presets-modal {
     position: fixed;
-    top: calc(var(--safe-top) + 58px);
+    top: calc(var(--safe-top, 0px) + 58px);
     left: 8px;
     right: 8px;
     z-index: 3500;
+    max-height: calc(100vh - 75px);
     max-height: calc(100dvh - 75px);
+    height: min(620px, calc(100vh - 75px));
+    height: min(620px, calc(100dvh - 75px));
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -216,7 +219,16 @@
     border: 1px solid var(--border-gold);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
     background: var(--bg-panel);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 0;
+    animation: fadeInSlideDown 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   }
+}
+
+[data-theme='beige'] .citadel-mobile-presets-modal {
+  box-shadow: 0 12px 30px rgba(74, 52, 21, 0.25);
+  border: 1px solid var(--border-gold);
 }
 
 @media (max-width: 350px) {

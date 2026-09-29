@@ -249,16 +249,10 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
   isMobile = false,
   onClose
 }) => {
-  const [isOpen, setIsOpen] = useState(isMobile);
+  const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
   const [focusedIndex, setFocusedIndex] = useState(0);
-
-  useEffect(() => {
-    if (isMobile) {
-      setIsOpen(true);
-    }
-  }, [isMobile]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -287,8 +281,9 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
     return counts;
   }, []);
 
-  // Close when clicking outside
+  // Close when clicking outside (desktop popover only)
   useEffect(() => {
+    if (isMobile) return;
     const handleOutsideClick = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
         setIsOpen(false);
@@ -296,7 +291,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
     };
     document.addEventListener('mousedown', handleOutsideClick);
     return () => document.removeEventListener('mousedown', handleOutsideClick);
-  }, []);
+  }, [isMobile]);
 
   // Filter preset journeys by search query and category
   const filteredPresets = useMemo(() => {
@@ -332,7 +327,7 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
   // Keyboard navigation
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
-      if (!isOpen) {
+      if (!isMobile && !isOpen) {
         if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           setIsOpen(true);
@@ -342,7 +337,11 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
 
       if (e.key === 'Escape') {
         e.preventDefault();
-        setIsOpen(false);
+        if (isMobile) {
+          onClose?.();
+        } else {
+          setIsOpen(false);
+        }
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
         setFocusedIndex((prev) => (prev + 1) % Math.max(1, filteredPresets.length));
@@ -354,38 +353,38 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
         if (clampedIndex >= 0 && clampedIndex < filteredPresets.length) {
           const selected = filteredPresets[clampedIndex];
           onSelectPreset(selected);
-          setIsOpen(false);
+          if (!isMobile) setIsOpen(false);
           onClose?.();
         }
       }
     },
-    [isOpen, filteredPresets, clampedIndex, onSelectPreset, onClose]
+    [isMobile, isOpen, filteredPresets, clampedIndex, onSelectPreset, onClose]
   );
 
-  // Focus search input on open
+  // Focus search input on open (desktop only to prevent mobile keyboard layout shifting)
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isMobile) {
       const timer = setTimeout(() => searchInputRef.current?.focus(), 60);
       return () => clearTimeout(timer);
     }
-  }, [isOpen]);
+  }, [isOpen, isMobile]);
 
   // Scroll active item into view
   useEffect(() => {
-    if (isOpen && listRef.current && clampedIndex >= 0) {
+    if ((isOpen || isMobile) && listRef.current && clampedIndex >= 0) {
       const activeElement = listRef.current.children[clampedIndex] as HTMLElement;
       if (activeElement) {
         activeElement.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
       }
     }
-  }, [clampedIndex, isOpen]);
+  }, [clampedIndex, isOpen, isMobile]);
 
   const handlePickRandom = (e: React.MouseEvent) => {
     e.stopPropagation();
     const randomIndex = Math.floor(Math.random() * PRESET_JOURNEYS.length);
     const chosen = PRESET_JOURNEYS[randomIndex];
     onSelectPreset(chosen);
-    setIsOpen(false);
+    if (!isMobile) setIsOpen(false);
     onClose?.();
   };
 
@@ -423,17 +422,500 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
     }
   };
 
+  // Dedicated Mobile Full-Height View
+  if (isMobile) {
+    return (
+      <div
+        role="region"
+        aria-label="Historical Chronicles of the Realm"
+        onKeyDown={handleKeyDown}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          width: '100%',
+          overflow: 'hidden'
+        }}
+      >
+        {/* Mobile Header Bar */}
+        <div
+          style={{
+            padding: '12px 14px 10px',
+            borderBottom: '1px solid var(--border-subtle)',
+            background: 'linear-gradient(180deg, rgba(223, 177, 91, 0.08) 0%, transparent 100%)',
+            flexShrink: 0
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7, minWidth: 0, overflow: 'hidden' }}>
+              <BookOpen size={16} color="var(--text-gold)" style={{ flexShrink: 0 }} />
+              <h3
+                className="font-serif"
+                style={{
+                  fontSize: 13,
+                  fontWeight: 800,
+                  letterSpacing: '0.8px',
+                  color: 'var(--text-gold-bright)',
+                  textTransform: 'uppercase',
+                  margin: 0,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis'
+                }}
+              >
+                Chronicles of the Realm
+              </h3>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+              <button
+                type="button"
+                onClick={handlePickRandom}
+                className="btn-secondary"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 4,
+                  padding: '4px 9px',
+                  borderRadius: 5,
+                  fontSize: 11,
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  background: 'rgba(223, 177, 91, 0.12)',
+                  border: '1px solid var(--border-gold-glow)',
+                  color: 'var(--text-gold)'
+                }}
+                title="Explore a random canonical journey"
+              >
+                <Shuffle size={12} />
+                <span>Random</span>
+              </button>
+
+              {onClose && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onClose();
+                  }}
+                  style={{
+                    background: 'var(--bg-secondary)',
+                    border: '1px solid var(--border-subtle)',
+                    color: 'var(--text-muted)',
+                    borderRadius: 5,
+                    width: 28,
+                    height: 28,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer'
+                  }}
+                  title="Close Chronicles"
+                  aria-label="Close Chronicles"
+                >
+                  <X size={15} />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Active Preset Banner (if one is loaded) */}
+          {activePreset && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '4px 8px',
+                marginBottom: 8,
+                borderRadius: 5,
+                background: 'rgba(223, 177, 91, 0.12)',
+                border: '1px solid var(--border-gold-glow)',
+                fontSize: 11
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, minWidth: 0, overflow: 'hidden' }}>
+                <span style={{ color: 'var(--text-gold)', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 }}>Active:</span>
+                <span style={{ color: 'var(--text-gold-bright)', fontWeight: 700, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  {activePreset.name}
+                </span>
+              </div>
+              {onClearPreset && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onClearPreset();
+                  }}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 3,
+                    fontSize: 10,
+                    padding: '2px 4px',
+                    borderRadius: 3
+                  }}
+                  title="Clear active chronicle"
+                >
+                  <X size={11} />
+                  <span>Clear</span>
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Quick Search Input */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              background: 'var(--input-bg)',
+              borderRadius: 6,
+              border: '1px solid var(--border-subtle)',
+              padding: '0 8px',
+              height: 34
+            }}
+          >
+            <Search size={14} color="var(--text-muted)" />
+            <input
+              ref={searchInputRef}
+              type="text"
+              placeholder="Search chronicles, dragons, lords, voyages..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setFocusedIndex(0);
+              }}
+              style={{
+                flex: 1,
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                color: 'var(--text-parchment)',
+                fontSize: 13
+              }}
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-muted)',
+                  padding: 2,
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+                title="Clear query"
+              >
+                <X size={14} />
+              </button>
+            )}
+          </div>
+
+          {/* Category Filter Tabs */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 5,
+              marginTop: 8,
+              overflowX: 'auto',
+              scrollbarWidth: 'none',
+              paddingBottom: 2
+            }}
+          >
+            {[
+              { id: 'all' as CategoryFilter, label: `All (${categoryCounts.all})` },
+              { id: 'dragon' as CategoryFilter, label: `Dragon (${categoryCounts.dragon})` },
+              { id: 'rookery' as CategoryFilter, label: `Rookery (${categoryCounts.rookery})` },
+              { id: 'royal_war' as CategoryFilter, label: `Land & War (${categoryCounts.royal_war})` },
+              { id: 'sea_voyage' as CategoryFilter, label: `Sea (${categoryCounts.sea_voyage})` }
+            ].map((tab) => {
+              const isSelected = activeCategory === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => {
+                    setActiveCategory(tab.id);
+                    setFocusedIndex(0);
+                  }}
+                  style={{
+                    padding: '4px 10px',
+                    fontSize: 11,
+                    fontWeight: isSelected ? 700 : 500,
+                    borderRadius: 12,
+                    border: isSelected ? '1px solid var(--border-gold)' : '1px solid var(--border-subtle)',
+                    background: isSelected ? 'rgba(223, 177, 91, 0.22)' : 'var(--bg-secondary)',
+                    color: isSelected ? 'var(--text-gold-bright)' : 'var(--text-muted)',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.15s ease',
+                    flexShrink: 0
+                  }}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Preset Cards List */}
+        <div
+          ref={listRef}
+          style={{
+            flex: 1,
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            padding: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 6,
+            minHeight: 0
+          }}
+        >
+          {filteredPresets.length === 0 ? (
+            <div
+              style={{
+                padding: '36px 16px',
+                textAlign: 'center',
+                color: 'var(--text-muted)',
+                fontSize: 13
+              }}
+            >
+              No chronicles match &ldquo;{searchQuery}&rdquo;.
+            </div>
+          ) : (
+            filteredPresets.map((preset) => {
+              const isSelected = activePresetId === preset.id;
+              const meta = PRESET_META[preset.id];
+              const modeBadge = getModeBadge(preset.mode);
+              const originName = NODES[preset.originId]?.name || preset.originId;
+              const destName = NODES[preset.destinationId]?.name || preset.destinationId;
+              const waypoints = (preset.waypoints || []).map((id) => NODES[id]?.name || id);
+
+              return (
+                <div
+                  key={preset.id}
+                  role="option"
+                  aria-selected={isSelected}
+                  onClick={() => {
+                    onSelectPreset(preset);
+                    onClose?.();
+                  }}
+                  style={{
+                    padding: '10px 12px',
+                    borderRadius: 8,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 10,
+                    background: isSelected
+                      ? 'rgba(223, 177, 91, 0.15)'
+                      : 'var(--bg-secondary)',
+                    border: isSelected
+                      ? '1px solid var(--border-gold)'
+                      : '1px solid var(--border-subtle)',
+                    transition: 'all 0.12s ease'
+                  }}
+                >
+                  {/* Party Icon Badge */}
+                  <div
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: 6,
+                      flexShrink: 0,
+                      marginTop: 2,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background:
+                        preset.partyId === 'crow'
+                          ? 'var(--preset-raven-bg)'
+                          : preset.partyId === 'fleet'
+                            ? 'var(--badge-sea-bg)'
+                            : preset.partyId === 'dragon'
+                              ? 'rgba(239, 68, 68, 0.15)'
+                              : 'rgba(223, 177, 91, 0.15)',
+                      border:
+                        preset.partyId === 'crow'
+                          ? '1px solid var(--preset-raven-border)'
+                          : preset.partyId === 'fleet'
+                            ? '1px solid var(--badge-sea-border)'
+                            : preset.partyId === 'dragon'
+                              ? '1px solid rgba(239, 68, 68, 0.35)'
+                              : '1px solid var(--border-gold-glow)'
+                    }}
+                  >
+                    {getPartyIcon(preset.partyId, 16)}
+                  </div>
+
+                  {/* Content Details */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+                      <span
+                        className="font-serif"
+                        style={{
+                          fontSize: 12.5,
+                          fontWeight: 700,
+                          color: isSelected ? 'var(--text-gold-bright)' : 'var(--text-parchment)',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        {preset.name}
+                      </span>
+
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
+                        {isSelected && (
+                          <span
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: 2,
+                              fontSize: 9,
+                              fontWeight: 800,
+                              padding: '1px 5px',
+                              borderRadius: 10,
+                              background: 'var(--border-gold)',
+                              color: '#0a0e14',
+                              letterSpacing: '0.3px',
+                              textTransform: 'uppercase'
+                            }}
+                          >
+                            <Check size={9} strokeWidth={3} />
+                            Active
+                          </span>
+                        )}
+                        <span
+                          className={modeBadge.className}
+                          style={{
+                            fontSize: 9,
+                            fontWeight: 700,
+                            padding: '1px 5px',
+                            borderRadius: 4,
+                            letterSpacing: '0.3px',
+                            textTransform: 'uppercase'
+                          }}
+                        >
+                          {modeBadge.label}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Route Waypoints */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 4,
+                        fontSize: 11,
+                        color: 'var(--text-gold)',
+                        fontWeight: 500,
+                        margin: '2px 0 3px',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      <span>{originName}</span>
+                      {waypoints.map((wp) => (
+                        <React.Fragment key={wp}>
+                          <ArrowRight size={10} color="var(--text-muted)" />
+                          <span style={{ color: 'var(--text-parchment)' }}>{wp}</span>
+                        </React.Fragment>
+                      ))}
+                      <ArrowRight size={10} color="var(--text-muted)" />
+                      <span>{destName}</span>
+                    </div>
+
+                    {/* Lore snippet */}
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: 11,
+                        color: 'var(--text-muted)',
+                        lineHeight: 1.35,
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      {preset.lore}
+                    </p>
+
+                    {/* Stats */}
+                    {meta?.stats && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 6,
+                          marginTop: 4,
+                          fontSize: 10.5,
+                          color: 'var(--text-dim)'
+                        }}
+                      >
+                        <span style={{ fontWeight: 600, color: 'var(--text-parchment)' }}>{meta.stats}</span>
+                        {meta.categoryLabel && (
+                          <>
+                            <span>•</span>
+                            <span>{meta.categoryLabel}</span>
+                          </>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+
+        {/* Mobile Footer */}
+        <div
+          style={{
+            padding: '8px 12px',
+            borderTop: '1px solid var(--border-subtle)',
+            background: 'var(--bg-secondary)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            fontSize: 10.5,
+            color: 'var(--text-dim)',
+            flexShrink: 0
+          }}
+        >
+          <span>Tap any chronicle to plot journey</span>
+          <span>{filteredPresets.length} of {PRESET_JOURNEYS.length} chronicles</span>
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop Header Toolbar View
   return (
     <div
       ref={containerRef}
       onKeyDown={handleKeyDown}
       style={{
         position: 'relative',
-        display: isMobile ? 'block' : 'inline-block',
+        display: 'inline-block',
         minWidth: 0,
-        maxWidth: isMobile ? '100%' : 340,
-        width: isMobile ? '100%' : undefined,
-        flex: isMobile ? 'none' : '1 1 auto'
+        maxWidth: 340,
+        flex: '1 1 auto'
       }}
     >
       {/* Dropdown Trigger Button */}
@@ -601,14 +1083,13 @@ export const HistoricalPresetsDropdown: React.FC<HistoricalPresetsDropdownProps>
           role="listbox"
           aria-label="Historical Chronicles of the Realm"
           style={{
-            position: isMobile ? 'fixed' : 'absolute',
-            top: isMobile ? 'calc(var(--safe-top) + 60px)' : 'calc(100% + 8px)',
-            left: isMobile ? 8 : '50%',
-            right: isMobile ? 8 : undefined,
-            transform: isMobile ? 'none' : 'translateX(-50%)',
-            width: isMobile ? 'auto' : 440,
-            maxWidth: isMobile ? 'calc(100vw - 16px)' : 'min(440px, calc(100vw - 28px))',
-            maxHeight: isMobile ? 'calc(100dvh - 80px)' : 520,
+            position: 'absolute',
+            top: 'calc(100% + 8px)',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 440,
+            maxWidth: 'min(440px, calc(100vw - 28px))',
+            maxHeight: 520,
             zIndex: 3500,
             borderRadius: 8,
             border: '1px solid var(--border-gold-glow)',
