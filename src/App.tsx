@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { MapCanvas } from './components/MapCanvas';
 import { Header, type Theme } from './components/Header';
 import { CitadelSidebar } from './components/CitadelSidebar';
@@ -237,6 +238,7 @@ export const App: React.FC = () => {
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+      <Analytics />
       {/* Full-bleed Map Canvas with Overlays */}
       <MapCanvas
         theme={theme}
