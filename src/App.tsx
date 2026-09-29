@@ -9,6 +9,9 @@ import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget
 import { type CartographyLayersConfig, DEFAULT_CARTOGRAPHY_LAYERS } from './types';
 import { calculateRealisticRoute, optimizeWaypointOrder } from './engine/pathfinder';
 import { useIsMobile } from './hooks/useIsMobile';
+import confetti from 'canvas-confetti';
+import { CitadelGuideModal } from './components/CitadelGuideModal';
+import { PRESET_JOURNEYS } from './data/presets';
 
 export const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -64,6 +67,42 @@ export const App: React.FC = () => {
     return true;
   });
   const [focusedCity, setFocusedCity] = useState<{ id: string; timestamp: number } | null>(null);
+
+  // Unified Citadel Guide & Onboarding Tutorial state
+  const [isGuideOpen, setIsGuideOpen] = useState<boolean>(false);
+  const [guideInitialTab, setGuideInitialTab] = useState<'tutorial' | 'codex'>('tutorial');
+
+  // Check for first-time visitor to launch tutorial with a gentle 600ms grace period
+  useEffect(() => {
+    try {
+      const hasSeen = localStorage.getItem('citadel_tutorial_v1');
+      if (!hasSeen) {
+        const timer = setTimeout(() => {
+          setGuideInitialTab('tutorial');
+          setIsGuideOpen(true);
+        }, 600);
+        return () => clearTimeout(timer);
+      }
+    } catch {
+      // Safe fallback if localStorage is unavailable
+    }
+  }, []);
+
+  const handleOpenGuide = useCallback((tab: 'tutorial' | 'codex' = 'tutorial') => {
+    setGuideInitialTab(tab);
+    setIsGuideOpen(true);
+  }, []);
+
+  const handleCloseGuide = useCallback((markAsCompleted = true) => {
+    if (markAsCompleted) {
+      try {
+        localStorage.setItem('citadel_tutorial_v1', 'true');
+      } catch {
+        // Safe fallback
+      }
+    }
+    setIsGuideOpen(false);
+  }, []);
 
   const handleZoomToCity = (nodeId: string) => {
     setFocusedCity({ id: nodeId, timestamp: Date.now() });
@@ -145,7 +184,7 @@ export const App: React.FC = () => {
   }, [handleCalculate]);
 
   // Handle preset selection
-  const handleSelectPreset = (preset: PresetJourney) => {
+  const handleSelectPreset = useCallback((preset: PresetJourney) => {
     setActivePresetId(preset.id);
     setOriginId(preset.originId);
     setDestinationId(preset.destinationId);
@@ -156,7 +195,37 @@ export const App: React.FC = () => {
       setSelectedGoal(preset.goal);
     }
     setSidebarOpen(true);
-  };
+  }, []);
+
+  // Quick-Launch Actions from the Tutorial Launchpad
+  const handleQuickLaunchPreset = useCallback((presetId: string) => {
+    const preset = PRESET_JOURNEYS.find((p) => p.id === presetId);
+    if (preset) {
+      handleSelectPreset(preset);
+      try {
+        confetti({
+          particleCount: 65,
+          spread: 75,
+          origin: { y: 0.6 },
+          colors: ['#dfb15b', '#ffd700', '#c99738', '#ffffff']
+        });
+      } catch {
+        // ignore
+      }
+    }
+    handleCloseGuide(true);
+  }, [handleSelectPreset, handleCloseGuide]);
+
+  const handleQuickLaunchCustom = useCallback(() => {
+    setSidebarOpen(true);
+    handleCloseGuide(true);
+  }, [handleCloseGuide]);
+
+  const handleQuickLaunchBattles = useCallback(() => {
+    setLayersConfig((prev) => ({ ...prev, battles: true }));
+    setFocusedCity({ id: 'crossroads_inn', timestamp: Date.now() });
+    handleCloseGuide(true);
+  }, [handleCloseGuide]);
 
   // Handle map node selection from popup or click
   const handleSelectNode = useCallback((nodeId: string, role: 'origin' | 'destination' | 'waypoint') => {
@@ -362,6 +431,7 @@ export const App: React.FC = () => {
         isMobile={isMobile}
         onToggleLayers={() => setIsLayersModalOpen((prev) => !prev)}
         isLayersOpen={isLayersModalOpen}
+        onOpenGuide={handleOpenGuide}
       />
 
       {/* Mobile Cartography Layers Modal */}
@@ -375,6 +445,17 @@ export const App: React.FC = () => {
           onEnableAllLayers={handleEnableAllLayers}
         />
       )}
+
+      {/* Unified Citadel Guide & Onboarding Walkthrough Modal */}
+      <CitadelGuideModal
+        key={`${isGuideOpen}-${guideInitialTab}`}
+        isOpen={isGuideOpen}
+        onClose={handleCloseGuide}
+        initialTab={guideInitialTab}
+        onQuickLaunchPreset={handleQuickLaunchPreset}
+        onQuickLaunchCustom={handleQuickLaunchCustom}
+        onQuickLaunchBattles={handleQuickLaunchBattles}
+      />
     </div>
   );
 };

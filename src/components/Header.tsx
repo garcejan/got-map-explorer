@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Compass, Moon, Sun, Info, Search, BookOpen, Navigation, Layers } from 'lucide-react';
 import { HistoricalPresetsDropdown, type PresetJourney } from './HistoricalPresetsDropdown';
 import { CitySearch } from './CitySearch';
-import { CitadelGuideModal } from './CitadelGuideModal';
 
 export type Theme = 'dark' | 'beige';
 
@@ -21,6 +20,7 @@ interface HeaderProps {
   isMobile?: boolean;
   onToggleLayers?: () => void;
   isLayersOpen?: boolean;
+  onOpenGuide?: (tab?: 'tutorial' | 'codex') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -36,9 +36,9 @@ export const Header: React.FC<HeaderProps> = ({
   isSidebarOpen,
   isMobile = false,
   onToggleLayers,
-  isLayersOpen = false
+  isLayersOpen = false,
+  onOpenGuide
 }) => {
-  const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [isMobilePresetsOpen, setIsMobilePresetsOpen] = useState(false);
   const isBeige = theme === 'beige';
@@ -122,7 +122,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Guide Button */}
             <button
               type="button"
-              onClick={() => setIsGuideOpen(true)}
+              onClick={() => onOpenGuide?.('tutorial')}
               className="citadel-mobile-btn"
               title="Citadel Guide & Tutorial"
               aria-label="Citadel Tutorial"
@@ -284,7 +284,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Citadel Guide / Tutorial Button */}
             <button
               type="button"
-              onClick={() => setIsGuideOpen(true)}
+              onClick={() => onOpenGuide?.('tutorial')}
               className="citadel-guide-header-btn"
               title="Citadel Navigator Guide & Tutorial"
               aria-label="How to use this app and explore the Known World"
@@ -375,11 +375,7 @@ export const Header: React.FC<HeaderProps> = ({
         </>
       )}
 
-      {/* Citadel Navigator Guide / Tutorial Modal */}
-      <CitadelGuideModal
-        isOpen={isGuideOpen}
-        onClose={() => setIsGuideOpen(false)}
-      />
+
     </header>
   );
 };

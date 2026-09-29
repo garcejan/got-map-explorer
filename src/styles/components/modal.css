@@ -63,6 +63,446 @@
   background: rgba(223, 177, 91, 0.15);
 }
 
+/* Citadel Guide View Mode Tabs */
+.citadel-guide-tabs-bar {
+  display: flex;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-gold-glow);
+  padding: 0 16px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.citadel-guide-tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  font-family: var(--font-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.citadel-guide-tab-btn:hover {
+  color: var(--text-gold-bright);
+  background: rgba(223, 177, 91, 0.08);
+}
+
+.citadel-guide-tab-btn.active {
+  color: var(--text-gold-bright);
+  border-bottom-color: var(--border-gold);
+  background: rgba(223, 177, 91, 0.12);
+  text-shadow: 0 0 10px var(--border-gold-glow);
+}
+
+/* Tutorial Slide Styles */
+.citadel-tutorial-slide-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+}
+
+.citadel-tutorial-slide {
+  animation: citadelSlideIn 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@keyframes citadelSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.citadel-slide-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.citadel-slide-badge {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(223, 177, 91, 0.12);
+  border: 1px solid var(--border-gold);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.citadel-slide-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-gold-bright);
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.25;
+}
+
+.citadel-slide-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: -6px 0 0 0;
+  line-height: 1.45;
+}
+
+.citadel-slide-card-highlight {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.citadel-scale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.citadel-scale-chip {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.citadel-chip-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.citadel-chip-val {
+  font-size: 12px;
+  color: var(--text-gold);
+  font-weight: 600;
+}
+
+.citadel-slide-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.citadel-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--text-parchment);
+}
+
+.citadel-point-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(223, 177, 91, 0.2);
+  border: 1px solid var(--border-gold);
+  color: var(--text-gold-bright);
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.citadel-parties-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.citadel-party-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.citadel-party-chip:hover {
+  border-color: var(--border-gold);
+  background: rgba(223, 177, 91, 0.08);
+  transform: translateY(-1px);
+}
+
+.citadel-party-chip strong {
+  display: block;
+  font-size: 11.5px;
+  color: var(--text-gold);
+}
+
+.citadel-party-chip span {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.citadel-presets-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.citadel-preset-card-mini {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.citadel-battles-preview-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.citadel-battle-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.citadel-battle-icon-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.citadel-tools-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.citadel-tool-summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.citadel-tool-summary-card strong {
+  display: block;
+  font-size: 12px;
+  color: var(--text-gold);
+}
+
+.citadel-tool-summary-card span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.citadel-quick-launch-section {
+  margin-top: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.citadel-quick-launch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 8px;
+}
+
+.citadel-quick-launch-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 9px 12px;
+  color: var(--text-parchment);
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.citadel-quick-launch-btn:hover {
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.citadel-quick-launch-btn.primary {
+  background: linear-gradient(135deg, #dfb15b 0%, #b3802b 100%);
+  color: #0a0e14;
+  border-color: var(--border-gold);
+  box-shadow: 0 2px 8px rgba(223, 177, 91, 0.3);
+}
+
+.citadel-quick-launch-btn.primary:hover {
+  background: linear-gradient(135deg, #ffd479 0%, #c99738 100%);
+  box-shadow: 0 0 16px var(--border-gold-glow);
+}
+
+.citadel-quick-launch-btn.subtle {
+  background: transparent;
+  border-style: dashed;
+  color: var(--text-muted);
+}
+
+.citadel-quick-launch-btn.subtle:hover {
+  color: var(--text-parchment);
+  border-color: var(--border-gold);
+}
+
+.citadel-tutorial-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.citadel-slide-nav-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 7px 14px;
+  color: var(--text-parchment);
+  font-family: var(--font-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.citadel-slide-nav-btn:hover:not(:disabled) {
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+}
+
+.citadel-slide-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.citadel-slide-nav-btn.primary {
+  background: linear-gradient(135deg, #dfb15b 0%, #b3802b 100%);
+  color: #0a0e14;
+  border-color: var(--border-gold);
+  font-weight: 800;
+}
+
+.citadel-slide-nav-btn.primary:hover {
+  background: linear-gradient(135deg, #ffd479 0%, #c99738 100%);
+  box-shadow: 0 0 12px var(--border-gold-glow);
+}
+
+.citadel-slide-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.citadel-slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.citadel-slide-dot:hover {
+  background: var(--text-gold);
+}
+
+.citadel-slide-dot.active {
+  background: var(--border-gold);
+  box-shadow: 0 0 8px var(--border-gold-glow);
+  transform: scale(1.3);
+}
+
+.citadel-replay-tutorial-btn {
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 6px 16px;
+  color: var(--text-gold-bright);
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.citadel-replay-tutorial-btn:hover {
+  background: rgba(223, 177, 91, 0.15);
+  box-shadow: 0 0 10px var(--border-gold-glow);
+  transform: translateY(-1px);
+}
+
 .citadel-guide-body {
   padding: 18px 20px;
   overflow-y: auto;
@@ -301,6 +741,69 @@
     display: flex !important;
     flex-wrap: nowrap !important;
     white-space: nowrap !important;
+  }
+
+  /* Mobile Tutorial Adjustments */
+  .citadel-guide-tabs-bar {
+    padding: 0 8px !important;
+    gap: 4px !important;
+  }
+
+  .citadel-guide-tab-btn {
+    padding: 8px 10px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
+    flex: 1 1 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .citadel-slide-title {
+    font-size: 16.5px !important;
+  }
+
+  .citadel-slide-subtitle {
+    font-size: 12px !important;
+  }
+
+  .citadel-scale-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .citadel-parties-showcase {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+
+  .citadel-presets-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .citadel-battles-preview-box {
+    grid-template-columns: 1fr !important;
+  }
+
+  .citadel-tools-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .citadel-quick-launch-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .citadel-quick-launch-btn {
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+  }
+
+  .citadel-slide-nav-btn {
+    min-height: 40px !important;
+    padding: 8px 14px !important;
+  }
+
+  .citadel-tutorial-slide-container {
+    min-height: auto !important;
   }
 }
 
