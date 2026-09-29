@@ -417,8 +417,20 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   const destNode = useMemo(() => (destinationId ? NODES[destinationId] : undefined), [destinationId]);
 
   // Mobile Bottom Sheet state & swipe gestures
-  const [mobileSheetState, setMobileSheetState] = useState<'peek' | 'half' | 'full'>('peek');
+  const [mobileSheetState, setMobileSheetState] = useState<'peek' | 'half' | 'full'>(() => {
+    return isMobile ? (isOpen ? 'half' : 'peek') : 'peek';
+  });
   const touchStartYRef = useRef<number | null>(null);
+
+  // Sync external isOpen prop with mobile bottom sheet state
+  useEffect(() => {
+    if (!isMobile) return;
+    if (isOpen && mobileSheetState === 'peek') {
+      setMobileSheetState('half');
+    } else if (!isOpen && mobileSheetState !== 'peek') {
+      setMobileSheetState('peek');
+    }
+  }, [isOpen, isMobile, mobileSheetState]);
 
   const handleMobileTouchStart = (e: React.TouchEvent) => {
     touchStartYRef.current = e.touches[0].clientY;
@@ -432,10 +444,23 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
 
     if (diffY < -35) {
       // Swiped UP
-      setMobileSheetState((current) => (current === 'peek' ? 'half' : 'full'));
+      setMobileSheetState((current) => {
+        if (current === 'peek') {
+          if (!isOpen) onToggle();
+          return 'half';
+        }
+        return 'full';
+      });
     } else if (diffY > 35) {
       // Swiped DOWN
-      setMobileSheetState((current) => (current === 'full' ? 'half' : 'peek'));
+      setMobileSheetState((current) => {
+        if (current === 'full') return 'half';
+        if (current === 'half') {
+          if (isOpen) onToggle();
+          return 'peek';
+        }
+        return 'peek';
+      });
     }
   };
 
@@ -771,41 +796,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
     setIsArchetypeDropdownOpen(false);
   };
 
-  if (!isOpen) {
-    if (isMobile) {
-      return (
-        <button
-          type="button"
-          onClick={onToggle}
-          className="citadel-mobile-fab-ledger"
-          title="Open Citadel Wayfinding Ledger"
-        >
-          <div
-            style={{
-              width: 22,
-              height: 22,
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, #dfb15b 0%, #78350f 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 0 8px rgba(223, 177, 91, 0.6)'
-            }}
-          >
-            <Compass size={13} color="#0a0e14" strokeWidth={2.5} />
-          </div>
-          <span className="font-serif" style={{ fontSize: 13, fontWeight: 800, color: 'var(--text-gold)' }}>
-            Ledger
-          </span>
-          {routeResult && (
-            <span className="citadel-badge-pill" style={{ background: 'rgba(223, 177, 91, 0.25)', color: 'var(--text-gold-bright)', fontSize: 11, padding: '1px 5px' }}>
-              {routeResult.totalDays}d
-            </span>
-          )}
-        </button>
-      );
-    }
-
+  if (!isOpen && !isMobile) {
     const buttonWidth = 175;
     const maxCollapsedX = Math.max(12, window.innerWidth - buttonWidth - 12);
     const isAtRightDock = Math.abs(currentPos.x - (window.innerWidth - 390 - 16)) < 15;
@@ -919,7 +910,10 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
       {isMobile && mobileSheetState !== 'peek' && (
         <div
           className="citadel-bottom-sheet-backdrop"
-          onClick={() => setMobileSheetState('peek')}
+          onClick={() => {
+            setMobileSheetState('peek');
+            if (isOpen) onToggle();
+          }}
         />
       )}
       <aside
@@ -956,7 +950,17 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               className="citadel-mobile-drag-handle"
               onTouchStart={handleMobileTouchStart}
               onTouchEnd={handleMobileTouchEnd}
-              onClick={() => setMobileSheetState((s) => (s === 'peek' ? 'half' : s === 'half' ? 'full' : 'peek'))}
+              onClick={() => {
+                if (mobileSheetState === 'peek') {
+                  setMobileSheetState('half');
+                  if (!isOpen) onToggle();
+                } else if (mobileSheetState === 'half') {
+                  setMobileSheetState('full');
+                } else {
+                  setMobileSheetState('peek');
+                  if (isOpen) onToggle();
+                }
+              }}
             >
               <div className="citadel-mobile-drag-pill" />
             </div>
@@ -964,8 +968,13 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
             {/* Mobile Peek Bar */}
             <div
               className="citadel-mobile-peek-bar"
+              onTouchStart={handleMobileTouchStart}
+              onTouchEnd={handleMobileTouchEnd}
               onClick={() => {
-                if (mobileSheetState === 'peek') setMobileSheetState('half');
+                if (mobileSheetState === 'peek') {
+                  setMobileSheetState('half');
+                  if (!isOpen) onToggle();
+                }
               }}
             >
               <div className="citadel-mobile-peek-summary">
@@ -1003,23 +1012,33 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                   className="citadel-header-action-btn"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setMobileSheetState((s) => (s === 'peek' ? 'half' : s === 'half' ? 'full' : 'peek'));
+                    if (mobileSheetState === 'peek') {
+                      setMobileSheetState('half');
+                      if (!isOpen) onToggle();
+                    } else if (mobileSheetState === 'half') {
+                      setMobileSheetState('full');
+                    } else {
+                      setMobileSheetState('half');
+                    }
                   }}
-                  title={mobileSheetState === 'peek' ? 'Expand' : 'Collapse'}
+                  title={mobileSheetState === 'peek' ? 'Expand' : mobileSheetState === 'half' ? 'Expand Full' : 'Collapse to Half'}
                 >
-                  {mobileSheetState === 'peek' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                  {mobileSheetState === 'peek' ? <ChevronUp size={16} /> : mobileSheetState === 'half' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </button>
-                <button
-                  type="button"
-                  className="citadel-header-action-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onToggle();
-                  }}
-                  title="Close Ledger"
-                >
-                  <X size={15} />
-                </button>
+                {mobileSheetState !== 'peek' && (
+                  <button
+                    type="button"
+                    className="citadel-header-action-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setMobileSheetState('peek');
+                      if (isOpen) onToggle();
+                    }}
+                    title="Minimize Ledger"
+                  >
+                    <ChevronDown size={15} />
+                  </button>
+                )}
               </div>
             </div>
 
@@ -1117,6 +1136,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
         {/* Scrollable Content Container */}
         <div
           className={isMobile ? 'citadel-sheet-scrollable' : undefined}
+          onTouchStart={isMobile ? (e) => e.stopPropagation() : undefined}
+          onTouchMove={isMobile ? (e) => e.stopPropagation() : undefined}
           style={{
             overflowY: 'auto',
             minHeight: 0,

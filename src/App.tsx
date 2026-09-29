@@ -32,7 +32,12 @@ export const App: React.FC = () => {
 
   const [routeResult, setRouteResult] = useState<RouteResult | null>(null);
   const [activePresetId, setActivePresetId] = useState<string | null>(null);
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return false;
+    }
+    return true;
+  });
   const [focusedCity, setFocusedCity] = useState<{ id: string; timestamp: number } | null>(null);
 
   const handleZoomToCity = (nodeId: string) => {

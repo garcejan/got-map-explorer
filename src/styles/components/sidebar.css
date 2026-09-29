@@ -12,8 +12,11 @@
 }
 
 .citadel-map-overlays .citadel-modal-backdrop,
-.citadel-map-overlays .citadel-modal-dialog {
-  pointer-events: auto;
+.citadel-map-overlays .citadel-modal-dialog,
+.citadel-map-overlays .citadel-mobile-bottom-sheet,
+.citadel-map-overlays .citadel-mobile-fab-ledger,
+.citadel-map-overlays .citadel-bottom-sheet-backdrop {
+  pointer-events: auto !important;
 }
 
 .citadel-sidebar-movable {
@@ -258,6 +261,7 @@ body.citadel-dragging-active .leaflet-container {
     padding-bottom: env(safe-area-inset-bottom, 0px) !important;
     overflow: hidden !important;
     touch-action: pan-y !important;
+    pointer-events: auto !important;
   }
 
   .citadel-mobile-drag-handle {
@@ -323,6 +327,12 @@ body.citadel-dragging-active .leaflet-container {
     height: calc(100dvh - 58px) !important;
   }
 
+  .citadel-sheet-scrollable {
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: contain !important;
+  }
+
   .citadel-mobile-fab-ledger {
     position: fixed;
     bottom: calc(var(--safe-bottom) + 16px);
@@ -340,5 +350,6 @@ body.citadel-dragging-active .leaflet-container {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     cursor: pointer;
+    pointer-events: auto !important;
   }
 }
