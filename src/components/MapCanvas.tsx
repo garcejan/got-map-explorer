@@ -14,6 +14,7 @@ import { leafletToWorld, WORLD_GRATICULES } from '../engine/coordinates';
 import { initWaterNav, getBathymetryZone } from '../engine/waterNav';
 import { TelemetryHUD, type TelemetryData } from './TelemetryHUD';
 import { THEME_PALETTES, PARTY_ARCHETYPE_COLORS } from '../styles/tokens';
+import { type CartographyLayersConfig, DEFAULT_CARTOGRAPHY_LAYERS } from '../types';
 
 export interface MapCanvasProps {
   theme?: Theme;
@@ -33,6 +34,11 @@ export interface MapCanvasProps {
   isSidebarDockedRight?: boolean;
   onDockSidebarLeft?: () => void;
   onDockSidebarRight?: () => void;
+  isMobile?: boolean;
+  layersConfig?: CartographyLayersConfig;
+  onToggleLayer?: (layer: keyof CartographyLayersConfig) => void;
+  isLayersModalOpen?: boolean;
+  onToggleLayersModal?: () => void;
 }
 
 export const MapCanvas: React.FC<MapCanvasProps> = ({
@@ -52,7 +58,12 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   isSidebarOpen: _isSidebarOpen,
   isSidebarDockedRight = false,
   onDockSidebarLeft,
-  onDockSidebarRight
+  onDockSidebarRight,
+  isMobile,
+  layersConfig,
+  onToggleLayer,
+  isLayersModalOpen,
+  onToggleLayersModal
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -67,16 +78,40 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
   const routeArrowLayersRef = useRef<L.LayerGroup | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
 
-  const [showRoads, setShowRoads] = useState<boolean>(false);
-  const [showKingdomPaths, setShowKingdomPaths] = useState<boolean>(false);
-  const [showSeaLanes, setShowSeaLanes] = useState<boolean>(false);
-  const [showBattles, setShowBattles] = useState<boolean>(true);
+  const isMobileScreen = isMobile ?? (typeof window !== 'undefined' && window.innerWidth < 768);
+
+  const [internalLayersConfig, setInternalLayersConfig] = useState<CartographyLayersConfig>(DEFAULT_CARTOGRAPHY_LAYERS);
+  const activeLayers = layersConfig ?? internalLayersConfig;
+
+  const showRoads = activeLayers.roads;
+  const showKingdomPaths = activeLayers.kingdomPaths;
+  const showSeaLanes = activeLayers.seaLanes;
+  const showBattles = activeLayers.battles;
   const [showRouteArrows] = useState<boolean>(false);
-  const [showLabels, setShowLabels] = useState<boolean>(true);
-  const [showGraticules, setShowGraticules] = useState<boolean>(true);
-  const [showWaterMask, setShowWaterMask] = useState<boolean>(false);
+  const showLabels = activeLayers.labels;
+  const showGraticules = activeLayers.graticules;
+  const showWaterMask = activeLayers.waterMask;
+
+  const handleToggleLayer = (key: keyof CartographyLayersConfig) => {
+    if (onToggleLayer) {
+      onToggleLayer(key);
+    } else {
+      setInternalLayersConfig((prev) => ({ ...prev, [key]: !prev[key] }));
+    }
+  };
+
   const [cursorTelemetry, setCursorTelemetry] = useState<TelemetryData | null>(null);
-  const [layerPanelOpen, setLayerPanelOpen] = useState<boolean>(false);
+  const [internalLayerPanelOpen, setInternalLayerPanelOpen] = useState<boolean>(false);
+  const layerPanelOpen = isLayersModalOpen ?? internalLayerPanelOpen;
+
+  const handleToggleLayerPanel = () => {
+    if (onToggleLayersModal) {
+      onToggleLayersModal();
+    } else {
+      setInternalLayerPanelOpen((prev) => !prev);
+    }
+  };
+
   const [currentZoom, setCurrentZoom] = useState<number>(-1.5);
 
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -1277,7 +1312,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
             pointerEvents: 'auto'
           }}
         >
-          {layerPanelOpen && (
+          {!isMobileScreen && layerPanelOpen && (
             <div className="citadel-layer-panel">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12, borderBottom: '1px solid var(--border-gold-glow)', paddingBottom: 6 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'var(--text-gold)' }}>
@@ -1286,7 +1321,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                 </div>
                 <button
                   type="button"
-                  onClick={() => setLayerPanelOpen(false)}
+                  onClick={handleToggleLayerPanel}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -1310,7 +1345,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   <input
                     type="checkbox"
                     checked={showRoads}
-                    onChange={(e) => setShowRoads(e.target.checked)}
+                    onChange={() => handleToggleLayer('roads')}
                     style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                   />
                 </label>
@@ -1323,7 +1358,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   <input
                     type="checkbox"
                     checked={showKingdomPaths}
-                    onChange={(e) => setShowKingdomPaths(e.target.checked)}
+                    onChange={() => handleToggleLayer('kingdomPaths')}
                     style={{ accentColor: '#d97706', cursor: 'pointer' }}
                   />
                 </label>
@@ -1336,7 +1371,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   <input
                     type="checkbox"
                     checked={showSeaLanes}
-                    onChange={(e) => setShowSeaLanes(e.target.checked)}
+                    onChange={() => handleToggleLayer('seaLanes')}
                     style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
                   />
                 </label>
@@ -1349,23 +1384,10 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   <input
                     type="checkbox"
                     checked={showBattles}
-                    onChange={(e) => setShowBattles(e.target.checked)}
+                    onChange={() => handleToggleLayer('battles')}
                     style={{ accentColor: '#ef4444', cursor: 'pointer' }}
                   />
                 </label>
-                {/* 
-                <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ color: 'var(--text-gold)' }}>➤</span>
-                    <span>Route Direction Arrows</span>
-                  </span>
-                  <input
-                    type="checkbox"
-                    checked={showRouteArrows}
-                    onChange={(e) => setShowRouteArrows(e.target.checked)}
-                    style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
-                  />
-                </label> */}
 
                 <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', userSelect: 'none' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -1375,7 +1397,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   <input
                     type="checkbox"
                     checked={showLabels}
-                    onChange={(e) => setShowLabels(e.target.checked)}
+                    onChange={() => handleToggleLayer('labels')}
                     style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                   />
                 </label>
@@ -1388,7 +1410,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   <input
                     type="checkbox"
                     checked={showGraticules}
-                    onChange={(e) => setShowGraticules(e.target.checked)}
+                    onChange={() => handleToggleLayer('graticules')}
                     style={{ accentColor: 'var(--border-gold)', cursor: 'pointer' }}
                   />
                 </label>
@@ -1401,7 +1423,7 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
                   <input
                     type="checkbox"
                     checked={showWaterMask}
-                    onChange={(e) => setShowWaterMask(e.target.checked)}
+                    onChange={() => handleToggleLayer('waterMask')}
                     style={{ accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
                   />
                 </label>
@@ -1411,12 +1433,24 @@ export const MapCanvas: React.FC<MapCanvasProps> = ({
 
           <button
             type="button"
-            onClick={() => setLayerPanelOpen(!layerPanelOpen)}
+            onClick={handleToggleLayerPanel}
             className={`citadel-layer-btn ${layerPanelOpen ? 'active' : ''}`}
             title="Toggle Cartography Overlay Layers"
+            aria-label="Toggle Cartography Overlay Layers"
           >
             <Layers size={16} />
-            <span style={{ fontSize: 13, fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}>Cartography Layers</span>
+            <span
+              className="citadel-layer-btn-label-full"
+              style={{ fontSize: 13, fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}
+            >
+              Cartography Layers
+            </span>
+            <span
+              className="citadel-layer-btn-label-mobile"
+              style={{ fontSize: 12, fontFamily: "'Cinzel', serif", fontWeight: 700, color: 'var(--text-gold)', letterSpacing: 0.5 }}
+            >
+              Layers
+            </span>
           </button>
         </div>
       </div>

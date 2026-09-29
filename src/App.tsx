@@ -3,8 +3,10 @@ import { Analytics } from '@vercel/analytics/react';
 import { MapCanvas } from './components/MapCanvas';
 import { Header, type Theme } from './components/Header';
 import { CitadelSidebar } from './components/CitadelSidebar';
+import { CartographyLayersModal } from './components/CartographyLayersModal';
 import type { PresetJourney } from './components/HistoricalPresetsDropdown';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from './types';
+import { type CartographyLayersConfig, DEFAULT_CARTOGRAPHY_LAYERS } from './types';
 import { calculateRealisticRoute, optimizeWaypointOrder } from './engine/pathfinder';
 import { useIsMobile } from './hooks/useIsMobile';
 
@@ -20,6 +22,29 @@ export const App: React.FC = () => {
   }, [theme]);
 
   const isMobile = useIsMobile();
+
+  const [layersConfig, setLayersConfig] = useState<CartographyLayersConfig>(DEFAULT_CARTOGRAPHY_LAYERS);
+  const [isLayersModalOpen, setIsLayersModalOpen] = useState<boolean>(false);
+
+  const handleToggleLayer = useCallback((layer: keyof CartographyLayersConfig) => {
+    setLayersConfig((prev) => ({ ...prev, [layer]: !prev[layer] }));
+  }, []);
+
+  const handleResetLayers = useCallback(() => {
+    setLayersConfig(DEFAULT_CARTOGRAPHY_LAYERS);
+  }, []);
+
+  const handleEnableAllLayers = useCallback(() => {
+    setLayersConfig({
+      roads: true,
+      kingdomPaths: true,
+      seaLanes: true,
+      battles: true,
+      labels: true,
+      graticules: true,
+      waterMask: true
+    });
+  }, []);
 
   const [originId, setOriginId] = useState<string>('kings_landing');
   const [destinationId, setDestinationId] = useState<string>('winterfell');
@@ -265,6 +290,11 @@ export const App: React.FC = () => {
         isSidebarDockedRight={isSidebarDockedRight}
         onDockSidebarLeft={handleDockSidebarLeft}
         onDockSidebarRight={handleDockSidebarRight}
+        isMobile={isMobile}
+        layersConfig={layersConfig}
+        onToggleLayer={handleToggleLayer}
+        isLayersModalOpen={isLayersModalOpen}
+        onToggleLayersModal={() => setIsLayersModalOpen((prev) => !prev)}
       >
         {/* Consolidated Movable Citadel Ledger (Plan Journey + Itinerary + Corridors + Guide) */}
         <CitadelSidebar
@@ -330,7 +360,21 @@ export const App: React.FC = () => {
         isSidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
         isMobile={isMobile}
+        onToggleLayers={() => setIsLayersModalOpen((prev) => !prev)}
+        isLayersOpen={isLayersModalOpen}
       />
+
+      {/* Mobile Cartography Layers Modal */}
+      {isMobile && (
+        <CartographyLayersModal
+          isOpen={isLayersModalOpen}
+          onClose={() => setIsLayersModalOpen(false)}
+          layers={layersConfig}
+          onToggleLayer={handleToggleLayer}
+          onResetLayers={handleResetLayers}
+          onEnableAllLayers={handleEnableAllLayers}
+        />
+      )}
     </div>
   );
 };

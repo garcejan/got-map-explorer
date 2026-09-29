@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Moon, Sun, Info, Search, BookOpen, Navigation } from 'lucide-react';
+import { Compass, Moon, Sun, Info, Search, BookOpen, Navigation, Layers } from 'lucide-react';
 import { HistoricalPresetsDropdown, type PresetJourney } from './HistoricalPresetsDropdown';
 import { CitySearch } from './CitySearch';
 import { CitadelGuideModal } from './CitadelGuideModal';
@@ -19,6 +19,8 @@ interface HeaderProps {
   isSidebarOpen?: boolean;
   routeDays?: number | null;
   isMobile?: boolean;
+  onToggleLayers?: () => void;
+  isLayersOpen?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -32,7 +34,9 @@ export const Header: React.FC<HeaderProps> = ({
   onSetDestination,
   onToggleSidebar,
   isSidebarOpen,
-  isMobile = false
+  isMobile = false,
+  onToggleLayers,
+  isLayersOpen = false
 }) => {
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -62,6 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
               type="button"
               onClick={() => {
                 setIsMobilePresetsOpen(false);
+                if (isLayersOpen && onToggleLayers) onToggleLayers();
                 setIsMobileSearchOpen(!isMobileSearchOpen);
               }}
               className={`citadel-mobile-btn ${isMobileSearchOpen ? 'active' : ''}`}
@@ -76,6 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
               type="button"
               onClick={() => {
                 setIsMobileSearchOpen(false);
+                if (isLayersOpen && onToggleLayers) onToggleLayers();
                 setIsMobilePresetsOpen(!isMobilePresetsOpen);
               }}
               className={`citadel-mobile-btn ${isMobilePresetsOpen || activePresetId ? 'active' : ''}`}
@@ -84,6 +90,23 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <BookOpen size={14} />
             </button>
+
+            {/* Cartography Layers Trigger */}
+            {onToggleLayers && (
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMobileSearchOpen(false);
+                  setIsMobilePresetsOpen(false);
+                  onToggleLayers();
+                }}
+                className={`citadel-mobile-btn ${isLayersOpen ? 'active' : ''}`}
+                title="Citadel Cartography Layers"
+                aria-label="Toggle Cartography Overlay Layers"
+              >
+                <Layers size={14} />
+              </button>
+            )}
 
             {/* Theme Switcher Toggle (1-click) */}
             <button

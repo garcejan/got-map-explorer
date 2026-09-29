@@ -152,3 +152,23 @@ export interface MajorBattle {
   wikiUrl: string;
 }
 
+export interface CartographyLayersConfig {
+  roads: boolean;
+  kingdomPaths: boolean;
+  seaLanes: boolean;
+  battles: boolean;
+  labels: boolean;
+  graticules: boolean;
+  waterMask: boolean;
+}
+
+export const DEFAULT_CARTOGRAPHY_LAYERS: CartographyLayersConfig = {
+  roads: false,
+  kingdomPaths: false,
+  seaLanes: false,
+  battles: true,
+  labels: true,
+  graticules: true,
+  waterMask: false
+};
+
