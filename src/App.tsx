@@ -11,7 +11,7 @@ import { useIsMobile } from './hooks/useIsMobile';
 export const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('citadel_theme');
-    return saved === 'beige' || saved === 'dark' ? saved : 'dark';
+    return saved === 'beige' || saved === 'dark' ? saved : 'beige';
   });
 
   useEffect(() => {
