@@ -8,9 +8,99 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="theme-color" content="#0a0e14" />
-  <title>The Known World — Citadel Route & Distance Engine</title>
-  <meta name="description"
-    content="High-fidelity interactive road routing and distance simulation engine for George R.R. Martin's A Song of Ice and Fire (Westeros & Essos)." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Primary Search Metadata -->
+  <title>The Known World — Interactive Westeros & Essos Map</title>
+  <meta name="title" content="The Known World — Interactive Westeros & Essos Map" />
+  <meta name="description" content="Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF)." />
+  <meta name="keywords" content="Game of Thrones map, House of the Dragon map, Westeros map, Essos map, A Song of Ice and Fire map, ASOIAF distance calculator, Westeros travel times, Kingsroad map, Citadel map explorer, George RR Martin world map" />
+  <meta name="author" content="Archmaesters of the Citadel" />
+  <link rel="canonical" href="https://got-map-explorer.vercel.app/" />
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://got-map-explorer.vercel.app/" />
+  <meta property="og:site_name" content="The Known World Navigator" />
+  <meta property="og:title" content="The Known World — Interactive Westeros & Essos Map" />
+  <meta property="og:description" content="Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF)." />
+  <meta property="og:image" content="https://got-map-explorer.vercel.app/og-preview.jpg" />
+  <meta property="og:image:secure_url" content="https://got-map-explorer.vercel.app/og-preview.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Known World Interactive Map — Westeros & Essos" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://got-map-explorer.vercel.app/" />
+  <meta name="twitter:title" content="The Known World — Interactive Westeros & Essos Map" />
+  <meta name="twitter:description" content="Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF)." />
+  <meta name="twitter:image" content="https://got-map-explorer.vercel.app/og-preview.jpg" />
+  <meta name="twitter:image:alt" content="The Known World Interactive Map — Westeros & Essos" />
+
+  <!-- Structured Data: WebApplication & FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://got-map-explorer.vercel.app/#app",
+        "name": "The Known World Navigator",
+        "url": "https://got-map-explorer.vercel.app/",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript and HTML5 Canvas support.",
+        "description": "Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF).",
+        "image": "https://got-map-explorer.vercel.app/og-preview.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "High-precision 10,000 x 8,300 cartographic canvas of Westeros and Essos",
+          "Realistic Multimodal Dijkstra and A* pathfinding across 325+ canonical settlements",
+          "Travel party speed physics (Dragon flight, Raven flight, Armies, Noble Retinues, Fleets, Caravans)",
+          "Interactive historical war and battle dossiers (Battle of the Blackwater, Trident, Field of Fire)",
+          "Terrain speed calibration (Valyrian stone highways, mountain passes, swamps, sea lanes)"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://got-map-explorer.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long does it take to travel from Winterfell to King's Landing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "By road along the Kingsroad, the journey from King's Landing to Winterfell is approximately 1,480 to 1,560 miles. A heavy Royal Progress or noble wheelhouse retinue requires approximately 82 to 130 days. An armored marching army takes ~125 to 135 days. A fast courier with horse relays covers the distance in ~26 days, a messenger raven arrives in ~6 days, and an adult dragon covers the distance in under a day (~0.6 to 0.7 days)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long is the Wall in A Song of Ice and Fire?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Wall stretches across northern Westeros from the Shadow Tower in the west to Eastwatch-by-the-Sea in the east for a canonical distance of approximately 300 miles (100 leagues), standing 700 feet tall."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How fast do dragons fly in Game of Thrones and House of the Dragon?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In the Citadel cartographic engine, dragons like Balerion, Vhagar, or Caraxes cruise at an average velocity of 520 miles per day, soaring unimpeded across mountain ranges and open seas."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Google Fonts: Cinzel & MedievalSharp for fantasy serif, Inter for UI readouts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,12 +108,75 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=MedievalSharp&display=swap"
     rel="stylesheet">
-
 </head>
 
 <body>
-  <div id="root"></div>
+  <!-- Semantic Pre-Render Fallback: Provides indexable structure for non-JS search crawlers; hydrated and replaced by React on load -->
+  <div id="root">
+    <header style="padding: 24px; max-width: 900px; margin: 0 auto; font-family: sans-serif;">
+      <h1>The Known World — Interactive Westeros &amp; Essos Map</h1>
+      <p style="font-size: 1.15rem; line-height: 1.6; color: #475569;">
+        Interactive Game of Thrones &amp; House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF).
+      </p>
+    </header>
+
+    <main style="padding: 0 24px 48px; max-width: 900px; margin: 0 auto; font-family: sans-serif; line-height: 1.6;">
+      <section style="margin-bottom: 32px;">
+        <h2>The Citadel Cartographic &amp; Pathfinding Engine</h2>
+        <p>
+          Constructed in the tradition of the Archmaesters of Oldtown, this cartographic engine charts George R.R. Martin's <em>A Song of Ice and Fire</em> universe across Westeros, Essos, the Summer Isles, and the lands Beyond the Wall. Featuring high-precision 10,000 &times; 8,300 coordinates calibrated against the 600-mile cartographer's scale bar and the canonical 300-mile length of the Wall.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 32px;">
+        <h2>Key Regional Capitals &amp; Great Castles</h2>
+        <ul>
+          <li><strong>King's Landing:</strong> Royal seat of the Iron Throne, the Red Keep, and the Great Sept of Baelor.</li>
+          <li><strong>Winterfell:</strong> Ancient stronghold of House Stark, capital of the North.</li>
+          <li><strong>Oldtown:</strong> Home of the Hightower and the Citadel, center of maester learning and healing.</li>
+          <li><strong>Casterly Rock &amp; Lannisport:</strong> Golden bastion of House Lannister overlooking the Sunset Sea.</li>
+          <li><strong>Highgarden:</strong> Verdant seat of House Tyrell, heart of the Reach along the Mander.</li>
+          <li><strong>Sunspear:</strong> Coastal citadel of House Martell, capital of Dorne.</li>
+          <li><strong>Riverrun:</strong> Moated fortress of House Tully at the junction of the Red Fork and Tumblestone.</li>
+          <li><strong>The Eyrie:</strong> Impregnable mountain stronghold of House Arryn in the Vale of Arryn.</li>
+          <li><strong>Pyke:</strong> Sea-carved castle of House Greyjoy upon the Iron Islands.</li>
+          <li><strong>Castle Black &amp; Eastwatch-by-the-Sea:</strong> Strongholds of the Night's Watch guarding the Wall.</li>
+          <li><strong>The Free Cities:</strong> Braavos, Pentos, Myr, Tyrosh, Lys, Volantis, Lorath, Norvos, and Qohor.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 32px;">
+        <h2>Canonical Royal Highways &amp; Corridors</h2>
+        <ul>
+          <li><strong>The Kingsroad:</strong> Stretching from Castle Black through Winterfell and the Neck to King's Landing and Storm's End.</li>
+          <li><strong>The Roseroad:</strong> Connecting Oldtown and Highgarden directly to the capital at King's Landing.</li>
+          <li><strong>The Ocean Road &amp; Goldroad:</strong> Overland trade arteries linking Casterly Rock to Highgarden and the Crownlands.</li>
+          <li><strong>The High Road:</strong> Perilous mountain pass through the Mountains of the Moon to the Vale of Arryn.</li>
+          <li><strong>The Boneway &amp; Prince's Pass:</strong> Mountain corridors connecting the Reach and Stormlands to Dorne.</li>
+          <li><strong>Valyrian Stone Roads:</strong> Ancient dragon-fused basalt highways across western Essos.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 32px;">
+        <h2>Historical Journeys &amp; Expeditions</h2>
+        <ul>
+          <li><a href="/?preset=robert_royal_progress">Robert's Royal Progress to Winterfell</a> — King Robert Baratheon's noble court traveling north.</li>
+          <li><a href="/?preset=aegon_crossing">Aegon's Crossing to Westeros</a> — Aegon I Targaryen sailing from Dragonstone to Blackwater Bay.</li>
+          <li><a href="/?preset=torrhen_stark_march">Torrhen Stark's March South</a> — The King Who Knelt marching 30,000 Northmen to Harrenhal.</li>
+          <li><a href="/?preset=balerion_harrenhal">The Black Dread over Harrenhal</a> — Aegon I flying Balerion to Harrenhal.</li>
+          <li><a href="/?preset=princess_nymeria_voyage">Princess Nymeria's 10,000 Ships</a> — Rhoynar migration from Essos to Sunspear.</li>
+          <li><a href="/?preset=sea_snake_asshai">The Sea Snake's Voyage to Asshai</a> — Corlys Velaryon's voyage to the Jade Gates and Shadow Lands.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <noscript>
+    <div style="background: #0a0e14; color: #f4ecd8; padding: 20px; text-align: center; font-family: serif;">
+      <p>JavaScript is required to access the interactive Leaflet map canvas and dynamic route calculations.</p>
+    </div>
+  </noscript>
+
   <script type="module" src="/src/main.tsx"></script>
 </body>
-
 </html>
