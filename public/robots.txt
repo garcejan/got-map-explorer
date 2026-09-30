@@ -1,5 +1,9 @@
 # The Known World Navigator — Robots.txt
+# Allows full indexing of the interactive map, historical journeys, and canonical routes across Westeros and Essos
+
 User-agent: *
 Allow: /
 
+# Canonical Sitemap Declaration for Googlebot, Bingbot, and other crawlers
 Sitemap: https://got-map-explorer.vercel.app/sitemap.xml
+

@@ -1,5 +1,6 @@
 /* Citadel / Maester's Cartography Design System - Master Entry Point */
 
+/* Bundled locally to eliminate external unpkg CDN render-blocking request and optimize Core Web Vitals (LCP) */
 @import 'leaflet/dist/leaflet.css';
 @import './tokens.css';
 @import './base.css';

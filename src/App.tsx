@@ -14,7 +14,17 @@ import { CitadelGuideModal } from './components/CitadelGuideModal';
 import { PRESET_JOURNEYS } from './data/presets';
 import { NODES } from './data/nodes';
 
-// Parse deep-linked journey from URL search parameters on initial load
+/**
+ * Parses deep-linked journeys from URL query parameters on initial page load.
+ * Supports:
+ * - `preset`: Canonical lore journeys (e.g. ?preset=robert_royal_progress)
+ * - `origin` & `destination`: Valid settlement keys from NODES (e.g. ?origin=winterfell&destination=kings_landing)
+ * - `waypoints`: Comma-delimited settlement keys (e.g. ?waypoints=harrenhal,crossroads_inn)
+ * - `party`: Travel party archetype (e.g. ?party=dragon)
+ * - `mode` & `goal`: Routing constraints and optimization goals
+ *
+ * Ensures zero functional regressions by safely falling back to default King's Landing -> Winterfell route.
+ */
 const getInitialRouteState = () => {
   if (typeof window === 'undefined') {
     return {
@@ -256,7 +266,12 @@ export const App: React.FC = () => {
     handleCalculate();
   }, [handleCalculate]);
 
-  // Synchronize URL search parameters and dynamic document title
+  /**
+   * Bi-directional URL synchronization and dynamic document title updating:
+   * 1. Updates address bar query params via `window.history.replaceState` without triggering page reload or canvas re-render.
+   * 2. Dynamically updates `document.title` on route calculation with origin, destination, distance, and transit days.
+   * 3. Falls back to default site title when no route is active.
+   */
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
