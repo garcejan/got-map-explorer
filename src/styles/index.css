@@ -1,5 +1,6 @@
 /* Citadel / Maester's Cartography Design System - Master Entry Point */
 
+@import 'leaflet/dist/leaflet.css';
 @import './tokens.css';
 @import './base.css';
 @import './leaflet.css';
