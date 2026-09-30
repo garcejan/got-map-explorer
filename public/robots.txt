@@ -1,0 +1,5 @@
+# The Known World Navigator — Robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://got-map-explorer.vercel.app/sitemap.xml
