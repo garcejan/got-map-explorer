@@ -12,6 +12,72 @@ import { useIsMobile } from './hooks/useIsMobile';
 import confetti from 'canvas-confetti';
 import { CitadelGuideModal } from './components/CitadelGuideModal';
 import { PRESET_JOURNEYS } from './data/presets';
+import { NODES } from './data/nodes';
+
+// Parse deep-linked journey from URL search parameters on initial load
+const getInitialRouteState = () => {
+  if (typeof window === 'undefined') {
+    return {
+      originId: 'kings_landing',
+      destinationId: 'winterfell',
+      waypointIds: [] as string[],
+      partyId: 'retinue',
+      mode: 'balanced' as RoutingPreference,
+      goal: 'balanced' as OptimizationGoal,
+      presetId: null as string | null
+    };
+  }
+
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const presetParam = params.get('preset');
+    if (presetParam) {
+      const preset = PRESET_JOURNEYS.find((p) => p.id === presetParam);
+      if (preset) {
+        return {
+          originId: preset.originId,
+          destinationId: preset.destinationId,
+          waypointIds: preset.waypoints || [],
+          partyId: preset.partyId,
+          mode: preset.mode,
+          goal: preset.goal || 'balanced',
+          presetId: preset.id
+        };
+      }
+    }
+
+    const originParam = params.get('origin');
+    const destParam = params.get('destination');
+    const partyParam = params.get('party');
+    const modeParam = params.get('mode');
+    const goalParam = params.get('goal');
+    const waypointsParam = params.get('waypoints');
+
+    const validPartyIds = ['messenger', 'retinue', 'army', 'caravan', 'fleet', 'crow', 'dragon'];
+    const validModes: RoutingPreference[] = ['balanced', 'land_only', 'sea_only', 'dragon', 'crow_flight'];
+    const validGoals: OptimizationGoal[] = ['balanced', 'shortest', 'fastest'];
+
+    return {
+      originId: (originParam && NODES[originParam]) ? originParam : 'kings_landing',
+      destinationId: (destParam && NODES[destParam]) ? destParam : 'winterfell',
+      waypointIds: waypointsParam ? waypointsParam.split(',').filter((id) => Boolean(NODES[id])) : [],
+      partyId: (partyParam && validPartyIds.includes(partyParam)) ? partyParam : 'retinue',
+      mode: (modeParam && validModes.includes(modeParam as RoutingPreference)) ? (modeParam as RoutingPreference) : 'balanced',
+      goal: (goalParam && validGoals.includes(goalParam as OptimizationGoal)) ? (goalParam as OptimizationGoal) : 'balanced',
+      presetId: null
+    };
+  } catch {
+    return {
+      originId: 'kings_landing',
+      destinationId: 'winterfell',
+      waypointIds: [],
+      partyId: 'retinue',
+      mode: 'balanced' as RoutingPreference,
+      goal: 'balanced' as OptimizationGoal,
+      presetId: null
+    };
+  }
+};
 
 export const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -49,17 +115,19 @@ export const App: React.FC = () => {
     });
   }, []);
 
-  const [originId, setOriginId] = useState<string>('kings_landing');
-  const [destinationId, setDestinationId] = useState<string>('winterfell');
-  const [waypointIds, setWaypointIds] = useState<string[]>([]);
+  // Initialize journey inputs with deep link from URL or canonical defaults
+  const [initialRoute] = useState(getInitialRouteState);
+  const [originId, setOriginId] = useState<string>(initialRoute.originId);
+  const [destinationId, setDestinationId] = useState<string>(initialRoute.destinationId);
+  const [waypointIds, setWaypointIds] = useState<string[]>(initialRoute.waypointIds);
   const [mapPickingTarget, setMapPickingTarget] = useState<MapPickingTarget>(null);
   const [autoOptimize, setAutoOptimize] = useState<boolean>(false);
-  const [selectedPartyId, setSelectedPartyId] = useState<string>('retinue');
-  const [selectedMode, setSelectedMode] = useState<RoutingPreference>('balanced');
-  const [selectedGoal, setSelectedGoal] = useState<OptimizationGoal>('balanced');
+  const [selectedPartyId, setSelectedPartyId] = useState<string>(initialRoute.partyId);
+  const [selectedMode, setSelectedMode] = useState<RoutingPreference>(initialRoute.mode);
+  const [selectedGoal, setSelectedGoal] = useState<OptimizationGoal>(initialRoute.goal);
 
   const [routeResult, setRouteResult] = useState<RouteResult | null>(null);
-  const [activePresetId, setActivePresetId] = useState<string | null>(null);
+  const [activePresetId, setActivePresetId] = useState<string | null>(initialRoute.presetId);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(() => {
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
       return false;
@@ -72,11 +140,16 @@ export const App: React.FC = () => {
   const [isGuideOpen, setIsGuideOpen] = useState<boolean>(false);
   const [guideInitialTab, setGuideInitialTab] = useState<'tutorial' | 'codex'>('tutorial');
 
-  // Check for first-time visitor to launch tutorial with a gentle 600ms grace period
+  // Check for first-time visitor to launch tutorial with a gentle 600ms grace period (skip if deep-linked)
   useEffect(() => {
     try {
       const hasSeen = localStorage.getItem('citadel_tutorial_v1');
-      if (!hasSeen) {
+      const hasDeepLink = typeof window !== 'undefined' && (
+        Boolean(initialRoute.presetId) ||
+        window.location.search.includes('origin=') ||
+        window.location.search.includes('destination=')
+      );
+      if (!hasSeen && !hasDeepLink) {
         const timer = setTimeout(() => {
           setGuideInitialTab('tutorial');
           setIsGuideOpen(true);
@@ -86,7 +159,7 @@ export const App: React.FC = () => {
     } catch {
       // Safe fallback if localStorage is unavailable
     }
-  }, []);
+  }, [initialRoute.presetId]);
 
   const handleOpenGuide = useCallback((tab: 'tutorial' | 'codex' = 'tutorial') => {
     setGuideInitialTab(tab);
@@ -182,6 +255,42 @@ export const App: React.FC = () => {
   useEffect(() => {
     handleCalculate();
   }, [handleCalculate]);
+
+  // Synchronize URL search parameters and dynamic document title
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    try {
+      const params = new URLSearchParams();
+
+      if (activePresetId) {
+        params.set('preset', activePresetId);
+      } else {
+        if (originId) params.set('origin', originId);
+        if (destinationId) params.set('destination', destinationId);
+        if (waypointIds.length > 0) params.set('waypoints', waypointIds.join(','));
+        if (selectedPartyId && selectedPartyId !== 'retinue') params.set('party', selectedPartyId);
+        if (selectedMode && selectedMode !== 'balanced') params.set('mode', selectedMode);
+        if (selectedGoal && selectedGoal !== 'balanced') params.set('goal', selectedGoal);
+      }
+
+      const queryString = params.toString();
+      const newSearch = queryString ? `?${queryString}` : '';
+      if (window.location.search !== newSearch) {
+        window.history.replaceState(null, '', `${window.location.pathname}${newSearch}`);
+      }
+
+      if (routeResult && routeResult.origin && routeResult.destination) {
+        const dist = Math.round(routeResult.totalMiles).toLocaleString();
+        const days = routeResult.totalDays.toFixed(1);
+        document.title = `${routeResult.origin.name} to ${routeResult.destination.name} (${dist} mi, ${days} days) — The Known World`;
+      } else {
+        document.title = 'The Known World — Interactive Westeros & Essos Map';
+      }
+    } catch {
+      // Safe fallback if history manipulation is restricted
+    }
+  }, [originId, destinationId, waypointIds, selectedPartyId, selectedMode, selectedGoal, activePresetId, routeResult]);
 
   // Handle preset selection
   const handleSelectPreset = useCallback((preset: PresetJourney) => {
