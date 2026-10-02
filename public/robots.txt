@@ -1,9 +1,28 @@
 # The Known World Navigator — Robots.txt
 # Allows full indexing of the interactive map, historical journeys, and canonical routes across Westeros and Essos
 
+# Standard Search Crawlers (Googlebot, Bingbot, DuckDuckBot, Applebot, YandexBot)
 User-agent: *
 Allow: /
 
-# Canonical Sitemap Declaration for Googlebot, Bingbot, and other crawlers
-Sitemap: https://got-map-explorer.vercel.app/sitemap.xml
+User-agent: Googlebot
+Allow: /
 
+# Microsoft Bing & DuckDuckGo Primary Crawler
+User-agent: Bingbot
+Allow: /
+
+# DuckDuckGo Direct Crawler
+User-agent: DuckDuckBot
+Allow: /
+
+# Apple Safari, Spotlight & Siri Suggestions Crawler
+User-agent: Applebot
+Allow: /
+
+# Yandex Search Crawler
+User-agent: YandexBot
+Allow: /
+
+# Canonical Sitemap Declaration
+Sitemap: https://got-map-explorer.vercel.app/sitemap.xml
