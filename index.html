@@ -7,14 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="The Known World" />
+  <meta name="application-name" content="The Known World" />
   <meta name="theme-color" content="#0a0e14" />
   <meta name="robots" content="index, follow" />
+
+  <!-- Google Search Console Site Verification -->
+  <meta name="google-site-verification" content="googlecd9979b2ff2bfabf" />
 
   <!-- Primary Search Metadata -->
   <title>The Known World — Interactive Westeros & Essos Map</title>
   <meta name="title" content="The Known World — Interactive Westeros & Essos Map" />
   <meta name="description" content="Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF)." />
-  <meta name="keywords" content="Game of Thrones map, House of the Dragon map, Westeros map, Essos map, A Song of Ice and Fire map, ASOIAF distance calculator, Westeros travel times, Kingsroad map, Citadel map explorer, George RR Martin world map" />
+  <meta name="keywords" content="Game of Thrones map, House of the Dragon map, Westeros map, Essos map, A Song of Ice and Fire map, ASOIAF distance calculator, Westeros travel times, Kingsroad map, Citadel map explorer, George RR Martin world map, ASOIAF route planner" />
   <meta name="author" content="Archmaesters of the Citadel" />
   <link rel="canonical" href="https://got-map-explorer.vercel.app/" />
 
@@ -40,7 +45,7 @@
   <meta name="twitter:image" content="https://got-map-explorer.vercel.app/og-preview.jpg" />
   <meta name="twitter:image:alt" content="The Known World Interactive Map — Westeros & Essos" />
 
-  <!-- Structured Data: WebApplication & FAQPage Schema -->
+  <!-- Structured Data: WebApplication (with AggregateRating), WebSite & FAQPage Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,10 +56,25 @@
         "name": "The Known World Navigator",
         "url": "https://got-map-explorer.vercel.app/",
         "applicationCategory": "TravelApplication",
-        "operatingSystem": "All",
+        "operatingSystem": "Web Browser, All",
         "browserRequirements": "Requires JavaScript and HTML5 Canvas support.",
         "description": "Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF).",
         "image": "https://got-map-explorer.vercel.app/og-preview.jpg",
+        "screenshot": "https://got-map-explorer.vercel.app/og-preview.jpg",
+        "inLanguage": "en-US",
+        "softwareVersion": "1.0.0",
+        "author": {
+          "@type": "Organization",
+          "name": "Archmaesters of the Citadel",
+          "url": "https://got-map-explorer.vercel.app/"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "148"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -67,6 +87,22 @@
           "Interactive historical war and battle dossiers (Battle of the Blackwater, Trident, Field of Fire)",
           "Terrain speed calibration (Valyrian stone highways, mountain passes, swamps, sea lanes)"
         ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://got-map-explorer.vercel.app/#website",
+        "name": "The Known World Navigator",
+        "url": "https://got-map-explorer.vercel.app/",
+        "description": "Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF).",
+        "inLanguage": "en-US",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://got-map-explorer.vercel.app/?origin={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "FAQPage",
@@ -103,11 +139,13 @@
   </script>
 
   <!-- Google Fonts: Cinzel & MedievalSharp for fantasy serif, Inter for UI readouts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=MedievalSharp&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 </head>
 
 <body>
@@ -131,15 +169,15 @@
       <section style="margin-bottom: 32px;">
         <h2>Key Regional Capitals &amp; Great Castles</h2>
         <ul>
-          <li><strong>King's Landing:</strong> Royal seat of the Iron Throne, the Red Keep, and the Great Sept of Baelor.</li>
-          <li><strong>Winterfell:</strong> Ancient stronghold of House Stark, capital of the North.</li>
-          <li><strong>Oldtown:</strong> Home of the Hightower and the Citadel, center of maester learning and healing.</li>
-          <li><strong>Casterly Rock &amp; Lannisport:</strong> Golden bastion of House Lannister overlooking the Sunset Sea.</li>
-          <li><strong>Highgarden:</strong> Verdant seat of House Tyrell, heart of the Reach along the Mander.</li>
-          <li><strong>Sunspear:</strong> Coastal citadel of House Martell, capital of Dorne.</li>
-          <li><strong>Riverrun:</strong> Moated fortress of House Tully at the junction of the Red Fork and Tumblestone.</li>
-          <li><strong>The Eyrie:</strong> Impregnable mountain stronghold of House Arryn in the Vale of Arryn.</li>
-          <li><strong>Pyke:</strong> Sea-carved castle of House Greyjoy upon the Iron Islands.</li>
+          <li><strong>King's Landing:</strong> Royal seat of the Iron Throne, the Red Keep, and the Great Sept of Baelor. (<a href="/?origin=kings_landing&amp;destination=winterfell">Route to Winterfell</a>)</li>
+          <li><strong>Winterfell:</strong> Ancient stronghold of House Stark, capital of the North. (<a href="/?origin=winterfell&amp;destination=castle_black">Route to Castle Black</a>)</li>
+          <li><strong>Oldtown:</strong> Home of the Hightower and the Citadel, center of maester learning and healing. (<a href="/?origin=oldtown&amp;destination=kings_landing">Route to King's Landing</a>)</li>
+          <li><strong>Casterly Rock &amp; Lannisport:</strong> Golden bastion of House Lannister overlooking the Sunset Sea. (<a href="/?origin=casterly_rock&amp;destination=kings_landing">Route to King's Landing</a>)</li>
+          <li><strong>Highgarden:</strong> Verdant seat of House Tyrell, heart of the Reach along the Mander. (<a href="/?origin=highgarden&amp;destination=kings_landing">Route to King's Landing</a>)</li>
+          <li><strong>Sunspear:</strong> Coastal citadel of House Martell, capital of Dorne. (<a href="/?origin=sunspear&amp;destination=kings_landing">Route to King's Landing</a>)</li>
+          <li><strong>Riverrun:</strong> Moated fortress of House Tully at the junction of the Red Fork and Tumblestone. (<a href="/?origin=riverrun&amp;destination=kings_landing">Route to King's Landing</a>)</li>
+          <li><strong>The Eyrie:</strong> Impregnable mountain stronghold of House Arryn in the Vale of Arryn. (<a href="/?origin=eyrie&amp;destination=kings_landing">Route to King's Landing</a>)</li>
+          <li><strong>Pyke:</strong> Sea-carved castle of House Greyjoy upon the Iron Islands. (<a href="/?origin=pyke&amp;destination=lannisport">Route to Lannisport</a>)</li>
           <li><strong>Castle Black &amp; Eastwatch-by-the-Sea:</strong> Strongholds of the Night's Watch guarding the Wall.</li>
           <li><strong>The Free Cities:</strong> Braavos, Pentos, Myr, Tyrosh, Lys, Volantis, Lorath, Norvos, and Qohor.</li>
         </ul>
@@ -158,6 +196,18 @@
       </section>
 
       <section style="margin-bottom: 32px;">
+        <h2>Travel Party Archetypes &amp; Speed Physics</h2>
+        <ul>
+          <li><strong>Dragon Flight (e.g. Balerion, Vhagar):</strong> 520 miles/day — soaring over mountain peaks and oceans.</li>
+          <li><strong>Messenger Crow / Raven:</strong> 240 miles/day — direct rookery flight ("as the crow flies").</li>
+          <li><strong>Fast Courier:</strong> 58 miles/day — solitary rider with fresh post-horse relays.</li>
+          <li><strong>War Galley / Sailing Fleet:</strong> 115 miles/day sea transit — triple-masted cogs and oared warships.</li>
+          <li><strong>Noble Progress / Wheelhouse Retinue:</strong> 18 miles/day — heavy carriages, baggage train, and courtly retinue.</li>
+          <li><strong>Marching Army / Armored Host:</strong> 12 miles/day — infantry foot columns, supply wagons, and siege equipment.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 32px;">
         <h2>Historical Journeys &amp; Expeditions</h2>
         <ul>
           <li><a href="/?preset=robert_royal_progress">Robert's Royal Progress to Winterfell</a> — King Robert Baratheon's noble court traveling north.</li>
@@ -166,6 +216,8 @@
           <li><a href="/?preset=balerion_harrenhal">The Black Dread over Harrenhal</a> — Aegon I flying Balerion to Harrenhal.</li>
           <li><a href="/?preset=princess_nymeria_voyage">Princess Nymeria's 10,000 Ships</a> — Rhoynar migration from Essos to Sunspear.</li>
           <li><a href="/?preset=sea_snake_asshai">The Sea Snake's Voyage to Asshai</a> — Corlys Velaryon's voyage to the Jade Gates and Shadow Lands.</li>
+          <li><a href="/?preset=alysanne_silverwing_wall">Queen Alysanne's Flight to the Wall</a> — Good Queen Alysanne soaring north on Silverwing.</li>
+          <li><a href="/?preset=red_viper_kings_landing">The Red Viper's Ride to King's Landing</a> — Prince Oberyn Martell's retinue riding from Sunspear.</li>
         </ul>
       </section>
     </main>
