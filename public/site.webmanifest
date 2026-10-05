@@ -1,0 +1,21 @@
+{
+  "name": "The Known World Navigator",
+  "short_name": "Known World",
+  "description": "Interactive Game of Thrones & House of the Dragon map. Calculate travel distances and plot accurate road routes across Westeros and Essos (ASOIAF).",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0a0e14",
+  "background_color": "#0a0e14",
+  "display": "standalone",
+  "start_url": "/"
+}

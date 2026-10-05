@@ -51,7 +51,7 @@
       ]
     },
     {
-      "source": "/(favicon|compass)\\.svg",
+      "source": "/(favicon.*|compass\\.svg|apple-touch-icon.*|site\\.webmanifest)",
       "headers": [
         {
           "key": "Cache-Control",
