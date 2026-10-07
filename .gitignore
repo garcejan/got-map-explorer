@@ -1,3 +1,7 @@
+# ==============================================================================
+# Citadel Repository Git Ignore Rules
+# ==============================================================================
+
 # Logs and Debug
 logs/
 *.log
@@ -20,9 +24,10 @@ node_modules/
 dist/
 dist-ssr/
 .vite/
-.vercel
+.vercel/
 *.tsbuildinfo
 .eslintcache
+.oxlintcache
 
 # Environment Variables & Secrets
 .env
@@ -51,7 +56,7 @@ Thumbs.db
 *.sw?
 *.swp
 *.swo
-.agents
+.agents/
 
 # Testing and Code Coverage
 coverage/
@@ -68,7 +73,9 @@ __pycache__/
 # Temporary and Scratch Files
 *.tmp
 *.bak
+*.orig
+*.rej
 scratch/
-.env*
 
+# Local Drafts
 reddit_post.txt
