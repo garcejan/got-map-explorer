@@ -287,7 +287,7 @@ got-map-explorer/
 ├── .oxlintrc.json              # Oxlint linting rules
 ├── public/
 │   ├── map_known_world.jpg     # Master 10 000 x 8 300 cartographic raster map
-│   ├── favicon.ico             # Citadel astrolabe favicon
+│   ├── favicon.ico             # Citadel cartographic compass favicon
 │   └── data/
 │       ├── water_mask.bin      # Binary traversability mask (1250x1038)
 │       ├── water_distance.bin  # Distance-to-shoreline transform buffer
