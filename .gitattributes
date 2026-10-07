@@ -1,2 +1,62 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# ==============================================================================
+# Citadel Repository Git Attributes & Line Normalization
+# ==============================================================================
+
+# Auto-detect text files and enforce LF normalization across platforms
+* text=auto eol=lf
+
+# ------------------------------------------------------------------------------
+# Explicit Text Files (enforce LF)
+# ------------------------------------------------------------------------------
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.geojson text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.webmanifest text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.txt text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.vercelignore text eol=lf
+
+# ------------------------------------------------------------------------------
+# Explicit Binary Assets (prevent CRLF corruption and diff distortion)
+# ------------------------------------------------------------------------------
+*.bin binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp4 binary
+*.webm binary
+*.zip binary
+*.tar.gz binary
+
+# ------------------------------------------------------------------------------
+# GitHub Linguist Diff & Statistics Controls
+# Mark large precomputed datasets and lockfiles as generated to keep PR diffs readable
+# ------------------------------------------------------------------------------
+package-lock.json linguist-generated=true
+public/data/crs_transform.json linguist-generated=true
+public/data/gis_roads.geojson linguist-generated=true
+public/data/lakes.geojson linguist-generated=true
+public/data/landmasses.geojson linguist-generated=true
+public/data/water_metadata.json linguist-generated=true
+scripts/data/*.json linguist-generated=true
+scripts/precompute/raw/*.geojson linguist-generated=true
