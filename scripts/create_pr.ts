@@ -18,7 +18,7 @@
  *   npx tsx scripts/create_pr.ts --title "feat(map): add new Valyrian roads" --skip-tests
  */
 
-import { execSync } from 'child_process';
+import { execSync, spawnSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -183,8 +183,12 @@ function main() {
   const changedFiles = runSilent('git diff --name-only origin/main..HEAD').split('\n').filter(Boolean);
   const detectedSubsystems = detectSubsystems(changedFiles);
 
-  const topCommit = commitList[commitList.length - 1] || commitList[0] || 'repository updates';
-  const prTitle = userTitle || (commitList.length === 1 ? commitList[0] : `feat(${currentBranch.split('/')[0] || 'app'}): ${topCommit}`);
+  const latestCommit = commitList[0] || 'repository updates';
+  const prTitle = userTitle || (commitList.length === 1
+    ? latestCommit
+    : (/^[a-z]+(\([a-z0-9_-]+\))?:\s*/i.test(latestCommit)
+      ? latestCommit
+      : `feat(${currentBranch.split('/')[0] || 'app'}): ${latestCommit}`));
 
   let prBody = userBody;
   if (!prBody) {
@@ -224,11 +228,15 @@ ${detectedSubsystems.length > 0 ? detectedSubsystems.map(s => `- [x] ${s}`).join
   if (isGhLoggedIn && !dryRun) {
     console.log('🤖 Creating Pull Request via GitHub CLI (`gh`)...');
     try {
-      const draftFlag = draft ? '--draft' : '';
-      const prOutput = run(`gh pr create --base main --head ${currentBranch} --title "${prTitle.replace(/"/g, '\\"')}" --body "${prBody.replace(/"/g, '\\"')}" ${draftFlag}`, { silent: false });
-      console.log(`\n🎉 Pull Request created successfully!\n${prOutput}`);
-      return;
-    } catch (e: any) {
+      const prArgs = ['pr', 'create', '--base', 'main', '--head', currentBranch, '--title', prTitle, '--body', prBody];
+      if (draft) prArgs.push('--draft');
+      const res = spawnSync('gh', prArgs, { encoding: 'utf-8', stdio: 'pipe' });
+      if (res.status === 0) {
+        console.log(`\n🎉 Pull Request created successfully!\n${res.stdout.trim()}`);
+        return;
+      }
+      console.log('⚠️ GitHub CLI pr create exited with status', res.status, res.stderr?.trim());
+    } catch {
       console.log('⚠️ GitHub CLI pr create encountered an error; falling back to web URL.');
     }
   }
