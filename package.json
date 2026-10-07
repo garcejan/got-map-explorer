@@ -12,10 +12,17 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "typecheck": "tsc -b",
     "lint": "oxlint src",
     "test": "tsx scripts/audit_collisions.ts && tsx scripts/verify_all_nodes_routing.ts && tsx scripts/audit_all_routes.ts",
     "test:collisions": "tsx scripts/audit_collisions.ts",
-    "preview": "vite preview"
+    "test:routing": "tsx scripts/verify_all_nodes_routing.ts",
+    "test:routes": "tsx scripts/audit_all_routes.ts",
+    "test:water-coords": "tsx scripts/test_water_mask_and_coords.ts",
+    "test:all": "npm test && tsx scripts/test_water_mask_and_coords.ts",
+    "preview": "vite preview",
+    "pr": "tsx scripts/create_pr.ts",
+    "pr:create": "tsx scripts/create_pr.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
