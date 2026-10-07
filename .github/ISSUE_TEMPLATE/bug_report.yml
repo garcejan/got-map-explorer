@@ -1,0 +1,91 @@
+name: 🐛 Bug Report
+description: Report a bug, UI defect, or routing engine anomaly in The Known World Navigator.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve **The Known World Navigator**!
+        Before creating a report, please verify that a similar issue has not already been opened.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: e.g. "When routing between Winterfell and White Harbor using Army party, the route incorrectly..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this behavior?
+      placeholder: |
+        1. Select Start: 'Winterfell'
+        2. Select Destination: 'White Harbor'
+        3. Set Travel Party to 'Marching Host'
+        4. Observe the route polyline and transit days
+    validations:
+      required: true
+
+  - type: input
+    id: route_details
+    attributes:
+      label: Expedition Parameters (if routing-related)
+      description: Origin settlement, destination, waypoints, party type, and routing mode.
+      placeholder: e.g. Origin: Winterfell, Destination: White Harbor, Party: Army, Mode: Balanced
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs. Actual Behavior
+      description: What did you expect to happen, and what happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots & Console Logs
+      description: Drag and drop screenshots or paste browser console errors (`F12` -> Console).
+      placeholder: Attach screenshots or paste console stack traces here.
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Web Browser
+      options:
+        - Chrome / Chromium
+        - Firefox
+        - Safari (macOS / iOS)
+        - Edge
+        - Brave
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - iOS
+        - Android
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Submission Checklist
+      options:
+        - label: I have searched existing issues to ensure this has not been reported already.
+          required: true
+        - label: I verified that browser extensions (adblockers, script blockers) are not causing the issue.
+          required: false

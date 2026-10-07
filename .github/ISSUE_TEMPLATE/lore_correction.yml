@@ -1,0 +1,64 @@
+name: 📜 Lore or Cartographic Correction
+description: Propose a correction to settlement coordinates, road paths, allegiances, or historical battle records based on canonical sources.
+title: "[Lore]: "
+labels: ["lore", "cartography"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The Archmaesters of the Citadel strive for total canonical accuracy.
+        Please provide book, chapter, or official map citations to back your proposal.
+
+  - type: dropdown
+    id: entity_type
+    attributes:
+      label: Entity Type
+      options:
+        - Settlement / Castle / Port (nodes.ts)
+        - Major Highway / Road Path (roads.ts)
+        - Sea Lane / Coastal Corridor (seaLanes.ts)
+        - Regional Connector (regionalConnectors.ts)
+        - Historical Battle (battles.ts)
+        - Historical Journey Preset (presets.ts)
+        - Ruling House Allegiance or Wiki Link
+    validations:
+      required: true
+
+  - type: input
+    id: entity_name
+    attributes:
+      label: Entity Name / ID
+      description: What specific settlement, road, or battle is this regarding?
+      placeholder: e.g. "Bitterbridge", "Goldroad", "Battle of the Bells"
+    validations:
+      required: true
+
+  - type: textarea
+    id: citation
+    attributes:
+      label: Canonical Citation & Source
+      description: Provide specific references from George R. R. Martin's works or official publications.
+      placeholder: e.g. "The Lands of Ice and Fire (Map 2: Westeros), or A Dance with Dragons, Chapter 14 (Tyrion III)..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_vs_proposed
+    attributes:
+      label: Current State vs. Proposed Correction
+      description: Explain what is currently inaccurate in the app and what it should be changed to.
+      placeholder: |
+        Current: Bitterbridge coordinates are placed on the north bank of the Mander.
+        Proposed: Place Bitterbridge at the stone bridge crossing on the Roseroad as depicted in The Lands of Ice and Fire...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Verification Checklist
+      options:
+        - label: I have verified this against published canonical material (ASOIAF books, The Lands of Ice and Fire, The World of Ice & Fire, Fire & Blood).
+          required: true
+        - label: I understand that any new or moved settlement must maintain 100% graph reachability in `npm test`.
+          required: true

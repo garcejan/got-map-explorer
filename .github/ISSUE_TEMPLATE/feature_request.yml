@@ -1,0 +1,66 @@
+name: 💡 Feature Request
+description: Suggest an enhancement, new capability, or design improvement for The Known World Navigator.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We welcome feature ideas and suggestions to expand the Citadel's navigational prowess!
+
+  - type: textarea
+    id: feature_summary
+    attributes:
+      label: Feature Proposal & Summary
+      description: What is your proposed feature or improvement?
+      placeholder: e.g. "Add a weather / seasonal winter drift layer that dynamically increases travel days in northern regions..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Target Subsystem
+      options:
+        - Map Canvas & Leaflet Rendering
+        - Routing Engine & Pathfinding
+        - Travel Party Simulation & Physics
+        - Settlement Directory & Search
+        - Historical Battles Layer
+        - Citadel UI / Theme Styling
+        - Documentation & GIS Data
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem or Use Case
+      description: Is your feature request related to a problem or unmet need?
+      placeholder: e.g. "Currently, navigating across the Red Waste does not indicate water oasis stops..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution or Implementation Details
+      description: Describe your ideal implementation, API design, or UI experience.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other approaches or workarounds have you considered?
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Submission Checklist
+      options:
+        - label: I have searched existing issues and discussions to see if this has already been suggested.
+          required: true
+        - label: I am willing to help implement this feature or contribute code/documentation.
+          required: false
