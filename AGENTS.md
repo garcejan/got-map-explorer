@@ -280,14 +280,45 @@ src/styles/
 ```
 got-map-explorer/
 ├── AGENTS.md                   # THIS FILE: Consolidated Master Specification & Guidelines
+├── README.md                   # Project overview, quickstart, and features
+├── TECHNICAL.md                # Mathematical projections, geodesy, and architecture
+├── CONTRIBUTING.md             # Guidelines for open-source contributors
+├── CODE_OF_CONDUCT.md          # Contributor Covenant Code of Conduct
+├── SECURITY.md                 # Vulnerability disclosure and security policy
+├── LICENSE                     # MIT open-source license
 ├── package.json                # Project scripts, dependencies, engine versions
+├── package-lock.json           # Deterministic dependency lockfile
 ├── vite.config.ts              # Vite bundler configuration
 ├── tsconfig.json               # TypeScript base configuration
 ├── tsconfig.app.json           # Client TypeScript configuration (strict mode)
+├── tsconfig.node.json          # Vite TypeScript configuration
 ├── .oxlintrc.json              # Oxlint linting rules
+├── .gitattributes              # Git line endings, binary assets, and linguist tags
+├── .gitignore                  # Git ignore rules
+├── .vercelignore               # Vercel deployment bundle ignore rules
+├── vercel.json                 # Vercel routing, caching, and security headers
+├── .github/
+│   ├── CODEOWNERS              # Repository ownership and code review rules
+│   ├── dependabot.yml          # Automated dependency updates for npm and Actions
+│   ├── pull_request_template.md# PR submission checklist and metadata
+│   ├── ISSUE_TEMPLATE/         # Bug reports, feature requests, lore corrections
+│   └── workflows/
+│       └── ci.yml              # GitHub Actions CI workflow (lint, build, test)
 ├── public/
-│   ├── map_known_world.jpg     # Master 10 000 x 8 300 cartographic raster map
+│   ├── assets/
+│   │   └── known_world_map.jpg # Master 10 000 x 8 300 cartographic raster map
+│   ├── compass.svg             # Transparent cartographic compass rose
 │   ├── favicon.ico             # Citadel cartographic compass favicon
+│   ├── favicon.svg             # Vector SVG compass favicon
+│   ├── apple-touch-icon.png    # iOS touch icon (180x180)
+│   ├── favicon-48x48.png       # Standard browser favicon
+│   ├── favicon-96x96.png       # High-DPI browser favicon
+│   ├── favicon-192x192.png     # Android web app icon
+│   ├── favicon-512x512.png     # Progressive web app splash icon
+│   ├── og-preview.jpg          # Open Graph social preview banner (1200x630)
+│   ├── site.webmanifest        # PWA metadata manifest
+│   ├── robots.txt              # Search crawler permissions and sitemap link
+│   ├── sitemap.xml             # Canonical sitemap
 │   └── data/
 │       ├── water_mask.bin      # Binary traversability mask (1250x1038)
 │       ├── water_distance.bin  # Distance-to-shoreline transform buffer
@@ -301,6 +332,8 @@ got-map-explorer/
 │   ├── App.tsx                 # Root application state & coordinator
 │   ├── types/
 │   │   └── index.ts            # Canonical domain TypeScript definitions
+│   ├── hooks/
+│   │   └── useIsMobile.ts      # Responsive viewport detection hook
 │   ├── engine/
 │   │   ├── scale.ts            # Map coordinate math, pixel conversion & sanitization
 │   │   ├── coordinates.ts      # ArcGIS geodetic world coordinate projection
@@ -322,6 +355,8 @@ got-map-explorer/
 │   │   ├── Header.tsx          # Top navigation bar, theme switcher, modal triggers
 │   │   ├── HistoricalPresetsDropdown.tsx # Historical journey dropdown selector
 │   │   ├── PartySpeedInfoModal.tsx # Citadel treatise modal on travel speeds
+│   │   ├── CartographyLayersModal.tsx # Layer visibility and map styling modal
+│   │   ├── CitadelGuideModal.tsx # Scholar's onboarding and navigation guide
 │   │   └── TelemetryHUD.tsx    # Live coordinate heads-up display (Image, Leaflet, Geodetic)
 │   └── styles/
 │       ├── tokens.css          # Design system CSS variables
@@ -331,12 +366,15 @@ got-map-explorer/
 │       ├── index.css           # Root styles aggregator
 │       └── components/         # Modular component stylesheets
 └── scripts/
+    ├── README.md               # Overview of test suites, pipelines, and datasets
     ├── audit_collisions.ts     # Settlement node overlap & proximity auditor
     ├── verify_all_nodes_routing.ts # 100% reachability & random pair routing test
     ├── audit_all_routes.ts     # Route geometry, hairpin angle & ratio auditor
+    ├── test_water_mask_and_coords.ts # Geodetics, water mask & benchmark test
     ├── check_nodes_and_connectivity.ts # Graph component analyzer
     ├── test_all_pairs.ts       # Exhaustive pathfinding stress tester
-    └── precompute/
+    ├── data/                   # Calibrated settlement coordinates and wiki datasets
+    └── precompute/             # ArcGIS data extraction & calibration pipeline
         ├── calibrate_coordinates.py  # ArcGIS bivariate least-squares calibration
         ├── generate_water_costmap.py # Binary water mask & distance buffer generator
         ├── project_gis_roads.py      # ArcGIS spatial road projection
@@ -356,19 +394,26 @@ AI agents operating on this repository must verify their work using these comman
 # 1. Start development server (port 5173)
 npm run dev
 
-# 2. Strict typecheck and production bundle build (MUST PASS WITH 0 ERRORS)
+# 2. Strict typecheck without build
+npm run typecheck
+
+# 3. Strict typecheck and production bundle build (MUST PASS WITH 0 ERRORS)
 npm run build
 
-# 3. Static code analysis via Oxlint (MUST PASS WITHOUT ERRORS)
+# 4. Static code analysis via Oxlint (MUST PASS WITHOUT ERRORS)
 npm run lint
 
-# 4. Comprehensive Route, Collision & Graph Audit (MUST PASS 100%)
+# 5. Core CI Test Suite: Route, Collision & Graph Audit (MUST PASS 100%)
 npm test
 
-# 5. Standalone settlement collision auditor
-npm run test:collisions
+# 6. Granular test suites
+npm run test:collisions     # Standalone settlement collision auditor
+npm run test:routing        # 100% reachability and random pair route validator
+npm run test:routes         # Road and sea lane geometry & hairpin auditor
+npm run test:water-coords   # Geodetics, binary water buffers, and benchmarks
+npm run test:all            # Runs npm test + test:water-coords
 
-# 6. Preview production build locally
+# 7. Preview production build locally
 npm run preview
 ```
 

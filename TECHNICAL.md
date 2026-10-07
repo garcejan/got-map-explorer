@@ -368,18 +368,18 @@ got-map-explorer/
 │   │   ├── battles.ts                 # 30+ major historical battles & tactical dossiers
 │   │   ├── presets.ts                 # 23 canonical lore journeys & historical chronicles
 │   │   └── regions.ts                 # Realm definitions, capitals, heraldry colors
+│   ├── hooks/
+│   │   └── useIsMobile.ts             # Responsive viewport detection hook
 │   └── components/
-│       ├── MapCanvas.tsx              # Leaflet interactive map, custom canvas render
-│       ├── CitadelSidebar.tsx         # Multi-tab drawer (Planner, Ledger, Directory)
-│       ├── RoutePlanner.tsx           # Waypoints, party selector, optimization modes
-│       ├── JourneyBreakdown.tsx       # Stage-by-stage itinerary & terrain stats
+│       ├── MapCanvas.tsx              # Leaflet interactive map, vector layers & animated traveler token
+│       ├── CitadelSidebar.tsx         # Multi-tab drawer (Planner, Itinerary Breakdown, Ledger, Directory)
 │       ├── CitySearch.tsx             # Fuzzy search settlement directory with zoom
-│       ├── RouteComparison.tsx        # Alternative route comparison table
-│       ├── PartySpeedInfoModal.tsx    # Scholarly speed reference modal
-│       ├── RightDrawer.tsx            # Telemetry & collapsible details pane
 │       ├── Header.tsx                 # Top navigation bar & historical chronicles dropdown
-│       ├── TelemetryHUD.tsx           # Floating coordinate & bathymetry HUD bar
-│       └── Legend.tsx                 # Map symbology and road legend
+│       ├── HistoricalPresetsDropdown.tsx # Canonical lore journey selector
+│       ├── PartySpeedInfoModal.tsx    # Scholarly speed treatise & party comparison modal
+│       ├── CartographyLayersModal.tsx # Layer visibility, borders & map styling modal
+│       ├── CitadelGuideModal.tsx      # Scholar's onboarding and navigation guide
+│       └── TelemetryHUD.tsx           # Floating coordinate, realm & bathymetry HUD bar
 └── scripts/
     ├── precompute/                    # ArcGIS data extraction & calibration pipeline
     │   ├── extract_arcgis_layers.py   # ArcGIS REST FeatureServer GeoJSON downloader
@@ -402,16 +402,19 @@ All automated tests, type checks, and linters must pass with 0 errors before com
 # 1. Static code analysis (Oxlint)
 npm run lint
 
-# 2. Graph reachability & route geometry audit (MUST pass with 100% success)
+# 2. Strict TypeScript typechecking
+npm run typecheck
+
+# 3. Graph reachability & route geometry audit (MUST pass with 100% success)
 npm test
 
-# 3. Coordinate geodetics & binary water mask audit
-npx tsx scripts/test_water_mask_and_coords.ts
+# 4. Coordinate geodetics & binary water mask audit
+npm run test:water-coords
 
-# 4. TypeScript compilation & production build
+# 5. TypeScript compilation & production build
 npm run build
 
-# 5. Preview production build locally
+# 6. Preview production build locally
 npm run preview
 ```
 
