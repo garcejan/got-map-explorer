@@ -6,11 +6,11 @@
       <stop offset="100%" stop-color="#c99738" />
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.8" />
+      <feDropShadow dx="0" dy="1.2" stdDeviation="1.2" flood-color="#000000" flood-opacity="0.75" />
     </filter>
   </defs>
   <!-- Pure Cartographic Compass with transparent background -->
-  <g transform="translate(6, 6) scale(2.166)" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
+  <g transform="translate(7.2, 6.5) scale(2.06)" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
     <!-- Base dark contour for crisp contrast on both dark and light backgrounds -->
     <circle cx="12" cy="12" r="10" stroke="#140c03" stroke-width="3.8" fill="none" />
     <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" stroke="#140c03" stroke-width="3.8" fill="none" />
