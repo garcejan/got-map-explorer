@@ -1,0 +1,43 @@
+name: Citadel Continuous Integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Enforce read-only permissions for PRs from forks to prevent token exploitation
+permissions:
+  contents: read
+
+# Cancel redundant in-progress runs when a PR branch is updated
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Lint, Build & Routing Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Code Quality & Lint Gate (Oxlint)
+        run: npm run lint
+
+      - name: TypeScript & Vite Build Gate
+        run: npm run build
+
+      - name: Cartographic Reachability & Collision Test Gate
+        run: npm test
