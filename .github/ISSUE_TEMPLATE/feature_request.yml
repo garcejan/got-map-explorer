@@ -13,7 +13,7 @@ body:
     attributes:
       label: Feature Proposal & Summary
       description: What is your proposed feature or improvement?
-      placeholder: e.g. "Add a weather / seasonal winter drift layer that dynamically increases travel days in northern regions..."
+      placeholder: "e.g. Add a weather / seasonal winter drift layer that dynamically increases travel days in northern regions..."
     validations:
       required: true
 
@@ -37,7 +37,7 @@ body:
     attributes:
       label: Problem or Use Case
       description: Is your feature request related to a problem or unmet need?
-      placeholder: e.g. "Currently, navigating across the Red Waste does not indicate water oasis stops..."
+      placeholder: "e.g. Currently, navigating across the Red Waste does not indicate water oasis stops..."
     validations:
       required: true
 

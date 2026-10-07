@@ -29,7 +29,7 @@ body:
     attributes:
       label: Entity Name / ID
       description: What specific settlement, road, or battle is this regarding?
-      placeholder: e.g. "Bitterbridge", "Goldroad", "Battle of the Bells"
+      placeholder: "e.g. Bitterbridge, Goldroad, Battle of the Bells"
     validations:
       required: true
 
@@ -38,7 +38,7 @@ body:
     attributes:
       label: Canonical Citation & Source
       description: Provide specific references from George R. R. Martin's works or official publications.
-      placeholder: e.g. "The Lands of Ice and Fire (Map 2: Westeros), or A Dance with Dragons, Chapter 14 (Tyrion III)..."
+      placeholder: "e.g. The Lands of Ice and Fire (Map 2: Westeros), or A Dance with Dragons, Chapter 14 (Tyrion III)..."
     validations:
       required: true
 
