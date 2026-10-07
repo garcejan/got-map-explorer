@@ -47,7 +47,7 @@ An authentic, interactive expedition planner and cartographic explorer built in 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/gary/got-map-explorer.git
+   git clone https://github.com/garcejan/got-map-explorer.git
    cd got-map-explorer
    ```
 

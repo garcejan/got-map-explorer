@@ -70,3 +70,5 @@ __pycache__/
 *.bak
 scratch/
 .env*
+
+reddit_post.txt

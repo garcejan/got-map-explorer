@@ -1,7 +1,13 @@
 {
   "name": "the-known-world-navigator",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Citadel Route & Distance Engine for George R. R. Martin's A Song of Ice and Fire",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garcejan/got-map-explorer.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
