@@ -31,9 +31,10 @@ All AI agents, subagents, and automated workflows operating in this repository m
    * Rather than generating long shell commands, complex pipes, or `.sh` scripts, create an executable Python (`.py`) or Node.js (`.js`/`.ts`) script in `scripts/` or your scratch directory.
    * Execute the script with `python3` or `node`/`npx tsx`, inspect the output, and clean up temporary scripts upon completion.
 
-5. **Incremental Development & Scoped Commits:**
-   * When working through multi-step task lists, immediately stage and commit modified files as each individual sub-task is completed.
-   * Avoid grouping disparate changes into a single mega-commit; use descriptive, scoped git commit messages (e.g. `feat(engine): ...`, `fix(map): ...`, `refactor(styles): ...`).
+5. **Branching, Incremental Commits & Automated PR Delivery (CRITICAL):**
+   * **Protected `main` Invariant:** Direct pushes to `main` are strictly blocked by GitHub ruleset GH013 ("Changes must be made through a pull request"). All work must be conducted on feature/topic branches (`feat/...`, `fix/...`, `chore/...`, `docs/...`).
+   * **Incremental Development & Scoped Commits:** Immediately stage and commit modified files as each individual sub-task is completed using Conventional Commits (`feat(scope): ...`, `fix(scope): ...`). Avoid large uncommitted batches.
+   * **Automated Batch Push & PR Creation:** When a batch of features or milestone is completed, run `npm run pr` (`npx tsx scripts/create_pr.ts`). It automatically validates all quality gates, pushes the branch to remote, and generates/submits the Pull Request targeting `main`.
 
 6. **Parallel Subagent Decomposition:**
    * For complex, modular, or multi-file tasks, actively decompose workloads into independent sub-tasks and spawn subagents to execute them in parallel wherever sequential dependencies do not exist.
@@ -415,6 +416,10 @@ npm run test:all            # Runs npm test + test:water-coords
 
 # 7. Preview production build locally
 npm run preview
+
+# 8. Batch push and automated Pull Request creation
+npm run pr               # Validates gates, pushes branch, and creates/opens PR
+npm run pr:create        # Alias for npm run pr
 ```
 
 ### Verification Scripts Overview
@@ -448,9 +453,33 @@ All agents and subagents must strictly adhere to these rules of engagement:
 * Adhere to [.agents/rules/code-complexity.md](file:///Users/gary/Documents/Personal/got-map-explorer/.agents/rules/code-complexity.md): Rather than generating long shell commands, nested pipes, or `.sh` scripts, create an executable Python (`.py`) or Node.js (`.js`/`.ts`) script in `scripts/` or your scratch directory.
 * Run the script using `python3` or `node`/`npx tsx`, and remove temporary scripts after use.
 
-### Rule 5: Atomic Staging & Scoped Commits
-* When completing multi-step tasks, stage and commit modified files immediately as each sub-task is completed.
-* Write scoped, descriptive commit messages matching conventional commit guidelines (`feat:`, `fix:`, `refactor:`, `style:`, `test:`, `docs:`).
+### Rule 5: Feature Branching, Atomic Staging & Automated Batch PR Delivery
+* **Protected `main` Enforcement:** Direct pushes to `main` are permanently blocked by GitHub ruleset GH013 ("Changes must be made through a pull request" & "Required status check 'Lint, Build & Routing Tests' is expected").
+* **Branch Lifecycle:**
+  1. Always branch off up-to-date `origin/main`:
+     ```bash
+     git fetch origin && git checkout -b feat/my-feature origin/main
+     ```
+  2. Implement features or fixes in atomic, testable increments.
+  3. Run quality gates locally: `npm run lint`, `npm run typecheck`, `npm test`.
+  4. Stage only relevant files and commit immediately using Conventional Commits (`feat(scope): ...`, `fix(scope): ...`, `docs(scope): ...`).
+* **Automated Batch PR Delivery (`npm run pr`):**
+  * When a feature batch or milestone is ready, execute:
+    ```bash
+    npm run pr
+    ```
+    or with custom title:
+    ```bash
+    npm run pr -- --title "feat(engine): add seasonal winter speed penalties"
+    ```
+  * What `npm run pr` does automatically:
+    1. Verifies working tree status.
+    2. If mistakenly on `main` with unpushed commits, safely moves them into a new feature branch and resets local `main` to `origin/main`.
+    3. Runs all 3 quality gates (Oxlint, TypeScript typecheck, reachability & collision test suite).
+    4. Pushes the branch with upstream tracking (`git push -u origin <branch>`).
+    5. Gathers commits and detected subsystems to populate `.github/pull_request_template.md`.
+    6. Creates the PR using GitHub CLI (`gh pr create`) if authenticated on `github.com`.
+    7. If `gh` is not yet authenticated, generates and launches the pre-filled GitHub web compare PR link in the default browser.
 
 ### Rule 6: Subagent Decomposition for Parallel Work
 * Decompose complex or multi-file workloads into independent sub-tasks and utilize subagents to execute them in parallel wherever sequential dependencies do not exist.
