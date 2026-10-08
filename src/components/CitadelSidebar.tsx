@@ -32,15 +32,12 @@ import {
   Swords,
   Castle,
   Anchor,
-  Star,
-  ExternalLink
+  Star
 } from 'lucide-react';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
 import { calculateRouteAlternatives } from '../engine/pathfinder';
 import { PartySpeedInfoModal } from './PartySpeedInfoModal';
-import { GITHUB_REPO_URL } from '../data/github';
-import { GithubIcon } from './ReportIssueModal';
 
 export interface CitadelSidebarProps {
   isOpen: boolean;
@@ -411,7 +408,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   isMobile = false,
   position: propPosition,
   onPositionChange,
-  onOpenReportIssue
+  onOpenReportIssue: _onOpenReportIssue
 }) => {
   const [activeTab, setActiveTab] = useState<'planner' | 'ledger'>('planner');
   const [ledgerSubTab, setLedgerSubTab] = useState<'overview' | 'roads' | 'corridors' | 'guide'>('overview');
