@@ -31,12 +31,10 @@ All AI agents, subagents, and automated workflows operating in this repository m
    * Rather than generating long shell commands, complex pipes, or `.sh` scripts, create an executable Python (`.py`) or Node.js (`.js`/`.ts`) script in `scripts/` or your scratch directory.
    * Execute the script with `python3` or `node`/`npx tsx`, inspect the output, and clean up temporary scripts upon completion.
 
-5. **Branching, Logical PR Clustering & Mandatory User Checkpoint (CRITICAL):**
-   * **Mandatory PR Invariant:** Direct pushes to `main` are strictly blocked by GitHub ruleset GH013 ("Changes must be made through a pull request"). Every change without exception must be merged through a Pull Request.
-   * **Logical Clustering Invariant:** Do NOT create a separate PR for every trivial line or file edit. Group and cluster related tasks into a cohesive thematic branch (`feat/<cluster-name>`, `fix/<cluster-name>`, `chore/<cluster-name>`). Commit atomically per sub-task.
-   * **Mandatory Conversational Checkpoint:** In agent conversations, whenever a task or feature implementation is completed, the agent **MUST ALWAYS ask the user**:
-     > *"Are there other features or adjustments you would like to implement in this cluster, or would you like me to go ahead and create the Pull Request now?"*
-   * **Automated Delivery:** Once confirmed or instructed by the user, execute `npm run pr` (`npx tsx scripts/create_pr.ts`). It automatically validates all quality gates, pushes the branch, and generates the PR targeting `main`.
+5. **Branching, Incremental Commits & Automated PR Delivery (CRITICAL):**
+   * **Protected `main` Invariant:** Direct pushes to `main` are strictly blocked by GitHub ruleset GH013 ("Changes must be made through a pull request"). All work must be conducted on feature/topic branches (`feat/...`, `fix/...`, `chore/...`, `docs/...`).
+   * **Incremental Development & Scoped Commits:** Immediately stage and commit modified files as each individual sub-task is completed using Conventional Commits (`feat(scope): ...`, `fix(scope): ...`). Avoid large uncommitted batches.
+   * **Automated Batch Push & PR Creation:** When a batch of features or milestone is completed, run `npm run pr` (`npx tsx scripts/create_pr.ts`). It automatically validates all quality gates, pushes the branch to remote, and generates/submits the Pull Request targeting `main`.
 
 6. **Parallel Subagent Decomposition:**
    * For complex, modular, or multi-file tasks, actively decompose workloads into independent sub-tasks and spawn subagents to execute them in parallel wherever sequential dependencies do not exist.
@@ -455,15 +453,8 @@ All agents and subagents must strictly adhere to these rules of engagement:
 * Adhere to [.agents/rules/code-complexity.md](file:///Users/gary/Documents/Personal/got-map-explorer/.agents/rules/code-complexity.md): Rather than generating long shell commands, nested pipes, or `.sh` scripts, create an executable Python (`.py`) or Node.js (`.js`/`.ts`) script in `scripts/` or your scratch directory.
 * Run the script using `python3` or `node`/`npx tsx`, and remove temporary scripts after use.
 
-### Rule 5: Feature Branching, Logical Clustering, Conversational Checkpoint & PR Automation
-* **Protected `main` Enforcement:** Direct pushes to `main` are permanently blocked by GitHub ruleset GH013 ("Changes must be made through a pull request" & "Required status check 'Lint, Build & Routing Tests' is expected"). Every single change—without exception—must reach `main` via a Pull Request.
-* **Logical Clustering of Changes:**
-  * Do NOT create fragmented, one-off PRs for every trivial single-line or isolated file change.
-  * Cluster related modifications into a logical, cohesive topic branch:
-    - `feat/<topic>` (e.g. `feat/riverlands-connectors`, `feat/battle-filter-ui`, `feat/weather-layer`)
-    - `fix/<topic>` (e.g. `fix/route-hairpin-sanitization`, `fix/mobile-hud-layout`)
-    - `chore/<topic>` / `docs/<topic>` (e.g. `chore/dependency-updates`, `docs/technical-geodesy`)
-  * Each logical cluster may contain multiple scoped, atomic commits (`feat(...)`, `fix(...)`, `test(...)`) that form a coherent deliverable.
+### Rule 5: Feature Branching, Atomic Staging & Automated Batch PR Delivery
+* **Protected `main` Enforcement:** Direct pushes to `main` are permanently blocked by GitHub ruleset GH013 ("Changes must be made through a pull request" & "Required status check 'Lint, Build & Routing Tests' is expected").
 * **Branch Lifecycle:**
   1. Always branch off up-to-date `origin/main`:
      ```bash
@@ -472,14 +463,8 @@ All agents and subagents must strictly adhere to these rules of engagement:
   2. Implement features or fixes in atomic, testable increments.
   3. Run quality gates locally: `npm run lint`, `npm run typecheck`, `npm test`.
   4. Stage only relevant files and commit immediately using Conventional Commits (`feat(scope): ...`, `fix(scope): ...`, `docs(scope): ...`).
-* **Mandatory Conversational PR Checkpoint (CRITICAL FOR ALL AGENTS):**
-  * When completing any requested task, bug fix, or feature batch, the agent **MUST ALWAYS ask the user**:
-    > *"Are there any additional features, changes, or tests you would like to include in this cluster, or should I proceed to create the Pull Request now?"*
-  * **Wait for user direction:**
-    - If the user specifies additional features or adjustments: continue implementing on the current feature branch, commit atomically, and ask again once verified.
-    - If the user confirms or requests the PR: proceed immediately with automated PR creation.
 * **Automated Batch PR Delivery (`npm run pr`):**
-  * When confirmed, execute:
+  * When a feature batch or milestone is ready, execute:
     ```bash
     npm run pr
     ```
