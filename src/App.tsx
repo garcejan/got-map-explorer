@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { MapCanvas } from './components/MapCanvas';
 import { Header, type Theme } from './components/Header';
 import { CitadelSidebar } from './components/CitadelSidebar';
 import { CartographyLayersModal } from './components/CartographyLayersModal';
+import { ReportIssueModal, type RouteTelemetrySummary } from './components/ReportIssueModal';
 import type { PresetJourney } from './components/HistoricalPresetsDropdown';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from './types';
 import { type CartographyLayersConfig, DEFAULT_CARTOGRAPHY_LAYERS } from './types';
@@ -149,6 +150,23 @@ export const App: React.FC = () => {
   // Unified Citadel Guide & Onboarding Tutorial state
   const [isGuideOpen, setIsGuideOpen] = useState<boolean>(false);
   const [guideInitialTab, setGuideInitialTab] = useState<'tutorial' | 'codex'>('tutorial');
+
+  // Report an issue & GitHub integration modal state
+  const [isReportIssueOpen, setIsReportIssueOpen] = useState<boolean>(false);
+
+  const currentRouteTelemetry: RouteTelemetrySummary | null = useMemo(() => {
+    if (!routeResult || !routeResult.origin || !routeResult.destination) return null;
+    return {
+      originName: routeResult.origin.name,
+      destinationName: routeResult.destination.name,
+      partyName: routeResult.party.name,
+      mode: routeResult.mode,
+      miles: routeResult.totalMiles,
+      days: routeResult.totalDays,
+      waypointsCount: routeResult.waypointsVisited?.length || 0,
+      waypointsSummary: routeResult.waypointsVisited?.map((w) => w.name).join(' ➔ ')
+    };
+  }, [routeResult]);
 
   // Check for first-time visitor to launch tutorial with a gentle 600ms grace period (skip if deep-linked)
   useEffect(() => {
@@ -529,6 +547,7 @@ export const App: React.FC = () => {
           onSelectGoal={setSelectedGoal}
           onCalculateRoute={handleCalculate}
           onClearRoute={handleClearRoute}
+          onOpenReportIssue={() => setIsReportIssueOpen(true)}
         />
       </MapCanvas>
 
@@ -556,6 +575,7 @@ export const App: React.FC = () => {
         onToggleLayers={() => setIsLayersModalOpen((prev) => !prev)}
         isLayersOpen={isLayersModalOpen}
         onOpenGuide={handleOpenGuide}
+        onOpenReportIssue={() => setIsReportIssueOpen(true)}
       />
 
       {/* Mobile Cartography Layers Modal */}
@@ -579,6 +599,14 @@ export const App: React.FC = () => {
         onQuickLaunchPreset={handleQuickLaunchPreset}
         onQuickLaunchCustom={handleQuickLaunchCustom}
         onQuickLaunchBattles={handleQuickLaunchBattles}
+        onOpenReportIssue={() => setIsReportIssueOpen(true)}
+      />
+
+      {/* Report an Issue & GitHub Repository Modal */}
+      <ReportIssueModal
+        isOpen={isReportIssueOpen}
+        onClose={() => setIsReportIssueOpen(false)}
+        routeTelemetry={currentRouteTelemetry}
       />
     </div>
   );
