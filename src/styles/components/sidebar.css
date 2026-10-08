@@ -353,3 +353,54 @@ body.citadel-dragging-active .leaflet-container {
     pointer-events: auto !important;
   }
 }
+
+/* Citadel Sidebar Footer (Open Source & Issue Reporting) */
+.citadel-sidebar-footer {
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-gold-glow);
+  flex-shrink: 0;
+}
+
+[data-theme='beige'] .citadel-sidebar-footer {
+  border-top: 1px solid var(--border-subtle);
+  background: #f4ecdc;
+}
+
+.citadel-sidebar-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-serif);
+  letter-spacing: 0.3px;
+  transition: color 0.15s ease;
+}
+
+.citadel-sidebar-footer-link:hover {
+  color: var(--text-gold-bright);
+}
+
+.citadel-sidebar-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-gold);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.citadel-sidebar-footer-btn:hover {
+  border-color: var(--border-gold);
+  background: rgba(223, 177, 91, 0.12);
+  color: var(--text-gold-bright);
+}

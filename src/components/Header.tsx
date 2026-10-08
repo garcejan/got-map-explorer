@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Compass, Moon, Sun, Info, Search, BookOpen, Navigation, Layers } from 'lucide-react';
+import { Compass, Moon, Sun, Info, Search, BookOpen, Navigation, Layers, Feather } from 'lucide-react';
 import { HistoricalPresetsDropdown, type PresetJourney } from './HistoricalPresetsDropdown';
 import { CitySearch } from './CitySearch';
+import { GITHUB_REPO_URL } from '../data/github';
+import { GithubIcon } from './ReportIssueModal';
 
 export type Theme = 'dark' | 'beige';
 
@@ -21,6 +23,7 @@ interface HeaderProps {
   onToggleLayers?: () => void;
   isLayersOpen?: boolean;
   onOpenGuide?: (tab?: 'tutorial' | 'codex') => void;
+  onOpenReportIssue?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -37,7 +40,8 @@ export const Header: React.FC<HeaderProps> = ({
   isMobile = false,
   onToggleLayers,
   isLayersOpen = false,
-  onOpenGuide
+  onOpenGuide,
+  onOpenReportIssue
 }) => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [isMobilePresetsOpen, setIsMobilePresetsOpen] = useState(false);
@@ -129,6 +133,31 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Info size={14} />
             </button>
+
+            {/* Report an Issue Trigger */}
+            {onOpenReportIssue && (
+              <button
+                type="button"
+                onClick={onOpenReportIssue}
+                className="citadel-mobile-btn"
+                title="Send a Raven / Report an Issue"
+                aria-label="Report an issue or send a raven"
+              >
+                <Feather size={14} />
+              </button>
+            )}
+
+            {/* GitHub Repository Link Trigger */}
+            <a
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="citadel-mobile-btn"
+              title="View source on GitHub (garcejan/got-map-explorer)"
+              aria-label="GitHub Repository"
+            >
+              <GithubIcon size={14} />
+            </a>
 
             {/* Ledger Toggle Button */}
             {onToggleSidebar && (
@@ -290,8 +319,35 @@ export const Header: React.FC<HeaderProps> = ({
               aria-label="How to use this app and explore the Known World"
             >
               <Info size={14} />
-              <span>Guide</span>
+              <span className="citadel-header-btn-text-responsive">Guide</span>
             </button>
+
+            {/* Report Issue / Send Raven Button */}
+            {onOpenReportIssue && (
+              <button
+                type="button"
+                onClick={onOpenReportIssue}
+                className="citadel-report-header-btn"
+                title="Send a Raven / Report an Issue or Suggest Correction"
+                aria-label="Report an issue or suggest cartographic correction"
+              >
+                <Feather size={13} />
+                <span className="citadel-header-btn-text-responsive">Report Issue</span>
+              </button>
+            )}
+
+            {/* GitHub Repository Link Button */}
+            {/* <a
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="citadel-github-header-btn"
+              title="View source repository on GitHub (garcejan/got-map-explorer)"
+              aria-label="View source repository on GitHub"
+            >
+              <GithubIcon size={14} />
+              <span className="citadel-header-btn-text-responsive">GitHub</span>
+            </a> */}
 
             {/* Theme Switcher (Dark / Beige) */}
             <div
