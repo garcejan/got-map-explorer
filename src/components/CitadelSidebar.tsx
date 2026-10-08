@@ -32,12 +32,15 @@ import {
   Swords,
   Castle,
   Anchor,
-  Star
+  Star,
+  ExternalLink
 } from 'lucide-react';
 import type { RouteResult, RoutingPreference, OptimizationGoal, MapPickingTarget } from '../types';
 import { NODES } from '../data/nodes';
 import { calculateRouteAlternatives } from '../engine/pathfinder';
 import { PartySpeedInfoModal } from './PartySpeedInfoModal';
+import { GITHUB_REPO_URL } from '../data/github';
+import { GithubIcon } from './ReportIssueModal';
 
 export interface CitadelSidebarProps {
   isOpen: boolean;
@@ -66,6 +69,7 @@ export interface CitadelSidebarProps {
   isMobile?: boolean;
   position?: { x: number; y: number };
   onPositionChange?: (pos: { x: number; y: number }) => void;
+  onOpenReportIssue?: () => void;
 }
 
 interface AutocompleteInputProps {
@@ -406,7 +410,8 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
   onClearRoute,
   isMobile = false,
   position: propPosition,
-  onPositionChange
+  onPositionChange,
+  onOpenReportIssue
 }) => {
   const [activeTab, setActiveTab] = useState<'planner' | 'ledger'>('planner');
   const [ledgerSubTab, setLedgerSubTab] = useState<'overview' | 'roads' | 'corridors' | 'guide'>('overview');
@@ -2061,6 +2066,35 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
               )}
             </div>
           )}
+
+          {/* Citadel Scriptorium Open Source & Issue Reporting Footer */}
+          <div className="citadel-sidebar-footer">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+              <a
+                href={GITHUB_REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="citadel-sidebar-footer-link"
+                title="View source repository on GitHub (garcejan/got-map-explorer)"
+              >
+                <GithubIcon size={13} />
+                <span>GitHub Repository</span>
+                <ExternalLink size={10} style={{ opacity: 0.7 }} />
+              </a>
+
+              {onOpenReportIssue && (
+                <button
+                  type="button"
+                  onClick={onOpenReportIssue}
+                  className="citadel-sidebar-footer-btn"
+                  title="Send a Raven / Report an Issue on GitHub"
+                >
+                  <Feather size={12} />
+                  <span>Report Issue</span>
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </aside>
 
