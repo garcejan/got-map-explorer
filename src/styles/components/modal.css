@@ -807,4 +807,297 @@
   }
 }
 
+/* ==========================================================================
+   Report an Issue & GitHub Repository Modal Styles (.citadel-report-modal)
+   ========================================================================== */
+
+.citadel-report-modal {
+  max-width: 680px;
+  max-height: 88vh;
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  background: var(--bg-panel);
+}
+
+.citadel-report-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-gold-glow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgba(223, 177, 91, 0.12) 0%, var(--bg-secondary) 100%);
+  flex-shrink: 0;
+}
+
+.citadel-report-body {
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg-panel);
+}
+
+/* Active Context Card */
+.citadel-report-context-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='beige'] .citadel-report-context-card {
+  box-shadow: none;
+  background: #fdfbf7;
+}
+
+.citadel-report-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(223, 177, 91, 0.15);
+  border: 1px solid var(--border-gold);
+  color: var(--text-gold-bright);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.citadel-report-copy-btn:hover {
+  background: rgba(223, 177, 91, 0.25);
+  border-color: var(--text-gold-bright);
+  box-shadow: 0 0 8px var(--border-gold-glow);
+}
+
+.citadel-report-context-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 14px;
+  font-size: 12px;
+}
+
+.citadel-report-label {
+  display: block;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+  font-family: var(--font-serif);
+}
+
+.citadel-report-section-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-gold);
+  margin-top: 4px;
+}
+
+/* Issue Category Cards */
+.citadel-report-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.citadel-report-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.citadel-report-card:hover {
+  border-color: var(--border-gold);
+  background: rgba(223, 177, 91, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px var(--border-gold-glow);
+  transform: translateY(-1px);
+}
+
+[data-theme='beige'] .citadel-report-card:hover {
+  box-shadow: 0 4px 12px rgba(179, 128, 43, 0.2);
+  background: #fbf8f0;
+}
+
+.citadel-report-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.citadel-report-card-icon.bug {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #ef4444;
+}
+
+.citadel-report-card-icon.lore {
+  background: rgba(223, 177, 91, 0.15);
+  border: 1px solid var(--border-gold);
+  color: var(--text-gold-bright);
+}
+
+.citadel-report-card-icon.feature {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+}
+
+.citadel-report-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.citadel-report-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.citadel-report-card-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-gold-bright);
+  letter-spacing: 0.3px;
+}
+
+.citadel-report-card-arrow {
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.citadel-report-card:hover .citadel-report-card-arrow {
+  color: var(--text-gold);
+  transform: translate(2px, -2px);
+}
+
+.citadel-report-card-content p {
+  font-size: 12px;
+  color: var(--text-parchment);
+  line-height: 1.45;
+  margin: 0 0 6px;
+}
+
+.citadel-report-card-action {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-gold);
+  font-family: var(--font-serif);
+  letter-spacing: 0.4px;
+}
+
+.citadel-report-card:hover .citadel-report-card-action {
+  color: var(--text-gold-bright);
+  text-decoration: underline;
+}
+
+/* Archives and Community Card */
+.citadel-report-archive-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.citadel-report-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.citadel-report-sublink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  font-size: 11.5px;
+  color: var(--text-parchment);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.citadel-report-sublink:hover {
+  border-color: var(--border-gold);
+  color: var(--text-gold-bright);
+  background: rgba(223, 177, 91, 0.1);
+}
+
+/* Modal Footer */
+.citadel-report-footer {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border-gold-glow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .citadel-report-modal {
+    max-height: 92vh;
+    width: calc(100vw - 16px);
+  }
+
+  .citadel-report-header {
+    padding: 10px 14px;
+  }
+
+  .citadel-report-body {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .citadel-report-card {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .citadel-report-card-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .citadel-report-footer {
+    padding: 10px 14px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .citadel-report-footer > div {
+    justify-content: center;
+  }
+}
+
 
