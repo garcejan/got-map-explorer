@@ -23,8 +23,11 @@ import {
   ChevronRight,
   RotateCcw,
   Star,
-  MapPin
+  MapPin,
+  ExternalLink
 } from 'lucide-react';
+import { GITHUB_REPO_URL, GITHUB_NEW_ISSUE_URL } from '../data/github';
+import { GithubIcon } from './ReportIssueModal';
 
 export interface CitadelGuideModalProps {
   isOpen: boolean;
@@ -33,6 +36,7 @@ export interface CitadelGuideModalProps {
   onQuickLaunchPreset?: (presetId: string) => void;
   onQuickLaunchCustom?: () => void;
   onQuickLaunchBattles?: () => void;
+  onOpenReportIssue?: () => void;
 }
 
 export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
@@ -41,7 +45,8 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
   initialTab = 'tutorial',
   onQuickLaunchPreset,
   onQuickLaunchCustom,
-  onQuickLaunchBattles
+  onQuickLaunchBattles,
+  onOpenReportIssue
 }) => {
   const [activeTab, setActiveTab] = useState<'tutorial' | 'codex'>(initialTab);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -763,6 +768,62 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
                 </ul>
               </div>
 
+              {/* Open Source Archives & GitHub Scriptorium */}
+              <div className="citadel-guide-github-box">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap', marginBottom: 8 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <GithubIcon size={18} />
+                    <strong style={{ fontSize: 13, color: 'var(--text-gold-bright)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Citadel Scriptorium & GitHub Repository
+                    </strong>
+                  </div>
+                  <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                    MIT Licensed • Open Source
+                  </span>
+                </div>
+                <p style={{ fontSize: 12, color: 'var(--text-parchment)', lineHeight: 1.5, margin: '0 0 12px' }}>
+                  The Known World Navigator is an open-source project. If you encounter incorrect path coordinates, missing holds, or want to contribute new lore journeys, we welcome contributions through GitHub issues and pull requests.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  <a
+                    href={GITHUB_REPO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-citadel"
+                    style={{ padding: '6px 14px', fontSize: 11.5, display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                  >
+                    <GithubIcon size={14} />
+                    <span>GitHub Repository</span>
+                    <ExternalLink size={12} />
+                  </a>
+                  {onOpenReportIssue ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleClose();
+                        onOpenReportIssue();
+                      }}
+                      className="btn-citadel-inverse"
+                      style={{ padding: '6px 14px', fontSize: 11.5, display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                    >
+                      <Feather size={13} />
+                      <span>Report Issue / Send Raven</span>
+                    </button>
+                  ) : (
+                    <a
+                      href={GITHUB_NEW_ISSUE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-citadel-inverse"
+                      style={{ padding: '6px 14px', fontSize: 11.5, display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                    >
+                      <Feather size={13} />
+                      <span>Report an Issue ↗</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
               {/* Replay Tutorial Link */}
               <div style={{ marginTop: 20, textAlign: 'center' }}>
                 <button
@@ -839,10 +900,22 @@ export const CitadelGuideModal: React.FC<CitadelGuideModalProps> = ({
               )}
             </div>
           ) : (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: 12 }}>
-              <span style={{ fontSize: 11.5, color: 'var(--text-dim)', fontStyle: 'italic' }}>
-                Archmaester Scale: 1 px = 0.875 miles (0.292 leagues) • 300-mile Wall anchor
-              </span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: 12, flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <a
+                  href={GITHUB_REPO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11.5, color: 'var(--text-gold)', textDecoration: 'none' }}
+                  title="View on GitHub"
+                >
+                  <GithubIcon size={13} />
+                  <span>garcejan/got-map-explorer</span>
+                </a>
+                <span style={{ fontSize: 11.5, color: 'var(--text-dim)', fontStyle: 'italic' }}>
+                  • 1 px = 0.875 mi
+                </span>
+              </div>
               <button
                 type="button"
                 onClick={handleClose}
