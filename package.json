@@ -28,7 +28,7 @@
     "@vercel/analytics": "^2.0.1",
     "canvas-confetti": "^1.9.4",
     "leaflet": "^1.9.4",
-    "lucide-react": "^1.47.0",
+    "lucide-react": "^1.52.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
