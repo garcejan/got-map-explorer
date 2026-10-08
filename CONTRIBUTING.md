@@ -111,7 +111,8 @@ npm run build
 
 ## 🚀 Submitting a Pull Request
 
-1. **Create a topic branch:**
+1. **Create a topic branch & cluster logically:**
+   Group related modifications (e.g., adding a set of regional connectors, a UI feature, or related bug fixes) into a cohesive branch rather than opening fragmented PRs for single-file changes.
    ```bash
    git checkout -b feat/add-valyrian-road-connection
    ```
