@@ -2068,7 +2068,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
           )}
 
           {/* Citadel Scriptorium Open Source & Issue Reporting Footer */}
-          <div className="citadel-sidebar-footer">
+          {/* <div className="citadel-sidebar-footer">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
               <a
                 href={GITHUB_REPO_URL}
@@ -2094,7 +2094,7 @@ export const CitadelSidebar: React.FC<CitadelSidebarProps> = ({
                 </button>
               )}
             </div>
-          </div>
+          </div> */}
         </div>
       </aside>
 

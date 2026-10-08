@@ -337,7 +337,7 @@ export const Header: React.FC<HeaderProps> = ({
             )}
 
             {/* GitHub Repository Link Button */}
-            <a
+            {/* <a
               href={GITHUB_REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -347,7 +347,7 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <GithubIcon size={14} />
               <span className="citadel-header-btn-text-responsive">GitHub</span>
-            </a>
+            </a> */}
 
             {/* Theme Switcher (Dark / Beige) */}
             <div
